@@ -12,7 +12,7 @@ df_china = df_cleaned[df_cleaned['Place of Manufacture'] == 'The People\'s Repub
 # Display the first few rows of each DataFrame to ensure correct filtering
 (df_italy.head(), df_china.head())
 
-5. Pandas Recap
+5. Pandas
 # Renaming mistyped columns
 fires_df.rename(columns={"Aid Given or Received Code ": "Aid Given or Received Code", 
                          "Propery Loss": "Property Loss"}, inplace=True)
@@ -50,6 +50,8 @@ loss_df = cleaned_df[(cleaned_df['Property Loss'] > 0) | (cleaned_df['Contents L
 # Displaying the shape of the original, reduced, cleaned, and loss DataFrame to understand the effect of these operations
 fires_df.shape, reduced_df.shape, cleaned_df.shape, loss_df.shape
 
+6.
+
 7. Census
 # Defining file paths for the CSV exports
 totals_csv_path = '/mnt/data/census_totals_2016-2019.csv'
@@ -61,6 +63,8 @@ averages.to_csv(averages_csv_path, index=False)
 
 # Returning the paths for download
 totals_csv_path, averages_csv_path
+
+8.
 
 9. Airport
 # Create a new DataFrame that only includes "Electricity" utility for "Tenant" owner
