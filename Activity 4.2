@@ -1,1 +1,76 @@
+1.
 
+2.
+
+3.
+
+4. Appliance Data
+# Create DataFrames for specific places of manufacture
+df_italy = df_cleaned[df_cleaned['Place of Manufacture'] == 'Italy']
+df_china = df_cleaned[df_cleaned['Place of Manufacture'] == 'The People\'s Republic of China']
+
+# Display the first few rows of each DataFrame to ensure correct filtering
+(df_italy.head(), df_china.head())
+
+5. Pandas Recap
+# Renaming mistyped columns
+fires_df.rename(columns={"Aid Given or Received Code ": "Aid Given or Received Code", 
+                         "Propery Loss": "Property Loss"}, inplace=True)
+
+# Reducing to specific columns as per the instructions
+required_columns = [
+    'Reporting Year', 'Fire Department Name', 'Incident date', 'Incident Type',
+    'Aid Given or Received Code', 'Aid Given or Received', 'Number of Alarms', 
+    'Alarm Date and Time', 'Arrival Date and Time', 'Last Unit Cleared Date and Time', 
+    'Actions Taken 1', 'Actions Taken 2', 'Actions Taken 3', 'Property Value', 
+    'Property Loss', 'Contents Value', 'Contents Loss', 'Fire Service Deaths', 
+    'Fire Service Injuries', 'Other Fire Deaths', 'Other Fire Injuries', 'Property Use', 
+    'Incident Street Address', 'Incident Apartment Number', 'Incident City', 'Incident Zip Code'
+]
+reduced_df = fires_df[required_columns]
+
+# Filling missing values as per instructions
+reduced_df.fillna({
+    "Actions Taken 1": '',
+    "Actions Taken 2": '',
+    "Actions Taken 3": '',
+    "Incident Apartment Number": '',
+    "Other Fire Deaths": 0,
+    "Other Fire Injuries": 0,
+    "Property Loss": 0,
+    "Contents Loss": 0
+}, inplace=True)
+
+# Removing remaining rows with missing data
+cleaned_df = reduced_df.dropna()
+
+# Filtering for incidents with Property or Contents Loss
+loss_df = cleaned_df[(cleaned_df['Property Loss'] > 0) | (cleaned_df['Contents Loss'] > 0)]
+
+# Displaying the shape of the original, reduced, cleaned, and loss DataFrame to understand the effect of these operations
+fires_df.shape, reduced_df.shape, cleaned_df.shape, loss_df.shape
+
+7. Census
+# Defining file paths for the CSV exports
+totals_csv_path = '/mnt/data/census_totals_2016-2019.csv'
+averages_csv_path = '/mnt/data/census_averages_2016-2019.csv'
+
+# Exporting the DataFrames to CSV
+totals.to_csv(totals_csv_path, index=False)
+averages.to_csv(averages_csv_path, index=False)
+
+# Returning the paths for download
+totals_csv_path, averages_csv_path
+
+9. Airport
+# Create a new DataFrame that only includes "Electricity" utility for "Tenant" owner
+electricity_tenant_df = df[(df['Utility'] == 'Electricity') & (df['Owner'] == 'Tenant')]
+
+# Sort the DataFrame based on the level of consumption, from most to least
+sorted_electricity_tenant_df = electricity_tenant_df.sort_values(by='Usage', ascending=False)
+
+# Reset the index for the DataFrame so that the index is in order
+sorted_electricity_tenant_df.reset_index(drop=True, inplace=True)
+
+# Print out the details of the worst month to the screen
+sorted_electricity_tenant_df.head(1)
