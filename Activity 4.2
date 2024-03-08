@@ -165,7 +165,7 @@ unique_applicants[:10]  # Display a subset to keep the output manageable
 
 # Create DataFrames for specific places of manufacture
 df_italy = df_cleaned[df_cleaned['Place of Manufacture'] == 'Italy']
-df_china = df_cleaned[df_cleaned['Place of Manufacture'] == 'The People\'s Republic of China']
+df_china = df_cleaned[df_cleaned['Place of Manufacture'] == 'The People's Republic of China']
 
 # Display the first few rows of each DataFrame to ensure correct filtering
 (df_italy.head(), df_china.head())
