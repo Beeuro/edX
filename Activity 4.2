@@ -136,6 +136,33 @@ donors2021_unclean.drop_duplicates(inplace=True)
 donors2021_unclean.shape
 
 -Appliance Data
+import pandas as pd
+
+# Load the dataset using UTF-8 encoding
+df = pd.read_csv('/mnt/data/dga_lpg.csv', encoding='utf-8')
+
+# Display the DataFrame
+df.head()
+
+# Reduce the DataFrame to only include columns with English descriptions
+df_english = df[['Part', 'Type', 'Brand', 'Model', 'Other Information', 'Place of Manufacture', 'Applicant', 'Telephone Number', 'Approval Expiry Date']]
+
+# Get a count of the rows within the DataFrame to determine if there are any null values
+null_counts = df_english.isnull().sum()
+
+# Display the count of null values for each column
+null_counts
+
+# Drop the rows that contain null values
+df_cleaned = df_english.dropna()
+
+# Since the task requires looking into the "Applicant" column for any similar values,
+# Let's first inspect the unique values to identify similar ones that need consolidation
+unique_applicants = df_cleaned['Applicant'].unique()
+
+# Display unique applicants to identify similar ones
+unique_applicants[:10]  # Display a subset to keep the output manageable
+
 # Create DataFrames for specific places of manufacture
 df_italy = df_cleaned[df_cleaned['Place of Manufacture'] == 'Italy']
 df_china = df_cleaned[df_cleaned['Place of Manufacture'] == 'The People\'s Republic of China']
