@@ -1,8 +1,8 @@
   Grading
 #Formulas
-=ROUND((B2+C2+D2+E2)/4, 0)
-=IF(F2>=60, "PASS", "FAIL")
-=IF(F2>=90, "A", IF(F2>=80, "B", IF(F2>=70, "C", IF(F2>=60, "D", "F"))))
+=round((B2+C2+D2+E2)/4, 0)
+=if(F2>=60, "PASS", "FAIL")
+=if(F2>=90, "A", IF(F2>=80, "B", IF(F2>=70, "C", IF(F2>=60, "D", "F"))))
 import pandas as pd
 
 # Load the Excel file to check its content
@@ -21,7 +21,7 @@ import seaborn as sns
 # Set the aesthetic style of the plots
 sns.set_style("whitegrid")
 
-# Analysis by Type and Activity
+# Analysis by type and activity
 plt.figure(figsize=(12, 6))
 sns.countplot(y='TYPE', data=df, order = df['TYPE'].value_counts().index)
 plt.title('Number of Organizations by Type')
@@ -40,7 +40,7 @@ plt.show()
 financial_health_metrics = ['ASSET_AMT', 'INCOME_AMT', 'REVENUE_AMT']
 df_financial_summary = df[financial_health_metrics].describe()
 
-# Geographical Distribution
+# Geographical distribution
 plt.figure(figsize=(12, 6))
 sns.countplot(x='STATE', data=df, order = df['STATE'].value_counts().index)
 plt.title('Number of Organizations by State')
@@ -72,7 +72,7 @@ artist_aggregated_sorted.head(10)
 Top 10 artists scripted
 
   Product list
-# Load the sheets into DataFrame
+# Load the sheets into dataframe
 product_list_df = excel_data.parse('Product List')
 orders_df = excel_data.parse('Orders')
 
@@ -120,7 +120,7 @@ pivot_table = pd.pivot_table(orders_with_correct_prices,
 
 pivot_table.head()
 
-	Data Visualization
+	Data visualization
 import matplotlib.pyplot as plt
 import seaborn as sns
 
