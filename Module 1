@@ -1,5 +1,4 @@
 	Crowd Funding
-
 import pandas as pd
 
 # Load the dataset
