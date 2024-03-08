@@ -1,4 +1,4 @@
-  Student Grade Analysis
+  Student grade analysis
 import pandas as pd
 
 # Load the data from the uploaded Excel file
@@ -59,7 +59,7 @@ plt.tight_layout()
 
 plt.show()
 
-  Real Estate
+  Real estate
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
@@ -134,7 +134,7 @@ plt.xlabel('Year')
 plt.ylabel('Group Size')
 plt.show()
 
-# Histogram: Distribution of Group Sizes
+# Histogram: distribution of group sizes
 plt.figure(figsize=(12, 6))
 sns.histplot(data_preview['GroupSize'].dropna(), bins=30, kde=True)
 plt.title('Distribution of Walrus Group Sizes')
@@ -144,7 +144,7 @@ plt.show()
 
 Data visualization complete
 
-  Home Sales
+  Home sales
 import pandas as pd
 
 # Load the dataset to examine the available columns
@@ -176,7 +176,7 @@ plt.show()
 
 Data visualization complete
 
-  Center for Disease Control
+  CDC
 # Calculating mean, variance, and standard deviation for the overall death rate per 100,000 for each state
 summary_stats = data_states.groupby("State")["Death Rate Per 100,000"].agg(['mean', 'var', 'std'])
 
