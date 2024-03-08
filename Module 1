@@ -177,3 +177,5 @@ df['Date Ended Conversion'] = pd.to_datetime(df['deadline'], unit='s')
 
 # Display the DataFrame to ensure the columns are correctly created
 df[['Percent Funded', 'Average Donation', 'Category', 'Sub-Category', 'Date Created Conversion', 'Date Ended Conversion']].head()
+
+Data Visualization Complete
