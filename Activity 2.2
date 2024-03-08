@@ -136,17 +136,17 @@ End Sub
 	#Lottery
 import openpyxl
 
-# Load the workbook and select the active sheet
+## Load the workbook and select the active sheet
 wb = openpyxl.load_workbook('/mnt/data/lotto_numbers.xlsm')
 sheet = wb.active
 
-# Define the winning numbers
+## Define the winning numbers
 first_place_num = 3957481
 second_place_num = 5865187
 third_place_num = 2817729
 runner_up_nums = [2275339, 5868182, 1841402]
 
-# Initialize empty dictionaries for winners
+## Initialize empty dictionaries for winners
 winners = {
     'first': None,
     'second': None,
