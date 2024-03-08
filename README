@@ -1,0 +1,24 @@
+Data Wrangled
+Ticker symbol
+Volume of stock
+Open price
+Close price
+Column creation
+
+Colums
+Ticker symbol
+Total stock volume
+Yearly change
+Percent change
+
+Conditional formatting is applied correctly and appropriately to the yearly and percentage change column
+
+Calculation
+Greatest % Increase
+Greatest % Decrease
+Greatest Total Volume
+Looping Across Worksheet
+
+VBA scripted
+
+Data visualizaton complete
