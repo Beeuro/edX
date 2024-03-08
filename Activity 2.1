@@ -3,7 +3,7 @@ Sub HelloWorld()
     MsgBox "Hello, World!", vbInformation, "Greeting"
 End Sub
 
-  #VBA Script
+  #VBA script
 Sub ShowPopUps()
     ' First pop-up message
     MsgBox "This is the first message.", vbInformation, "Message 1"
@@ -37,7 +37,7 @@ Sub CalculateSum()
     Range("B1").Value = Application.WorksheetFunction.Sum(Range("A1:A10"))
 End Sub
 
-##Charts and Graphics
+##Charts and graphics
 Sub CreateBarChart()
     Dim chartObj As ChartObject
     Set chartObj = ActiveSheet.ChartObjects.Add(Left:=100, Width:=375, Top:=50, Height:=225)
@@ -61,7 +61,7 @@ Sub SendEmail()
     Set outlookApp = CreateObject("Outlook.Application")
     Set outlookMail = outlookApp.CreateItem(0)
     
-    With outlookMail
+    With outlookmail
         .To = "recipient@example.com"
         .Subject = "Test Email"
         .Body = "This is the body of the email."
@@ -74,7 +74,7 @@ Sub OpenWorkbook()
     Workbooks.Open "C:\Path\To\Your\File.xlsx"
 End Sub
 
-##Import/Export
+##Import/export
 Sub ExportToCSV()
     Range("A1:B10").Copy
     Workbooks.Add
@@ -95,17 +95,17 @@ Sub Button1_Click()
     MsgBox "You clicked Button 1!"
 End Sub
 
-Sub Button2_Click()
+Sub Button2_click()
     MsgBox "You clicked Button 2!"
 End Sub
 
-  #Cells and Ranges
+  #Cells and ranges
 #Selection
 Range("A1").Select ' Selects cell A1
 Range("A1:B2").Select ' Selects a range from A1 to B2
 
-##Read/Write
-Dim value As Variant
+##Read/write
+Dim value As variant
 value = Range("A1").Value ' Reads the value from A1
 Range("B1").Value = value ' Writes the value into B1
 
@@ -117,27 +117,27 @@ With Range("A1")
     .Interior.Color = RGB(255, 255, 0) ' Yellow background
 End With
 
-##Insert/Delete
+##Insert/delete
 Cells(3, 2).Insert Shift:=xlToRight ' Inserts a new cell at B3, shifting existing cells to the right
 Rows("4:4").Delete ' Deletes the 4th row
 
-##Copy/Paste
+##Copy/paste
 Range("A1").Copy Destination:=Range("B1") ' Copies the value from A1 to B1
 
-##Apply Formula
+##Apply formula
 Range("C1").Formula = "=A1+B1" ' Adds values in A1 and B1, result in C1
 
-##Sort/Filter
+##Sort/filter
 With Range("A1:B10")
     .Sort Key1:=Range("A1"), Order1:=xlAscending, Header:=xlYes
-End With
+End with
 
 ##Conditional
 With Range("A1:A10").FormatConditions.Add(Type:=xlCellValue, Operator:=xlGreater, Formula1:="5")
     .Font.Color = RGB(255, 0, 0) ' Change font color to red if value > 5
 End With
 
-##Merge/Unmerge
+##Merge/unmerge
 Range("A1:B1").Merge
 
 ##Table
@@ -151,13 +151,13 @@ Sub SetupChessBoard()
     topRow = Array("Rook", "Knight", "Bishop", "Queen", "King", "Bishop", "Knight", "Rook")
     secondRow = "Pawn"
     
-    ' Using Ranges for the first two rows
+    ' Using ranges for the first two rows
     With Sheet1
         .Range("A1:H1").Value = topRow
         .Range("A2:H2").Value = secondRow
-    End With
+    End with
     
-    ' Using Cells for the last two rows
+    ' Using cells for the last two rows
     Dim i As Integer
     For i = 1 To 8
         With Sheet1
@@ -169,85 +169,85 @@ Sub SetupChessBoard()
 End Sub
 
   #Variables
-##Data Cleaning
-Sub RemoveDuplicates()
-    Dim ws As Worksheet
-    Set ws = ActiveSheet ' Modify as needed
+##Data cleaning
+Sub removeduplicates()
+    Dim ws as worksheet
+    Set ws = activesheet ' modify as needed
     
     ws.UsedRange.RemoveDuplicates Columns:=Array(1, 2), Header:=xlYes ' Specify columns
 End Sub
 
-#Statistical Analysis
-Sub CalculateStatistics()
-    Dim rng As Range
-    Set rng = Selection ' Or specify a range like Worksheets("Sheet1").Range("A1:A10")
+#Statistical analysis
+Sub salculatestatistics()
+    Dim rng As range
+    Set rng = selection ' Or specify a range like worksheets("Sheet1").range("A1:A10")
     
-    MsgBox "Mean: " & Application.WorksheetFunction.Average(rng) & vbCrLf & _
-           "Standard Deviation: " & Application.WorksheetFunction.StDev(rng)
+    MsgBox "mean: " & application.worksheetfunction.average(rng) & vbCrLf & _
+           "standard deviation: " & application.worksheetF\function.stdev(rng)
 End Sub
 
-##Data Transformation
-Sub MergeColumns()
-    Dim ws As Worksheet
-    Set ws = ActiveSheet ' Modify as needed
-    Dim lastRow As Long
-    lastRow = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row ' Assuming column A & B
+##Data transformation
+Sub mergecolumns()
+    Dim ws as worksheet
+    Set ws = activesheet ' modify as needed
+    Dim lastrow As long
+    lastrow = ws.cells(ws.rows.count, "A").end(xlup).row ' assuming column A & B
     
-    Dim i As Long
-    For i = 1 To lastRow
-        ws.Cells(i, "C").Value = ws.Cells(i, "A").Value & " - " & ws.Cells(i, "B").Value ' Output in column C
+    Dim i As long
+    For i = 1 To lastrow
+        ws.cells(i, "C").value = ws.cells(i, "A").value & " - " & ws.cells(i, "B").value ' output in column c
     Next i
 End Sub
 
-##Data Visualization
-Sub CreateChart()
-    Dim rng As Range
-    Set rng = Selection ' Or specify a range
-    Charts.Add
-    ActiveChart.SetSourceData Source:=rng
+##Data visualization
+Sub createchart()
+    Dim rng as range
+    Set rng = selection ' or specify a range
+    Charts.add
+    Activechart.setsourcedata source:=rng
 End Sub
 
 ##Automation
-Sub FormatCells()
-    With Selection
-        .Font.Name = "Calibri"
+Sub formatcells()
+    With selection
+        .Font.name = "Calibri"
         .Font.Size = 12
-        .Interior.Color = RGB(221, 235, 247) ' Light blue fill
-        .Borders(xlEdgeBottom).LineStyle = xlContinuous
-    End With
+        .Interior.color = RGB(221, 235, 247) ' light blue fill
+        .Borders(xledgebottom).linestyle = xlcontinuous
+    End with
 End Sub
 
 ##Regression
-Sub LinearRegression()
-    Dim yRange As Range
-    Dim xRange As Range
-    Set yRange = Selection ' Assuming first column is Y
-    Set xRange = Selection.Offset(0, 1) ' Assuming second column is X
+Sub linearregression()
+    Dim yrange as range
+    Dim xrange as range
+    Set yrange = selection ' assuming first column is x
+    Set xrange = selection.offset(0, 1) ' assuming second column is x
 
-    Dim ws As Worksheet
-    Set ws = Sheets.Add
+    Dim ws As worksheet
+    Set ws = sheets.add
     
-    ws.Cells(1, 1).Formula = "=LINEST(" & yRange.Address & "," & xRange.Address & ")"
+    ws.cells(1, 1).formula = "=LINEST(" & yRange.Address & "," & xRange.Address & ")"
 End Sub
 
-  #Calculate Total
-Sub CalculateTotal()
+  #Calculate total
+Sub calculatetotal()
     ' Declare variables
-    Dim Price As Double
-    Dim Tax As Double
-    Dim Quantity As Integer
-    Dim Total As Double
+    Dim price as double
+    Dim tax as double
+    Dim quantity as integer
+    Dim total as double
     
     ' Assign values from the spreadsheet to variables
-    ' Assuming Price is in A1, Tax in B1, Quantity in C1, and Total in D1
-    Price = Range("A1").Value
-    Tax = Range("B1").Value
-    Quantity = Range("C1").Value
+    ' Assuming price is in A1, Tax in B1, Quantity in C1, and Total in D1
+    Price = range("A1").value
+    Tax = range("B1").value
+    Quantity = range("C1").value
     
     ' Calculate the total
-    Total = (Price * Quantity) * (1 + Tax)
+    Total = (price * quantity) * (1 + tax)
     
-    ' Set the Total value back in the spreadsheet
+    ' Set the total value back in the spreadsheet
     Range("D1").Value = Total
     
     ' Show a pop-up message with the total value
@@ -255,41 +255,41 @@ Sub CalculateTotal()
 End Sub 
 
   #Array
-Sub SumArray()
-    Dim ws As Worksheet
-    Set ws = ThisWorkbook.Sheets("Sheet1") ' Change "Sheet1" to the name of your sheet
+Sub sumarray()
+    Dim ws as worksheet
+    Set ws = thisworkbook.sheets("Sheet1") ' change "Sheet1" to the name of your sheet
     
-    Dim dataRange As Range
-    Set dataRange = ws.Range("A1:A10") ' Change "A1:A10" to your data range
+    Dim datarange As range
+    Set datarange = ws.range("A1:A10") ' change "A1:A10" to your data range
     
-    Dim dataArray As Variant
-    dataArray = dataRange.Value
+    Dim dataarray as variant
+    dataarray = datarange.value
     
-    Dim sum As Double
+    Dim sum As double
     sum = 0
     
-    Dim i As Long
-    For i = LBound(dataArray, 1) To UBound(dataArray, 1)
-        sum = sum + dataArray(i, 1)
+    Dim i as long
+    For i = lbound(dataArray, 1) To ubound(dataArray, 1)
+        sum = sum + dataarray(i, 1)
     Next i
     
-    ws.Range("B1").Value = sum ' Output the sum to B1. Change "B1" to your desired cell
-End Sub
+    ws.range("B1").value = sum ' output the sum to B1. change "B1" to your desired cell
+End sub
 
   #Splitting
 ##Text
-Sub SplitText()
-    Dim ws As Worksheet
-    Set ws = ActiveSheet
-    Dim rng As Range
-    Dim lastRow As Long
-    lastRow = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row
-    Set rng = ws.Range("A1:A" & lastRow) ' Assuming the text to split is in Column A
+Sub splittext()
+    Dim ws as worksheet
+    Set ws = activesheet
+    Dim rng As range
+    Dim lastrow as long
+    lastrow = ws.cells(ws.Rows.Count, "A").end(xlUp).row
+    Set rng = ws.range("A1:A" & lastRow) ' assuming the text to split is in Column A
 
-    rng.TextToColumns Destination:=Range("B1"), DataType:=xlDelimited, _
-                      TextQualifier:=xlDoubleQuote, ConsecutiveDelimiter:=False, _
-                      Tab:=False, Semicolon:=False, Comma:=True, Space:=False, _
-                      Other:=False
+    rng.texttocolumns destination:=range("B1"), dataT]type:=xldelimited, _
+                      Textqualifier:=xldoublequote, consecutivedelimiter:=false, _
+                      Tab:=false, semicolon:=false, comma:=true, space:=false, _
+                      Other:=false
 End Sub
 
 ##Rows
@@ -314,150 +314,150 @@ Sub DivideRowsToSheets()
     Next cell
 End Sub
 
-##Format/Calculation
-Sub FormatAndSum()
-    Dim ws As Worksheet
-    Set ws = ActiveSheet
-    Dim lastRow As Long
-    lastRow = ws.Cells(ws.Rows.Count, "B").End(xlUp).Row ' Assuming the numeric column to format and sum is B
+##Format/calculation
+Sub formatandsum()
+    Dim ws as worksheet
+    Set ws = activesheet
+    Dim lastrow as long
+    lastrow = ws.cells(ws.Rows.Count, "B").End(xlUp).row ' assuming the numeric column to format and sum is B
     
-    ' Format Column B as currency
-    ws.Range("B1:B" & lastRow).NumberFormat = "$#,##0.00"
+    ' Format column B as currency
+    ws.range("B1:B" & lastRow).numberformat = "$#,##0.00"
     
-    ' Sum values in Column B and place the result in the next available row
-    ws.Range("B" & lastRow + 1).Value = Application.WorksheetFunction.Sum(ws.Range("B1:B" & lastRow))
+    ' Sum values in column B and place the result in the next available row
+    ws.range("B" & lastRow + 1).value = application.worksheetfunction.sum(ws.range("B1:B" & lastrow))
     ws.Range("B" & lastRow + 1).Font.Bold = True
 End Sub
 
   #Breaker
-Sub FindNthWord()
-    Dim sentence As String
-    Dim wordNumbers As Variant
-    Dim words As Variant
-    Dim i As Integer
+Sub findnthword()
+    Dim sentence as string
+    Dim wordnumbers as variant
+    Dim words as variant
+    Dim i as integer
     
-    ' Step 1: Retrieve the user sentence and store it in a variable
-    sentence = Range("A1").Value ' Assuming the sentence is in cell A1
+    ' Step 1: retrieve the user sentence and store it in a variable
+    sentence = range("A1").value ' Assuming the sentence is in cell A1
     
     ' Step 2: Retrieve the user word numbers and store them in an array
     ' Assuming word numbers start from cell B1 and go downwards
     ' Adjust the range according to your needs
-    wordNumbers = Range("B1:B5").Value
+    wordnumbers = range("B1:B5").value
     
-    ' Step 3: Split the user sentence into separate words
-    words = Split(sentence, " ")
+    ' Step 3: split the user sentence into separate words
+    words = split(sentence, " ")
     
     ' Step 4: Use the word numbers to retrieve specific words in the sentence
-    For i = 1 To UBound(wordNumbers)
+    For i = 1 To ubound(wordnumbers)
         ' Check if the word number is within the bounds of the words array
-        If wordNumbers(i, 1) > 0 And wordNumbers(i, 1) <= UBound(words) + 1 Then
-            ' Output the n-th word in column C
-            Cells(i, 3).Value = words(wordNumbers(i, 1) - 1)
+        If wordnumbers(i, 1) > 0 And wordnumbers(i, 1) <= ubound(words) + 1 then
+            ' output the n-th word in column C
+            cells(i, 3).value = words(wordnumbers(i, 1) - 1)
         Else
-            Cells(i, 3).Value = "N/A" ' If the word number is out of bounds
-        End If
+            cells(i, 3).value = "N/A" ' If the word number is out of bounds
+        End if
     Next i
 End Sub
 
   #Conditionals
-##Read/Write
-Sub ReadAndWriteData()
-    ' Reading a value from A1 and writing to B1
-    Dim readValue As Variant
-    readValue = ThisWorkbook.Sheets("Sheet1").Range("A1").Value
-    ThisWorkbook.Sheets("Sheet1").Range("B1").Value = readValue * 2 ' Example operation
+##Read/write
+Sub readandwritedata()
+    ' reading a value from A1 and writing to B1
+    Dim readvalue as variant
+    readvalue = thisworkbook.sheets("Sheet1").range("A1").value
+    Thisworkbook.sheets("Sheet1").range("B1").value = readvalue * 2 ' example operation
 End Sub
 
 ##Logic
-Sub ConditionalLogic()
-    Dim value As Integer
-    value = ThisWorkbook.Sheets("Sheet1").Range("A1").Value
-    If value > 10 Then
-        MsgBox "Value is greater than 10"
+Sub conditionallogic()
+    Dim value as integer
+    value = thisworkbook.sheets("Sheet1").range("A1").value
+    If value > 10 then
+        Msgbox "value is greater than 10"
     Else
-        MsgBox "Value is 10 or less"
-    End If
+        Msgbox "value is 10 or less"
+    End if
 End Sub
 
 ##Automation
-Function MultiplyValues(value1 As Double, value2 As Double) As Double
-    MultiplyValues = value1 * value2
+Function multiplyvalues(value1 As Double, value2 As Double) As double
+    multiplyvalues = value1 * value2
 End Function
 
 ##Chart
-Sub CreateChart()
-    Dim chart As Chart
-    Set chart = ThisWorkbook.Sheets("Sheet1").Shapes.AddChart2(, xlLine).Chart
-    chart.SetSourceData Source:=ThisWorkbook.Sheets("Sheet1").Range("A1:B10")
+Sub createchart()
+    Dim chart as chart
+    Set chart = thisworkbook.sheets("Sheet1").shapes.addchart2(, xlLine).chart
+    chart.setsourcedata source:=thisworkbook.sheets("Sheet1").range("A1:B10")
 End Sub
 
-##Filter/Sort
-Sub SortData()
-    With ThisWorkbook.Sheets("Sheet1").Sort
-        .SortFields.Clear
-        .SortFields.Add Key:=Range("A1:A10"), SortOn:=xlSortOnValues, Order:=xlAscending
-        .SetRange Range("A1:A10")
-        .Header = xlNo
-        .Apply
-    End With
+##Filter/sort
+Sub sortdata()
+    With thisworkbook.sheets("Sheet1").Sort
+        .sortfields.clear
+        .sortfields.add key:=range("A1:A10"), sorton:=xlsortonvalues, order:=xlascending
+        .setRange range("A1:A10")
+        .header = xlno
+        .apply
+    End with
 End Sub
 
 ##Analysis
-Sub UseSolver()
-    ' Ensure Solver Add-in is enabled first
-    SolverReset
-    SolverOk SetCell:="$B$2", MaxMinVal:=1, ValueOf:=0, ByChange:="$A$2"
-    SolverAdd CellRef:="$A$2", Relation:=1, FormulaText:="100"
-    SolverAdd CellRef:="$A$2", Relation:=3, FormulaText:="1"
-    SolverSolve UserFinish:=True
+Sub usesolver()
+    ' Ensure solver add-in is enabled first
+    Solverreset
+    Solverok setcell:="$B$2", maxminval:=1, valueof:=0, bychange:="$A$2"
+    Solveradd cellref:="$A$2", relation:=1, formulatext:="100"
+    Solveradd cellref:="$A$2", relation:=3, formulatext:="1"
+    Solversolve userfinish:=true
 End Sub
 
 ##Integration
-Sub SendEmailViaOutlook()
-    Dim outlookApp As Object
-    Dim outlookMail As Object
-    Set outlookApp = CreateObject("Outlook.Application")
-    Set outlookMail = outlookApp.CreateItem(0)
+Sub sendemailviaoutlook()
+    Dim outlookapp as object
+    Dim outlookmail as object
+    Set outlookapp = createobject("Outlook.Application")
+    Set outlookmail = outlookapp.createitem(0)
 
-    With outlookMail
-        .To = "recipient@example.com"
-        .Subject = "This is the subject"
-        .Body = "This is the body of the email."
-        ' Add more properties here as needed
-        .Send
-    End With
+    With outlookmail
+        .to = "recipient@example.com"
+        .subject = "this is the subject"
+        .body = "this is the body of the email."
+        ' add more properties here as needed
+        .send
+    End with
 End Sub
 
 ##Error
-Sub ErrorHandlingAdvanced()
-    On Error GoTo ErrorHandler
-    ' Code that might cause an error goes here
-    Err.Raise Number:=vbObjectError + 513, Description:="Custom Error"
+Sub errorhandlingadvanced()
+    On error goto errorhandler
+    ' code that might cause an error goes here
+    Err.raise number:=vbobjecterror + 513, description:="Custom Error"
 
-ExitHere:
-    Exit Sub
+Exithere:
+    Exit sub
 
-ErrorHandler:
-    MsgBox "Error " & Err.Number & ": " & Err.Description
-    Resume ExitHere
+Errorhandler:
+    Msgbox "error " & err.number & ": " & err.description
+    Resume exithere
 End Sub
 
 ##Customization
-Function CalculateCompoundInterest(principal As Double, rate As Double, periods As Integer) As Double
-    CalculateCompoundInterest = principal * (1 + rate) ^ periods
+Function calculatecompoundinterest(principal As double, rate as double, periods As integer) As double
+    Calculatecompoundinterest = principal * (1 + rate) ^ periods
 End Function
 
   #Story
-Sub AdventureChoice()
+Sub adventurechoice()
 
-    Dim userChoice As Integer
-    Dim msg As String
+    Dim userchoice As integer
+    Dim msg as string
 
-    On Error Resume Next ' Prevents error if non-numeric value is entered
-    userChoice = CInt(Range("A1").Value)
-    On Error GoTo 0 ' Turns back on regular error handling
+    On error resume next ' prevents error if non-numeric value is entered
+    userchoice = cint(Range("A1").Value)
+    On error goto 0 ' turns back on regular error handling
 
-    Select Case userChoice
+    Select case userchoice
         Case 1
             msg = "You choose to enter the wooded forest of doom!"
         Case 2
@@ -465,12 +465,12 @@ Sub AdventureChoice()
         Case 3
             msg = "You choose to enter the terrifying jungle of doom!"
         Case 4
-            ' Replace the message here with your custom message for option 4
+            ' replace the message here with your custom message for option 4
             msg = "You choose to embark on a mystical journey through the enchanted caves of doom!"
-        Case Else
+        Case else
             msg = "You decide to stay home instead."
-    End Select
+    End select
     
-    MsgBox msg
+    Msgbox msg
 
 End Sub
