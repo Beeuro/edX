@@ -1,4 +1,4 @@
--Jupyter Intro
+	Jupyter
 import pandas as pd
 
 # Define the data
@@ -29,7 +29,7 @@ df = pd.DataFrame(data)
 # Display DataFrame
 df
 
--Comics Remix 
+	Comicbooks
 Step 1
 # Modules
 import os
@@ -94,9 +94,9 @@ with open(csvpath, encoding="utf8") as csvfile:
 if found is False:
     "Sorry about this, we don't seem to have what you are looking for!"
 
-*[Bonus]
+***[Bonus]
 
--Create Data Frame
+	Data Framing
 import pandas as pd
 
 # Cell 2
@@ -129,7 +129,7 @@ df_pharaohs = pd.DataFrame(data_pharaohs)
 # Display DataFrames
 series_df, df_states, df_pharaohs
 
--Frame Shop
+	Frame Shop
 # Create a DataFrame for the frame shop
 frame_data = {
     "Frame": ["Ornate", "Classical", "Modern", "Wood", "Cardboard"],
@@ -153,7 +153,7 @@ frame_df
 
 Bonus: I prefer creating a data frame for the art gallery rather than a frame shop.
 
--Car Purchases
+	Car Sales
 # Print Statistical Analysis Summary
 print("Statistical Analysis of Car Purchases:")
 print(statistical_analysis.to_string())
@@ -173,7 +173,7 @@ The dataset contains 1000 records of car purchases. The purchase amounts vary si
 print("\nConcluding Remarks:")
 print(concluding_remarks)
 
--Training Grounds
+	Training Grounds
 A. Analytical Overview of Numeric Columns:
    - Weight:
      - Count: 200
@@ -222,7 +222,7 @@ E. Combined Weight of All Students:
 F. Converted "Membership (Days)" to Weeks and Added to DataFrame:
    - See the last table in the code output.
 
--Column Manipulation
+	Column Manipulation
 # Import Dependencies
 import pandas as pd
 
@@ -247,7 +247,7 @@ training_df = training_df.rename(columns={'Weight': 'Weight in Pounds', 'Members
 
 training_df.head(5)
 
--Hey Arnold
+	Hey Arnold
 # Rename columns for readability
 hey_arnold_df = hey_arnold_df.rename(columns={
     "Character_in_show": "Character",
@@ -261,7 +261,7 @@ hey_arnold_df = hey_arnold_df[["Character", "Football Head", "Hair Color", "Heig
 
 hey_arnold_df
 
--Website Data
+	Website Data
 Domain Frequency and Gender Breakdown Scripted
 # Gender Distribution Pie Chart
 plt.figure(figsize=(8, 6))
@@ -290,7 +290,7 @@ df.to_csv(processed_file_path, index=False, encoding='utf-8')
 
 first_name_frequency, processed_file_path
 
--Comic Books
+	Summary
 Data Cleaned
 # Define the path for the new CSV file
 new_csv_path = '/mnt/data/cleaned_comic_books.csv'
