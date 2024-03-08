@@ -36,7 +36,7 @@ plt.xlabel('Count')
 plt.ylabel('Activity')
 plt.show()
 
-# Financial Health Analysis
+# Financial health analysis
 financial_health_metrics = ['ASSET_AMT', 'INCOME_AMT', 'REVENUE_AMT']
 df_financial_summary = df[financial_health_metrics].describe()
 
@@ -53,7 +53,7 @@ df_financial_summary
 
 Data visualization complete
 
-  Top Song Chart
+  Top song chart
 # Manually aggregating and sorting the data to avoid previous issues
 
 # Aggregating the data to count the number of songs per artist and sum of final_score
@@ -71,7 +71,7 @@ artist_aggregated_sorted.head(10)
 
 Top 10 artists scripted
 
-  Product List
+  Product list
 # Load the sheets into DataFrame
 product_list_df = excel_data.parse('Product List')
 orders_df = excel_data.parse('Orders')
@@ -86,23 +86,23 @@ product_list_df.rename(columns={'ID': 'Product ID', 'Price Per Unit': 'Product P
 product_prices = product_list_df[['Product ID', 'Product Price']]
 shipping_prices = product_list_df[['Shipping Priority', 'Shipping Price']].dropna()
 
-# Merge to add Product Price
+# Merge to add product price
 orders_with_prices = pd.merge(orders_df, product_prices, on='Product ID', how='left')
 
-# Since 'Shipping Priority' in orders_df and shipping_prices have the same name, we'll merge on this column
+# Since 'shipping priority' in orders_df and shipping_prices have the same name, we'll merge on this column
 orders_with_prices = pd.merge(orders_with_prices, shipping_prices, on='Shipping Priority', how='left', suffixes=('', '_y'))
 
 # Drop any unnecessary columns that might have been added from the merge
 orders_with_prices.drop(columns=[col for col in orders_with_prices if col.endswith('_y')], inplace=True)
 
-# Display the updated orders DataFrame to verify the merges before creating the pivot table
+# Display the updated orders dataframe to verify the merges before creating the pivot table
 orders_with_prices.head()
 
-# Correcting the merge for shipping prices by explicitly using the 'Shipping Prices' lookup table
+# Correcting the merge for shipping prices by explicitly using the 'shipping prices' lookup table
 # First, we need to correct how we access the 'Shipping Price' for the merge. It appears the issue might be due to matching the wrong columns or incorrect data.
 
 # We should ensure the shipping prices from the 'Product List' sheet are properly aligned with those in the 'Orders' sheet.
-# It seems there was confusion in the initial merge; the 'Shipping Price' should directly come from a correctly filtered 'Product List' or a separate lookup table derived from it.
+# It seems there was confusion in the initial merge; the 'shipping price' should directly come from a correctly filtered 'Product List' or a separate lookup table derived from it.
 
 # Filter the product list to only include unique shipping priority and price pairs
 unique_shipping_prices = product_list_df[['Shipping Priority', 'Shipping Price']].drop_duplicates().dropna()
@@ -130,7 +130,7 @@ sns.set_style("whitegrid")
 # Creating a figure and a set of subplots
 fig, ax = plt.subplots(figsize=(12, 6))
 
-# Plotting both Product Price and Shipping Price
+# plotting both product price and shipping price
 pivot_table['Total Price'] = pivot_table['Product Price'] + pivot_table['Shipping Price']
 pivot_table_sorted = pivot_table.sort_values(by='Total Price', ascending=False)
 
