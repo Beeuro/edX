@@ -2,7 +2,7 @@
 import pandas as pd
 
 # Load the data from the uploaded Excel file
-file_path = '/mnt/data/Student Grades.xlsx'
+file_path = '/mnt/data/student grades.xlsx'
 grades_df = pd.read_excel(file_path)
 
 # Display the first few rows of the dataframe to understand its structure
@@ -41,7 +41,7 @@ plt.tight_layout()
 
 plt.show()
 
-# Example: Filtering the line graph for the student "Odelia Nelsen"
+# Example: filtering the line graph for the student "Odelia Nelsen"
 student_name = "Odelia Nelsen"
 student_data = grades_df[grades_df['Unnamed: 0'] == student_name]
 
@@ -111,7 +111,7 @@ create_adjusted_scatter_plot(df, 'bathrooms', 'price', 'Number of Bathrooms', 'P
 
 Data visualization complete
 
-  Walrus Group
+  Walrus group
 # Calculate descriptive statistics for numeric variables
 descriptive_stats = data_preview.describe()
 
@@ -126,7 +126,7 @@ import seaborn as sns
 # Set the aesthetic style of the plots
 sns.set_style("whitegrid")
 
-# Time Series Analysis: Yearly Distribution of Group Sizes
+# Time series analysis: yearly distribution of group sizes
 plt.figure(figsize=(12, 6))
 sns.boxplot(x='Year', y='GroupSize', data=data_preview)
 plt.title('Yearly Distribution of Walrus Group Sizes')
@@ -226,7 +226,7 @@ summary_stats['Upper Boundary'] = upper_boundary
 
 summary_stats
 
-# Identify outliers based on the 1.5*IQR rule
+# Identify outliers based on the 1.5*iqr rule
 outliers = cereal_data[(cereal_data['rating'] < lower_boundary) | (cereal_data['rating'] > upper_boundary)]
 outlier_products = outliers[['name', 'rating']].reset_index(drop=True)
 
