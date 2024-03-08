@@ -1,4 +1,4 @@
-1. Jupyter Intro
+-Jupyter Intro
 import pandas as pd
 
 # Define the data
@@ -29,7 +29,7 @@ df = pd.DataFrame(data)
 # Display DataFrame
 df
 
-2. Comics Remix 
+-Comics Remix 
 Step 1
 # Modules
 import os
@@ -96,7 +96,7 @@ if found is False:
 
 *[Bonus]
 
-3. Create Data Frame
+-Create Data Frame
 import pandas as pd
 
 # Cell 2
@@ -129,7 +129,7 @@ df_pharaohs = pd.DataFrame(data_pharaohs)
 # Display DataFrames
 series_df, df_states, df_pharaohs
 
-4. Frame Shop
+-Frame Shop
 # Create a DataFrame for the frame shop
 frame_data = {
     "Frame": ["Ornate", "Classical", "Modern", "Wood", "Cardboard"],
@@ -153,9 +153,27 @@ frame_df
 
 Bonus: I prefer creating a data frame for the art gallery rather than a frame shop.
 
-*5. Data Functions
+-Car Purchases
+# Print Statistical Analysis Summary
+print("Statistical Analysis of Car Purchases:")
+print(statistical_analysis.to_string())
 
-6. Training Grounds
+# Print Data Cleaning Summary for Missing Values
+print("\nData Cleaning Check for Missing Values:")
+print(missing_values.to_string())
+
+# Concluding Remarks
+missing_values_total = missing_values.sum()
+data_cleaning_result = "The dataset has no missing values and is clean." if missing_values_total == 0 else "The dataset has missing values that need to be addressed."
+
+concluding_remarks = f"""
+The dataset contains 1000 records of car purchases. The purchase amounts vary significantly, with a mean of approximately $9988.74 and a wide range from $15.3 to $19927.9. This variation in purchase amounts could reflect a wide range of car models and preferences among buyers. {data_cleaning_result}
+"""
+
+print("\nConcluding Remarks:")
+print(concluding_remarks)
+
+-Training Grounds
 A. Analytical Overview of Numeric Columns:
    - Weight:
      - Count: 200
@@ -204,7 +222,7 @@ E. Combined Weight of All Students:
 F. Converted "Membership (Days)" to Weeks and Added to DataFrame:
    - See the last table in the code output.
 
-7. Column Manipulation
+-Column Manipulation
 # Import Dependencies
 import pandas as pd
 
@@ -229,7 +247,7 @@ training_df = training_df.rename(columns={'Weight': 'Weight in Pounds', 'Members
 
 training_df.head(5)
 
-8. Hey Arnnold
+-Hey Arnold
 # Rename columns for readability
 hey_arnold_df = hey_arnold_df.rename(columns={
     "Character_in_show": "Character",
@@ -243,8 +261,62 @@ hey_arnold_df = hey_arnold_df[["Character", "Football Head", "Hair Color", "Heig
 
 hey_arnold_df
 
-*9. Reading Files 
+-Website Data
+Domain Frequency and Gender Breakdown scripted
+# Gender Distribution Pie Chart
+plt.figure(figsize=(8, 6))
+plt.pie(gender_distribution, labels=gender_distribution.index, autopct='%1.1f%%', startangle=140)
+plt.title('Gender Distribution')
+plt.show()
 
-*10. Comic Books
+# Top Email Domains Bar Chart
+plt.figure(figsize=(10, 8))
+email_domain_frequency.plot(kind='bar')
+plt.title('Top Email Domains Frequency')
+plt.xlabel('Email Domains')
+plt.ylabel('Frequency')
+plt.xticks(rotation=45)
+plt.show()
+# Load the Jupyter notebook to inspect its contents
+import nbformat
 
-*11. Comic Books Summary
+Advanced Analysis: Extracting and analyzing first names
+df['first_name'] = df['full_name'].apply(lambda x: x.split()[0])
+first_name_frequency = df['first_name'].value_counts().head(10)  # top 10 most common first names
+
+Exporting Processed Data
+processed_file_path = '/mnt/data/Processed_DataOne.csv'
+df.to_csv(processed_file_path, index=False, encoding='utf-8')
+
+first_name_frequency, processed_file_path
+
+-Comic Books
+Data Cleaned
+# Define the path for the new CSV file
+new_csv_path = '/mnt/data/cleaned_comic_books.csv'
+
+# Write the DataFrame to a new CSV file
+df_cleaned.to_csv(new_csv_path, index=False)
+
+# Return the path for confirmation
+new_csv_path
+
+-Comic Books Summary
+Results Scripted
+# Calculate the requested summary statistics
+
+# Count of unique authors
+unique_authors_count = df['Author'].nunique()
+
+# Count of unique countries of publication
+# Assuming countries are separated by ";"
+countries = df['Country of Publication'].str.split(';').explode()
+unique_countries_count = countries.nunique()
+
+# Year of the earliest published book
+earliest_year = df['Publication Year'].min()
+
+# Year of the latest published book
+latest_year = df['Publication Year'].max()
+
+unique_authors_count, unique_countries_count, earliest_year, latest_year
