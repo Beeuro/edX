@@ -1,1 +1,179 @@
+	Crowd Funding
 
+import pandas as pd
+
+# Load the dataset
+file_path = '/mnt/data/CrowdfundingBook.xlsx'
+df = pd.read_excel(file_path)
+
+# Data analysis operations
+# Data Cleaning
+# Checking for duplicate rows
+duplicates = df.duplicated().sum()
+# Checking for missing values
+missing_values = df.isnull().sum()
+
+# Data Transformation
+# Example: Convert a 'string date' column to 'datetime' type if it exists
+date_columns = [col for col in df.columns if 'date' in col.lower()]
+for col in date_columns:
+    df[col] = pd.to_datetime(df[col], errors='coerce')
+
+# Conditional Formatting
+# This step would be performed in Excel, as it's about cell formatting.
+
+# Data Aggregation
+# Example: Pivot table for a column 'Category' if it exists
+pivot_table_category = pd.pivot_table(df, index='Category', aggfunc='count') if 'Category' in df.columns else None
+
+# Calculation of Statistics
+# Example: Calculate average of a numeric column if it exists
+average_column = df.mean(numeric_only=True)
+
+# Data Visualization
+# This will be performed after we know which columns to visualize.
+
+# Correlation and Trend Analysis
+# Correlation matrix of numeric columns
+correlation_matrix = df.corr()
+
+# Predictive Analysis
+# This requires a specific target variable and feature selection to create a model, which cannot be done blindly.
+
+# Collect the results in a dictionary
+analysis_results = {
+    'duplicates': duplicates,
+    'missing_values': missing_values.to_dict(),
+    'transformed_dates': df[date_columns].dtypes.to_dict() if date_columns else None,
+    'pivot_table_category': pivot_table_category.to_dict() if pivot_table_category is not None else None,
+    'average_column': average_column.to_dict(),
+    'correlation_matrix': correlation_matrix.to_dict()
+}
+
+# We will now calculate the counts and percentages for each bucket using the conditions specified.
+
+# Create a function to count the occurrences based on the 'outcome' and the bucket
+def count_outcome(df, outcome, goal_bucket):
+    return df[(df['outcome'] == outcome) & (df['GoalBucket'] == goal_bucket)].shape[0]
+
+# Applying the count function for each bucket and outcome
+for bucket in goal_buckets:
+    report_df.at[bucket, 'Number Successful'] = count_outcome(df, 'successful', bucket)
+    report_df.at[bucket, 'Number Failed'] = count_outcome(df, 'failed', bucket)
+    report_df.at[bucket, 'Number Canceled'] = count_outcome(df, 'canceled', bucket)
+
+# Calculate the Total Projects per bucket
+report_df['Total Projects'] = report_df[['Number Successful', 'Number Failed', 'Number Canceled']].sum(axis=1)
+
+# Calculate the percentages
+report_df['Percentage Successful'] = (report_df['Number Successful'] / report_df['Total Projects']) * 100
+report_df['Percentage Failed'] = (report_df['Number Failed'] / report_df['Total Projects']) * 100
+report_df['Percentage Canceled'] = (report_df['Number Canceled'] / report_df['Total Projects']) * 100
+
+# Since we cannot create line charts directly here, we will generate the data necessary for a line chart.
+# This data can then be used to create a line chart in an appropriate software like Excel.
+
+# Prepare data for the line chart
+line_chart_data = report_df.reset_index().rename(columns={'index': 'Goal Range'})
+line_chart_data = line_chart_data.melt(id_vars=['Goal Range'], value_vars=['Percentage Successful', 'Percentage Failed', 'Percentage Canceled'])
+
+line_chart_data.head()  # display the first few rows to check the data structure for the chart
+
+# Continue writing the report in Microsoft Word
+
+# Add suggestions for additional tables/graphs
+suggestions = [
+    "A line chart plotting the relationship between goal amounts and the percentage of successful, failed, "
+    "and canceled projects would visually demonstrate how the chances of a project's success vary with different goal sizes. "
+    "This can help to identify the 'sweet spot' for goal setting in crowdfunding campaigns.",
+    "A bar chart comparing the average pledged amounts across different categories could reveal which types of projects tend to "
+    "attract more funding, and potentially, which categories are more popular or have more engaged backers.",
+    "A heat map of campaign outcomes (successful, failed, canceled) by launch month could uncover seasonal trends in crowdfunding "
+    "activity, showing if certain times of the year are better for launching campaigns."
+]
+for suggestion in suggestions:
+    doc.add_paragraph(suggestion)
+
+# Save the document
+doc_path = '/mnt/data/Crowdfunding_Analysis_Report.docx'
+doc.save(doc_path)
+
+# Return the path to the saved document
+doc_path
+
+# Calculate statistics for the number of backers for successful and unsuccessful campaigns
+stats_success = backers_df['Number of Backers Successful'].describe()
+stats_unsuccess = backers_df['Number of Backers Unsuccessful'].describe()
+
+# Calculate variance and standard deviation separately
+variance_success = backers_df['Number of Backers Successful'].var()
+std_dev_success = backers_df['Number of Backers Successful'].std()
+variance_unsuccess = backers_df['Number of Backers Unsuccessful'].var()
+std_dev_unsuccess = backers_df['Number of Backers Unsuccessful'].std()
+
+# Add variance and standard deviation to the describe() output
+stats_success['variance'] = variance_success
+stats_success['std_dev'] = std_dev_success
+stats_unsuccess['variance'] = variance_unsuccess
+stats_unsuccess['std_dev'] = std_dev_unsuccess
+
+# Determine which central tendency measure (mean or median) better summarizes the data
+central_tendency_success = 'mean' if abs(stats_success['mean'] - stats_success['50%']) < abs(stats_success['std_dev']) else 'median'
+central_tendency_unsuccess = 'mean' if abs(stats_unsuccess['mean'] - stats_unsuccess['50%']) < abs(stats_unsuccess['std_dev']) else 'median'
+
+# Determine where there is more variability
+more_variability = 'successful' if stats_success['variance'] > stats_unsuccess['variance'] else 'unsuccessful'
+
+# Add these statistics to the backers data sheet in the workbook
+workbook = load_workbook('/mnt/data/CrowdfundingBook_Updated.xlsx')
+backers_sheet = workbook['Backers Data']
+
+# Adding a new line to separate the data from the statistics
+backers_sheet.append([])
+
+# Adding statistics for successful campaigns
+backers_sheet.append(['Successful Campaigns Stats', 'Value'])
+for stat in stats_success.index:
+    backers_sheet.append([stat, stats_success[stat]])
+
+# Adding a line to separate the statistics
+backers_sheet.append([])
+
+# Adding statistics for unsuccessful campaigns
+backers_sheet.append(['Unsuccessful Campaigns Stats', 'Value'])
+for stat in stats_unsuccess.index:
+    backers_sheet.append([stat, stats_unsuccess[stat]])
+
+# Save the workbook
+workbook.save(filename='/mnt/data/CrowdfundingBook_Updated.xlsx')
+workbook.close()
+
+# Compile the results for further analysis
+analysis_results = {
+    'central_tendency_success': central_tendency_success,
+    'central_tendency_unsuccess': central_tendency_unsuccess,
+    'more_variability': more_variability
+}
+
+analysis_results, '/mnt/data/CrowdfundingBook_Updated.xlsx'
+
+# Assuming 'df' is the DataFrame loaded from 'CrowdfundingBook.xlsx'
+# Let's start with column creation as the first step.
+
+# 1. Percent Funded
+df['Percent Funded'] = (df['pledged'] / df['goal']) * 100
+
+# 2. Average Donation
+df['Average Donation'] = df.apply(lambda x: x['pledged'] / x['backers_count'] if x['backers_count'] > 0 else 0, axis=1)
+
+# Assuming 'category & sub-category' column exists and uses ':' as the delimiter
+# 3. & 4. Category and Sub-Category
+df['Category'], df['Sub-Category'] = zip(*df['category & sub-category'].apply(lambda x: x.split(': ')))
+
+# 5. & 6. Date Created Conversion and Date Ended Conversion
+# Convert Unix timestamps to datetime
+df['Date Created Conversion'] = pd.to_datetime(df['launched_at'], unit='s')
+df['Date Ended Conversion'] = pd.to_datetime(df['deadline'], unit='s')
+
+# Display the DataFrame to ensure the columns are correctly created
+df[['Percent Funded', 'Average Donation', 'Category', 'Sub-Category', 'Date Created Conversion', 'Date Ended Conversion']].head()
