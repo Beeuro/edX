@@ -1,4 +1,4 @@
-	#Python
+	# Python
 ## Return to the `LearnPython` folder is implicit
 
 ## Inside `LearnPython`, create another folder called `Assignment2'
@@ -11,7 +11,7 @@ with open('LearnPython/Assignment2/quick_python2.py', 'w') as f:
 ## Run `quick_python2.py`.
 exec(open('LearnPython/Assignment2/quick_python2.py').read())
 
-	#Variables
+	# Variables
 ## Define the variables based on the file's content
 frankfurter = "Frankfurter"
 age = 80
@@ -70,7 +70,7 @@ f_string_output = f"Daily Wage: ${daily_wage}, Satisfied: {satisfied}"
 ## Simulate the print output by returning the strings
 traditional_concatenation, f_string_output
 
-	#Prompts
+	# Prompts
 ## Implementing the described functionality
 ## Direct user input cannot be collected in this environment, so we'll simulate it with predefined values
 user_name = "Alice"
@@ -115,7 +115,7 @@ simulated_outputs = [
 
 simulated_outputs
 
-	#Input
+	# Input
 ## Since we cannot collect user input directly in this environment, let's simulate it with predefined values
 ## Simulating input collection
 user_coding_months = "12"  # assume the user inputs 12 months
@@ -145,7 +145,7 @@ simulated_outputs = [
 
 simulated_outputs
 
-	#Conditionals
+	# Conditionals
 ## Let's first read the content of the uploaded file to understand what kind of conditionals or data it contains
 file_path = '/mnt/data/conditionals.py'
 
@@ -265,7 +265,7 @@ with open(completed_script_path, 'w') as file:
 
 completed_script_path
 
-	#Loops
+	# Loops
 def simulate_user_interaction():
     end_of_previous_chain = 0  # initialize for the bonus part
     while true:  # this loop will run until the user decides to exit
