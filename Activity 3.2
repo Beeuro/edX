@@ -1,20 +1,20 @@
 	#Checkup
-## Print Hello User!
+## Print hello user!
 print("Hello User!")
 
-## Take in User Input
+## Take in user input
 user_name = input("What is your name? ")
 
-## Respond Back with User Input
+## Respond back with user input
 print(f"Hello {user_name}")
 
-## Take in the User Favorite Number
+## Take in the user favorite number
 favorite_number = int(input("What is your favorite number? "))
 
 ## Define my favorite number for comparison
 my_favorite_number = 7  # Example favorite number
 
-## Respond Back with a statement based on your favorite number
+## Respond back with a statement based on your favorite number
 if favorite_number < my_favorite_number:
     print("Your favorite number is lower than mine.")
 elif favorite_number > my_favorite_number:
@@ -22,7 +22,7 @@ elif favorite_number > my_favorite_number:
 else:
     print("Your favorite number is the same as mine!")
 
-	#Candy Store
+	#Candy store
 ## Print all candies
 for index, candy in enumerate(candy_list):
     print(f"[{index}] {candy}")
@@ -40,8 +40,8 @@ print("You selected:")
 for candy in candy_cart:
     print(candy)
 
-## Unlimited Selection
-while True:
+## Unlimited selection
+while true:
     selection = input("Enter the number of the candy you want (or 'done' to finish): ")
     if selection.lower() == 'done':
         break
@@ -67,7 +67,7 @@ def pie_order_form():
     for i, pie in enumerate(pies, start=1):
         print(f"({i}) {pie}", end=", " if i < len(pies) else "\n")
     
-    while True:
+    while true:
         # Prompt the user to enter the number for the pie they would like to order
         try:
             pie_choice = int(input("Enter the number for the pie you would like to order: ")) - 1
@@ -78,7 +78,7 @@ def pie_order_form():
             else:
                 print("Please enter a valid pie number.")
                 continue
-        except ValueError:
+        except valueerror:
             print("Please enter a number.")
             continue
 
@@ -101,7 +101,7 @@ def pie_order_form():
 pie_order_form()
 
 	#Input
-from collections import Counter
+from collections import counter
 
 ## Splitting the content into lines and words for analysis
 lines = entire_content.split('\n')
@@ -115,7 +115,7 @@ keyword = "line"
 num_keyword_occurrences = entire_content.count(keyword)
 
 ## Analyze the frequency of each word
-word_frequency = Counter(words)
+word_frequency = counter(words)
 
 ## Extract specific information (example: words starting with "T" or "t")
 words_starting_with_t = [word for word in words if word.lower().startswith('t')]
@@ -151,12 +151,12 @@ print(cwd)
 entries = os.listdir('.')
 print(entries)
 
-import json
+import JSON
 
 ## Convert a Python object to a JSON string
 python_dict = {"name": "John", "age": 30, "city": "New York"}
-json_string = json.dumps(python_dict)
-print(json_string)
+JSON_string = JSON.dumps(python_dict)
+print(JSON_string)
 
 ## Convert a JSON string back to a Python object
 python_obj = json.loads(json_string)
@@ -168,10 +168,10 @@ column_names = comic_books_df.columns.tolist()
 column_names
 
 	#CSV
-## To execute the suggested actions, we'll approach each one step by step.
+## To execute the suggested actions, we'll approach each one step by step
 
-## Validating the Data
-## We'll define a simple validation for the SSN format (assuming U.S. SSN format "XXX-XX-XXXX").
+## Validating the data
+## We'll define a simple validation for the SSN format (assuming U.S. SSN format "XXX-XX-XXXX")
 def validate_ssn(ssn):
     import re
     pattern = r'^\d{3}-\d{2}-\d{4}$'
@@ -180,7 +180,7 @@ def validate_ssn(ssn):
 ## Apply SSN validation to the 'SSN' column
 data['SSN_Valid'] = data['SSN'].apply(validate_ssn)
 
-## Securing the Data
+## Securing the data
 ## For demonstration purposes, we'll hash the SSN to "secure" it, though in practice, more comprehensive measures would be needed.
 import hashlib
 def hash_ssn(ssn):
@@ -188,8 +188,8 @@ def hash_ssn(ssn):
 
 data['SSN_Hash'] = data['SSN'].apply(hash_ssn)
 
-## Analyzing the Data
-## As we have a limited dataset in this example, analysis might be minimal. However, let's calculate some basic statistics.
+## Analyzing the data
+## As we have a limited dataset in this example, analysis might be minimal. However, let's calculate some basic statistics
 analysis_results = {
     'Total Entries': data.shape[0],
     'Unique First Names': data['First Name'].nunique(),
@@ -197,25 +197,25 @@ analysis_results = {
     'Valid SSNs': data['SSN_Valid'].sum()
 }
 
-## Processing for a Specific Task
-## Without a specific task mentioned, we'll prepare a simple summary of the dataset.
+## Processing for a specific task
+## Without a specific task mentioned, we'll prepare a simple summary of the dataset
 summary = data[['First Name', 'Last Name', 'SSN_Valid']].describe()
 
 (analysis_results, summary)
 
 	#Census
 ## Raw 
-Let's first read the content of the provided CSV file to understand its structure.
+Let's first read the content of the provided CSV file to understand its structure
 file_path = '/mnt/data/census_starter.csv'
 
-## Open the file and read the first few lines to understand its structure.
+## Open the file and read the first few lines to understand its structure
 with open(file_path, 'r', encoding='utf8') as file:
     lines = [next(file) for _ in range(5)]
 
 lines
 
 ## Clean
-import csv
+import CSV
 
 ## Initialize lists to store the data for each required column
 places = []
@@ -225,9 +225,9 @@ poverty_counts = []
 poverty_rates = []
 
 ## Read the file and extract the necessary data
-with open(file_path, 'r', encoding='utf8') as csvfile:
-    csvreader = csv.reader(csvfile)
-    for row in csvreader:
+with open(file_path, 'r', encoding='utf8') as CSVfile:
+    CSVreader = CSV.reader(CSVfile)
+    for row in CSVreader:
         ## Extracting required data
         place = row[0]
         population = int(row[1])
@@ -251,16 +251,16 @@ with open(file_path, 'r', encoding='utf8') as csvfile:
 zipped_data = list(zip(places, populations, per_capita_incomes, poverty_counts, poverty_rates))
 
 ## Define the path for the new CSV file
-new_csv_path = '/mnt/data/cleaned_census_data.csv'
+new_CSV_path = '/mnt/data/cleaned_census_data.CSV'
 
 ## Write the extracted data into a new CSV file
 with open(new_csv_path, 'w', encoding='utf8', newline='') as new_file:
-    csvwriter = csv.writer(new_file)
+    CSVwriter = CSV.writer(new_file)
     ## Write the header
-    csvwriter.writerow(['County', 'State', 'Population', 'Per Capita Income', 'Poverty Count', 'Poverty Rate (%)'])
+    CSVwriter.writerow(['County', 'State', 'Population', 'Per Capita Income', 'Poverty Count', 'Poverty Rate (%)'])
     ## Write the data
     for row in zipped_data:
         ## Flatten the tuple (which contains a tuple for county and state) before writing
-        csvwriter.writerow([*row[0], *row[1:]])
+        CSVwriter.writerow([*row[0], *row[1:]])
 
-new_csv_path
+new_CSV_path
