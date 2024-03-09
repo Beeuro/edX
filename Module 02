@@ -59,8 +59,8 @@ Sub stockanalysis()
             End if
         Next i
         
-        'Add code here to find "greatest % increase", "greatest % decrease", and "greatest total volume"
-        'This section will require additional logic to loop through the summary data you've created and identify these values.
+        'add code here to find "greatest % increase", "greatest % decrease", and "greatest total volume"
+        'this section will require additional logic to loop through the summary data you've created and identify these values.
         
     Next ws
     
@@ -93,7 +93,7 @@ Sub stockmarketaanalysis()
         ws.cells(1, 11).value = "Yearly Change ($)"
         ws.cells(1, 12).value = "Percent Change"
         
-        ' Find initial open price
+        ' find initial open price
         openprice = ws.cells(2, 3).value
         
         For i = 2 to lastrow
