@@ -1,5 +1,5 @@
-  #Jupyter notebook
-## Load the Jupyter notebook
+  # Jupyter notebook
+## Load the jupyter notebook
 notebook_path = '/mnt/data/jupyter_intro.ipynb'
 with open(notebook_path, 'r', encoding='utf-8') as nb_file:
     nb = nbformat.read(nb_file, as_version=4)
@@ -23,7 +23,7 @@ with open(executed_notebook_path, 'w', encoding='utf-8') as nb_file:
 
 executed_notebook_path
 
-  # Comic book remix
+  # Comic books
 ##Let's read the content of comicbooks.py to understand its structure and functionality
 
 with open('/mnt/data/comicbooks.py', 'r') as file:
@@ -65,7 +65,7 @@ else:
   ##import pandas as pd
   import nbformat
 
-## Load the Jupyter notebook
+## Load the jupyter notebook
 notebook_path = '/mnt/data/creating_data_frames.ipynb'
 with open(notebook_path) as f:
     nb = nbformat.read(f, as_version=4)
@@ -86,10 +86,10 @@ with pd.excelwriter(file_path) as writer:
 
 file_path
 
-  #Car purchases
+  # Car purchases
  import nbformat
 
-## Load the Jupyter notebook
+## Load the jupyter notebook
 notebook_path = '/mnt/data/data_functions.ipynb'
 with open(notebook_path) as f:
     nb = nbformat.read(f, as_version=4)
@@ -143,8 +143,8 @@ nbformat.write(new_nb, new_notebook_path)
 
 new_notebook_path
 
-  #Training
-## import pandas as pd
+  # Training
+import pandas as pd
 import numpy as np
 
 ## Simulate a similar dataframe
@@ -176,8 +176,8 @@ combined_weight = df['Weight'].sum()
 df['Membership (Weeks)'] = df['Membership (Days)'] / 7
 overview, trainers_names, students_per_trainer, average_weight, combined_weight
 
-  #Download
-  #from nbformat.v4 import new_notebook, new_code_cell, new_markdown_cell
+  # Download
+  # from nbformat.v4 import new_notebook, new_code_cell, new_markdown_cell
 
 ## Create a new notebook
 nb = new_notebook()
@@ -233,7 +233,7 @@ with open(output_notebook_path, 'w') as f:
 
 output_notebook_path
 
-  #Analyze
+  # Analyze
   import nbformat
 
 ## Load the notebook
@@ -269,7 +269,7 @@ for idx, cell in enumerate(notebook.cells):
 
 executed_output
 
-  #Hey arnold
+  # Hey arnold
 ## Since the user requests the information in a format compatible with jupyter notebook,
 # we will save the dataframe to a CSV file, which can be easily imported into jupyter notebooks
 
@@ -277,7 +277,7 @@ df_reorganized.to_CSV('/mnt/data/hey_arnold_cleaned.csv', index=false)
 
 '/mnt/data/hey_arnold_cleaned.CSV'
 
-  #Data
+  # Data
 import nbformat
 
 ## Load the notebook
@@ -288,7 +288,7 @@ with open(notebook_path, 'r', encoding='utf-8') as nb_file:
 ## Display the content of the notebook
 nb_content.cells
 
-  #Summary
+  # Summary
   import pandas as pd
 
 ## Load the CSV file
