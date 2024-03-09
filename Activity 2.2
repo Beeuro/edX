@@ -54,13 +54,13 @@ End Sub
 
 	#Loops
 ##Cycle
-For counter = start To end [Step step]
+For counter = start To end [step step]
     ' code to be executed
 Next counter
 
 ##Collect
 For each element in collection
-    ' Code to be executed for each element
+    ' code to be executed for each element
 Next element
 
 ##True
@@ -97,17 +97,17 @@ Sub testmyloop()
     Dim expectedresult as variant
     Dim actualresult as variant
 
-    ' Set up test conditions
+    ' set up test conditions
     expectedresult = '...'
 
-    ' Execute the loop function or procedure you wish to test
+    ' execute the loop function or procedure you wish to test
     actualresult = myloopfunction('...')
 
     ' check if the actual result meets the expected result
     If actualresult = expectedresult Then
         Debug.print "Test Passed"
     Else
-        Debug.print "Test Failed: Expected " & expectedresult & ", Got " & actualresult
+        Debug.print "Test Failed: expected " & expectedresult & ", got " & actualresult
     End if
 End Sub
 
@@ -122,11 +122,11 @@ Sub fizbuzz()
         value = ws.cells(i, 1).value
         
         If value mod 3 = 0 and value mod 5 = 0 then
-            ws.cells(i, 2).value = "Fizzbuzz"
+            ws.cells(i, 2).value = "fizzbuzz"
         Elseif value mod 3 = 0 then
-            ws.cells(i, 2).value = "Fizz"
+            ws.cells(i, 2).value = "fizz"
         Elseif value mod 5 = 0 then
-            ws.cells(i, 2).value = "Buzz"
+            ws.cells(i, 2).value = "buzz"
         Else
             ws.cells(i, 2).value = ""
         End If
@@ -176,8 +176,8 @@ Range("A2").formula = "=SUM(B2:D2)" ' example of applying a sum formula
 Dim ws As worksheet
 Set ws = thisworkbook.sheets("Sheet1")
 For each row in ws.usedrange.rows
-  ' Perform actions, e.g., ws.cells(Row.Row, "E").value = ws.cells(Row.Row, "B").value + 10
-Next Row
+  ' Perform actions, e.g., ws.cells(row.row, "E").value = ws.cells(row.row, "B").value + 10
+Next row
 
 ##Report
 Dim pt as pivottable
@@ -196,8 +196,8 @@ db.close
 Dim outlook As object
 Set outlook = createobject("Outlook.Application")
 Dim mail As object
-Set mail = outlook.createItem(0)
-mail.To = "email@example.com"
+Set mail = outlook.createitem(0)
+mail.to = "email@example.com"
 mail.subject = "This is the subject"
 mail.body = "This is the body"
 mail.send
@@ -209,13 +209,13 @@ Sheet1.range("A1:C100").removeduplicates columns:=array(1,2,3), header:=xlyes
 Dim conn As object
 Set conn = createobject("ADODB.Connection")
 conn.open "Provider=SQLOLEDB;Data Source=YourServer;Initial Catalog=YourDB;Integrated Security=SSPI;"
-conn.execute "SELECT * FROM YourTable"
+conn.execute "select * from yourtable"
 
 ##Optimize VBA
 Application.screenupdating = false
 Application.calculation = xlcalculationmanual
 ' your code here
-Application.screenUpdating = true
+Application.screenupdating = true
 Application.calculation = xlcalculationautomatic
 
 	#Crypto
@@ -258,7 +258,7 @@ Sub replacecattokenwithlimitedcoins()
     Dim cell As range
     Dim shibainucount as long, dogecoincount as long
     
-    ' count available Shiba Inu and Dogecoin first
+    ' count available shiba inu and dogecoin first
     for each cell in ws.usedrange
         If cell.value = "Shiba Inu" then
             shibainucount = shibainucount + 1
@@ -267,7 +267,7 @@ Sub replacecattokenwithlimitedcoins()
         End if
     Next cell
     
-    ' replace Cat Token with available Shiba Inu and Dogecoin
+    ' replace cat token with available shiba inu and dogecoin
     For each cell in ws.usedrange
         If cell.value = "Cat Token" then
             If shibainucount > 0 then
