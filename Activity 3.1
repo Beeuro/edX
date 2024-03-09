@@ -84,7 +84,7 @@ age_int = int(user_age)
 is_truthy = user_truthy_input.lower() in ["yes", "true", "1"]
 
 ## Exploring data types and conversions
-# Already demonstrated above with age and truthy input conversion
+## Already demonstrated above with age and truthy input conversion
 
 ## Input validation
 ## Here we check if the user_age is indeed convertible to an integer without causing an error
@@ -158,7 +158,7 @@ conditionals_content
 ## Executing the conditional statements as described to confirm the predictions
 
 ## This code block is identical to the previous execution since the file content hasn't changed
-# The execution is for the purpose of confirming our predictions without alterations
+## The execution is for the purpose of confirming our predictions without alterations
 
 ## Define and execute the conditionals again (the code remains unchanged from the previous execution)
 
@@ -227,27 +227,27 @@ with open(file_path, 'r') as file:
 python_script
 
 ## Complete
-# Completing the script to determine the outcome of the game and print the result
+## Completing the script to determine the outcome of the game and print the result
 
-# The script content as read, with the addition of the missing logic for determining the outcome
+## The script content as read, with the addition of the missing logic for determining the outcome
 
 complete_script = """
-# Incorporate the random library
+## Incorporate the random library
 import random
 
-# Print title
+## Print title
 print("Let's Play Rock Paper Scissors!")
 
-# Specify the three options
+## Specify the three options
 options = ["r", "p", "s"]
 
-# Computer selection
+## Computer selection
 computer_choice = random.choice(options)
 
-# User selection
+## User selection
 user_choice = input("Make your Choice: (r)ock, (p)aper, (s)cissors? ")
 
-# Run conditionals
+## Run conditionals
 if user_choice == computer_choice:
     print("It's a tie!")
 elif (user_choice == "r" and computer_choice == "s") or \\
@@ -258,7 +258,7 @@ else:
     print(f"You lose! Your choice: {user_choice} vs Computer's choice: {computer_choice}")
 """
 
-# Saving the completed script to a new file
+## Saving the completed script to a new file
 completed_script_path = '/mnt/data/completed_rock_paper_scissors.py'
 with open(completed_script_path, 'w') as file:
     file.write(complete_script)
