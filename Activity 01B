@@ -1,4 +1,4 @@
-  #Grading
+  # Grading
 ## Formulas
 =round((B2+C2+D2+E2)/4, 0)
 =if(F2>=60, "PASS", "FAIL")
@@ -53,7 +53,7 @@ df_financial_summary
 
 Data visualization complete
 
-  #Top song chart
+  # Top song chart
 ## Manually aggregating and sorting the data to avoid previous issues
 
 ## Aggregating the data to count the number of songs per artist and sum of final_score
@@ -71,7 +71,7 @@ artist_aggregated_sorted.head(10)
 
 Top 10 artists scripted
 
-  #Product list
+  # Product list
 ## Load the sheets into dataframe
 product_list_df = excel_data.parse('Product List')
 orders_df = excel_data.parse('Orders')
