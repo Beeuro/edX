@@ -67,7 +67,7 @@ donors2021_unclean_df = pd.read_CSV('/mnt/data/donors2021_unclean.CSV')
 ## Display the first few rows of the dataframe
 donors2021_unclean_df.head()
 
-##Analysis
+## Analysis
 ## Load the Jupyter notebook to check the cleaning operations specified
 with open('/mnt/data/cleaning_data.ipynb', 'r') as file:
     notebook_content = file.read()
@@ -142,10 +142,10 @@ df_italy.shape, df_china.shape
 ## Display the first few entries from the Italy and China DataFrames
 df_italy.head(), df_china.head()
 
-## Data visualization complete
+Data visualization complete
 
   #Pandas
-  import pandas as pd
+import pandas as pd
 
 ## Load the CSV file to examine its contents
 df_fires = pd.read_CSV('/mnt/data/CT_fires_2015.CSV')
@@ -249,11 +249,11 @@ census_data.head()
 totals_columns = ['Population', 'Employed Civilians', 'Unemployed Civilians', 'People in the Military', 'Poverty Count']
 totals_df = census_data.groupby(['Year', 'State'])[totals_columns].sum().reset_index()
 
-# Creating the averages DataFrame
+## Creating the averages DataFrame
 averages_columns = ['Median Age', 'Household Income', 'Per Capita Income']
 averages_df = census_data.groupby(['Year', 'State'])[averages_columns].mean().reset_index()
 
-# Renaming columns to reflect the calculations
+## Renaming columns to reflect the calculations
 totals_df.rename(columns={
     'Population': 'Total Population',
     'Employed Civilians': 'Total Employed Civilians',
@@ -268,11 +268,11 @@ averages_df.rename(columns={
     'Per Capita Income': 'Average Per Capita Income'
 }, inplace=True)
 
-# File paths for the exported CSVs
+## File paths for the exported CSVs
 totals_CSV_path = '/mnt/data/totals_by_year_and_state.CSV'
 averages_CSV_path = '/mnt/data/averages_by_year_and_state.CSV'
 
-# Exporting the dataframes to CSVs
+## Exporting the dataframes to CSVs
 totals_df.to_CSV(totals_CSV_path, index=false)
 averages_df.to_CSV(averages_CSV_path, index=false)
 
@@ -329,4 +329,4 @@ plt.show()
 corrected_plot_path = '/mnt/data/gas_consumption_by_tenants_over_time_corrected.png'
 corrected_plot_path
 
-## Data visualization complete
+Data visualization complete
