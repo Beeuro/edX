@@ -1,43 +1,43 @@
-  #Hello world
+  # Hello world
 Sub helloworld()
     Msgbox "Hello, World!", vbInformation, "Greeting"
 End Sub
 
-  #VBA script
+  # VBA script
 Sub showpopups()
     ' first pop-up message
     Msgbox "This is the first message.", vbInformation, "Message 1"
     
-    ' Second pop-up message
+    ' second pop-up message
     Msgbox "Here comes the second message.", vbInformation, "Message 2"
     
-    ' Third pop-up message
+    ' third pop-up message
     Msgbox "Finally, the third message appears.", vbInformation, "Message 3"
 End Sub
 
-  #Macros
-##Data manipulation
+  # Macros
+## Data manipulation
 Sub insertrow()
     Rows("2:2").insert shift:=xldown, copyorigin:=xlformatfromleftorabove
 End Sub
 
-##Navigation
+## Navigation
 Sub gotosheet2()
     Sheets("Sheet2").select
     Range("A1").select
 End Sub
 
-##Format
+## Format
 Sub formatrange()
     Range("A1:A10").font.bold = true
 End Sub
 
-##Calculation
+## Calculation
 Sub calculatecum()
     Range("B1").value = application.worksheetfunction.sum(Range("A1:A10"))
 End Sub
 
-##Charts and graphics
+## Charts and graphics
 Sub createbarchart()
     Dim chartobj as chartobject
     Set chartobj = activesheet.chartobjects.add(Left:=100, Width:=375, Top:=50, Height:=225)
@@ -45,7 +45,7 @@ Sub createbarchart()
     chartobj.chart.charttype = xlbarclustered
 End Sub
 
-##Validation
+## Validation
 Sub validatedata()
     If isnumeric(Range("A1").Value) Then
         Msgbox "Cell A1 contains a numeric value."
@@ -54,7 +54,7 @@ Sub validatedata()
     End if
 End Sub
 
-##Email
+## Email
 Sub sendemail()
     Dim outlookapp as object
     Dim outlookmail as object
@@ -69,81 +69,81 @@ Sub sendemail()
     End with
 End Sub
 
-##Operations
+## Operations
 Sub openworkbook()
     Workbooks.open "C:\Path\To\Your\File.xlsx"
 End Sub
 
-##Import/export
+## Import/export
 Sub exporttocsv()
     Range("A1:B10").copy
     Workbooks.add
     Activesheet.paste
-    Activeworkbook.saveas filename:="C:\Path\To\Your\File.csv", fileformat:=xlCSV
+    Activeworkbook.saveas filename:="C:\Path\To\Your\File.CSV", fileformat:=xlCSV
     Activeworkbook.close false
 End Sub
 
-##Prompts
+## Prompts
 Sub getuserinput()
     Dim userinput as string
     userinput = inputbox("Enter your name:", "User Input")
     Msgbox "Hello, " & userInput & "!"
 End Sub
 
-  #Subroutines
+  # Subroutines
 Sub button1_click()
-    Msgbox "You clicked Button 1!"
+    Msgbox "You clicked button 1!"
 End Sub
 
 Sub button2_click()
-    Msgbox "You clicked Button 2!"
+    Msgbox "You clicked button 2!"
 End Sub
 
-  #Cells and ranges
-#Selection
+  # Cells and ranges
+## Selection
 Range("A1").Select ' selects cell A1
 Range("A1:B2").select ' selects a range from A1 to B2
 
-##Read/write
+## Read/write
 Dim value As variant
 value = range("A1").value ' reads the value from A1
 Range("B1").value = value ' writes the value into B1
 
-##Formatting
+## Formatting
 With range("A1")
     .font.name = "Calibri"
     .font.size = 12
     .font.color = RGB(0, 0, 255) ' Blue color
     .interior.color = RGB(255, 255, 0) ' yellow background
-End With
+End with
 
-##Insert/delete
+## Insert/delete
 Cells(3, 2).insert shift:=xltoright ' inserts a new cell at B3, shifting existing cells to the right
 Rows("4:4").delete ' deletes the 4th row
 
-##Copy/paste
+## Copy/paste
 Range("A1").copy destination:=range("B1") ' copies the value from A1 to B1
 
-##Apply formula
+## Apply formula
 Range("C1").formula = "=A1+B1" ' adds values in A1 and B1, result in C1
 
-##Sort/filter
+## Sort/filter
 With range("A1:B10")
     .Sort key1:=range("A1"), order1:=xlascending, header:=xlyes
 End with
 
-##Conditional
+## Conditional
 With range("A1:A10").formatconditions.add(Type:=xlCellValue, Operator:=xlGreater, Formula1:="5")
     .font.color = RGB(255, 0, 0) ' change font color to red if value > 5
-End With
+End with
 
-##Merge/unmerge
+## Merge/unmerge
 Range("A1:B1").merge
 
-##Table
+## Table
 Activesheet.listobjects.add(xlsrcrange, range("A1:B10"), , xlyes).name = "MyTable"
 
-  #Chess
+  # Chess
 Sub setupchessboard()
 
     ' define the chess pieces
@@ -160,15 +160,15 @@ Sub setupchessboard()
     ' using cells for the last two rows
     Dim i As Integer
     For i = 1 To 8
-        With Sheet1
-            .Cells(8, i).Value = secondRow
-            .Cells(9, i).Value = topRow(i - 1)
+        With sheet1
+            .Cells(8, i).Value = secondrow
+            .Cells(9, i).Value = toprow(i - 1)
         End With
     Next i
     
 End Sub
 
-  #Variables
+  # Variables
 ##Data cleaning
 Sub removeduplicates()
     Dim ws as worksheet
@@ -177,7 +177,7 @@ Sub removeduplicates()
     ws.usedrange.removeduplicates columns:=array(1, 2), header:=xlyes ' specify columns
 End Sub
 
-#Statistical analysis
+# Statistical analysis
 Sub salculatestatistics()
     Dim rng As range
     Set rng = selection ' Or specify a range like worksheets("Sheet1").range("A1:A10")
@@ -186,12 +186,12 @@ Sub salculatestatistics()
            "standard deviation: " & application.worksheetF\function.stdev(rng)
 End Sub
 
-##Data transformation
+## Data transformation
 Sub mergecolumns()
     Dim ws as worksheet
     Set ws = activesheet ' modify as needed
     Dim lastrow As long
-    lastrow = ws.cells(ws.rows.count, "A").end(xlup).row ' assuming column A & B
+    lastrow = ws.cells(ws.rows.count, "A").end(xlup).row ' assuming column a and b
     
     Dim i As long
     For i = 1 To lastrow
@@ -199,7 +199,7 @@ Sub mergecolumns()
     Next i
 End Sub
 
-##Data visualization
+## Data visualization
 Sub createchart()
     Dim rng as range
     Set rng = selection ' or specify a range
@@ -207,7 +207,7 @@ Sub createchart()
     Activechart.setsourcedata source:=rng
 End Sub
 
-##Automation
+## Automation
 Sub formatcells()
     With selection
         .Font.name = "Calibri"
@@ -217,7 +217,7 @@ Sub formatcells()
     End with
 End Sub
 
-##Regression
+## Regression
 Sub linearregression()
     Dim yrange as range
     Dim xrange as range
@@ -230,7 +230,7 @@ Sub linearregression()
     ws.cells(1, 1).formula = "=LINEST(" & yRange.Address & "," & xRange.Address & ")"
 End Sub
 
-  #Calculate total
+  # Calculate total
 Sub calculatetotal()
     ' declare variables
     Dim price as double
@@ -238,23 +238,23 @@ Sub calculatetotal()
     Dim quantity as integer
     Dim total as double
     
-    ' Assign values from the spreadsheet to variables
-    ' Assuming price is in A1, Tax in B1, Quantity in C1, and Total in D1
-    Price = range("A1").value
-    Tax = range("B1").value
-    Quantity = range("C1").value
+    ' assign values from the spreadsheet to variables
+    ' assuming price is in A1, Tax in B1, Quantity in C1, and Total in D1
+    price = range("A1").value
+    tax = range("B1").value
+    quantity = range("C1").value
     
-    ' Calculate the total
+    ' calculate the total
     Total = (price * quantity) * (1 + tax)
     
-    ' Set the total value back in the spreadsheet
+    ' set the total value back in the spreadsheet
     Range("D1").value = total
     
-    ' Show a pop-up message with the total value
+    ' show a pop-up message with the total value
     Msgbox "Your total is $" & format(Total, "0.00")
 End Sub 
 
-  #Array
+  # Array
 Sub sumarray()
     Dim ws as worksheet
     Set ws = thisworkbook.sheets("Sheet1") ' change "Sheet1" to the name of your sheet
@@ -274,10 +274,10 @@ Sub sumarray()
     Next i
     
     ws.range("B1").value = sum ' output the sum to B1. change "B1" to your desired cell
-End sub
+End Sub
 
-  #Splitting
-##Text
+  # Splitting
+## Text
 Sub splittext()
     Dim ws as worksheet
     Set ws = activesheet
@@ -292,12 +292,12 @@ Sub splittext()
                       Other:=false
 End Sub
 
-##Rows
-Sub Dividerowstosheets()
+## Rows
+Sub dividerowstosheets()
     Dim wssource as worksheet
     Set wssource = activeSheet ' The sheet with data to split
     Dim lastrow as long
-    lastrow = wssource.cells(wsSource.Rows.Count, "A").End(xlUp).Row ' Assuming column A has the values to check
+    lastrow = wssource.cells(wsSource.Rows.Count, "A").end(xlUp).row ' Assuming column A has the values to check
     Dim cell as range
     
     For each cell in wssource.range("A2:A" & lastRow) ' starting from row 2 to skip headers
@@ -314,12 +314,12 @@ Sub Dividerowstosheets()
     Next cell
 End Sub
 
-##Format/calculation
+## Format/calculation
 Sub formatandsum()
     Dim ws as worksheet
     Set ws = activesheet
     Dim lastrow as long
-    lastrow = ws.cells(ws.Rows.Count, "B").End(xlUp).row ' assuming the numeric column to format and sum is B
+    lastrow = ws.cells(ws.Rows.Count, "B").end(xlUp).row ' assuming the numeric column to format and sum is B
     
     ' Format column B as currency
     ws.range("B1:B" & lastRow).numberformat = "$#,##0.00"
@@ -329,27 +329,27 @@ Sub formatandsum()
     ws.Range("B" & lastRow + 1).Font.Bold = True
 End Sub
 
-  #Breaker
+  # Breaker
 Sub findnthword()
     Dim sentence as string
     Dim wordnumbers as variant
     Dim words as variant
     Dim i as integer
     
-    ' step 1: retrieve the user sentence and store it in a variable
+    ' retrieve the user sentence and store it in a variable
     sentence = range("A1").value ' Assuming the sentence is in cell A1
     
-    ' step 2: Retrieve the user word numbers and store them in an array
-    ' Assuming word numbers start from cell B1 and go downwards
-    ' Adjust the range according to your needs
+    ' retrieve the user word numbers and store them in an array
+    ' assuming word numbers start from cell B1 and go downwards
+    ' adjust the range according to your needs
     wordnumbers = range("B1:B5").value
     
-    ' step 3: split the user sentence into separate words
+    ' split the user sentence into separate words
     words = split(sentence, " ")
     
-    ' step 4: Use the word numbers to retrieve specific words in the sentence
+    ' use the word numbers to retrieve specific words in the sentence
     For i = 1 To ubound(wordnumbers)
-        ' Check if the word number is within the bounds of the words array
+        ' check if the word number is within the bounds of the words array
         If wordnumbers(i, 1) > 0 And wordnumbers(i, 1) <= ubound(words) + 1 then
             ' output the n-th word in column C
             cells(i, 3).value = words(wordnumbers(i, 1) - 1)
@@ -359,8 +359,8 @@ Sub findnthword()
     Next i
 End Sub
 
-  #Conditionals
-##Read/write
+  # Conditionals
+## Read/write
 Sub readandwritedata()
     ' reading a value from A1 and writing to B1
     Dim readvalue as variant
@@ -368,7 +368,7 @@ Sub readandwritedata()
     Thisworkbook.sheets("Sheet1").range("B1").value = readvalue * 2 ' example operation
 End Sub
 
-##Logic
+## Logic
 Sub conditionallogic()
     Dim value as integer
     value = thisworkbook.sheets("Sheet1").range("A1").value
@@ -384,16 +384,16 @@ Function multiplyvalues(value1 As Double, value2 As Double) As double
     multiplyvalues = value1 * value2
 End Function
 
-##Chart
+## Chart
 Sub createchart()
     Dim chart as chart
     Set chart = thisworkbook.sheets("Sheet1").shapes.addchart2(, xlLine).chart
     chart.setsourcedata source:=thisworkbook.sheets("Sheet1").range("A1:B10")
 End Sub
 
-##Filter/sort
+## Filter/sort
 Sub sortdata()
-    With thisworkbook.sheets("Sheet1").Sort
+    With thisworkbook.sheets("Sheet1").sort
         .sortfields.clear
         .sortfields.add key:=range("A1:A10"), sorton:=xlsortonvalues, order:=xlascending
         .setRange range("A1:A10")
@@ -402,7 +402,7 @@ Sub sortdata()
     End with
 End Sub
 
-##Analysis
+## Analysis
 Sub usesolver()
     ' Ensure solver add-in is enabled first
     Solverreset
@@ -412,7 +412,7 @@ Sub usesolver()
     Solversolve userfinish:=true
 End Sub
 
-##Integration
+## Integration
 Sub sendemailviaoutlook()
     Dim outlookapp as object
     Dim outlookmail as object
@@ -428,7 +428,7 @@ Sub sendemailviaoutlook()
     End with
 End Sub
 
-##Error
+## Error
 Sub errorhandlingadvanced()
     On error goto errorhandler
     ' code that might cause an error goes here
@@ -442,12 +442,12 @@ Errorhandler:
     Resume exithere
 End Sub
 
-##Customization
+## Customization
 Function calculatecompoundinterest(principal As double, rate as double, periods As integer) As double
     Calculatecompoundinterest = principal * (1 + rate) ^ periods
-End Function
+End function
 
-  #Story
+  # Story
 Sub adventurechoice()
 
     Dim userchoice As integer
