@@ -1,163 +1,163 @@
-  #Hello World
-Sub HelloWorld()
-    MsgBox "Hello, World!", vbInformation, "Greeting"
+  #Hello world
+Sub helloworld()
+    Msgbox "Hello, World!", vbInformation, "Greeting"
 End Sub
 
   #VBA script
-Sub ShowPopUps()
-    ' First pop-up message
-    MsgBox "This is the first message.", vbInformation, "Message 1"
+Sub showpopups()
+    ' first pop-up message
+    Msgbox "This is the first message.", vbInformation, "Message 1"
     
     ' Second pop-up message
-    MsgBox "Here comes the second message.", vbInformation, "Message 2"
+    Msgbox "Here comes the second message.", vbInformation, "Message 2"
     
     ' Third pop-up message
-    MsgBox "Finally, the third message appears.", vbInformation, "Message 3"
+    Msgbox "Finally, the third message appears.", vbInformation, "Message 3"
 End Sub
 
   #Macros
-##Data Manipulation
-Sub InsertRow()
-    Rows("2:2").Insert Shift:=xlDown, CopyOrigin:=xlFormatFromLeftOrAbove
+##Data manipulation
+Sub insertrow()
+    Rows("2:2").insert shift:=xldown, copyorigin:=xlformatfromleftorabove
 End Sub
 
 ##Navigation
-Sub GoToSheet2()
-    Sheets("Sheet2").Select
-    Range("A1").Select
+Sub gotosheet2()
+    Sheets("Sheet2").select
+    Range("A1").select
 End Sub
 
 ##Format
-Sub FormatRange()
-    Range("A1:A10").Font.Bold = True
+Sub formatrange()
+    Range("A1:A10").font.bold = true
 End Sub
 
 ##Calculation
-Sub CalculateSum()
-    Range("B1").Value = Application.WorksheetFunction.Sum(Range("A1:A10"))
+Sub calculatecum()
+    Range("B1").value = application.worksheetfunction.sum(Range("A1:A10"))
 End Sub
 
 ##Charts and graphics
-Sub CreateBarChart()
-    Dim chartObj As ChartObject
-    Set chartObj = ActiveSheet.ChartObjects.Add(Left:=100, Width:=375, Top:=50, Height:=225)
-    chartObj.Chart.SetSourceData Source:=Range("A1:B10")
-    chartObj.Chart.ChartType = xlBarClustered
+Sub createbarchart()
+    Dim chartobj as chartobject
+    Set chartobj = activesheet.chartobjects.add(Left:=100, Width:=375, Top:=50, Height:=225)
+    chartobj.chart.setsourcedata source:=range("A1:B10")
+    chartobj.chart.charttype = xlbarclustered
 End Sub
 
 ##Validation
-Sub ValidateData()
-    If IsNumeric(Range("A1").Value) Then
-        MsgBox "Cell A1 contains a numeric value."
+Sub validatedata()
+    If isnumeric(Range("A1").Value) Then
+        Msgbox "Cell A1 contains a numeric value."
     Else
-        MsgBox "Cell A1 does not contain a numeric value."
-    End If
+        Msgbox "Cell A1 does not contain a numeric value."
+    End if
 End Sub
 
 ##Email
-Sub SendEmail()
-    Dim outlookApp As Object
-    Dim outlookMail As Object
-    Set outlookApp = CreateObject("Outlook.Application")
-    Set outlookMail = outlookApp.CreateItem(0)
+Sub sendemail()
+    Dim outlookapp as object
+    Dim outlookmail as object
+    Set outlookapp = createobject("Outlook.Application")
+    Set outlookmail = outlookapp.CreateItem(0)
     
     With outlookmail
-        .To = "recipient@example.com"
-        .Subject = "Test Email"
-        .Body = "This is the body of the email."
-        .Send
-    End With
+        .to = "recipient@example.com"
+        .subject = "Test Email"
+        .body = "This is the body of the email."
+        .send
+    End with
 End Sub
 
 ##Operations
-Sub OpenWorkbook()
-    Workbooks.Open "C:\Path\To\Your\File.xlsx"
+Sub openworkbook()
+    Workbooks.open "C:\Path\To\Your\File.xlsx"
 End Sub
 
 ##Import/export
-Sub ExportToCSV()
-    Range("A1:B10").Copy
-    Workbooks.Add
-    ActiveSheet.Paste
-    ActiveWorkbook.SaveAs Filename:="C:\Path\To\Your\File.csv", FileFormat:=xlCSV
-    ActiveWorkbook.Close False
+Sub exporttocsv()
+    Range("A1:B10").copy
+    Workbooks.add
+    Activesheet.paste
+    Activeworkbook.saveas filename:="C:\Path\To\Your\File.csv", fileformat:=xlCSV
+    Activeworkbook.close false
 End Sub
 
 ##Prompts
-Sub GetUserInput()
-    Dim userInput As String
-    userInput = InputBox("Enter your name:", "User Input")
-    MsgBox "Hello, " & userInput & "!"
+Sub getuserinput()
+    Dim userinput as string
+    userinput = inputbox("Enter your name:", "User Input")
+    Msgbox "Hello, " & userInput & "!"
 End Sub
 
   #Subroutines
-Sub Button1_Click()
-    MsgBox "You clicked Button 1!"
+Sub button1_click()
+    Msgbox "You clicked Button 1!"
 End Sub
 
-Sub Button2_click()
-    MsgBox "You clicked Button 2!"
+Sub button2_click()
+    Msgbox "You clicked Button 2!"
 End Sub
 
   #Cells and ranges
 #Selection
-Range("A1").Select ' Selects cell A1
-Range("A1:B2").Select ' Selects a range from A1 to B2
+Range("A1").Select ' selects cell A1
+Range("A1:B2").select ' selects a range from A1 to B2
 
 ##Read/write
 Dim value As variant
-value = Range("A1").Value ' Reads the value from A1
-Range("B1").Value = value ' Writes the value into B1
+value = range("A1").value ' reads the value from A1
+Range("B1").value = value ' writes the value into B1
 
 ##Formatting
-With Range("A1")
-    .Font.Name = "Calibri"
-    .Font.Size = 12
-    .Font.Color = RGB(0, 0, 255) ' Blue color
-    .Interior.Color = RGB(255, 255, 0) ' Yellow background
+With range("A1")
+    .font.name = "Calibri"
+    .font.size = 12
+    .font.color = RGB(0, 0, 255) ' Blue color
+    .interior.color = RGB(255, 255, 0) ' yellow background
 End With
 
 ##Insert/delete
-Cells(3, 2).Insert Shift:=xlToRight ' Inserts a new cell at B3, shifting existing cells to the right
-Rows("4:4").Delete ' Deletes the 4th row
+Cells(3, 2).insert shift:=xltoright ' inserts a new cell at B3, shifting existing cells to the right
+Rows("4:4").delete ' deletes the 4th row
 
 ##Copy/paste
-Range("A1").Copy Destination:=Range("B1") ' Copies the value from A1 to B1
+Range("A1").copy destination:=range("B1") ' copies the value from A1 to B1
 
 ##Apply formula
-Range("C1").Formula = "=A1+B1" ' Adds values in A1 and B1, result in C1
+Range("C1").formula = "=A1+B1" ' adds values in A1 and B1, result in C1
 
 ##Sort/filter
-With Range("A1:B10")
-    .Sort Key1:=Range("A1"), Order1:=xlAscending, Header:=xlYes
+With range("A1:B10")
+    .Sort key1:=range("A1"), order1:=xlascending, header:=xlyes
 End with
 
 ##Conditional
-With Range("A1:A10").FormatConditions.Add(Type:=xlCellValue, Operator:=xlGreater, Formula1:="5")
-    .Font.Color = RGB(255, 0, 0) ' Change font color to red if value > 5
+With range("A1:A10").formatconditions.add(Type:=xlCellValue, Operator:=xlGreater, Formula1:="5")
+    .font.color = RGB(255, 0, 0) ' change font color to red if value > 5
 End With
 
 ##Merge/unmerge
-Range("A1:B1").Merge
+Range("A1:B1").merge
 
 ##Table
-ActiveSheet.ListObjects.Add(xlSrcRange, Range("A1:B10"), , xlYes).Name = "MyTable"
+Activesheet.listobjects.add(xlsrcrange, range("A1:B10"), , xlyes).name = "MyTable"
 
   #Chess
-Sub SetupChessBoard()
+Sub setupchessboard()
 
-    ' Define the chess pieces
-    Dim topRow As Variant, secondRow As String
-    topRow = Array("Rook", "Knight", "Bishop", "Queen", "King", "Bishop", "Knight", "Rook")
+    ' define the chess pieces
+    Dim toprow as variant, secondrow as string
+    toprow = array("Rook", "Knight", "Bishop", "Queen", "King", "Bishop", "Knight", "Rook")
     secondRow = "Pawn"
     
-    ' Using ranges for the first two rows
-    With Sheet1
-        .Range("A1:H1").Value = topRow
-        .Range("A2:H2").Value = secondRow
+    ' using ranges for the first two rows
+    With sheet1
+        .range("A1:H1").value = toprow
+        .range("A2:H2").value = secondrow
     End with
     
-    ' Using cells for the last two rows
+    ' using cells for the last two rows
     Dim i As Integer
     For i = 1 To 8
         With Sheet1
@@ -174,7 +174,7 @@ Sub removeduplicates()
     Dim ws as worksheet
     Set ws = activesheet ' modify as needed
     
-    ws.UsedRange.RemoveDuplicates Columns:=Array(1, 2), Header:=xlYes ' Specify columns
+    ws.usedrange.removeduplicates columns:=array(1, 2), header:=xlyes ' specify columns
 End Sub
 
 #Statistical analysis
@@ -182,7 +182,7 @@ Sub salculatestatistics()
     Dim rng As range
     Set rng = selection ' Or specify a range like worksheets("Sheet1").range("A1:A10")
     
-    MsgBox "mean: " & application.worksheetfunction.average(rng) & vbCrLf & _
+    Msgbox "mean: " & application.worksheetfunction.average(rng) & vbcrlf & _
            "standard deviation: " & application.worksheetF\function.stdev(rng)
 End Sub
 
@@ -232,7 +232,7 @@ End Sub
 
   #Calculate total
 Sub calculatetotal()
-    ' Declare variables
+    ' declare variables
     Dim price as double
     Dim tax as double
     Dim quantity as integer
@@ -248,10 +248,10 @@ Sub calculatetotal()
     Total = (price * quantity) * (1 + tax)
     
     ' Set the total value back in the spreadsheet
-    Range("D1").Value = Total
+    Range("D1").value = total
     
     ' Show a pop-up message with the total value
-    MsgBox "Your total is $" & Format(Total, "0.00")
+    Msgbox "Your total is $" & format(Total, "0.00")
 End Sub 
 
   #Array
@@ -293,24 +293,24 @@ Sub splittext()
 End Sub
 
 ##Rows
-Sub DivideRowsToSheets()
-    Dim wsSource As Worksheet
-    Set wsSource = ActiveSheet ' The sheet with data to split
-    Dim lastRow As Long
-    lastRow = wsSource.Cells(wsSource.Rows.Count, "A").End(xlUp).Row ' Assuming column A has the values to check
-    Dim cell As Range
+Sub Dividerowstosheets()
+    Dim wssource as worksheet
+    Set wssource = activeSheet ' The sheet with data to split
+    Dim lastrow as long
+    lastrow = wssource.cells(wsSource.Rows.Count, "A").End(xlUp).Row ' Assuming column A has the values to check
+    Dim cell as range
     
-    For Each cell In wsSource.Range("A2:A" & lastRow) ' Starting from row 2 to skip headers
-        Dim wsTarget As Worksheet
-        On Error Resume Next ' If sheet doesn't exist, create it
-        Set wsTarget = Worksheets(cell.Value)
-        If wsTarget Is Nothing Then
-            Set wsTarget = Worksheets.Add(After:=Worksheets(Worksheets.Count))
-            wsTarget.Name = cell.Value
-        End If
-        On Error GoTo 0
+    For each cell in wssource.range("A2:A" & lastRow) ' starting from row 2 to skip headers
+        Dim wstarget As worksheet
+        On error resume next ' if sheet doesn't exist, create it
+        Set wstarget = worksheets(cell.value)
+        If wstarget is nothing then
+            Set wstarget = worksheets.add(After:=Worksheets(Worksheets.Count))
+            wstarget.name = cell.value
+        End if
+        On error goto 0
         
-        cell.EntireRow.Copy Destination:=wsTarget.Range("A" & wsTarget.Cells(wsTarget.Rows.Count, "A").End(xlUp).Row + 1)
+        cell.entirerow.copy destination:=wstarget.range("A" & wsTarget.Cells(wsTarget.Rows.Count, "A").End(xlUp).Row + 1)
     Next cell
 End Sub
 
@@ -336,18 +336,18 @@ Sub findnthword()
     Dim words as variant
     Dim i as integer
     
-    ' Step 1: retrieve the user sentence and store it in a variable
+    ' step 1: retrieve the user sentence and store it in a variable
     sentence = range("A1").value ' Assuming the sentence is in cell A1
     
-    ' Step 2: Retrieve the user word numbers and store them in an array
+    ' step 2: Retrieve the user word numbers and store them in an array
     ' Assuming word numbers start from cell B1 and go downwards
     ' Adjust the range according to your needs
     wordnumbers = range("B1:B5").value
     
-    ' Step 3: split the user sentence into separate words
+    ' step 3: split the user sentence into separate words
     words = split(sentence, " ")
     
-    ' Step 4: Use the word numbers to retrieve specific words in the sentence
+    ' step 4: Use the word numbers to retrieve specific words in the sentence
     For i = 1 To ubound(wordnumbers)
         ' Check if the word number is within the bounds of the words array
         If wordnumbers(i, 1) > 0 And wordnumbers(i, 1) <= ubound(words) + 1 then
