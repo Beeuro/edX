@@ -50,7 +50,7 @@ print_simulation = [
 
 print_simulation
 
-	#Hello world
+	# Hello world
 ## Define the variables as per the instructions given
 name = "John Doe"
 country = "Canada"
