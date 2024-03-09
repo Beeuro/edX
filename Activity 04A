@@ -62,7 +62,7 @@ else:
     print("Sorry about this, we don't seem to have what you are looking for!")
 
     # Data frames
-  ##import pandas as pd
+  import pandas as pd
   import nbformat
 
 ## Load the jupyter notebook
@@ -77,7 +77,7 @@ code_cells = [cell['source'] for cell in nb.cells if cell.cell_type == 'code']
 code_cells
 
   # Data framing
-  ## Saving the dataframes to an Excel file with two sheets
+## Saving the dataframes to an Excel file with two sheets
 file_path = "/mnt/data/frame_and_art_gallery_data.XLSX"
 
 with pd.excelwriter(file_path) as writer:
@@ -177,7 +177,7 @@ df['Membership (Weeks)'] = df['Membership (Days)'] / 7
 overview, trainers_names, students_per_trainer, average_weight, combined_weight
 
   # Download
-  # from nbformat.v4 import new_notebook, new_code_cell, new_markdown_cell
+## from nbformat.v4 import new_notebook, new_code_cell, new_markdown_cell
 
 ## Create a new notebook
 nb = new_notebook()
@@ -226,7 +226,7 @@ nb.cells.append(new_code_cell("""# Convert the "Membership (Days)" column into w
 df['Membership (Weeks)'] = df['Membership (Days)'] / 7
 df.head()"""))
 
-# Write the notebook to a new file
+  # Write the notebook to a new file
 output_notebook_path = '/mnt/data/gym_dataset_analysis.ipynb'
 with open(output_notebook_path, 'w') as f:
     nbformat.write(nb, f)
@@ -234,7 +234,7 @@ with open(output_notebook_path, 'w') as f:
 output_notebook_path
 
   # Analyze
-  import nbformat
+import nbformat
 
 ## Load the notebook
 notebook_path = '/mnt/data/column_manipulation.ipynb'
@@ -253,11 +253,11 @@ import io
 exporter = pythonexporter()
 source_code, _ = exporter.from_notebook_node(notebook)
 
-# Execute the converted python script and capture the output
+## Execute the converted python script and capture the output
 executed_output = {}
 exec_namespace = {}
 
-# Execute each cell individually to capture their outputs
+## Execute each cell individually to capture their outputs
 for idx, cell in enumerate(notebook.cells):
     if cell.cell_type == 'code':
         # Execute the code
@@ -289,7 +289,7 @@ with open(notebook_path, 'r', encoding='utf-8') as nb_file:
 nb_content.cells
 
   # Summary
-  import pandas as pd
+import pandas as pd
 
 ## Load the CSV file
 file_path = '/mnt/data/books_clean.CSV'
