@@ -2,9 +2,9 @@
 ## Return to the `LearnPython` folder is implicit
 
 ## Inside `LearnPython`, create another folder called `Assignment2'
-!mkdir -p learnpython/Assignment2
+!mkdir -p learnpython/assignment2
 
-## Inside `Assignment2`, create a file called `quick_python2.py` and add a different print statement.
+## Inside `Assignment2`, create a file called `quick_python2.py` and add a different print statement
 with open('LearnPython/Assignment2/quick_python2.py', 'w') as f:
     f.write('print("Hello from Assignment 2!")\n')
 
@@ -36,7 +36,7 @@ age_next_year = age + 1
 not_delicious = not is_delicious
 
 ## Printing and concatenation
-## Since we cannot print directly in this environment, we'll simulate the print outputs as concatenated strings.
+## Since we cannot print directly in this environment, we'll simulate the print outputs as concatenated strings
 print_simulation = [
     "Frankfurter type: " + str(type_frankfurter),
     "Age type: " + str(type_age),
@@ -64,43 +64,43 @@ daily_wage = hourly_wage * 8
 ## Use traditional string concatenation to print name, country, age, and hourly_wage.
 traditional_concatenation = "Name: " + name + ", Country: " + country + ", Age: " + str(age) + ", Hourly Wage: $" + str(hourly_wage)
 
-## Use an f-string to print daily_wage and satisfied.
+## Use an f-string to print daily_wage and satisfied
 f_string_output = f"Daily Wage: ${daily_wage}, Satisfied: {satisfied}"
 
 ## Simulate the print output by returning the strings
 traditional_concatenation, f_string_output
 
 	#Prompts
-## Implementing the Described Functionality
-## Direct user input cannot be collected in this environment, so we'll simulate it with predefined values.
+## Implementing the described functionality
+## Direct user input cannot be collected in this environment, so we'll simulate it with predefined values
 user_name = "Alice"
-user_age = "30"  # This will be a string initially, as if collected from user input
-user_truthy_input = "yes"  # Simulating a user input for truthy value
+user_age = "30"  # this will be a string initially, as if collected from user input
+user_truthy_input = "yes"  # simulating a user input for truthy value
 
 ## Convert the age from string to integer
 age_int = int(user_age)
 
-## Convert the truthy input to boolean. For simplicity, let's assume "yes" is truthy and anything else is falsy.
+## Convert the truthy input to boolean. For simplicity, let's assume "yes" is truthy and anything else is falsy
 is_truthy = user_truthy_input.lower() in ["yes", "true", "1"]
 
-## Exploring Data Types and Conversions
-# Already demonstrated above with age and truthy input conversion.
+## Exploring data types and conversions
+# Already demonstrated above with age and truthy input conversion
 
-## Input Validation
-## Here we check if the user_age is indeed convertible to an integer without causing an error.
+## Input validation
+## Here we check if the user_age is indeed convertible to an integer without causing an error
 try:
     valid_age = int(user_age)  # Attempt conversion to validate
     age_validation = "Valid integer age."
 except ValueError:
     age_validation = "Invalid age input. Please enter a numeric value."
 
-## For the truthy input, we simply check against known truthy values as validation.
+## For the truthy input, we simply check against known truthy values as validation
 
-## Error Handling
+## Error handling
 ## This would typically involve trying to catch errors during conversion, but since we've preemptively validated inputs,
-## we've already incorporated a basic form of error handling. Further error handling would involve more complex scenarios.
+## we've already incorporated a basic form of error handling. Further error handling would involve more complex scenarios
 
-## Customized Responses based on the input
+## Customized responses based on the input
 response_name = f"Hello, {user_name}!"
 response_age = f"You are {age_int} years old."
 response_truthy = "You consider this input truthy." if is_truthy else "You consider this input falsy."
@@ -116,25 +116,25 @@ simulated_outputs = [
 simulated_outputs
 
 	#Input
-## Since we cannot collect user input directly in this environment, let's simulate it with predefined values.
+## Since we cannot collect user input directly in this environment, let's simulate it with predefined values
 ## Simulating input collection
-user_coding_months = "12"  # Assume the user inputs 12 months
-neighbor_coding_months = "9"  # Assume the neighbor inputs 9 months
+user_coding_months = "12"  # assume the user inputs 12 months
+neighbor_coding_months = "9"  # assume the neighbor inputs 9 months
 
-## Data Validation and Conversion
+## Data validation and conversion
 ## Validate and convert the coding months from strings to integers.
 try:
     user_coding_months_int = int(user_coding_months)
     neighbor_coding_months_int = int(neighbor_coding_months)
     validation_message = "Both inputs are valid integers."
-except ValueError:
+except valueerror:
     validation_message = "One or both inputs are invalid. Please enter numeric values."
-    user_coding_months_int = neighbor_coding_months_int = 0  # Set to 0 to avoid calculation errors in case of invalid input.
+    user_coding_months_int = neighbor_coding_months_int = 0  # set to 0 to avoid calculation errors in case of invalid input
 
 ## Calculation
 total_coding_months = user_coding_months_int + neighbor_coding_months_int
 
-## Result Presentation
+## Result presentation
 result_message = f"Combined, you and your neighbor have {total_coding_months} months of coding experience."
 
 ## Compile all actions into a simulated print output
@@ -146,7 +146,7 @@ simulated_outputs = [
 simulated_outputs
 
 	#Conditionals
-## Let's first read the content of the uploaded file to understand what kind of conditionals or data it contains.
+## Let's first read the content of the uploaded file to understand what kind of conditionals or data it contains
 file_path = '/mnt/data/conditionals.py'
 
 with open(file_path, 'r') as file:
@@ -155,10 +155,10 @@ with open(file_path, 'r') as file:
 ## Display the content to understand what we're dealing with
 conditionals_content
 
-## Executing the conditional statements as described to confirm the predictions.
+## Executing the conditional statements as described to confirm the predictions
 
-## This code block is identical to the previous execution since the file content hasn't changed.
-# The execution is for the purpose of confirming our predictions without alterations.
+## This code block is identical to the previous execution since the file content hasn't changed
+# The execution is for the purpose of confirming our predictions without alterations
 
 ## Define and execute the conditionals again (the code remains unchanged from the previous execution)
 
@@ -179,7 +179,7 @@ else:
 ## x = 2
 y = 5
 if (x ** 3 >= y) and (y ** 2 < 26):
-    result_3 = "GOT QUESTION 3!"
+    result_3 = "Got question 3!"
 else:
     result_3 = "Oh good you can count"
 
@@ -199,7 +199,7 @@ else:
 
 ## height = 66
 age = 16
-adult_permission = True
+adult_permission = true
 
 if (height > 70) and (age >= 18):
     result_5 = "Can ride all the roller coasters"
@@ -227,27 +227,27 @@ with open(file_path, 'r') as file:
 python_script
 
 ## Complete
-# Completing the script to determine the outcome of the game and print the result.
+# Completing the script to determine the outcome of the game and print the result
 
-# The script content as read, with the addition of the missing logic for determining the outcome.
+# The script content as read, with the addition of the missing logic for determining the outcome
 
 complete_script = """
 # Incorporate the random library
 import random
 
-# Print Title
+# Print title
 print("Let's Play Rock Paper Scissors!")
 
 # Specify the three options
 options = ["r", "p", "s"]
 
-# Computer Selection
+# Computer selection
 computer_choice = random.choice(options)
 
-# User Selection
+# User selection
 user_choice = input("Make your Choice: (r)ock, (p)aper, (s)cissors? ")
 
-# Run Conditionals
+# Run conditionals
 if user_choice == computer_choice:
     print("It's a tie!")
 elif (user_choice == "r" and computer_choice == "s") or \\
@@ -267,17 +267,17 @@ completed_script_path
 
 	#Loops
 def simulate_user_interaction():
-    end_of_previous_chain = 0  # Initialize for the bonus part
-    while True:  # This loop will run until the user decides to exit
+    end_of_previous_chain = 0  # initialize for the bonus part
+    while true:  # this loop will run until the user decides to exit
         ## Ask for user input
-        n = int(get_input("How many numbers?"))  # Assuming get_input works like input()
+        n = int(get_input("How many numbers?"))  # assuming get_input works like input()
         for i in range(end_of_previous_chain, end_of_previous_chain + n):
             print(i, end=' ')
-        print()  # For newline
+        print()  # for newline
         
-        end_of_previous_chain += n  # Update for next chain, for bonus part
+        end_of_previous_chain += n  # update for next chain, for bonus part
         
         ## Check if the user wants to continue
         continue_chain = get_input("Would you like to continue? (y/n)")
         if continue_chain.lower() != 'y':
-            break  # Exit the loop if user enters 'n'
+            break  # exit the loop if user enters 'n'
