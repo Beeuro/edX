@@ -1,5 +1,5 @@
   Grading
-#Formulas
+# Formulas
 =round((B2+C2+D2+E2)/4, 0)
 =if(F2>=60, "PASS", "FAIL")
 =if(F2>=90, "A", IF(F2>=80, "B", IF(F2>=70, "C", IF(F2>=60, "D", "F"))))
