@@ -25,7 +25,7 @@ grouped_data_sorted.head()
 
 ## Data visualization complete
 
-  #IMDB
+  # IMDB
 import pandas as pd
 
 ## Load the CSV file
