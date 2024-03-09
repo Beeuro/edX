@@ -1,5 +1,5 @@
-	#Budget
-##Total
+	# Budget
+## Total
 Sub calculatetotal()
     Dim amount as double
     Dim feepercentage as double
@@ -12,7 +12,7 @@ Sub calculatetotal()
     Range("B3").value = total
 End Sub
 
-##Alert
+## Alert
 Sub checkbudget()
     call calculatetotal ' ensure the total is up to date
     
@@ -29,7 +29,7 @@ Sub checkbudget()
     End if
 End Sub
 
-##Adjust
+## Adjust
 Sub adjustforbudget()
     Call calculatetotal ' ensure the total is up to date
     
@@ -52,33 +52,33 @@ Sub adjustforbudget()
     End if
 End Sub
 
-	#Loops
-##Cycle
+	# Loops
+## Cycle
 For counter = start To end [step step]
     ' code to be executed
 Next counter
 
-##Collect
+## Collect
 For each element in collection
     ' code to be executed for each element
 Next element
 
-##True
+## True
 Do while condition
     ' code to be executed as long as condition is true
 Loop
 
-##False
+## False
 Do until condition
     ' code to be executed as long as condition is false
 Loop
 
-##Wend
+## Wend
 While condition
     ' Code to be executed as long as condition is true
 Wend
 
-	#Chicken nuggets
+	# Chicken nuggets
 Sub createdata()
     Dim i As integer
     Dim startrow as integer
@@ -92,7 +92,7 @@ Sub createdata()
     Next i
 End Sub
 
-	#Conditional loop
+	# Conditional loop
 Sub testmyloop()
     Dim expectedresult as variant
     Dim actualresult as variant
@@ -111,8 +111,8 @@ Sub testmyloop()
     End if
 End Sub
 
-	#Automation
-Sub fizbuzz()
+	# Innovation
+Sub fizzbuzz()
     Dim ws as worksheet
     Set ws = thisworkbook.sheets(1) ' assuming you are working in the first sheet
     
@@ -133,7 +133,7 @@ Sub fizbuzz()
     Next i
 End Sub
 
-	#Lottery
+	# Lottery
 import openpyxl
 
 ## Load the workbook and select the active sheet
@@ -168,31 +168,31 @@ for row in sheet.iter_rows(min_row=2, values_only=True):  # assuming the first r
 
 winners
 
-	#Nest
-##Analysis
+	# Nest
+## Analysis
 Range("A2").formula = "=SUM(B2:D2)" ' example of applying a sum formula
 
-##Looping
+## Looping
 Dim ws As worksheet
 Set ws = thisworkbook.sheets("Sheet1")
 For each row in ws.usedrange.rows
   ' Perform actions, e.g., ws.cells(row.row, "E").value = ws.cells(row.row, "B").value + 10
 Next row
 
-##Report
+## Report
 Dim pt as pivottable
 Dim pc as pivotcache
 Set pc = activeworkbook.pivotcaches.create(SourceType:=xlDatabase, SourceData:=Range("A1:D100"))
 Set pt = pc.createpivottable(TableDestination:=Range("F1"), TableName:="SalesSummary")
 ' configure pivot table, e.g., pt.pivotfields("Product").orientation = xlrowfield
 
-##Microsoft integration
+## Microsoft integration
 Dim db As object
 Set db = opendatabase("C:\path\to\database.accdb")
 db.execute "INSERT INTO Table1 (Field1) VALUES ('Value1')"
 db.close
 
-##Outlook
+## Outlook
 Dim outlook As object
 Set outlook = createobject("Outlook.Application")
 Dim mail As object
@@ -202,24 +202,24 @@ mail.subject = "This is the subject"
 mail.body = "This is the body"
 mail.send
 
-##Remove duplicates
+## Remove duplicates
 Sheet1.range("A1:C100").removeduplicates columns:=array(1,2,3), header:=xlyes
 
-##SQL
+## SQL
 Dim conn As object
 Set conn = createobject("ADODB.Connection")
 conn.open "Provider=SQLOLEDB;Data Source=YourServer;Initial Catalog=YourDB;Integrated Security=SSPI;"
 conn.execute "select * from yourtable"
 
-##Optimize VBA
+## Optimize VBA
 Application.screenupdating = false
 Application.calculation = xlcalculationmanual
 ' your code here
 Application.screenupdating = true
 Application.calculation = xlcalculationautomatic
 
-	#Crypto
-##Count
+	# Crypto
+## Count
 Sub countcattoken()
     Dim ws as worksheet
     Set ws = thisworkbook.sheets("Sheet1") ' adjust the sheet name as necessary
@@ -236,7 +236,7 @@ Sub countcattoken()
     Msgbox "Number of 'Cat Token' entries: " & count
 End Sub
 
-##Exchange
+## Exchange
 Sub replacecattokenwithdogecoin()
     Dim ws as worksheet
     Set ws = thisworkbook.sheets("Sheet1") ' adjust the sheet name as necessary
@@ -251,7 +251,7 @@ Sub replacecattokenwithdogecoin()
     Msgbox "All 'Cat Token' entries have been replaced with 'Dogecoin'."
 End Sub
 
-##Distribute
+## Distribute
 Sub replacecattokenwithlimitedcoins()
     Dim ws as worksheet
     Set ws = thisworkbook.sheets("Sheet1") ' adjust the sheet name as necessary
