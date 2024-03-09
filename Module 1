@@ -1,50 +1,50 @@
-	Crowd Funding
+	Crowd funding
 import pandas as pd
 
 # Load the dataset
-file_path = '/mnt/data/CrowdfundingBook.xlsx'
+file_path = '/mnt/data/crowdfundingbook.xlsx'
 df = pd.read_excel(file_path)
 
 # Data analysis operations
-# Data Cleaning
+# Data cleaning
 # Checking for duplicate rows
 duplicates = df.duplicated().sum()
 # Checking for missing values
 missing_values = df.isnull().sum()
 
-# Data Transformation
-# Example: Convert a 'string date' column to 'datetime' type if it exists
+# Data transformation
+# example: convert a 'string date' column to 'datetime' type if it exists
 date_columns = [col for col in df.columns if 'date' in col.lower()]
 for col in date_columns:
     df[col] = pd.to_datetime(df[col], errors='coerce')
 
-# Conditional Formatting
+# Conditional formatting
 # This step would be performed in Excel, as it's about cell formatting.
 
-# Data Aggregation
-# Example: Pivot table for a column 'Category' if it exists
-pivot_table_category = pd.pivot_table(df, index='Category', aggfunc='count') if 'Category' in df.columns else None
+# Data aggregation
+# Example: pivot table for a column 'category' if it exists
+pivot_table_category = pd.pivot_table(df, index='category', aggfunc='count') if 'Category' in df.columns else None
 
-# Calculation of Statistics
-# Example: Calculate average of a numeric column if it exists
+# Calculation of statistics
+# Example: calculate average of a numeric column if it exists
 average_column = df.mean(numeric_only=True)
 
-# Data Visualization
+# Data visualization
 # This will be performed after we know which columns to visualize.
 
-# Correlation and Trend Analysis
+# Correlation and trend analysis
 # Correlation matrix of numeric columns
 correlation_matrix = df.corr()
 
-# Predictive Analysis
+# Predictive analysis
 # This requires a specific target variable and feature selection to create a model, which cannot be done blindly.
 
 # Collect the results in a dictionary
 analysis_results = {
     'duplicates': duplicates,
     'missing_values': missing_values.to_dict(),
-    'transformed_dates': df[date_columns].dtypes.to_dict() if date_columns else None,
-    'pivot_table_category': pivot_table_category.to_dict() if pivot_table_category is not None else None,
+    'transformed_dates': df[date_columns].dtypes.to_dict() if date_columns else none,
+    'pivot_table_category': pivot_table_category.to_dict() if pivot_table_category is not None else none,
     'average_column': average_column.to_dict(),
     'correlation_matrix': correlation_matrix.to_dict()
 }
@@ -53,7 +53,7 @@ analysis_results = {
 
 # Create a function to count the occurrences based on the 'outcome' and the bucket
 def count_outcome(df, outcome, goal_bucket):
-    return df[(df['outcome'] == outcome) & (df['GoalBucket'] == goal_bucket)].shape[0]
+    return df[(df['outcome'] == outcome) & (df['goalbucket'] == goal_bucket)].shape[0]
 
 # Applying the count function for each bucket and outcome
 for bucket in goal_buckets:
@@ -61,7 +61,7 @@ for bucket in goal_buckets:
     report_df.at[bucket, 'Number Failed'] = count_outcome(df, 'failed', bucket)
     report_df.at[bucket, 'Number Canceled'] = count_outcome(df, 'canceled', bucket)
 
-# Calculate the Total Projects per bucket
+# Calculate the total projects per bucket
 report_df['Total Projects'] = report_df[['Number Successful', 'Number Failed', 'Number Canceled']].sum(axis=1)
 
 # Calculate the percentages
@@ -94,7 +94,7 @@ for suggestion in suggestions:
     doc.add_paragraph(suggestion)
 
 # Save the document
-doc_path = '/mnt/data/Crowdfunding_Analysis_Report.docx'
+doc_path = '/mnt/data/crowdfunding_analysis_report.docx'
 doc.save(doc_path)
 
 # Return the path to the saved document
@@ -154,27 +154,27 @@ analysis_results = {
     'more_variability': more_variability
 }
 
-analysis_results, '/mnt/data/CrowdfundingBook_Updated.xlsx'
+analysis_results, '/mnt/data/crowdfundingbook_updated.xlsx'
 
-# Assuming 'df' is the DataFrame loaded from 'CrowdfundingBook.xlsx'
+# Assuming 'df' is the dataframe loaded from 'crowdfundinbook.xlsx'
 # Let's start with column creation as the first step.
 
-# 1. Percent Funded
+# Percent funded
 df['Percent Funded'] = (df['pledged'] / df['goal']) * 100
 
-# 2. Average Donation
+# Average donation
 df['Average Donation'] = df.apply(lambda x: x['pledged'] / x['backers_count'] if x['backers_count'] > 0 else 0, axis=1)
 
 # Assuming 'category & sub-category' column exists and uses ':' as the delimiter
-# 3. & 4. Category and Sub-Category
+# Category and sub-category
 df['Category'], df['Sub-Category'] = zip(*df['category & sub-category'].apply(lambda x: x.split(': ')))
 
-# 5. & 6. Date Created Conversion and Date Ended Conversion
-# Convert Unix timestamps to datetime
+# Date created conversion and date ended conversion
+# Convert unix timestamps to datetime
 df['Date Created Conversion'] = pd.to_datetime(df['launched_at'], unit='s')
 df['Date Ended Conversion'] = pd.to_datetime(df['deadline'], unit='s')
 
-# Display the DataFrame to ensure the columns are correctly created
+# Display the dataframe to ensure the columns are correctly created
 df[['Percent Funded', 'Average Donation', 'Category', 'Sub-Category', 'Date Created Conversion', 'Date Ended Conversion']].head()
 
-Data Visualization Complete
+Data visualization complete
