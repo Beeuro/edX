@@ -1,6 +1,6 @@
-	#Checkup
+	# Checkup
 ## Print hello user!
-print("Hello User!")
+print("Hello user!")
 
 ## Take in user input
 user_name = input("What is your name? ")
@@ -54,7 +54,7 @@ print("You selected:")
 for candy in candy_cart:
     print(candy)
 
-	#Pie order
+	# Pie order
 def pie_order_form():
     # List of pies
     pies = ["Pecan", "Apple Crisp", "Bean", "Banoffee", "Black Bun", "Blueberry", "Buko", "Burek", "Tamale", "Steak"]
@@ -91,7 +91,8 @@ def pie_order_form():
     total_pies = sum(pie_orders)
     print(f"\nYou purchased {total_pies} pie(s) in total.\n")
 
-    ## Bonus: Print the total pie count broken by each pie
+    ## Bonus 
+## Print the total pie count broken by each pie
     if total_pies > 0:
         print("You purchased:")
         for i, pie in enumerate(pies):
@@ -100,7 +101,7 @@ def pie_order_form():
 ## Call the function to start the order form
 pie_order_form()
 
-	#Input
+	# Input
 from collections import counter
 
 ## Splitting the content into lines and words for analysis
@@ -178,7 +179,7 @@ def validate_ssn(ssn):
     return bool(re.match(pattern, ssn))
 
 ## Apply SSN validation to the 'SSN' column
-data['SSN_Valid'] = data['SSN'].apply(validate_ssn)
+data['SSN_Valid'] = data['SSN'].apply(validate_SSN)
 
 ## Securing the data
 ## For demonstration purposes, we'll hash the SSN to "secure" it, though in practice, more comprehensive measures would be needed.
@@ -254,7 +255,7 @@ zipped_data = list(zip(places, populations, per_capita_incomes, poverty_counts, 
 new_CSV_path = '/mnt/data/cleaned_census_data.CSV'
 
 ## Write the extracted data into a new CSV file
-with open(new_csv_path, 'w', encoding='utf8', newline='') as new_file:
+with open(new_CSV_path, 'w', encoding='utf8', newline='') as new_file:
     CSVwriter = CSV.writer(new_file)
     ## Write the header
     CSVwriter.writerow(['County', 'State', 'Population', 'Per Capita Income', 'Poverty Count', 'Poverty Rate (%)'])
