@@ -1,4 +1,4 @@
-Data Wrangled
+Data wrangled
 Ticker symbol
 Volume of stock
 Open price
@@ -14,10 +14,10 @@ Percent change
 Conditional formatting is applied correctly and appropriately to the yearly and percentage change column
 
 Calculation
-Greatest % Increase
-Greatest % Decrease
-Greatest Total Volume
-Looping Across Worksheet
+Greatest % increase
+Greatest % decrease
+Greatest total volume
+Looping across worksheet
 
 VBA scripted
 
