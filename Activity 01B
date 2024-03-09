@@ -1,27 +1,27 @@
-  Grading
-# Formulas
+  #Grading
+## Formulas
 =round((B2+C2+D2+E2)/4, 0)
 =if(F2>=60, "PASS", "FAIL")
 =if(F2>=90, "A", IF(F2>=80, "B", IF(F2>=70, "C", IF(F2>=60, "D", "F"))))
 import pandas as pd
 
-# Load the Excel file to check its content
+## Load the Excel file to check its content
 grade_book_path = '/mnt/data/grade_book.xlsx'
 grade_book = pd.read_excel(grade_book_path)
 
-# Display the first few rows to understand its structure
+## Display the first few rows to understand its structure
 grade_book.head()
 
 Excel file scripted
 
-  Education
+  #Education
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Set the aesthetic style of the plots
+## Set the aesthetic style of the plots
 sns.set_style("whitegrid")
 
-# Analysis by type and activity
+## Analysis by type and activity
 plt.figure(figsize=(12, 6))
 sns.countplot(y='TYPE', data=df, order = df['TYPE'].value_counts().index)
 plt.title('Number of Organizations by Type')
@@ -36,11 +36,11 @@ plt.xlabel('Count')
 plt.ylabel('Activity')
 plt.show()
 
-# Financial health analysis
+## Financial health analysis
 financial_health_metrics = ['ASSET_AMT', 'INCOME_AMT', 'REVENUE_AMT']
 df_financial_summary = df[financial_health_metrics].describe()
 
-# Geographical distribution
+## Geographical distribution
 plt.figure(figsize=(12, 6))
 sns.countplot(x='STATE', data=df, order = df['STATE'].value_counts().index)
 plt.title('Number of Organizations by State')
@@ -53,66 +53,66 @@ df_financial_summary
 
 Data visualization complete
 
-  Top song chart
-# Manually aggregating and sorting the data to avoid previous issues
+  #Top song chart
+## Manually aggregating and sorting the data to avoid previous issues
 
-# Aggregating the data to count the number of songs per artist and sum of final_score
+## Aggregating the data to count the number of songs per artist and sum of final_score
 artist_songs_count = songs_df.groupby('artist')['name'].count().reset_index(name='song_count')
 artist_final_score_sum = songs_df.groupby('artist')['final_score'].sum().reset_index(name='final_score_sum')
 
-# Merging the aggregated data
+## Merging the aggregated data
 artist_aggregated = pd.merge(artist_songs_count, artist_final_score_sum, on='artist')
 
-# Sorting by final_score_sum in descending order to identify top artists based on final_score
+## Sorting by final_score_sum in descending order to identify top artists based on final_score
 artist_aggregated_sorted = artist_aggregated.sort_values(by='final_score_sum', ascending=False)
 
-# Displaying the top 10 artists as per the final_score sum
+## Displaying the top 10 artists as per the final_score sum
 artist_aggregated_sorted.head(10)
 
 Top 10 artists scripted
 
-  Product list
-# Load the sheets into dataframe
+  #Product list
+## Load the sheets into dataframe
 product_list_df = excel_data.parse('Product List')
 orders_df = excel_data.parse('Orders')
 
-# Display the first few rows of each DataFrame for an overview
+## Display the first few rows of each DataFrame for an overview
 product_list_df.head(), orders_df.head()
 
-# Renaming columns for clarity and alignment
+## Renaming columns for clarity and alignment
 product_list_df.rename(columns={'ID': 'Product ID', 'Price Per Unit': 'Product Price', 'Priority': 'Shipping Priority', 'Price': 'Shipping Price'}, inplace=True)
 
-# Prepare the lookup tables for product and shipping prices
+## Prepare the lookup tables for product and shipping prices
 product_prices = product_list_df[['Product ID', 'Product Price']]
 shipping_prices = product_list_df[['Shipping Priority', 'Shipping Price']].dropna()
 
-# Merge to add product price
+## Merge to add product price
 orders_with_prices = pd.merge(orders_df, product_prices, on='Product ID', how='left')
 
-# Since 'shipping priority' in orders_df and shipping_prices have the same name, we'll merge on this column
+## Since 'shipping priority' in orders_df and shipping_prices have the same name, we'll merge on this column
 orders_with_prices = pd.merge(orders_with_prices, shipping_prices, on='Shipping Priority', how='left', suffixes=('', '_y'))
 
-# Drop any unnecessary columns that might have been added from the merge
+## Drop any unnecessary columns that might have been added from the merge
 orders_with_prices.drop(columns=[col for col in orders_with_prices if col.endswith('_y')], inplace=True)
 
-# Display the updated orders dataframe to verify the merges before creating the pivot table
+## Display the updated orders dataframe to verify the merges before creating the pivot table
 orders_with_prices.head()
 
-# Correcting the merge for shipping prices by explicitly using the 'shipping prices' lookup table
-# First, we need to correct how we access the 'Shipping Price' for the merge. It appears the issue might be due to matching the wrong columns or incorrect data.
+## Correcting the merge for shipping prices by explicitly using the 'shipping prices' lookup table
+## First, we need to correct how we access the 'Shipping Price' for the merge. It appears the issue might be due to matching the wrong columns or incorrect data.
 
-# We should ensure the shipping prices from the 'Product List' sheet are properly aligned with those in the 'Orders' sheet.
-# It seems there was confusion in the initial merge; the 'shipping price' should directly come from a correctly filtered 'Product List' or a separate lookup table derived from it.
+## We should ensure the shipping prices from the 'Product List' sheet are properly aligned with those in the 'Orders' sheet.
+## It seems there was confusion in the initial merge; the 'shipping price' should directly come from a correctly filtered 'Product List' or a separate lookup table derived from it.
 
-# Filter the product list to only include unique shipping priority and price pairs
+## Filter the product list to only include unique shipping priority and price pairs
 unique_shipping_prices = product_list_df[['Shipping Priority', 'Shipping Price']].drop_duplicates().dropna()
 
-# Merge the orders with the unique shipping prices to add the correct shipping prices
+## Merge the orders with the unique shipping prices to add the correct shipping prices
 orders_with_correct_prices = pd.merge(orders_with_prices.drop(columns='Shipping Price'), unique_shipping_prices, on='Shipping Priority', how='left')
 
 orders_with_correct_prices.head()
 
-# Creating the pivot table
+## Creating the pivot table
 pivot_table = pd.pivot_table(orders_with_correct_prices,
                              values=['Product Price', 'Shipping Price'],
                              index=['Order Number', 'Product ID'],
@@ -120,24 +120,24 @@ pivot_table = pd.pivot_table(orders_with_correct_prices,
 
 pivot_table.head()
 
-	Data visualization
+	#Data visualization
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Setting the aesthetics for the plot
+## Setting the aesthetics for the plot
 sns.set_style("whitegrid")
 
-# Creating a figure and a set of subplots
+## Creating a figure and a set of subplots
 fig, ax = plt.subplots(figsize=(12, 6))
 
-# plotting both product price and shipping price
+## plotting both product price and shipping price
 pivot_table['Total Price'] = pivot_table['Product Price'] + pivot_table['Shipping Price']
 pivot_table_sorted = pivot_table.sort_values(by='Total Price', ascending=False)
 
-# Using a bar plot to visualize the data
+## Using a bar plot to visualize the data
 sns.barplot(data=pivot_table_sorted, x='Product ID', y='Total Price', hue='Order Number', dodge=False, palette='viridis', ax=ax)
 
-# Adding plot title and labels
+## Adding plot title and labels
 ax.set_title('Total Price by Product ID and Order Number', fontsize=16)
 ax.set_xlabel('Product ID', fontsize=14)
 ax.set_ylabel('Total Price ($)', fontsize=14)
