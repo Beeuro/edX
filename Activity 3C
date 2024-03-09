@@ -1,4 +1,4 @@
-	#Cereal
+	# Cereal
 ## No header
 import CSV
 
@@ -24,7 +24,7 @@ with open(cereal_bonus_CSV_path, mode='r') as file:
 
 high_fiber_cereals_bonus
 
-	#Book
+	# Book
 ## First, let's create the dictionary as instructed
 ## Then, we will access and print the required information
 
@@ -40,7 +40,7 @@ print(f"Name: {hobby_info['name']}")
 print(f"Number of hobbies: {len(hobby_info['hobbies'])}")
 print(f"Typical wake-up time on Monday: {hobby_info['wake_up_times']['Monday']}")
 
-	#Comprehensions
+	# Comprehension
 ## First, let's read the content of the uploaded file to understand its structure and the data it contains
 with open("/mnt/data/comprehensions.py", "r") as file:
     contents = file.read()
@@ -58,7 +58,7 @@ titlecased_names = [name.title() for name in lowercased_names]
 ## Printing the results to verify
 lowercased_names, titlecased_names
 
-	#Functions
+	# Functions
 ## Define the function `average` to compute the arithmetic mean of a list of numbers
 def average(numbers):
     if numbers:  # check if the list is not empty
@@ -98,7 +98,7 @@ with open("/mnt/data/graduation_functions.py", "r") as file:
 graduation_functions_code
 
 ## Function
-##Let's read the first few lines of the CSV file to understand its structure and data format
+## Let's read the first few lines of the CSV file to understand its structure and data format
 
 import pandas as pd
 
