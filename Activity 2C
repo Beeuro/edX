@@ -1,4 +1,4 @@
-	#Star counter
+	# Star counter
 Sub starcounter()
     Dim ws as worksheet
     Set ws = activesheet
@@ -24,9 +24,8 @@ Sub starcounter()
 
 End Sub
 
-	#VBA macro
-
-##Grading
+	# VBA macro
+## Grading
 Sub calculategrades()
     Dim ws as worksheet
     Set ws = thisworkbook.sheets("Sheet1") ' adjust the sheet name as necessary
@@ -67,7 +66,7 @@ Sub calculategrades()
     Next gradecell
 End Sub
 
-##Bonus
+## Bonus
 Sub resetgrades()
     Dim ws as worksheet
     Set ws = thisworkbook.sheets("Sheet1") ' adjust the sheet name as necessary
@@ -84,7 +83,7 @@ Sub resetgrades()
     Next gradecell
 End Sub
 
-	#Checkerboard
+	# Checkerboard
 Sub createcheckerboard()
     Dim i as integer, j As Integer
     Dim startrow as integer, startcolumn as integer
@@ -113,7 +112,7 @@ Sub createcheckerboard()
     Next i
 End Sub
 
-	#Credit/debit
+	# Credit/debit
 Sub processcreditcardpurchases()
     Dim ws as worksheet
     Set ws = thisworkbook.sheets("Sheet1") ' adjust the sheet name accordingly
@@ -154,10 +153,10 @@ Sub processcreditcardpurchases()
             Summaryrow = summaryrow + 1
         End with
     Next key
-End⬤
+End Sub 
 
-	#Census
-##Location
+	# Census
+## Location
 Sub formatcensusdatasheets()
     Dim ws as worksheet
     Dim lastrow as long
@@ -168,18 +167,18 @@ Sub formatcensusdatasheets()
     Dim percapitaincomecolumn as integer
 
     For each ws in thisworkbook.sheets
-        ' 1. extract the year from the sheet name
+        ' extract the year from the sheet name
         sheetyear = mid(ws.name, instr(ws.name, "_") + 1, 4)
         
         ' assuming the first row is headers and data starts from the second row
         lastrow = ws.cells(ws.rows.count, "A").end(xlUp).row
         
-        ' 2. add the year to the first column of each sheet
+        ' add the year to the first column of each sheet
         For i = 2 To lastrow
             ws.cells(i, 1).value = sheetyear & " " & ws.cells(i, 1).value
         Next i
         
-        ' 3. split the "Place" column into "County" and "State"
+        ' split the "Place" column into "County" and "State"
         ' assuming "Place" is in column b (modify if needed)
         placecolumn = 2 ' column b
         ws.columns(placecolumn + 1).insert shift:=xltoright, copyorigin:=xlformatfromleftorabove
@@ -196,7 +195,7 @@ Sub formatcensusdatasheets()
         ' Remove original "Place" column
         ws.columns(placecolumn).delete
         
-        ' 4. convert the household and per capita income columns to currency
+        ' convert the household and per capita income columns to currency
         ' assuming these are now at specific columns, adjust as necessary
         householdincomecolumn = 4 ' example column d
         percapitaincomecolumn = 5 ' example column e
@@ -207,10 +206,10 @@ Sub formatcensusdatasheets()
         Next i
     Next ws
     
-    Msgbox "Formatting Complete!", vbinformation
+    Msgbox "Formatting complete!", vbinformation
 End Sub
 
-##Data
+## Data
 Sub combineworksheets()
     Dim ws as worksheet
     Dim combinedsheet as worksheet
