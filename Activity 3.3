@@ -1,1 +1,178 @@
+	#Cereal
+## No header
+import csv
 
+## Define the path for the first CSV file
+cereal_csv_path = '/mnt/data/cereal.csv'
+
+## Open and read the cereal CSV file, skip the header, and filter cereals with 5 or more grams of fiber
+with open(cereal_csv_path, mode='r') as file:
+    csv_reader = csv.reader(file)
+    next(csv_reader, None)  # Skip the header row
+    high_fiber_cereals = [row for row in csv_reader if float(row[7]) >= 5]
+
+high_fiber_cereals
+
+## Header
+## Define the path for the bonus CSV file
+cereal_bonus_csv_path = '/mnt/data/cereal_bonus.csv'
+
+## Open and read the cereal_bonus CSV file (no header), and filter cereals with 5 or more grams of fiber
+with open(cereal_bonus_csv_path, mode='r') as file:
+    csv_reader = csv.reader(file)
+    high_fiber_cereals_bonus = [row for row in csv_reader if float(row[7]) >= 5]
+
+high_fiber_cereals_bonus
+
+	#Book
+## First, let's create the dictionary as instructed.
+## Then, we will access and print the required information.
+
+hobby_info = {
+    "name": "Alex",
+    "age": 30,
+    "hobbies": ["reading", "gaming", "hiking"],
+    "wake_up_times": {"Monday": "7:00 AM", "Wednesday": "7:30 AM", "Friday": "6:45 AM"}
+}
+
+## Printing the required information
+print(f"Name: {hobby_info['name']}")
+print(f"Number of hobbies: {len(hobby_info['hobbies'])}")
+print(f"Typical wake-up time on Monday: {hobby_info['wake_up_times']['Monday']}")
+
+	#Comprehensions
+## First, let's read the content of the uploaded file to understand its structure and the data it contains.
+with open("/mnt/data/comprehensions.py", "r") as file:
+    contents = file.read()
+
+contents
+
+## Simulating user-provided names as we cannot use input() in this environment.
+# Let's assume the names provided were as follows:
+user_provided_names = ["Alice", "bOB", "CathErine", "dANiel", "elizabeth"]
+
+## Implementing the list comprehensions for lowercasing and title casing
+lowercased_names = [name.lower() for name in user_provided_names]
+titlecased_names = [name.title() for name in lowercased_names]
+
+## Printing the results to verify
+lowercased_names, titlecased_names
+
+	#Functions
+## Define the function `average` to compute the arithmetic mean of a list of numbers
+def average(numbers):
+    if numbers:  # Check if the list is not empty
+        return sum(numbers) / len(numbers)
+    else:
+        return 0  # Return 0 or an appropriate value for an empty list
+
+## Test the function with different values
+test_cases = [
+    [10, 20, 30, 40, 50],  # Simple case
+    [1.5, 2.5, 3.5],       # Floating point numbers
+    [-10, 0, 10, 20],      # Including negative numbers
+    []                     # Empty list
+]
+
+## Execute the function for each test case and print the results
+results = [average(case) for case in test_cases]
+results
+test_cases = [
+    [10, 20, 30, 40, 50],  # Simple case
+    [1.5, 2.5, 3.5],       # Floating point numbers
+    [-10, 0, 10, 20],      # Including negative numbers
+    []                     # Empty list
+]
+
+## Execute the function for each test case and print the results
+results = [average(case) for case in test_cases]
+results
+
+	#Graduation
+## Inspect CSV
+## Let's first read the contents of the provided Python file to understand the starter code provided.
+
+with open("/mnt/data/graduation_functions.py", "r") as file:
+    graduation_functions_code = file.read()
+
+graduation_functions_code
+
+## Function
+# Let's read the first few lines of the CSV file to understand its structure and data format.
+
+import pandas as pd
+
+## Load a small portion of the CSV to get the structure and the first few rows of data
+graduation_data_preview = pd.read_csv("/mnt/data/graduation_data.csv", nrows=5)
+graduation_data_preview.head()
+
+## Integration
+def print_percentages(state_data):
+    ## Extract data from the state_data parameter
+    state_name = state_data['State or jurisdiction']
+    public_cohort = state_data['Adjusted cohort (Public)']
+    public_completers = state_data['Completers (Public)']
+    nonprofit_cohort = state_data['Adjusted cohort (Nonprofit Private)']
+    nonprofit_completers = state_data['Completers (Nonprofit Private)']
+    forprofit_cohort = state_data['Adjusted cohort (For-profit Private)']
+    forprofit_completers = state_data['Completers (For-profit Private)']
+    
+    ## Calculate graduation rates for each category, ensuring not to divide by zero
+    public_rate = (public_completers / public_cohort * 100) if public_cohort > 0 else 0
+    nonprofit_rate = (nonprofit_completers / nonprofit_cohort * 100) if nonprofit_cohort > 0 else 0
+    forprofit_rate = (forprofit_completers / forprofit_cohort * 100) if forprofit_cohort > 0 else 0
+    
+    ## Calculate the overall graduation rate
+    total_cohort = public_cohort + nonprofit_cohort + forprofit_cohort
+    total_completers = public_completers + nonprofit_completers + forprofit_completers
+    overall_rate = (total_completers / total_cohort * 100) if total_cohort > 0 else 0
+    
+    ## Print out the graduation rates
+    print(f"State: {state_name}")
+    print(f"Public school graduation rate: {public_rate:.2f}%")
+    if nonprofit_cohort > 0: # Check if data for non-profit schools exists
+        print(f"Non-profit private school graduation rate: {nonprofit_rate:.2f}%")
+    if forprofit_cohort > 0: # Check if data for for-profit schools exists
+        print(f"For-profit private school graduation rate: {forprofit_rate:.2f}%")
+    print(f"Overall graduation rate: {overall_rate:.2f}%")
+    
+    ## Print overall state assessment
+    if overall_rate > 50:
+        print("Graduation success")
+    else:
+        print("State needs improvement")
+
+## Test the function with data for a specific state, for example, California
+state_data_california = {
+    'State or jurisdiction': 'California',
+    'Adjusted cohort (Public)': 82721,
+    'Completers (Public)': 53459,
+    'Adjusted cohort (Nonprofit Private)': 24037,
+    'Completers (Nonprofit Private)': 17350,
+    'Adjusted cohort (For-profit Private)': 12477,
+    'Completers (For-profit Private)': 5736
+}
+
+print_percentages(state_data_california)
+
+	#Repository
+## Clone
+git clone your_repository_url
+cd your_repository_name
+
+## File
+mkdir new_folder
+touch new_folder/new_file.txt
+
+## Edit
+git add .
+git commit -m "Added new lines, created a new folder, and added a new file"
+git push
+
+## Delete
+rm -rf new_folder
+
+## Addition
+git add -A
+git commit -m "Deleted the new folder"
+git push
