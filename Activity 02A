@@ -379,7 +379,7 @@ Sub conditionallogic()
     End if
 End Sub
 
-##Automation
+## Innovation
 Function multiplyvalues(value1 As Double, value2 As Double) As double
     multiplyvalues = value1 * value2
 End Function
