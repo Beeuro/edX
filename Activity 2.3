@@ -1,256 +1,256 @@
-	#Star Counter
-Sub StarCounter()
-    Dim ws As Worksheet
-    Set ws = ActiveSheet
+	#Star counter
+Sub starcounter()
+    Dim ws as worksheet
+    Set ws = activesheet
 
-    Dim lastRow As Long
-    lastRow = ws.Cells(ws.Rows.Count, "D").End(xlUp).Row
+    Dim lastrow as long
+    lastRow = ws.cells(ws.Rows.Count, "D").end(xlUp).row
 
-    Dim starCounter As Integer
-    Dim i As Long, j As Long
+    Dim starcounter as integer
+    Dim i as long, j as long
 
-    For i = 2 To lastRow
-        starCounter = 0
-        For j = 4 To 8 ' Assuming stars are in columns D to H
-            If ws.Cells(i, j).Value = "Full-Star" Then
-                starCounter = starCounter + 1
-            End If
+    For i = 2 To lastrow
+        starcounter = 0
+        For j = 4 To 8 ' assuming stars are in columns D to H
+            If ws.cells(i, j).value = "Full-Star" then
+                starcounter = starcounter + 1
+            End if
         Next j
-        ws.Cells(i, "I").Value = starCounter ' Assuming the Total column is I
+        ws.cells(i, "I").value = starcounter ' assuming the total column is i
     Next i
 
-    ' Create charts here
-    ' Note: Detailed instructions for chart creation are not included in this script due to the complexity of executing such tasks through VBA without specific details about the worksheet structure and data layout.
+    ' create charts here
+    ' note: detailed instructions for chart creation are not included in this script due to the complexity of executing such tasks through VBA without specific details about the worksheet structure and data layout.
 
 End Sub
 
-	#VBA Macro
+	#VBA macro
 
 ##Grading
-Sub CalculateGrades()
-    Dim ws As Worksheet
-    Set ws = ThisWorkbook.Sheets("Sheet1") ' Adjust the sheet name as necessary
+Sub calculategrades()
+    Dim ws as worksheet
+    Set ws = thisworkbook.sheets("Sheet1") ' adjust the sheet name as necessary
 
-    Dim gradeRange As Range
-    Set gradeRange = ws.Range("A2:A20") ' Adjust the range according to where the grades are
+    Dim graderange As range
+    Set graderange = ws.range("A2:A20") ' adjust the range according to where the grades are
 
-    Dim gradeCell As Range
-    For Each gradeCell In gradeRange
-        Dim score As Integer
-        score = gradeCell.Value
+    Dim gradecell as range
+    For each gradecell in graderange
+        Dim score as integer
+        score = gradecell.value
 
-        Dim letterGrade As String
-        Dim cellColor As Long
-        Dim statusText As String
+        Dim lettergrade as string
+        Dim cellcolor as long
+        Dim statustext as string
 
-        If score >= 90 Then
-            letterGrade = "A"
-            cellColor = RGB(0, 255, 0) ' Green
-            statusText = "Pass"
-        ElseIf score >= 80 Then
-            letterGrade = "B"
-            cellColor = RGB(0, 255, 0) ' Green
-            statusText = "Pass"
-        ElseIf score >= 70 Then
-            letterGrade = "C"
-            cellColor = RGB(255, 255, 0) ' Yellow
-            statusText = "Warning"
+        If score >= 90 then
+            lettergrade = "A"
+            cellcolor = RGB(0, 255, 0) ' green
+            statustext = "Pass"
+        Elseif score >= 80 then
+            lettergrade = "B"
+            cellcolor = RGB(0, 255, 0) ' green
+            statustext = "Pass"
+        Elseif score >= 70 then
+            lettergrade = "C"
+            cellcolor = RGB(255, 255, 0) ' yellow
+            statustext = "Warning"
         Else
-            letterGrade = "F"
-            cellColor = RGB(255, 0, 0) ' Red
-            statusText = "Fail"
-        End If
+            lettergrade = "F"
+            cellcolor = RGB(255, 0, 0) ' red
+            statustext = "Fail"
+        End if
 
-        gradeCell.Offset(0, 1).Value = letterGrade
-        gradeCell.Offset(0, 2).Value = statusText
-        gradeCell.Offset(0, 2).Interior.Color = cellColor
-    Next gradeCell
+        gradecell.offset(0, 1).value = lettergrade
+        gradecell.offset(0, 2).value = statustext
+        gradecell.offset(0, 2).interior.color = cellcolor
+    Next gradecell
 End Sub
 
 ##Bonus
-Sub ResetGrades()
-    Dim ws As Worksheet
-    Set ws = ThisWorkbook.Sheets("Sheet1") ' Adjust the sheet name as necessary
+Sub resetgrades()
+    Dim ws as worksheet
+    Set ws = thisworkbook.sheets("Sheet1") ' adjust the sheet name as necessary
 
-    Dim gradeRange As Range
-    Set gradeRange = ws.Range("A2:A20") ' Adjust the range according to where the grades are
+    Dim graderange As range
+    Set graderange = ws.range("A2:A20") ' adjust the range according to where the grades are
 
-    Dim gradeCell As Range
-    For Each gradeCell In gradeRange
-        gradeCell.Offset(0, 3).Value = gradeCell.Offset(0, 1).Value ' Copy current grade to "Last Grade" column, adjust the offset as necessary
-        gradeCell.Offset(0, 1).Value = ""
-        gradeCell.Offset(0, 2).Value = ""
-        gradeCell.Offset(0, 2).Interior.Color = RGB(255, 255, 255) ' White
-    Next gradeCell
+    Dim gradecell As range
+    For each gradecell in graderange
+        gradecell.offset(0, 3).value = gradecell.offset(0, 1).value ' copy current grade to "Last Grade" column, adjust the offset as necessary
+        gradecell.offset(0, 1).value = ""
+        gradecell.offset(0, 2).value = ""
+        gradecell.offset(0, 2).interior.color = RGB(255, 255, 255) ' white
+    Next gradecell
 End Sub
 
 	#Checkerboard
-Sub CreateCheckerboard()
-    Dim i As Integer, j As Integer
-    Dim startRow As Integer, startColumn As Integer
-    Dim cellColor As Long
+Sub createcheckerboard()
+    Dim i as integer, j As Integer
+    Dim startrow as integer, startcolumn as integer
+    Dim cellcolor as long
     
-    ' Initialize the starting position of the checkerboard
-    startRow = 1
-    startColumn = 1
+    ' initialize the starting position of the checkerboard
+    startrow = 1
+    startcolumn = 1
     
-    ' Loop through each row and column of the 8x8 grid
+    ' loop through each row and column of the 8x8 grid
     For i = startRow To startRow + 7
-        For j = startColumn To startColumn + 7
+        For j = startcolumn to startcolumn + 7
             ' Determine the color of the cell based on its position
-            ' Red (255) if the sum of row and column indexes is even, Black (0) if odd
-            If (i + j) Mod 2 = 0 Then
-                cellColor = RGB(255, 0, 0) ' Red
+            ' Red (255) if the sum of row and column indexes is even, black (0) if odd
+            If (i + j) mod 2 = 0 then
+                cellcolor = RGB(255, 0, 0) ' red
             Else
-                cellColor = RGB(0, 0, 0) ' Black
-            End If
+                cellcolor = RGB(0, 0, 0) ' black
+            End if
             
-            ' Apply the color to the cell
-            With Cells(i, j).Interior
-                .Color = cellColor
-            End With
+            ' apply the color to the cell
+            With cells(i, j).interior
+                .color = cellcolor
+            End with
         Next j
     Next i
 End Sub
 
-	#Credit/Debit
-Sub ProcessCreditCardPurchases()
-    Dim ws As Worksheet
-    Set ws = ThisWorkbook.Sheets("Sheet1") ' Adjust the sheet name accordingly
+	#Credit/debit
+Sub processcreditcardpurchases()
+    Dim ws as worksheet
+    Set ws = thisworkbook.sheets("Sheet1") ' adjust the sheet name accordingly
     
-    Dim LastRow As Long
-    LastRow = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row ' Assuming column A has credit card brands
+    Dim lastrow as long
+    Lastrow = ws.cells(ws.Rows.Count, "A").end(xlUp).row ' assuming column A has credit card brands
     
-    Dim BrandDict As Object
-    Set BrandDict = CreateObject("Scripting.Dictionary")
+    Dim branddict as object
+    Set branddict = createobject("Scripting.Dictionary")
     
-    Dim i As Long
-    For i = 2 To LastRow ' Assuming row 1 has headers
-        Dim Brand As String
-        Brand = ws.Cells(i, 1).Value ' Brand name in column A
+    Dim i as long
+    For i = 2 to lastrow ' assuming row 1 has headers
+        Dim brand as string
+        Brand = ws.cells(i, 1).value ' brand name in column A
         
-        Dim Amount As Double
-        Amount = ws.Cells(i, 2).Value ' Transaction amount in column B
+        Dim amount as double
+        Amount = ws.cells(i, 2).value ' transaction amount in column B
         
-        If Not BrandDict.exists(Brand) Then
-            BrandDict.Add Brand, Amount
+        If not branddict.exists(Brand) then
+            Branddict.add brand, amount
         Else
-            BrandDict(Brand) = BrandDict(Brand) + Amount
-        End If
+            Branddict(brand) = branddict(brand) + amount
+        End if
     Next i
     
-    ' Loop through the dictionary to create pop-up messages and summarize in a table
-    Dim Key As Variant
-    Dim SummaryRow As Long
-    SummaryRow = 2 ' Assuming your summary table starts in row 2 of another sheet
+    ' loop through the dictionary to create pop-up messages and summarize in a table
+    Dim key as variant
+    Dim summaryrow as long
+    Summaryrow = 2 ' assuming your summary table starts in row 2 of another sheet
     
-    For Each Key In BrandDict.keys
-        MsgBox "Total for " & Key & ": " & Format(BrandDict(Key), "Currency"), vbInformation, "Credit Card Summary"
+    For each key in branddict.keys
+        Msgbox "Total for " & Key & ": " & Format(BrandDict(Key), "Currency"), vbinformation, "Credit Card Summary"
         
-        ' Bonus: Update summary table in another sheet (adjust sheet and column references as needed)
-        With ThisWorkbook.Sheets("Summary") ' Change "Summary" to your summary sheet's name
-            .Cells(SummaryRow, 1).Value = Key ' Brand name in column A
-            .Cells(SummaryRow, 2).Value = BrandDict(Key) ' Total amount in column B
-            SummaryRow = SummaryRow + 1
-        End With
-    Next Key
+        ' Bonus: update summary table in another sheet (adjust sheet and column references as needed)
+        With thisworkbook.sheets("Summary") ' change "Summary" to your summary sheet's name
+            .Cells(summaryrow, 1).value = key ' brand name in column a
+            .Cells(SummaryRow, 2).Value = BrandDict(Key) ' Total amount in column b
+            Summaryrow = summaryrow + 1
+        End with
+    Next key
 End⬤
 
 	#Census
 ##Location
-Sub FormatCensusDataSheets()
-    Dim ws As Worksheet
-    Dim lastRow As Long
-    Dim i As Long
-    Dim sheetYear As String
-    Dim placeColumn As Integer
-    Dim householdIncomeColumn As Integer
-    Dim perCapitaIncomeColumn As Integer
+Sub formatcensusdatasheets()
+    Dim ws as worksheet
+    Dim lastrow as long
+    Dim i as long
+    Dim sheetyear as string
+    Dim placecolumn as integer
+    Dim householdincomecolumn as integer
+    Dim percapitaincomecolumn as integer
 
-    For Each ws In ThisWorkbook.Sheets
-        ' 1. Extract the year from the sheet name
-        sheetYear = Mid(ws.Name, InStr(ws.Name, "_") + 1, 4)
+    For each ws in thisworkbook.sheets
+        ' 1. extract the year from the sheet name
+        sheetyear = mid(ws.name, instr(ws.name, "_") + 1, 4)
         
-        ' Assuming the first row is headers and data starts from the second row
-        lastRow = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row
+        ' assuming the first row is headers and data starts from the second row
+        lastrow = ws.cells(ws.rows.count, "A").end(xlUp).row
         
-        ' 2. Add the year to the first column of each sheet
-        For i = 2 To lastRow
-            ws.Cells(i, 1).Value = sheetYear & " " & ws.Cells(i, 1).Value
+        ' 2. add the year to the first column of each sheet
+        For i = 2 To lastrow
+            ws.cells(i, 1).value = sheetyear & " " & ws.cells(i, 1).value
         Next i
         
-        ' 3. Split the "Place" column into "County" and "State"
-        ' Assuming "Place" is in column B (modify if needed)
-        placeColumn = 2 ' Column B
-        ws.Columns(placeColumn + 1).Insert Shift:=xlToRight, CopyOrigin:=xlFormatFromLeftOrAbove
-        ws.Columns(placeColumn + 1).Insert Shift:=xlToRight, CopyOrigin:=xlFormatFromLeftOrAbove
+        ' 3. split the "Place" column into "County" and "State"
+        ' assuming "Place" is in column b (modify if needed)
+        placecolumn = 2 ' column b
+        ws.columns(placecolumn + 1).insert shift:=xltoright, copyorigin:=xlformatfromleftorabove
+        ws.columns(placecolumn + 1).insert shift:=xltoright, copyorigin:=xlformatfromleftorabove
         
-        ws.Cells(1, placeColumn + 1).Value = "County"
-        ws.Cells(1, placeColumn + 2).Value = "State"
+        ws.cells(1, placecolumn + 1).value = "County"
+        ws.cells(1, placecolumn + 2).value = "State"
         
-        For i = 2 To lastRow
-            ws.Cells(i, placeColumn + 1).Value = Split(ws.Cells(i, placeColumn).Value, ", ")(0) ' County
-            ws.Cells(i, placeColumn + 2).Value = Split(ws.Cells(i, placeColumn).Value, ", ")(1) ' State
+        For i = 2 to lastrow
+            ws.cells(i, placecolumn + 1).value = split(ws.Cells(i, placeColumn).value, ", ")(0) ' county
+            ws.Cells(i, placeColumn + 2).Value = Split(ws.Cells(i, placeColumn).value, ", ")(1) ' state
         Next i
         
         ' Remove original "Place" column
-        ws.Columns(placeColumn).Delete
+        ws.columns(placecolumn).delete
         
-        ' 4. Convert the household and per capita income columns to currency
-        ' Assuming these are now at specific columns, adjust as necessary
-        householdIncomeColumn = 4 ' Example column D
-        perCapitaIncomeColumn = 5 ' Example column E
+        ' 4. convert the household and per capita income columns to currency
+        ' assuming these are now at specific columns, adjust as necessary
+        householdincomecolumn = 4 ' example column d
+        percapitaincomecolumn = 5 ' example column e
         
-        For i = 2 To lastRow
-            ws.Cells(i, householdIncomeColumn).NumberFormat = "$#,##0.00"
-            ws.Cells(i, perCapitaIncomeColumn).NumberFormat = "$#,##0.00"
+        For i = 2 To lastrow
+            ws.cells(i, householdincomecolumn).numberformat = "$#,##0.00"
+            ws.cells(i, perCapitaIncomeColumn).numberformat = "$#,##0.00"
         Next i
     Next ws
     
-    MsgBox "Formatting Complete!", vbInformation
+    Msgbox "Formatting Complete!", vbinformation
 End Sub
 
 ##Data
-Sub CombineWorksheets()
-    Dim ws As Worksheet
-    Dim combinedSheet As Worksheet
-    Dim lastRowCombined As Long
-    Dim lastRowCurrentSheet As Long
-    Dim headerRow As Range
-    Dim dataRow As Range
+Sub combineworksheets()
+    Dim ws as worksheet
+    Dim combinedsheet as worksheet
+    Dim lastrowcombined as long
+    Dim lastrowcurrentsheet as long
+    Dim headerrow as range
+    Dim datarow as range
     
-    ' Check if Combined_Data sheet exists, if not then create it
-    On Error Resume Next ' Ignore errors temporarily
-    Set combinedSheet = ThisWorkbook.Sheets("Combined_Data")
-    On Error GoTo 0 ' Turn back on regular error handling
+    ' check if combined_data sheet exists, if not then create it
+    On error resume next ' ignore errors temporarily
+    Set combinedsheet = thisworkbook.sheets("Combined_Data")
+    On error goto 0 ' turn back on regular error handling
     
-    If combinedSheet Is Nothing Then
-        Set combinedSheet = ThisWorkbook.Worksheets.Add
-        combinedSheet.Name = "Combined_Data"
+    If combinedsheet is nothing then
+        Set combinedsheet = thisworkbook.worksheets.add
+        combinedsheet.name = "Combined_Data"
     Else
-        combinedSheet.Cells.Clear ' Clear existing data if the sheet already exists
-    End If
+        combinedsheet.cells.clear ' clear existing data if the sheet already exists
+    End if
     
-    ' Copy headers from the first sheet (assuming all sheets have the same structure)
-    Set ws = ThisWorkbook.Sheets(1)
-    ws.Rows(1).Copy Destination:=combinedSheet.Rows(1)
+    ' copy headers from the first sheet (assuming all sheets have the same structure)
+    Set ws = thisworkbook.sheets(1)
+    ws.rows(1).copy destination:=combinedsheet.rows(1)
     
-    For Each ws In ThisWorkbook.Sheets
-        If ws.Name <> "Combined_Data" Then
-            ' Find the last row with data on the combined sheet and the current sheet
-            lastRowCombined = combinedSheet.Cells(combinedSheet.Rows.Count, "A").End(xlUp).Row
-            lastRowCurrentSheet = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row
+    For each ws in thisworkbook.sheets
+        If ws.name <> "Combined_Data" then
+            ' find the last row with data on the combined sheet and the current sheet
+            lastrowcombined = combinedsheet.cells(combinedSheet.Rows.Count, "A").end(xlUp).row
+            lastrowcurrentsheet = ws.cells(ws.Rows.Count, "A").end(xlUp).row
             
-            ' Check if there's data to copy (more than just headers)
-            If lastRowCurrentSheet > 1 Then
-                ' Set the range to copy from the current sheet (excluding headers)
-                Set dataRow = ws.Range("A2:Z" & lastRowCurrentSheet) ' Adjust Z to your last column
+            ' check if there's data to copy (more than just headers)
+            if lastrowcurrentsheet > 1 then
+                ' set the range to copy from the current sheet (excluding headers)
+                Set datarow = ws.range("A2:Z" & lastRowCurrentSheet) ' adjust Z to your last column
                 
-                ' Copy & paste the data into the combined sheet
-                dataRow.Copy Destination:=combinedSheet.Rows(lastRowCombined + 1)
-            End If
-        End If
+                ' copy & paste the data into the combined sheet
+                datarow.copy destination:=combinedsheet.rows(lastRowCombined + 1)
+            End if
+        End if
     Next ws
     
-    MsgBox "Data combined successfully!", vbInformation
+    Msgbox "Data combined successfully!", vbinformation
 End Sub
