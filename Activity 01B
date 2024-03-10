@@ -50,7 +50,7 @@ plt.show()
 
 df_financial_summary
 
-	# Data visualization complete
+	# Visualization complete
 
 	# Song Charts
 
@@ -68,7 +68,7 @@ artist_aggregated_sorted = artist_aggregated.sort_values(by=final_score_sum, asc
 ## Display
 artist_aggregated_sorted.head(10)
 
-	# Data visualization complete
+	# Visualization complete
 
   # Product list
 product_list_df = excel_data.parse(Product List)
@@ -102,7 +102,7 @@ index=[Order Number, Product ID],
 aggfunc=sum).reset_index()
 pivot_table.head()
 
-	# Results
+	# Result
 import matplotlib.pyplot as plt
 import seaborn as sns
 
@@ -121,4 +121,4 @@ ax.legend(title=Order Number)
 plt.tight_layout()
 plt.show()
 
-	# Data visualization complete
+	# Visualization complete
