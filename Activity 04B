@@ -1,4 +1,4 @@
-  # Municpal analysis
+  # Municipal analysis
 ## Descriptive statistics for numerical data
 descriptive_stats = data.describe(include=[float, int])
 descriptive_stats
@@ -15,11 +15,11 @@ plt.ylabel('Frequency')
 plt.grid(axis='y', alpha=0.75)
 plt.show()
 
-## Grouping by POSTAL COMMUNITY and counting streets
-grouped_data = data.groupby('POSTAL COMMUNITY').size().reset_index(name='STREET COUNT')
+## Grouping by postal community and counting streets
+grouped_data = data.groupby('Postal Community').size().reset_index(name='Street Count')
 
 ## Sorting the grouped data by street count in descending order to see the top communities
-grouped_data_sorted = grouped_data.sort_values(by='STREET COUNT', ascending=False)
+grouped_data_sorted = grouped_data.sort_values(by='Street Count', ascending=false)
 
 grouped_data_sorted.head()
 
@@ -75,7 +75,7 @@ with open('/mnt/data/cleaning_data.ipynb', 'r') as file:
 ## Since the notebook is a JSON file, let's parse it to extract the code cells
 import json
 
-notebook_json = json.loads(notebook_content)
+notebook_JSON = JSON.loads(notebook_content)
 code_cells = []
 
 ## Extract code from cells
