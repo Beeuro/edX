@@ -57,7 +57,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 
-## Data Visualization
+## Visualization
 def create_scatter_plot(df, x_col, y_col, x_label, y_label, title):
 
 ## Plot
@@ -125,7 +125,7 @@ plt.xlabel(Group Size)
 plt.ylabel(Frequency)
 plt.show()
 
-  # Data visualization complete
+  # Visualization complete
 
   # Home sales
 import pandas as pd
@@ -148,7 +148,7 @@ plt.ylabel(Average Price ($))
 plt.grid(True)
 plt.show()
 
-  # Data visualization complete
+  # Visualization complete
 
   # CDC
 ## Wrangle
@@ -199,4 +199,4 @@ plt.title(Box Plot of Cereal Ratings)
 plt.ylabel(Rating)
 plt.show()
 
-  # Data visualization complete
+  # Visualization complete
