@@ -33,7 +33,7 @@ plt.title(Students Grades Over the Semester)
 plt.xlabel(Month)
 plt.ylabel(Grades)
 plt.legend(loc='upper left, bbox_to_anchor=(1, 1), ncol=1, fontsize=small)
-plt.grid(True)
+plt.grid(true)
 plt.tight_layout()
 plt.show()
 
@@ -168,12 +168,12 @@ oregon_data[["LocationDesc", "Death Rate Per 100,000", "Z-Score"]], max_z_score_
   # Antioxidants
 ## Wrangle
 summary_stats = {
-'mean': cereal_data[rating].mean(),
-'median': cereal_data[rating].median(),
-'minimum': cereal_data[rating].min(),
-'maximum': cereal_data[rating].max(),
-'first quartile': cereal_data[rating].quantile(0.25),
-'third quartile': cereal_data[rating].quantile(0.75)
+mean: cereal_data[rating].mean(),
+median: cereal_data[rating].median(),
+minimum: cereal_data[rating].min(),
+maximum: cereal_data[rating].max(),
+first quartile: cereal_data[rating].quantile(0.25),
+third quartile: cereal_data[rating].quantile(0.75)
 }
 
 summary_stats[Interquartile Range] = summary_stats[Third Quartile] - summary_stats[First Quartile]
