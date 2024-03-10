@@ -270,8 +270,7 @@ for idx, cell in enumerate(notebook.cells):
 executed_output
 
   # Hey arnold
-## Since the user requests the information in a format compatible with jupyter notebook,
-# we will save the dataframe to a CSV file, which can be easily imported into jupyter notebooks
+## Since the user requests the information in a format compatible with jupyter notebook we will save the dataframe to a CSV file, which can be easily imported into jupyter notebooks
 
 df_reorganized.to_CSV('/mnt/data/hey_arnold_cleaned.csv', index=false)
 
