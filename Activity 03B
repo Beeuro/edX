@@ -9,8 +9,7 @@ if favorite_number < my_favorite_number:
 print("Your favorite number is lower than mine.")
 elif favorite_number > my_favorite_number:
 print("Your favorite number is higher than mine.")
-else:
-print("Your favorite number is the same as mine!")
+else: print("Your favorite number is the same as mine!")
 
 	#Candy store
 for index, candy in enumerate(candy_list):
@@ -39,7 +38,7 @@ else:
 print("Please enter a valid number or 'done' to finish.")
 print("You selected:")
 for candy in candy_cart:
-    print(candy)
+print(candy)
 
 	# Pie order
 def pie_order_form():
