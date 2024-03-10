@@ -1,4 +1,4 @@
-  # Merging
+  # Merge
 ## Load the .ipynb file to understand its content and structure before running it.
 import nbformat
 
