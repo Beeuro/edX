@@ -2,16 +2,16 @@
 !mkdir -p learnpython/assignment03A
 with open(LearnPython/Assignment03A/mamba.py, 'w') as f:
 f.write('print("Hello from Assignment 03A!")\n')
- Run mamba.py.
+Run mamba.py.
 exec(open('LearnPython/Assignment2/quick_python2.py').read())
 
 	# Octoberfest
 frankfurter = "Frankfurter"
 age = 80
 is_delicious = true
-type_frankfurter = type(frankfurter)
-type_age = type(age)
-type_is_delicious = type(is_delicious)
+print_frankfurter = print(frankfurter)
+print_age = print(age)
+print_is_delicious = print(is_delicious)
 
 ## Format
 formatted_string = f"this is a {frankfurter}, it is {age} years old, and it is {'delicious' if is_delicious else 'not delicious'}."
@@ -33,9 +33,8 @@ type_simulation = [
 "Age as string: " + age_str,
 "Is delicious as string: " + is_delicious_str,
 "Age next year: " + str(age_next_year),
-"Is not delicious: " + str(not_delicious)
-]
-type_simulation
+"Is not delicious: " + str(not_delicious)]
+print_simulation
 
 	# Hello world
 name = "Matthew Fagen"
@@ -64,10 +63,10 @@ response_truthy = "You consider this input truthy." if is_truthy else "You consi
 
 ## Simulated print outputs as we cannot use print statements directly here
 simulated_outputs = [
-    response_name,
-    response_age,
-    response_truthy,
-    age_validation]
+response_name,
+response_age,
+response_truthy,
+age_validation]
 simulated_outputs
 
 ## Input
@@ -90,8 +89,8 @@ result_message = f"Combined, you and your neighbor have {total_coding_months} mo
 
 ## Compile
 simulated_outputs = [
-    validation_message,
-    result_message]
+validation_message,
+result_message]
 simulated_outputs
 
 ## Conditional
@@ -99,6 +98,7 @@ file_path = '/mnt/data/conditionals.py'
 with open(file_path, 'r') as file:
 conditionals_content = file.read()
 conditionals_content
+
 x = 5
 y = 10
 if 2 * x > 10:
@@ -122,6 +122,7 @@ name = "Matthew"
 group_one = ["Greg", "Tony", "Susan"]
 group_two = ["Gerald", "Paul", "Ryder"]
 group_three = ["Carla", "Matthew", "Jefferson"]
+
 if name in group_one:
 result_4 = name + " is in the first group"
 elif name in group_two:
@@ -131,9 +132,10 @@ result_4 = name + " is in group three"
 else:
 result_4 = name + " does not have a group"
 
-height = 66
-age = 16
+height = 72
+age = 34
 adult_permission = true
+
 if (height > 70) and (age >= 18):
 result_5 = "Can ride all the roller coasters"
 elif (height > 65) and (age >= 18):
@@ -150,7 +152,6 @@ confirmed_results = [result_1, result_2, result_3, result_4, result_5]
 confirmed_results
 
 	#Rock paper scissors
-## Incomplete
 file_path = '/mnt/data/rock_paper_scissors.py'
 with open(file_path, 'r') as file:
 python_script = file.read()
