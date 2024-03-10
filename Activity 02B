@@ -93,7 +93,7 @@ End if
 
 	# End Sub
 
-	# Grocery Shopping
+	# Blind date
 Sub createdata()
 Dim i As integer
 Dim startrow as integer
@@ -257,8 +257,8 @@ shibainucount = shibainucount + 1
 ElseIf cell.value = "Dogecoin" then
 dogecoincount = dogecoincount + 1
 End if
-Next cell
-    
+
+Next cell    
 replace cat token with available shiba inu and dogecoin
 For each cell in ws.usedrange
 If cell.value = "Cat Token" then
@@ -274,7 +274,7 @@ Else
 Msgbox "Oh no! We still have some Cat Token..."
         
 End if
-Next cell
-    
+
+Next cell    
 Msgbox "All 'Cat Token' entries have been replaced with your available 'Shiba Inu' and 'Dogecoin'."
 	# End Sub
