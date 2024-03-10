@@ -1,1 +1,320 @@
+  # Merging
+## Load the .ipynb file to understand its content and structure before running it.
+import nbformat
 
+## Load the notebook
+notebook_path = '/mnt/data/merging.ipynb'
+with open(notebook_path) as f:
+    notebook = nbformat.read(f, as_version=4)
+
+## Display the structure of the first few cells to understand what operations are being performed
+for cell in notebook.cells[:3]:  # Show first 3 cells for a brief overview
+    print(f"Cell Type: {cell.cell_type}")
+    if cell.cell_type == 'code':
+        print(f"Code:\n{cell.source}")
+    else:
+        print(f"Content:\n{cell.source}")
+    print("\n---\n")
+
+## Define a function to execute the code cells in the notebook
+def execute_notebook_cells(notebook):
+    outputs = []
+    globals = {}
+
+    for cell in notebook.cells:
+        if cell.cell_type == 'code':
+            # Capture the output of the cell execution
+            try:
+                exec(cell.source, globals)
+                # If the last line of a cell evaluates to something, capture it as the output
+                try:
+                    last_expr = cell.source.strip().split('\n')[-1]
+                    output = eval(last_expr, globals)
+                    outputs.append(output)
+                except:
+                    outputs.append(None)  # if there's no evaluable expression or it fails, append None
+            except Exception as e:
+                outputs.append(str(e))  # capture any error message
+                
+    return outputs
+
+## Execute the notebook cells
+outputs = execute_notebook_cells(notebook)
+
+## Filter out none values to only show outputs that have some value
+outputs = [output for output in outputs if output is not None]
+
+outputs
+
+## Re-import pandas and redefine the dataframes before performing the merge operations
+import pandas as pd
+
+## Redefine info_df
+raw_data_info = {
+    "customer_id": [112, 403, 999, 543, 123],
+    "name": ["John", "Kelly", "Sam", "April", "Bobbo"],
+    "email": ["jman@gmail", "kelly@aol.com", "sports@school.edu", "April@yahoo.com", "HeyImBobbo@msn.com"]
+}
+info_df = pd.dataframe(raw_data_info, columns=["customer_id", "name", "email"])
+
+## Redefine items_df
+raw_data_items = {
+    "customer_id": [403, 112, 543, 999, 654],
+    "item": ["soda", "chips", "TV", "Laptop", "Cooler"],
+    "cost": [3.00, 4.50, 600, 900, 150]
+}
+items_df = pd.DataFrame(raw_data_items, columns=["customer_id", "item", "cost"])
+
+# Now, perform the merge operations again.
+inner_join_df = pd.merge(info_df, items_df, on='customer_id', how='inner')
+outer_join_df = pd.merge(info_df, items_df, on='customer_id', how='outer')
+left_join_df = pd.merge(info_df, items_df, on='customer_id', how='left')
+right_join_df = pd.merge(info_df, items_df, on='customer_id', how='right')
+
+(inner_join_df, outer_join_df, left_join_df, right_join_df)
+
+  # Census
+## Mergins
+import pandas as pd
+
+## Load the CSV files
+state_totals = pd.read_CSV('/mnt/data/state_totals.CSV')
+state_avg = pd.read_CSV('/mnt/data/state_avg.CSV')
+
+## Display the dataframes
+state_totals, state_avg
+
+## Perform an inner merge on "Year" and "State" columns
+merged_df = pd.merge(state_totals, state_avg, on=["Year", "State"])
+
+## Display the merged dataframe
+merged_df.head()
+
+## Filter the data for the year 2019
+data_2019 = merged_df[merged_df['Year'] == 2019]
+
+## Add a new column that calculates the poverty rate
+data_2019['Poverty Rate'] = data_2019['Total Population in Poverty'] / data_2019['Total Population'] * 100
+
+## Sort the data by poverty rate and average per capita income by county, highest to lowest
+sorted_data = data_2019.sort_values(by=['Poverty Rate', 'Average Per Capita Income by County'], ascending=False)
+
+## Display the data for the state or territory with the highest poverty rate
+highest_poverty_rate = sorted_data.head(1)
+
+## Display the data for the state or territory with the lowest poverty rate with one line of code
+lowest_poverty_rate = sorted_data.tail(1)
+
+highest_poverty_rate, lowest_poverty_rate
+
+  # Analysis
+## Description 
+description = data_2019.describe()
+description.to_csv('/mnt/data/descriptive_analysis.csv')
+
+## Diagnostic
+correlation = data_2019.corr()
+correlation.to_csv('/mnt/data/diagnostic_analysis_correlation.csv')
+
+## Predictive
+## Simplified example, real predictive modeling would require a separate setup
+## This step is conceptual and would not be directly executable in this form in pandas alone
+
+## EDA
+import matplotlib.pyplot as plt
+
+data_2019['Poverty Rate'].hist()
+plt.title('Poverty Rate Distribution')
+plt.xlabel('Poverty Rate')
+plt.ylabel('Frequency')
+plt.savefig('/mnt/data/eda_poverty_rate_histogram.png')
+
+## Inference
+## Conceptual step for hypothesis testing, typically using scipy.stats
+
+## Time series
+## This requires a time series dataset for a meaningful analysis
+
+## Summary
+import matplotlib.pyplot as plt
+
+## Plotting the histogram for the poverty rate distribution
+plt.figure(figsize=(10, 6))
+data_2019['Poverty Rate'].hist(bins=20, color='skyblue', edgecolor='black')
+plt.title('Poverty Rate Distribution - 2019')
+plt.xlabel('Poverty Rate (%)')
+plt.ylabel('Number of States/Territories')
+plt.grid(false)
+plt.savefig('/mnt/data/eda_poverty_rate_histogram.png')
+
+Data visualization complete
+
+  # Binning
+## Analysis
+import matplotlib.pyplot as plt
+
+## Plotting the histogram for the poverty rate distribution
+plt.figure(figsize=(10, 6))
+data_2019['Poverty Rate'].hist(bins=20, color='skyblue', edgecolor='black')
+plt.title('Poverty Rate Distribution - 2019')
+plt.xlabel('Poverty Rate (%)')
+plt.ylabel('Number of States/Territories')
+plt.grid(false)
+plt.savefig('/mnt/data/eda_poverty_rate_histogram.png')
+
+## Dataframe
+## Correctly reconstructing the DataFrame from provided data
+class_data = {
+    'class': ['Oct', 'Oct', 'Jan', 'Jan', 'Oct', 'Jan'], 
+    'name': ["Cyndy", "Logan", "Laci", "Elmer", "Crystle", "Emmie"], 
+    'test Score': [90, 59, 72, 88, 98, 60]
+}
+
+## Re-import pandas in case the environment has reset
+import pandas as pd
+
+## Create the dataframe
+class_data_df = pd.dataframe(class_data)
+
+## Define bins and labels
+bins = [0, 59.9, 69.9, 79.9, 89.9, 100]
+labels = ['F', 'D', 'C', 'B', 'A']
+
+## Slice the data and place it into bins
+class_data_df['Grade'] = pd.cut(class_data_df['Test Score'], bins=bins, labels=labels, include_lowest=True)
+
+class_data_df
+
+  # Movie Ratings
+## Creating 9 bins to slice the data into
+bins = pd.cut(movies['IMDB_user_vote_count'], bins=9)
+
+## Create a new column for the bin labels
+movies['IMDB User Votes Group'] = pd.cut(movies['IMDB_user_vote_count'], bins=9, labels=False)
+
+## Group by the new column and find out how many rows fall into each group
+group_counts = movies.groupby('IMDB User Votes Group').size()
+
+## Calculate the averages for the specified columns
+group_averages = movies.groupby('IMDB User Votes Group')[['RottenTomatoes', 'RottenTomatoes_User', 'Metacritic', 'Metacritic_User', 'IMDB']].mean()
+
+group_counts, group_averages
+
+## Merge
+## Read the saved files
+group_counts_df = pd.read_csv(group_counts_path, index_col=0)
+group_averages_df = pd.read_csv(group_averages_path, index_col=0)
+
+## Merge the two datasets
+merged_data = group_averages_df.merge(group_counts_df, left_index=True, right_index=True)
+merged_data.rename(columns={0: 'Number of Movies'}, inplace=True)
+
+## Save the merged data to a new CSV file
+merged_data_path = '/mnt/data/merged_movie_data.CSV'
+merged_data.to_CSV(merged_data_path)
+
+merged_data_path
+
+  # Seattle Housing
+## Analysis
+import pandas as pd
+
+## Load the CSV file into a dataframe
+data_path = '/mnt/data/Seattle_Housing_Cost_Burden.CSV'
+housing_data = pd.read_CSV(data_path)
+
+## Display the first few rows of the dataframe to understand its structure
+housing_data.head()
+
+## Load and display the content of the jupyter notebook to identify the operations
+import nbformat
+
+notebook_path = '/mnt/data/mapping.ipynb'
+with open(notebook_path, 'r', encoding='utf-8') as nb_file:
+    nb_content = nbformat.read(nb_file, as_version=4)
+
+## Extract and display code cells content to understand the intended operations
+code_cells = [cell for cell in nb_content.cells if cell.cell_type == 'code']
+
+## Display the first few code cells to get an overview, due to the output length limitation
+for i, cell in enumerate(code_cells[:5]):
+    print(f"Cell {i+1}:\n{cell.source}\n")
+
+## Merge
+## Load and display the content of the jupyter notebook to identify the operations
+import nbformat
+
+notebook_path = '/mnt/data/mapping.ipynb'
+with open(notebook_path, 'r', encoding='utf-8') as nb_file:
+    nb_content = nbformat.read(nb_file, as_version=4)
+
+## Extract and display code cells content to understand the intended operations
+code_cells = [cell for cell in nb_content.cells if cell.cell_type == 'code']
+
+## Display the first few code cells to get an overview, due to the output length limitation
+for i, cell in enumerate(code_cells[:5]):
+    print(f"Cell {i+1}:\n{cell.source}\n")
+
+  #Crowdfunding
+## Clean
+import nbformat
+
+notebook_path = '/mnt/data/crowdfunding_cleaning.ipynb'
+
+## Reading
+with open(notebook_path, 'r') as nb_file:
+    nb = nbformat.read(nb_file, as_version=4)
+
+## Display the instructions and code cells from the notebook to understand the tasks for cleaning the data.
+instructions = []
+for cell in nb.cells:
+    if cell.cell_type == 'markdown':
+        instructions.append(cell.source)
+    elif cell.cell_type == 'code':
+        instructions.append(cell.source)
+
+instructions[:5]  # Displaying the first few instructions and code cells to get an idea of the tasks.
+
+## Analysis
+import pandas as pd
+
+## Load the crowdfunding dataset
+data_path = '/mnt/data/Crowdfunding_data.csv'
+df = pd.read_csv(data_path)
+
+## Display the first few rows of the dataset to understand its structure
+df.head()
+
+## Selecting specific columns of interest
+columns_of_interest = ["name", "goal", "pledged", "outcome", "country", "staff_pick", "backers_count", "spotlight"]
+df_selected = df[columns_of_interest]
+
+## Removing projects that made no money at all
+df_cleaned = df_selected[df_selected['pledged'] > 0]
+
+## Display the first few rows of the cleaned and formatted dataset
+df_cleaned.head()
+
+## Merge
+# Summary of the cleaned dataset
+summary = {
+    "Total Projects": df_cleaned.shape[0],
+    "Total Pledged": df_cleaned['pledged'].sum(),
+    "Average Pledged": df_cleaned['pledged'].mean(),
+    "Average Goal": df_cleaned['goal'].mean(),
+    "Success Rate": df_cleaned[df_cleaned['outcome'] == 'successful'].shape[0] / df_cleaned.shape[0] * 100,
+    "Countries Represented": df_cleaned['country'].nunique(),
+    "Projects that are Staff Picks": df_cleaned[df_cleaned['staff_pick']].shape[0],
+}
+
+summary
+
+## Top 5 projects by the number of backers
+top5_backers = df_cleaned.sort_values(by='backers_count', ascending=False).head(5)
+
+## Top 5 projects by the amount pledged
+top5_pledged = df_cleaned.sort_values(by='pledged', ascending=False).head(5)
+
+top5_backers, top5_pledged
+
+Data visualizaiton complete
