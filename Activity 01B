@@ -1,7 +1,7 @@
 	# Grading
 import pandas as pd
 upload excel file
-grade_book_path = '/mnt/data/grade_book.xlsx'
+grade_book_path = /mnt/data/grade_book.xlsx
 grade_book = pd.read_excel(grade_book_path)
 
 	# Wrangle
@@ -23,28 +23,28 @@ sns.set_style("whitegrid")
 
 ## Analysis
 plt.figure(figsize=(12, 6))
-sns.countplot(y='TYPE', data=df, order = df['TYPE'].value_counts().index)
-plt.title('Number of Organizations by Type')
-plt.xlabel('Count')
-plt.ylabel('Type')
+sns.countplot(y=Type', data=df, order = df[Type].value_counts().index)
+plt.title(Number of Organizations by Type)
+plt.xlabel(Count)
+plt.ylabel(Type)
 plt.show()
 plt.figure(figsize=(12, 6))
-sns.countplot(y='ACTIVITY', data=df, order = df['ACTIVITY'].value_counts().index)
-plt.title('Number of Organizations by Activity')
-plt.xlabel('Count')
-plt.ylabel('Activity')
+sns.countplot(y=Activity, data=df, order = df[Activity].value_counts().index)
+plt.title(Number of Organizations by Activity)
+plt.xlabel(Count)
+plt.ylabel(Activity)
 plt.show()
 
 ## Finance
-financial_health_metrics = ['ASSET_AMT', 'INCOME_AMT', 'REVENUE_AMT']
+financial_health_metrics = [asset_amt, 'income_amt', 'revenue_amt]
 df_financial_summary = df[financial_health_metrics].describe()
 
 ## Geolocation
 plt.figure(figsize=(12, 6))
-sns.countplot(x='STATE', data=df, order = df['STATE'].value_counts().index)
-plt.title('Number of Organizations by State')
-plt.xlabel('State')
-plt.ylabel('Count')
+sns.countplot(x=State, data=df, order = df[State].value_counts().index)
+plt.title(Number of Organizations by State)
+plt.xlabel(State)
+plt.ylabel(Count)
 plt.xticks(rotation=45)
 plt.show()
 
@@ -56,14 +56,14 @@ df_financial_summary
 
 ## Aggregate 
 the data to count the number of songs per artist and sum of final_score
-artist_songs_count = songs_df.groupby('artist')['name'].count().reset_index(name='song_count')
-artist_final_score_sum = songs_df.groupby('artist')['final_score'].sum().reset_index(name='final_score_sum')
+artist_songs_count = songs_df.groupby(artist)[name].count().reset_index(name=song_count)
+artist_final_score_sum = songs_df.groupby(artist)[final_score].sum().reset_index(name=final_score_sum)
 
 ## Merge
-artist_aggregated = pd.merge(artist_songs_count, artist_final_score_sum, on='artist')
+artist_aggregated = pd.merge(artist_songs_count, artist_final_score_sum, on=artist)
 
 ## Format
-artist_aggregated_sorted = artist_aggregated.sort_values(by='final_score_sum', ascending=False)
+artist_aggregated_sorted = artist_aggregated.sort_values(by=final_score_sum, ascending=False)
 
 ## Display
 artist_aggregated_sorted.head(10)
@@ -71,34 +71,34 @@ artist_aggregated_sorted.head(10)
 	# Data visualization complete
 
   # Product list
-product_list_df = excel_data.parse('Product List')
-orders_df = excel_data.parse('Orders')
+product_list_df = excel_data.parse(Product List)
+orders_df = excel_data.parse(Orders)
 
-## Data frame
+## Data frame 
 product_list_df.head(), orders_df.head()
 
 ## Format
-product_list_df.rename(columns={'ID': 'Product ID', 'Price Per Unit': 'Product Price', 'Priority': 'Shipping Priority', 'Price': 'Shipping Price'}, inplace=True)
-product_prices = product_list_df[['Product ID', 'Product Price']]
-shipping_prices = product_list_df[['Shipping Priority', 'Shipping Price']].dropna()
+product_list_df.rename(columns={ID: Product ID, Price Per Unit: Product Price, Priority: Shipping Priority, Price: Shipping Price}, inplace=true)
+product_prices = product_list_df[[Product ID, Product Price]]
+shipping_prices = product_list_df[[Shipping Priority, Shipping Price]].dropna()
 
 ## Merge
-orders_with_prices = pd.merge(orders_df, product_prices, on='Product ID', how='left')
-orders_with_prices = pd.merge(orders_with_prices, shipping_prices, on='Shipping Priority', how='left', suffixes=('', '_y'))
-orders_with_prices.drop(columns=[col for col in orders_with_prices if col.endswith('_y')], inplace=True)
+orders_with_prices = pd.merge(orders_df, product_prices, on=Product ID, how=left)
+orders_with_prices = pd.merge(orders_with_prices, shipping_prices, on=Shipping Priority, how=left, suffixes=(y))
+orders_with_prices.drop(columns=[col for col in orders_with_prices if col.endswith(y)], inplace=true)
 orders_with_prices.head()
 
 ## Format
-unique_shipping_prices = product_list_df[['Shipping Priority', 'Shipping Price']].drop_duplicates().dropna()
+unique_shipping_prices = product_list_df[[Shipping Priority, Shipping Price]].drop_duplicates().dropna()
 
 ## Merge
-orders_with_correct_prices = pd.merge(orders_with_prices.drop(columns='Shipping Price'), unique_shipping_prices, on='Shipping Priority', how='left')
+orders_with_correct_prices = pd.merge(orders_with_prices.drop(columns=Shipping Price), unique_shipping_prices, on=Shipping Priority, how=left)
 orders_with_correct_prices.head()
 
 ## Format
 pivot_table = pd.pivot_table(orders_with_correct_prices,
-values=['Product Price', 'Shipping Price'],
-index=['Order Number', 'Product ID'],
+values=[Product Price, Shipping Price],
+index=[Order Number, Product ID],
 aggfunc=sum).reset_index()
 pivot_table.head()
 
@@ -111,13 +111,13 @@ sns.set_style("whitegrid")
 
 ## Plot
 fig, ax = plt.subplots(figsize=(12, 
-pivot_table['Total Price'] = pivot_table['Product Price'] + pivot_table['Shipping Price']
-pivot_table_sorted = pivot_table.sort_values(by='Total Price', ascending=False)
-sns.barplot(data=pivot_table_sorted, x='Product ID', y='Total Price', hue='Order Number', dodge=False, palette='viridis', ax=ax)
-ax.set_title('Total Price by Product ID and Order Number', fontsize=16)
-ax.set_xlabel('Product ID', fontsize=14)
-ax.set_ylabel('Total Price ($)', fontsize=14)
-ax.legend(title='Order Number')
+pivot_table[Total Price] = pivot_table[Product Price] + pivot_table[Shipping Price]
+pivot_table_sorted = pivot_table.sort_values(by=Total Price, ascending=False)
+sns.barplot(data=pivot_table_sorted, x=Product ID, y=Total Price, hue=Order Number, dodge=False, palette=viridis, ax=ax)
+ax.set_title(Total Price by Product ID and Order Number, fontsize=12)
+ax.set_xlabel(Product ID, fontsize=12)
+ax.set_ylabel(Total Price ($), fontsize=12)
+ax.legend(title=Order Number)
 plt.tight_layout()
 plt.show()
 
