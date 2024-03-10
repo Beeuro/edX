@@ -1,20 +1,17 @@
-	# Budget
-## Total
+	# Finance
+## Budget
 Sub calculatetotal()
-    Dim amount as double
-    Dim feepercentage as double
-    Dim total as double
-
-    amount = range("B1").value
-    feepercentage = range("B2").value
-    total = amount + (amount * feepercentage / 100)
-    
-    Range("B3").value = total
-End Sub
+Dim amount as double
+Dim feepercentage as double
+Dim total as double
+amount = range("B1").value
+feepercentage = range("B2").value
+total = amount + (amount * feepercentage / 100)
+Range("B3").value = total
 
 ## Alert
 Sub checkbudget()
-    call calculatetotal ' ensure the total is up to date
+    call calculatetotal ensure the total is up to date
     
     Dim total as double
     Dim budget as double
@@ -27,116 +24,113 @@ Sub checkbudget()
     Else
         Msgbox "The total amount is over the budget!", vbcritical
     End if
-End Sub
 
 ## Adjust
 Sub adjustforbudget()
-    Call calculatetotal ' ensure the total is up to date
+Call calculatetotal ensure the total is up to date    
+Dim amount as double
+Dim feepercentage as double
+Dim total as double
+Dim budget as double
+amount = range("B1").value
+feepercentage = range("B2").value
+total = range("B3").value
+budget = range("B4").value
     
-    Dim amount as double
-    Dim feepercentage as double
-    Dim total as double
-    Dim budget as double
-    
-    amount = range("B1").value
-    feepercentage = range("B2").value
-    total = range("B3").value
-    budget = range("B4").value
-    
-    If total > budget then
-        Dim maxprice as double
-        maxprice = (budget / (1 + feepercentage / 100))
-        Range("B1").value = worksheetfunction.floor(maxprice, 1) ' adjust price
-        Call calculatetotal ' recalculate total with adjusted price
-        Msgbox "Price adjusted to fit within the budget.", vbexclamation
-    End if
-End Sub
+If total > budget then
+Dim maxprice as double
+maxprice = (budget / (1 + feepercentage / 100))
+Range("B1").value = worksheetfunction.floor(maxprice, 1) adjust price
+Call calculatetotal recalculate total with adjusted price
+Msgbox "Price adjusted to fit within the budget.", vbexclamation
+End if
+
+	# End Sub
 
 	# Loops
 ## Cycle
 For counter = start To end [step step]
-    ' code to be executed
+code to be executed
 Next counter
 
 ## Collect
 For each element in collection
-    ' code to be executed for each element
+code to be executed for each element
 Next element
 
 ## True
 Do while condition
-    ' code to be executed as long as condition is true
+code to be executed as long as condition is true
 Loop
 
 ## False
 Do until condition
-    ' code to be executed as long as condition is false
+code to be executed as long as condition is false
 Loop
 
 ## Wend
 While condition
-    ' Code to be executed as long as condition is true
+Code to be executed as long as condition is true
 Wend
 
-	# Chicken nuggets
-Sub createdata()
-    Dim i As integer
-    Dim startrow as integer
-    startrow = 1 ' assuming you start from the first row
-    
-    For i = 11 To 20
-        Cells(startrow, 1).value = "I will eat"
-        Cells(startrow, 2).value = i
-        Cells(startrow, 3).value = "Chicken Nuggets"
-        startrow = startrow + 1
-    Next i
-End Sub
+	# End Sub
 
 	# Conditional loop
 Sub testmyloop()
-    Dim expectedresult as variant
-    Dim actualresult as variant
+Dim expectedresult as variant
+Dim actualresult as variant
+set up test conditions
+expectedresult = (...)
+execute the loop function or procedure you wish to test
+actualresult = myloopfunction(...)
+check if the actual result meets the expected result
+    
+If actualresult = expectedresult Then
+Debug.print "Test Passed"
+Else
+Debug.print "Test Failed: expected " & expectedresult & ", got " & actualresult
+End if
 
-    ' set up test conditions
-    expectedresult = '...'
+	# End Sub
 
-    ' execute the loop function or procedure you wish to test
-    actualresult = myloopfunction('...')
+	# Grocery Shopping
+Sub createdata()
+Dim i As integer
+Dim startrow as integer
+startrow = 1 assuming you start from the first row
+    
+For i = 11 To 20
+Cells(startrow, 1).value = "I will eat"
+Cells(startrow, 2).value = i
+Cells(startrow, 3).value = "Sushi"
+startrow = startrow + 1
+Next i
 
-    ' check if the actual result meets the expected result
-    If actualresult = expectedresult Then
-        Debug.print "Test Passed"
-    Else
-        Debug.print "Test Failed: expected " & expectedresult & ", got " & actualresult
-    End if
-End Sub
+	# End Sub
 
 	# Innovation
 Sub fizzbuzz()
-    Dim ws as worksheet
-    Set ws = thisworkbook.sheets(1) ' assuming you are working in the first sheet
-    
-    Dim i As long
-    For i = 1 to ws.cells(ws.rows.count, 1).end(xlup).row
-        Dim value as long
-        value = ws.cells(i, 1).value
-        
-        If value mod 3 = 0 and value mod 5 = 0 then
-            ws.cells(i, 2).value = "fizzbuzz"
-        Elseif value mod 3 = 0 then
-            ws.cells(i, 2).value = "fizz"
-        Elseif value mod 5 = 0 then
-            ws.cells(i, 2).value = "buzz"
-        Else
-            ws.cells(i, 2).value = ""
-        End If
-    Next i
-End Sub
+Dim ws as worksheet
+Set ws = thisworkbook.sheets(1) assuming you are working in the first sheet
+Dim i As long
+For i = 1 to ws.cells(ws.rows.count, 1).end(xlup).row
+Dim value as long
+value = ws.cells(i, 1).value
+If value mod 3 = 0 and value mod 5 = 0 then
+ws.cells(i, 2).value = "fizzbuzz"
+Elseif value mod 3 = 0 then
+ws.cells(i, 2).value = "fizz"
+Elseif value mod 5 = 0 then
+ws.cells(i, 2).value = "buzz"
+Else
+ws.cells(i, 2).value = ""
+End If
+Next i
+
+	# End Sub
 
 	# Lottery
 import openpyxl
-
-## Load the workbook and select the active sheet
 wb = openpyxl.load_workbook('/mnt/data/lotto_numbers.xlsm')
 sheet = wb.active
 
@@ -148,25 +142,26 @@ runner_up_nums = [2275339, 5868182, 1841402]
 
 ## Initialize empty dictionaries for winners
 winners = {
-    'first': None,
-    'second': none,
-    'third': none,
-    'runner_up': none
+first: None,
+second: none,
+third: none,
+runner_up: none
 }
 
 # Iterate through the rows in the sheet to find the winners
-for row in sheet.iter_rows(min_row=2, values_only=True):  # assuming the first row is headers
-    ticket_num = row[2]
-    if ticket_num == first_place_num:
-        winners['first'] = {'first_name': row[0], 'last_name': row[1], 'ticket_num': ticket_num}
-    elif ticket_num == second_place_num:
-        winners['second'] = {'first_name': row[0], 'last_name': row[1], 'ticket_num': ticket_num}
-    elif ticket_num == third_place_num:
-        winners['third'] = {'first_name': row[0], 'last_name': row[1], 'ticket_num': ticket_num}
-    elif ticket_num in runner_up_nums and winners['runner_up'] is None:
-        winners['runner_up'] = {'first_name': row[0], 'last_name': row[1], 'ticket_num': ticket_num}
-
+for row in sheet.iter_rows(min_row=2, values_only=True): ssuming the first row is headers
+ticket_num = row[2]
+if ticket_num == first_place_num:
+winners[first] = {first_name: row[0], last_name: row[1], ticket_num: ticket_num}
+elif ticket_num == second_place_num:
+winners[second] = {first_name: row[0], last_name: row[1], ticket_num: ticket_num}
+elif ticket_num == third_place_num:
+winners[third] = {first_name: row[0], last_name: row[1], ticket_num: ticket_num}
+elif ticket_num in runner_up_nums and winners[runner_up] is None:
+winners[runner_up] = {first_name: row[0], last_name: row[1], ticket_num: ticket_num}
 winners
+
+	# End Sub
 
 	# Nest
 ## Analysis
@@ -176,7 +171,7 @@ Range("A2").formula = "=SUM(B2:D2)" ' example of applying a sum formula
 Dim ws As worksheet
 Set ws = thisworkbook.sheets("Sheet1")
 For each row in ws.usedrange.rows
-  ' Perform actions, e.g., ws.cells(row.row, "E").value = ws.cells(row.row, "B").value + 10
+Perform actions, e.g., ws.cells(row.row, "E").value = ws.cells(row.row, "B").value + 10
 Next row
 
 ## Report
@@ -184,12 +179,12 @@ Dim pt as pivottable
 Dim pc as pivotcache
 Set pc = activeworkbook.pivotcaches.create(SourceType:=xlDatabase, SourceData:=Range("A1:D100"))
 Set pt = pc.createpivottable(TableDestination:=Range("F1"), TableName:="SalesSummary")
-' configure pivot table, e.g., pt.pivotfields("Product").orientation = xlrowfield
+configure pivot table, e.g., pt.pivotfields("Product").orientation = xlrowfield
 
 ## Microsoft integration
 Dim db As object
 Set db = opendatabase("C:\path\to\database.accdb")
-db.execute "INSERT INTO Table1 (Field1) VALUES ('Value1')"
+db.execute "Insert into Table1 (Field1) VALUES (Value1)"
 db.close
 
 ## Outlook
@@ -214,74 +209,72 @@ conn.execute "select * from yourtable"
 ## Optimize VBA
 Application.screenupdating = false
 Application.calculation = xlcalculationmanual
-' your code here
+your code here
 Application.screenupdating = true
 Application.calculation = xlcalculationautomatic
+
+	# End Sub
 
 	# Crypto
 ## Count
 Sub countcattoken()
-    Dim ws as worksheet
-    Set ws = thisworkbook.sheets("Sheet1") ' adjust the sheet name as necessary
-    Dim cell as range
-    Dim count as long
-    count = 0
+Dim ws as worksheet
+Set ws = thisworkbook.sheets("Sheet1") ' adjust the sheet name as necessary
+Dim cell as range
+Dim count as long
+count = 0
     
-    For each cell In ws.usedrange
-        If cell.value = "Cat Token" then
-            count = count + 1
-        End if
-    Next cell
-    
-    Msgbox "Number of 'Cat Token' entries: " & count
-End Sub
+For each cell In ws.usedrange
+If cell.value = "Cat Token" then
+count = count + 1
+End if
+Next cell
+Msgbox "Number of 'Cat Token' entries: " & count
 
 ## Exchange
 Sub replacecattokenwithdogecoin()
-    Dim ws as worksheet
-    Set ws = thisworkbook.sheets("Sheet1") ' adjust the sheet name as necessary
-    Dim cell as range
+Dim ws as worksheet
+Set ws = thisworkbook.sheets("Sheet1") adjust the sheet name as necessary
+Dim cell as range
     
-    For each cell In ws.usedrange
-        If cell.value = "Cat Token" then
-            cell.value = "Dogecoin"
-        End if
-    Next cell
-    
-    Msgbox "All 'Cat Token' entries have been replaced with 'Dogecoin'."
-End Sub
+For each cell In ws.usedrange
+If cell.value = "Cat Token" then
+cell.value = "Dogecoin"
+End if
+Next cell
+Msgbox "All 'Cat Token' entries have been replaced with 'Dogecoin'."
 
 ## Distribute
 Sub replacecattokenwithlimitedcoins()
-    Dim ws as worksheet
-    Set ws = thisworkbook.sheets("Sheet1") ' adjust the sheet name as necessary
-    Dim cell As range
-    Dim shibainucount as long, dogecoincount as long
+Dim ws as worksheet
+Set ws = thisworkbook.sheets("Sheet1") adjust the sheet name as necessary
+Dim cell As range
+Dim shibainucount as long, dogecoincount as long
+count available shiba inu and dogecoin first
+for each cell in ws.usedrange
+If cell.value = "Shiba Inu" then
+shibainucount = shibainucount + 1
+ElseIf cell.value = "Dogecoin" then
+dogecoincount = dogecoincount + 1
+End if
+Next cell
     
-    ' count available shiba inu and dogecoin first
-    for each cell in ws.usedrange
-        If cell.value = "Shiba Inu" then
-            shibainucount = shibainucount + 1
-        ElseIf cell.value = "Dogecoin" then
-            dogecoincount = dogecoincount + 1
-        End if
-    Next cell
+replace cat token with available shiba inu and dogecoin
+For each cell in ws.usedrange
+If cell.value = "Cat Token" then
+If shibainucount > 0 then
+cell.value = "Shiba Inu"
+shibainucount = shibainucount - 1
+ElseIf dogecoincount > 0 then
+cell.value = "Dogecoin"
+dogecoincount = dogecoincount - 1
+
+Else
+
+Msgbox "Oh no! We still have some Cat Token..."
+        
+End if
+Next cell
     
-    ' replace cat token with available shiba inu and dogecoin
-    For each cell in ws.usedrange
-        If cell.value = "Cat Token" then
-            If shibainucount > 0 then
-                cell.value = "Shiba Inu"
-                shibainucount = shibainucount - 1
-            ElseIf dogecoincount > 0 then
-                cell.value = "Dogecoin"
-                dogecoincount = dogecoincount - 1
-            Else
-                Msgbox "Oh no! We still have some Cat Token..."
-                Exit sub
-            End if
-        End if
-    Next cell
-    
-    Msgbox "All 'Cat Token' entries have been replaced with your available 'Shiba Inu' and 'Dogecoin'."
-End Sub
+Msgbox "All 'Cat Token' entries have been replaced with your available 'Shiba Inu' and 'Dogecoin'."
+	# End Sub
