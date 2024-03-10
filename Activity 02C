@@ -76,7 +76,7 @@ gradecell.offset(0, 2).value = ""
 gradecell.offset(0, 2).interior.color = RGB(255, 255, 255) ' white
 Next gradecell
 
-# End Sub
+	# End Sub
 
 	# Checkerboard
 Sub createcheckerboard()
