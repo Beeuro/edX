@@ -74,7 +74,7 @@ right_join_df = pd.merge(info_df, items_df, on='customer_id', how='right')
 (inner_join_df, outer_join_df, left_join_df, right_join_df)
 
   # Census
-## Mergins
+## Merge
 import pandas as pd
 
 ## Load the CSV files
