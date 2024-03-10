@@ -58,10 +58,10 @@ Dim outlookmail as object
 Set outlookapp = createobject("Outlook.Application")
 Set outlookmail = outlookapp.CreateItem(0)
 With outlookmail
-.to = "recipient@example.com"
-.subject = "Test Email"
-.body = "This is the body of the email."
-.send
+to = "recipient@example.com"
+subject = "Test Email"
+body = "This is the body of the email."
+send
 End with
 
 ## Operations
@@ -102,10 +102,10 @@ Msgbox "You clicked button 2!"
 Range("A1").Select ' selects cell A1
 Range("A1:B2").select ' selects a range from A1 to B2
 With range("A1")
-.font.name = "Times New Roman"
-.font.size = 12
-.font.color = RGB (15, 82, 186) Sapphire Blue
-.interior.color = RGB (255, 212, 0) Cyber Yellow
+font.name = "Times New Roman"
+font.size = 12
+font.color = RGB (15, 82, 186) Sapphire Blue
+interior.color = RGB (255, 212, 0) Cyber Yellow
 
 ## Read/write
 Dim value As variant
@@ -125,11 +125,11 @@ Range("C1").formula = "=A1+B1" ' adds values in A1 and B1, result in C1
 
 ## Sort/filter
 With range("A1:B10")
-.Sort key1:=range("A1"), order1:=xlascending, header:=xlyes
+Sort key1:=range("A1"), order1:=xlascending, header:=xlyes
 
 ## Conditional
 With range("A1:A10").formatconditions.add(Type:=xlCellValue, Operator:=xlGreater, Formula1:="5")
-.font.color = RGB(255, 0, 0) ' change font color to red if value > 5
+font.color = RGB(255, 0, 0) ' change font color to red if value > 5
 End with
 
 ## Merge
@@ -141,7 +141,7 @@ Activesheet.listobjects.add(xlsrcrange, range("A1:B10"), , xlyes).name = "MyTabl
   # Chess
 Sub setupchessboard()
 
-  define the chess pieces
+define the chess pieces
 Dim toprow as variant, secondrow as string
 toprow = array("Rook", "Knight", "Bishop", "Queen", "King", "Bishop", "Knight", "Rook")
 secondRow = "Pawn"
@@ -156,8 +156,8 @@ using cells for the last two rows
 Dim i As Integer
 For i = 1 To 8
 With sheet1
-.Cells(8, i).Value = secondrow
-.Cells(9, i).Value = toprow(i - 1)
+Cells(8, i).Value = secondrow
+Cells(9, i).Value = toprow(i - 1)
 Next i
     
   # End Sub
@@ -166,7 +166,7 @@ Next i
 ## Data cleaning
 Sub removeduplicates()
 Dim ws as worksheet
-Set ws = activesheet ' modify as needed
+Set ws = activesheet modify as needed
 ws.usedrange.removeduplicates columns:=array(1, 2), header:=xlyes specify columns
 
 ## Mine
@@ -214,8 +214,7 @@ Set yrange = selection ' assuming first column is x
 Set xrange = selection.offset(0, 1) ' assuming second column is x
 Dim ws As worksheet
 Set ws = sheets.add
-     ws.cells(1, 1).formula = "=LINEST(" & yRange.Address & "," & xRange.Address & ")
-End Sub
+ws.cells(1, 1).formula = "=LINEST(" & yRange.Address & "," & xRange.Address & ")
 
 ## Analyze
 Sub calculatetotal()
@@ -252,7 +251,7 @@ Dim i as long
 For i = lbound(dataArray, 1) To ubound(dataArray, 1)
 sum = sum + dataarray(i, 1)
 Next i    
-ws.range("B1").value = sum ' output the sum to B1. change "B1" to your desired cell
+ws.range("B1").value = sum output the sum to B1. change "B1" to your desired cell
 
 ## Split
 Sub splittext()
@@ -287,7 +286,6 @@ wstarget.name = cell.value
 
 End if
 On error goto 0
-        
 cell.entirerow.copy destination:=wstarget.range("A" & wsTarget.Cells(wsTarget.Rows.Count, "A").End(xlUp).Row + 1)
 Next cell
 
@@ -299,7 +297,7 @@ Dim lastrow as long
 lastrow = ws.cells(ws.Rows.Count, "B").end(xlUp).row ' assuming the numeric column to format and sum is B
     
 Format column B as currency
-ws.range("B1:B" & lastRow).numberformat = "$#,##0.00"
+ws.range("B1:B" & lastRow).numberformat = "$,0.00"
     
 Sum values in column B and place the result in the next available row
 ws.range("B" & lastRow + 1).value = application.worksheetfunction.sum(ws.range("B1:B" & lastrow))
@@ -349,7 +347,7 @@ Msgbox "value is 10 or less"
 
 ## Innovation
 Function multiplyvalues(value1 As Double, value2 As Double) As double
-    multiplyvalues = value1 * value2
+multiplyvalues = value1 * value2
 End Function
 
   # End Sub
@@ -364,11 +362,11 @@ chart.setsourcedata source:=thisworkbook.sheets("Sheet1").range("A1:B10")
 ## Sort
 Sub sortdata()
 With thisworkbook.sheets("Sheet1").sort
-.sortfields.clear
-.sortfields.add key:=range("A1:A10"), sorton:=xlsortonvalues, order:=xlascending
-.setRange range("A1:A10")
-.header = xlno
-.apply
+sortfields.clear
+sortfields.add key:=range("A1:A10"), sorton:=xlsortonvalues, order:=xlascending
+setRange range("A1:A10")
+header = xlno
+apply
 
 ## Analysis
 Sub usesolver()
@@ -386,11 +384,11 @@ Dim outlookmail as object
 Set outlookapp = createobject("Outlook.Application")
 Set outlookmail = outlookapp.createitem(0)
 With outlookmail
-.to = "recipient@example.com"
-.subject = "this is the subject"
-.body = "this is the body of the email"
+to = "recipient@example.com"
+subject = "this is the subject"
+body = "this is the body of the email"
 add more properties here as needed
-.send
+send
 
 ## Debug
 Sub errorhandlingadvanced()
@@ -414,20 +412,17 @@ On error resume next prevents error if non-numeric value is entered
 userchoice = cint(Range("A1").value)
 On error goto 0 turns back on regular error handling
 
-    Select case userchoice
-        Case 1
-            msg = "You choose to enter the wooded forest of doom!"
-        Case 2
-            msg = "You choose to enter the fiery volcano of doom!"
-        Case 3
-            msg = "You choose to enter the terrifying jungle of doom!"
-        Case 4
-            ' replace the message here with your custom message for option 4
-            msg = "You choose to embark on a mystical journey through the enchanted caves of doom!"
-        Case else
-            msg = "You decide to stay home instead."
-    End select
+Select case userchoice
+Case 1: msg = "You choose to enter the wooded forest of doom!"
+Case 2: msg = "You choose to enter the fiery volcano of doom!"
+Case 3: msg = "You choose to enter the terrifying jungle of doom!"
+Case 4: replace the message here with your custom message for option 4
+msg = "You choose to embark on a mystical journey through the enchanted caves of doom!"
+        
+Case else
+msg = "You decide to stay home instead."
+End select
     
-    Msgbox msg
+Msgbox msg
 
-End Sub
+  # End Sub
