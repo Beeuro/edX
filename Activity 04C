@@ -65,7 +65,7 @@ raw_data_items = {
 }
 items_df = pd.DataFrame(raw_data_items, columns=["customer_id", "item", "cost"])
 
-# Now, perform the merge operations again.
+## Now, perform the merge operations again.
 inner_join_df = pd.merge(info_df, items_df, on='customer_id', how='inner')
 outer_join_df = pd.merge(info_df, items_df, on='customer_id', how='outer')
 left_join_df = pd.merge(info_df, items_df, on='customer_id', how='left')
@@ -296,7 +296,7 @@ df_cleaned = df_selected[df_selected['pledged'] > 0]
 df_cleaned.head()
 
 ## Merge
-# Summary of the cleaned dataset
+## Summary of the cleaned dataset
 summary = {
     "Total Projects": df_cleaned.shape[0],
     "Total Pledged": df_cleaned['pledged'].sum(),
