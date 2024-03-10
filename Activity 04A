@@ -1,311 +1,195 @@
-  # Jupyter notebook
-## Load the jupyter notebook
-notebook_path = '/mnt/data/jupyter_intro.ipynb'
-with open(notebook_path, 'r', encoding='utf-8') as nb_file:
-    nb = nbformat.read(nb_file, as_version=4)
-
-## Checking the first few cells to understand the content and structure of the notebook
-for cell in nb['cells'][:3]:
-    print(f"Cell type: {cell['cell_type']}")
-    print(f"Source: {cell['source']}\n")
-
-  from nbconvert.preprocessors import executepreprocessor
+  # Jupyter
+Load the jupyter notebook
+notebook_path = /mnt/data/jupyter_intro.ipynb
+with open(notebook_path, "r", encoding='utf-8') as nb_file:
+nb = nbformat.read(nb_file, as_version=4)
+for cell in nb[cells][:3]:
+print(f"Cell type: {cell[cell_type]}")
+print(f"Source: {cell['source']}\n")
+from nbconvert.preprocessors import executepreprocessor
 import nbformat
-
-## Execute the notebook
 ep = executepreprocessor(timeout=600, kernel_name='python3')
-ep.preprocess(nb, {'metadata': {'path': '/mnt/data/'}})
-
-## Save the executed notebook to a new file
-executed_notebook_path = '/mnt/data/executed_jupyter_intro.ipynb'
-with open(executed_notebook_path, 'w', encoding='utf-8') as nb_file:
-    nbformat.write(nb, nb_file)
-
+ep.preprocess(nb, {metadata: {path': /mnt/data/'}})
+executed_notebook_path = /mnt/data/executed_jupyter_intro.ipynb
+with open(executed_notebook_path, "w", encoding='utf-8') as nb_file:
+nbformat.write(nb, nb_file)
 executed_notebook_path
 
   # Comic books
-##Let's read the content of comicbooks.py to understand its structure and functionality
-
-with open('/mnt/data/comicbooks.py', 'r') as file:
-    comicbooks_py_content = file.read()
-
-## Output the content of the file
+with open('/mnt/data/comicbooks.py', "r") as file:
+comicbooks_py_content = file.read()
 print(comicbooks_py_content)
-
-## Import necessary modules for this part of the script
 import CSV
-
-## Define the book title for demonstration (this would be set by the user in an actual notebook cell)
 book = "Batman"
-
-## Define the correct path to the CSV file
 CSVpath = "/mnt/data/comic_books.CSV"
-
-## Initialize a variable to check if we found the book
 found = False
-
-## Open the CSV and search for the book
 with open(CSVpath, encoding="utf8") as CSVfile:
-    CSVreader = CSV.reader(CSVfile, delimiter=",")
+CSVreader = CSV.reader(CSVfile, delimiter=",")
 
-    # Loop through looking for the book
-    for row in csvreader:
-        if row[0].lower() == book.lower():  # Adjusting for case-insensitive search
-            publisher_date = f"{row[0]} was published by {row[8]} in {row[9]}"
-            found = True
-            break  # Exit loop after finding the book
+## Wrangle
+for row in csvreader:
+if row[0].lower() == book.lower():  # Adjusting for case-insensitive search
+publisher_date = f"{row[0]} was published by {row[8]} in {row[9]}"
+found = true
 
-## Check if the book was found and print the result
-if found:
-    print(publisher_date)
-else:
-    print("Sorry about this, we don't seem to have what you are looking for!")
+Exit loop after finding the book
 
-    # Data frames
-  import pandas as pd
-  import nbformat
+if found: print(publisher_date)
+else: print("Sorry about this, we don't seem to have what you are looking for!")
 
-## Load the jupyter notebook
-notebook_path = '/mnt/data/creating_data_frames.ipynb'
+## Data Framing
+import pandas as pd
+import nbformat
+notebook_path = /mnt/data/creating_data_frames.ipynb
 with open(notebook_path) as f:
-    nb = nbformat.read(f, as_version=4)
-
-## Extract all code cells into a list
-code_cells = [cell['source'] for cell in nb.cells if cell.cell_type == 'code']
-
-## Display the extracted code cells
+nb = nbformat.read(f, as_version=4)
+code_cells = [cell['source'] for cell in nb.cells if cell.cell_type = code]
 code_cells
-
-  # Data framing
-## Saving the dataframes to an Excel file with two sheets
 file_path = "/mnt/data/frame_and_art_gallery_data.XLSX"
-
 with pd.excelwriter(file_path) as writer:
-    frame_shop_df.to_excel(writer, sheet_name='Frame Shop', index=false)
-    art_gallery_df.to_excel(writer, sheet_name='Art Gallery', index=false)
-
+frame_shop_df.to_excel(writer, sheet_name='Frame Shop, index=false)
+art_gallery_df.to_excel(writer, sheet_name='Art Gallery, index=false)
 file_path
 
-  # Car purchases
- import nbformat
-
-## Load the jupyter notebook
-notebook_path = '/mnt/data/data_functions.ipynb'
+  # Car sales
+import pandas as pd
+import nbformat
+notebook_path = /mnt/data/data_functions.ipynb
 with open(notebook_path) as f:
-    nb = nbformat.read(f, as_version=4)
-
-## Extract and print the code cells to understand what operations are to be performed
-for i, cell in enumerate(nb['cells']):
-    if cell['cell_type'] == 'code':
-        print(f"Cell {i} code:\n{cell['source']}\n") 
-
-## import pandas as pd
-
-## Read the CSV file into a pandas dataframe again
-df = pd.read_csv('/mnt/data/car_purchases.csv')
-
-## Display a statistical overview of the dataframe
+nb = nbformat.read(f, as_version=4)
+for i, cell in enumerate(nb['cells]):
+if cell[cell_type] = code:
+print(f"Cell {i} code:\n{cell[source']}\n")
+df = pd.read_csv(/mnt/data/car_purchases.csv)
 df.describe()
 
-## Reference specific columns as examples
-id_column = df['id']
-amount_column = df['Amount']
+## Format 
+id_column = df[id]
+amount_column = df[Amount]
 
-## Perform some calculations
-mean_amount = df['Amount'].mean()
-sum_amount = df['Amount'].sum()
-unique_amount = df['Amount'].unique()
-value_counts_make = df['Make'].value_counts()  # Assuming there's a 'Make' column
+## Mod
+mean_amount = df[Amount].mean()
+sum_amount = df[Amount].sum()
+unique_amount = df[Amount].unique()
+value_counts_make = df[Make].value_counts()  # Assuming there's a 'Make' column
 
-## Prepare results for display
+## Visualization
 results = {
-    "mean Amount": mean_amount,
-    "sum Amount": sum_amount,
-    "unique amount values": len(unique_amount),  # displaying the count of unique values for brevity
-    "value counts of make": value_counts_make.head()  # displaying top 5 for brevity
-}
-
+"mean Amount": mean_amount,
+"sum Amount": sum_amount,
+"unique amount values": len(unique_amount),  # displaying the count of unique values for brevity
+"value counts of make": value_counts_make.head()  # displaying top 5 for brevity}
 results, df.head()  # Show results and the first few rows of the dataframe for context
 
-## Calculations
+## Mod
 results_corrected = {
-    "mean amount": mean_amount,
-    "sum amount": sum_amount,
-    "unique amount values": len(unique_amount)  # displaying the count of unique values for brevity
-}
-
+"mean amount": mean_amount,
+"sum amount": sum_amount,
+"unique amount values": len(unique_amount)  # displaying the count of unique values for brevity}
 results_corrected, df.head()  # show corrected results and the first few rows of the DataFrame for context
-
-  ## import nbformat
-
-## Correcting the method to save the notebook
 nbformat.write(new_nb, new_notebook_path)
-
 new_notebook_path
 
-  # Training
+  # Workout
 import pandas as pd
 import numpy as np
-
-## Simulate a similar dataframe
 np.random.seed(0)  # For reproducibility
 data = {
-    'name': [f'Person {i}' for i in range(1, 201)],
-    'trainer': np.random.choice(['Trainer A', 'Trainer B', 'Trainer C', 'Trainer D'], 200),
-    'weight': np.random.randint(100, 250, size=200),
-    'membership (Days)': np.random.randint(30, 365, size=200)
-}
+name: [f"Person {i}" for i in range(1, 201)],
+trainer: np.random.choice([Trainer A, Trainer B, Trainer C, Trainer D], 200),
+weight: np.random.randint(100, 250, size=200),
+membership (Days): np.random.randint(30, 365, size=200)}
 df = pd.dataframe(data)
 
-## Provide a simple analytical overview of the dataset's numeric columns
+## Mine
 overview = df.describe()
-
-## Collect all of the names of the trainers within the dataset
-trainers_names = df['Trainer'].unique()
-
-## Figure out how many students each trainer has
-students_per_trainer = df['Trainer'].value_counts()
-
-## Find the average weight of the students at the gym
-average_weight = df['Weight'].mean()
-
-## Find the combined weight of all of the students at the gym
+trainers_names = df[Trainer].unique()
+students_per_trainer = df[Trainer].value_counts()
+average_weight = df[Weight].mean()
 combined_weight = df['Weight'].sum()
 
-## Convert the "membership (days)" column into weeks, and then add this new Series into the dataframe
-df['Membership (Weeks)'] = df['Membership (Days)'] / 7
+## Mod
+df['Membership (Weeks)'] = df[Membership (Days)] / 7
 overview, trainers_names, students_per_trainer, average_weight, combined_weight
-
-  # Download
-## from nbformat.v4 import new_notebook, new_code_cell, new_markdown_cell
-
-## Create a new notebook
+from nbformat.v4 import new_notebook, new_code_cell, new_markdown_cell
+Create a new notebook
 nb = new_notebook()
-
-## Add a markdown cell as an introduction
-nb.cells.append(new_markdown_cell("""# Gym Dataset Analysis
-
-This notebook provides an analysis of a gym dataset including overview of numeric columns, distribution of trainers, and other statistics
-"""))
-
-## Add code cells for each analysis step
-nb.cells.append(new_code_cell("""import pandas as pd
+nb.cells.append(new_markdown_cell (Gym Dataset Analysis
+nb.cells.append(new_code_cell
+(import pandas as pd
 import numpy as np
-
-## Sample data creation
 np.random.seed(0)  # For reproducibility
 data = {
-    'Name': [f'Person {i}' for i in range(1, 201)],
-    'Trainer': np.random.choice(['Trainer A', 'Trainer B', 'Trainer C', 'Trainer D'], 200),
-    'Weight': np.random.randint(100, 250, size=200),
-    'Membership (Days)': np.random.randint(30, 365, size=200)
-}
-df = pd.dataframe(data)"""))
-
-nb.cells.append(new_code_cell("""# Provide a simple analytical overview of the dataset's numeric columns
+Name: [f"Person {i}" for i in range(1, 201)],
+Trainer: np.random.choice ([Trainer A, Trainer B, Trainer C, Trainer D], 200),
+Weight: np.random.randint(100, 250, size=200),
+Membership (Days): np.random.randint(30, 365, size=200)}
+df = pd.dataframe(data)))
+nb.cells.append(new_code_cell (Provide a simple analytical overview of the dataset's numeric columns
 overview = df.describe()
-overview"""))
-
-nb.cells.append(new_code_cell("""# Collect all of the names of the trainers within the dataset
-trainers_names = df['Trainer'].unique()
-trainers_names"""))
-
-nb.cells.append(new_code_cell("""# Figure out how many students each trainer has
-students_per_trainer = df['Trainer'].value_counts()
-students_per_trainer"""))
-
-nb.cells.append(new_code_cell("""# Find the average weight of the students at the gym
-average_weight = df['Weight'].mean()
-average_weight"""))
-
-nb.cells.append(new_code_cell("""# Find the combined weight of all of the students at the gym
-combined_weight = df['Weight'].sum()
-combined_weight"""))
-
-nb.cells.append(new_code_cell("""# Convert the "Membership (Days)" column into weeks, and add this new Series into the DataFrame
-df['Membership (Weeks)'] = df['Membership (Days)'] / 7
-df.head()"""))
-
-  # Write the notebook to a new file
-output_notebook_path = '/mnt/data/gym_dataset_analysis.ipynb'
-with open(output_notebook_path, 'w') as f:
-    nbformat.write(nb, f)
-
+overview))
+nb.cells.append(new_code_cell (Collect all of the names of the trainers within the dataset
+trainers_names = df[Trainer].unique()
+trainers_names))
+nb.cells.append(new_code_cell(Figure out how many students each trainer has
+students_per_trainer = df[Trainer].value_counts()
+students_per_trainer))
+nb.cells.append(new_code_cell( Find the average weight of the students at the gym
+average_weight = df[Weight].mean()
+average_weigh))
+nb.cells.append(new_code_cell( Find the combined weight of all of the students at the gym
+combined_weight = df[Weight].sum()
+combined_weigh))
+nb.cells.append(new_code_cell( Convert the "Membership (Days)" column into weeks, and add this new Series into the DataFrame
+df['Membership (Weeks)] = df['Membership (Days)'] / 7
+df.head()))
+output_notebook_path = /mnt/data/gym_dataset_analysis.ipynb
+with open(output_notebook_path, w) as f:
+nbformat.write(nb, f)
 output_notebook_path
 
-  # Analyze
+  # Mine
 import nbformat
-
-## Load the notebook
-notebook_path = '/mnt/data/column_manipulation.ipynb'
-with open(notebook_path, 'r', encoding='utf-8') as f:
-    notebook = nbformat.read(f, as_version=4)
-
-## Collect and display a summary of the notebook cells
-cells_summary = [{'cell_type': cell.cell_type, 'source_length': len(cell.source)} for cell in notebook.cells]
+notebook_path = /mnt/data/column_manipulation.ipynb
+with open (notebook_path, r, encoding=utf-8) as f:
+notebook = nbformat.read(f, as_version=4)
 cells_summary
-
 import ipython.display as display
 from nbconvert import pythonexporter
 import io
-
-## Convert the notebook to a python script
 exporter = pythonexporter()
 source_code, _ = exporter.from_notebook_node(notebook)
-
-## Execute the converted python script and capture the output
 executed_output = {}
 exec_namespace = {}
-
-## Execute each cell individually to capture their outputs
 for idx, cell in enumerate(notebook.cells):
-    if cell.cell_type == 'code':
-        # Execute the code
-        try:
-            exec(cell.source, exec_namespace)
-            executed_output[idx] = "Execution successful."
-        except Exception as e:
-            executed_output[idx] = f"Error: {str(e)}"
+if cell.cell_type == 'code':
 
+Execute the code
+try: exec(cell.source, exec_namespace)
+executed_output[idx] = "Execution successful."
+except Exception as e:
+executed_output[idx] = f"Error: {str(e)}"
 executed_output
 
   # Hey arnold
-## Since the user requests the information in a format compatible with jupyter notebook we will save the dataframe to a CSV file, which can be easily imported into jupyter notebooks
-
-df_reorganized.to_CSV('/mnt/data/hey_arnold_cleaned.csv', index=false)
-
-'/mnt/data/hey_arnold_cleaned.CSV'
-
-  # Data
+df_reorganized.to_CSV(/mnt/data/hey_arnold_cleaned.csv, index=false)
+'/mnt/data/hey_arnold_cleaned.CSV
 import nbformat
-
-## Load the notebook
-notebook_path = '/mnt/data/pandas_reading_files.ipynb'
-with open(notebook_path, 'r', encoding='utf-8') as nb_file:
-    nb_content = nbformat.read(nb_file, as_version=4)
-
-## Display the content of the notebook
+notebook_path = /mnt/data/pandas_reading_files.ipynb
+with open(notebook_path, r, encoding = utf-8) as nb_file:
+nb_content = nbformat.read(nb_file, as_version=4)
 nb_content.cells
 
-  # Summary
+## Result
 import pandas as pd
-
-## Load the CSV file
-file_path = '/mnt/data/books_clean.CSV'
+file_path = /mnt/data/books_clean.CSV
 books_df = pd.read_CSV(file_path, encoding='utf-8')
+books_df.head
 
-## Display the first few rows of the DataFrame to understand its structure
-books_df.head()
-
-## Since all necessary columns are present and no extra columns are mentioned, we proceed with renaming and styling
-
-## Renaming the columns
+## Format
 books_df.rename(columns={
-    'author': 'author',  # this looks like it was already correctly named, but we'll include it for clarity
-    'publication year': 'publication year'
-}, inplace=True)
-
-## Applying title case where appropriate
+author': author, this looks like it was already correctly named, but we'll include it for clarity
+publication year': publication year}, inplace = true)
 books_df['Title'] = books_df['Title'].str.title()
 books_df['Other Titles'] = books_df['Other Titles'].str.title()
 books_df['Author'] = books_df['Author'].str.title()
@@ -313,9 +197,6 @@ books_df['All Names'] = books_df['All Names'].str.title()
 books_df['Country of Publication'] = books_df['Country of Publication'].str.title()
 books_df['Place of Publication'] = books_df['Place of Publication'].str.title()
 books_df['Publisher'] = books_df['Publisher'].str.title()
-
-# Writing the cleaned dataframe to a new CSV file
 output_path = '/mnt/data/cleaned_comic_books.CSV'
 books_df.to_CSV(output_path, index=false)
-
 output_path
