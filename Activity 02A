@@ -34,7 +34,7 @@ Range("A1:A10").font.bold = true
 Sub calculatecum()
 Range("B1").value = application.worksheetfunction.sum(Range("A1:A10"))
 
-## Data visualization
+## Visualization
 Sub createbarchart()
 Dim chartobj as chartobject
 Set chartobj = activesheet.chartobjects.add(Left:=100, Width:=375, Top:=50, Height:=225)
@@ -93,7 +93,8 @@ Sub button1_click()
 Msgbox "You clicked button 1!"
 Sub button2_click()
 Msgbox "You clicked button 2!"
-End Sub
+
+  # End Sub
 
   # Format
 
@@ -188,7 +189,7 @@ Next i
 
   # End Sub
 
-  # Data visualization
+  # Visualization
 Sub createchart()
 Dim rng as range
 Set rng = selection ' or specify a range
