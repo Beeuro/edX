@@ -1,26 +1,15 @@
-  What signs might indicate that gentrification is happening?
-Signs of gentrification often include an influx of wealthier residents, rising property values, new businesses catering to a more affluent clientele, and changes in the neighborhood's character. Additionally, long-time residents may face increased living costs and potential displacement due to rising rents.
+	# Gentricifaction
 
-  What means can we use to determine how long the trend has been happening?
-To assess how long gentrification has been occurring, you can examine historical data on property values, rent prices, and demographic shifts in the area. Analyzing census records, real estate trends over the years, and community changes can provide insights into the duration of the gentrification process. Long-term residents' experiences and local narratives may also offer valuable perspectives on the timeline of gentrification in the neighborhood.
+## Proxies
+	## Artistic Presence: An increase in art galleries, cultural events, and street art might indicate a shift in demographics
+	## Public Infrastructure Investments: If there's a sudden increase in public infrastructure, like improved parks, public spaces, or transportation, it could be a sign of gentrification
+	## Educational Institutions: The establishment or improvement of educational institutions in the area can attract a more affluent population
+	## Health and Wellness Services: An increase in high-end gyms, health food stores, and wellness services may suggest changing demographics
+	##Community Engagement Initiatives: The presence of community engagement programs or initiatives may be a sign of efforts to bridge the gap between incoming residents and the existing community
+	## Changes in Local Businesses: The transformation or replacement of local businesses, especially those catering to a wealthier clientele, can be indicative of gentrification
 
-  What proxies might we use to identify gentrification in nonobvious ways?
-A. Artistic Presence: An increase in art galleries, cultural events, and street art might indicate a shift in demographics.
-B. Public Infrastructure Investments: If there's a sudden increase in public infrastructure, like improved parks, public spaces, or transportation, it could be a sign of gentrification.
-C. Educational Institutions: The establishment or improvement of educational institutions in the area can attract a more affluent population.
-D. Health and Wellness Services: An increase in high-end gyms, health food stores, and wellness services may suggest changing demographics.
-E. Community Engagement Initiatives: The presence of community engagement programs or initiatives may be a sign of efforts to bridge the gap between incoming residents and the existing community.
-F. Changes in Local Businesses: The transformation or replacement of local businesses, especially those catering to a wealthier clientele, can be indicative of gentrification.
--Keep in mind that these proxies may not be definitive proof, but they can provide additional insights into the ongoing changes in a neighborhood.
-
-  How might you create a visualization of this data to best “tell the story”?
-I want to create and reimagine infrastructure to build smarter cities.
-
-  What data will you use to build your model?
-My plan is to use the app interface for my startup to collect data.
-
-  How will you retrieve the data?
-Until there is a better method to wrangle information I will be using RAM from each device or the traditonal method to collect 100% of user data.
-
-  What is your final “story”?
-I am an entrepreneur with Obamacare.
+##Intro 
+	## I want to create and reimagine infrastructure to build smarter cities
+	## My plan is to use the app interface for my startup to collect data
+	## Until there is a better method to wrangle information I will be using RAM from each device or the traditonal method to collect 100% of user data
+	## "I am an entrepreneur with Obamacare."
