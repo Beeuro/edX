@@ -1,4 +1,4 @@
-	# Star counter
+	# Star counter Test
 ## Format
 Sub starcounter
 Dim ws as worksheet
