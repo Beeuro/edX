@@ -1,4 +1,4 @@
-  #Grades
+  # Grades
 import pandas as pd
 import matplotlib.pyplot as plt
 upload excel file
@@ -19,7 +19,7 @@ ax.set_ylim(0, 100)  # Assuming grades are out of 100
 plt.tight_layout
 plt.show
 
-## Plot
+## Mod
 plt.figure(figsize=(10, 6))
 for index, row in grades_df.iterrows
 plt.plot(months, row[1:], label=row[0])
@@ -35,7 +35,7 @@ plt.show()
 student_name = "Odelia Nelsen"
 student_data = grades_df[grades_df['Unnamed: 0] == student_name]
 
-## Plot
+## Mod
 plt.figure(figsize=(10, 6))s
 plt.plot(months, student_data.iloc[0, 1:], marker=o, linestyle=-, linewidth=2)
 plt.title(fGrades Over the Semester - {student_name})
@@ -54,7 +54,7 @@ import seaborn as sns
 ## Visualization
 def create_scatter_plot(df, x_col, y_col, x_label, y_label, title):
 
-## Plot
+## Mod
 plt.figure(figsize=(10, 6))
 sns.regplot(x=x_col, y=y_col, data=df, scatter_kws={'alpha':0.5}, line_kws={color': cyber yellow})
 plt.title(title)
@@ -67,7 +67,7 @@ create_scatter_plot(df, sqft_living, price, Square Feet of the Home, Price of th
 create_scatter_plot(df, bedrooms, price, Number of Bedrooms, Price of the Home, Home Price vs. Number of Bedrooms)
 create_scatter_plot(df, bathrooms, price, Number of Bathrooms, Price of the Home, Home Price vs. Number of Bathrooms)
 
-## Plot
+## Mod
 def create_adjusted_scatter_plot(df, x_col, y_col, x_label, y_label, title, xlim, ylim)
 plt.figure(figsize=(10, 6))
 sns.regplot(x=x_col, y=y_col, data=df, scatter_kws={alpha:0.5}, line_kws={color': black})
@@ -103,15 +103,13 @@ descriptive_stats, year_range
 ## Format
 sns.set_style("whitegrid")
 
-## Plot 
+## Mod
 plt.figure(figsize=(12, 6))
 sns.boxplot(x=Year, y=GroupSize, data=data_preview)
 plt.title(Yearly Distribution of Walrus Group Sizes)
 plt.xlabel(Year)
 plt.ylabel(Group Size)
 plt.show()
-
-## Plot
 plt.figure(figsize=(12, 6))
 sns.histplot(data_preview[GroupSize].dropna(), bins=30, kde=True)
 plt.title(Distribution of Walrus Group Sizes)
@@ -158,7 +156,6 @@ oregon_data["Z-Score"] = (oregon_data["Death Rate Per 100,000"] - oregon_mean) /
 max_z_score_county = oregon_data.loc[oregon_data["Z-Score"].abs().idxmax()]
 oregon_data[["LocationDesc", "Death Rate Per 100,000", "Z-Score"]], max_z_score_county["LocationDesc"], max_z_score_county["Z-Score"]
 
-
   # Antioxidants
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -183,7 +180,7 @@ outliers = cereal_data[(cereal_data[rating] < lower_boundary) | (cereal_data[rat
 outlier_products = outliers[[name, rating]].reset_index(drop=True)
 outlier_products
 
-## Plot
+## Mod
 plt.figure(figsize=(10, 6))
 sns.boxplot(y=cereal_data[rating])
 plt.title(Box Plot of Cereal Ratings)
