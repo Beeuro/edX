@@ -1,4 +1,4 @@
-	# Python test
+	# Python
 !mkdir -p learnpython/assignment03A
 with open(LearnPython/Assignment03A/mamba.py, "w") as f
 f.write('print("Hello from Assignment 03A!")\n")
