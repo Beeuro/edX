@@ -90,7 +90,7 @@ plt.savefig(/mnt/data/eda_poverty_rate_histogram.png)
   # Binning
 import matplotlib.pyplot as plt
 
-## Plot
+## Wrangle
 plt.figure(figsize=(10, 6))
 data_2019[Poverty Rate].hist(bins=20, color = cyber yellow , edgecolor = sapphire blue)
 plt.title(Poverty Rate Distribution - 2019)
@@ -133,7 +133,6 @@ data_path = /mnt/data/Seattle_Housing_Cost_Burden.CSV
 housing_data = pd.read_CSV(data_path)
 housing_data.head()
 import nbformat
-
 notebook_path = /mnt/data/mapping.ipynb
 with open(notebook_path, "r", encoding=utf-8) as nb_file
 nb_content = nbformat.read(nb_file, as_version=4)
