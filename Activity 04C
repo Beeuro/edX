@@ -1,18 +1,18 @@
   # Merge
 import nbformat
 notebook_path = /mnt/data/merging.ipynb
-with open(notebook_path) as f:
+with open(notebook_path) as "f"
 notebook = nbformat.read(f, as_version=4)
 print(f"Cell Type: {cell.cell_type}")
-if cell.cell_type == code:
+if cell.cell_type == code
 print(f"Code:\n{cell.source}")
 
 else
   
 print(f"Content:\n{cell.source}")
 print("\n---\n")
-outputs = []
-globals = {}
+outputs = 
+globals = 
 
 ## Wrangle
 import pandas as pd
@@ -21,8 +21,8 @@ exec(cell.source, globals)
 last_expr = cell.source.strip().split(\n)[-1]
 output = eval(last_expr, globals)
 outputs.append(output)
-except: outputs.append(None) if there's no evaluable expression or it fails,
-append none except exception as e
+except: outputs.append(None) if there's no evaluable expression or it fails
+append none except exception as
 outputs.append(str(e)) capture any error message
 return outputs
 outputs = execute_notebook_cells(notebook)
@@ -56,9 +56,9 @@ state_totals, state_avg
 ## Mod
 merged_df = pd.merge(state_totals, state_avg, on=["Year", "State"])
 merged_df.head
-data_2019 = merged_df[merged_df['Year'] == 2019]
-data_2019['Poverty Rate'] = data_2019['Total Population in Poverty'] / data_2019['Total Population'] * 100
-sorted_data = data_2019.sort_values(by=['Poverty Rate', 'Average Per Capita Income by County'], ascending=False)
+data_2019 = merged_df[merged_df[Year] == 2019]
+data_2019[Poverty Rate] = data_2019[Total Population in Poverty] / data_2019[Total Population] * 100
+sorted_data = data_2019.sort_values(by = Poverty Rate, Average Per Capita Income by County], ascending=False)
 highest_poverty_rate = sorted_data.head(1)
 lowest_poverty_rate = sorted_data.tail(1)
 highest_poverty_rate, lowest_poverty_rate
@@ -174,11 +174,11 @@ df_cleaned.head
 
 ## Merge
 "Total Projects": df_cleaned.shape[0]
-"Total Pledged": df_cleaned[pledged].sum()
-"Average Pledged": df_cleaned[pledged].mean()
-"Average Goal": df_cleaned[goal].mean()
+"Total Pledged": df_cleaned[pledged].sum
+"Average Pledged": df_cleaned[pledged].mean
+"Average Goal": df_cleaned[goal].mean
 "Success Rate": df_cleaned[df_cleaned[outcome] = successful].shape[0] / df_cleaned.shape[0] * 100
-"Countries Represented": df_cleaned[country].nunique()
+"Countries Represented": df_cleaned[country].nunique
 "Projects that are Staff Picks": df_cleaned[df_cleaned[staff_pick]].shape[0],}
 
 ## Summary
