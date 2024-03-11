@@ -1,4 +1,5 @@
   # Jupyter notebook
+import nbformat
 notebook_path = /mnt/data/jupyter_intro.ipynb
 with open(notebook_path, "r", encoding='utf-8') as nb_file
 nb = nbformat.read(nb_file, as_version=4)
@@ -6,7 +7,6 @@ for cell in nb[cells][:3]
 print(f"Cell type: {cell[cell_type]}")
 print(f"Source: {cell['source']}\n")
 from nbconvert.preprocessors import executepreprocessor
-import nbformat
 ep = executepreprocessor(timeout=600, kernel_name = python3)
 ep.preprocess(nb, {metadata: {path': /mnt/data/'}})
 executed_notebook_path = /mnt/data/executed_jupyter_intro.ipynb
