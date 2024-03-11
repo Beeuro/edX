@@ -21,7 +21,7 @@ grouped_data_sorted.head
 
   # IMDB
 import pandas as pd
-file_path = '/mnt/data/movie_scores.CSV'
+file_path = /mnt/data/movie_scores.CSV
 data = pd.read_CSV(file_path)
 data.head
 
@@ -36,20 +36,20 @@ output_path
   # Donor list
 import pandas as pd
 donors2021_df = pd.read_CSV(/mnt/data/donors2021.CSV)
-donors2021_df.hea
+donors2021_df.head
 
 ## Clean
 donors2021_unclean_df = pd.read_CSV(/mnt/data/donors2021_unclean.CSV)
 donors2021_unclean_df.head
 
 ## Mine
-with open(/mnt/data/cleaning_data.ipynb, "r") as file:
+with open(/mnt/data/cleaning_data.ipynb, "r") as file
 notebook_content = file.read
 import JSON
 notebook_JSON = JSON.loads(notebook_content)
 code_cells = 
-for cell in notebook_JSON[cells]:
-if cell[cell_type] = code:
+for cell in notebook_JSON[cells]
+if cell[cell_type] = code
 code = .join(cell[source])
 code_cells.append(code)
 
@@ -60,12 +60,12 @@ df.head
 
 ## Wrangle
 df_english = df[[Part, Type, Brand, Model, Other Information, Place of Manufacture, Applicant, Telephone Number, Approval Expiry Date]]
-df_english.head()
-null_counts = df_english.isnull().sum()
+df_english.head
+null_counts = df_english.isnull().sum
 null_counts
-df_cleaned = df_english.dropna()
+df_cleaned = df_english.dropna
 df_cleaned.shape
-applicant_unique = df_cleaned[Applicant].unique()
+applicant_unique = df_cleaned[Applicant].unique
 applicant_unique[:20]
 
 ## Dataframe
@@ -84,7 +84,7 @@ import nbformat
 with open(/mnt/data/pandas_recap.ipynb) as f:
 nb = nbformat.read(f, as_version=4)
 df_fires = pd.read_CSV(/mnt/data/CT_fires_2015.CSV)
-df_fires.head()
+df_fires.head
 
 ## Format
 for cell in nb[cells]
@@ -102,15 +102,15 @@ nb_content = nbformat.read(nb_file, as_version=4)
 analysis_instructions = [cell source] for cell in nb_content.cells if cell.cell_type = code]
 analysis_instructions
 import pandas as pd
-csv_path = '/mnt/data/CT_fires_2015.csv'
+csv_path = /mnt/data/CT_fires_2015.CSV
 fires_df = pd.read_csv(csv_path, low_memory=False)
-fires_df.head()
+fires_df.head
 
 ## Dataframe
 selected_columns = [
 Fire Department Name, Incident date, Incident Type Code, Incident Type,
-Alarm Date and Time, Arrival Date and Time, Last Unit Cleared Date and Time
-Property Use, Assuming this might be intended as Property LossContents Loss 
+Alarm Date and Time, Arrival Date and Time, Last Unit Cleared Date and Time,
+Property Use, Assuming this might be intended as Property Loss, Contents Loss, 
 Fire Service Deaths, Fire Service Injuries,
 Other Fire Deaths, Other Fire Injuries, Incident City, Incident Zip Code]
 available_columns = [col for col in selected_columns if col in fires_df.columns]
@@ -159,13 +159,13 @@ averages_df.to_CSV(averages_CSV_path, index=false)
 
   # San Francisco Municipal
 import pandas as pd
-df = pd.read.CSV('/mnt/data/SFO_Airport_Utility_Consumption.CSV')
+df = pd.read.CSV(/mnt/data/SFO_Airport_Utility_Consumption.CSV)
 unique_utilities = df['Utility'].unique()
 unique_utilities
 
 ## Dataframe
 gas_tenant_df = df[(df[Utility] = Gas) & (df[Owner] = Tenant)]
-sorted_gas_tenant_df = gas_tenant_df.sort_values(by='Usage', ascending=false)
+sorted_gas_tenant_df = gas_tenant_df.sort_values(by=Usage, ascending=false)
 sorted_gas_tenant_df.reset_index(drop=true, inplace=true)
 sorted_gas_tenant_df
 
