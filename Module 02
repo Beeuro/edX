@@ -1,6 +1,6 @@
 	# Stock market analysis
 ## Wrangle
-Sub stockanalysis()
+Sub stockanalysis
 Dim ws as worksheet
 Dim ticker As string
 Dim yearlychange as double
@@ -71,7 +71,7 @@ End if
 	# End Sub
 
 ## Conditional
-Sub stockmarketaanalysis()
+Sub stockmarketaanalysis
 Dim ws as worksheet
 Dim ticker as string
 Dim openprice as double
@@ -148,7 +148,7 @@ End if
 
 Next i
 call a function/sub to calculate greatest % increase, greatest % decrease, and greatest total volume
-Call calculatespecialvalues(ws)
+Call calculatespecialvalues (ws)
     
 Next ws
 Application.screenupdating = true
