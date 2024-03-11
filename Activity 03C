@@ -1,11 +1,11 @@
 	# Cereal
 import CSV
-cereal_CSV_path = '/mnt/data/cereal.CSV'
-with open(cereal_CSV_path, mode='r') as file:
+cereal_CSV_path = /mnt/data/cereal.CSV
+with open(cereal_CSV_path, mode = "r") as file
 CSV_reader = CSV.reader(file)
-next(CSV_reader, None)  # Skip the header row
+next(CSV_reader, None)
 high_fiber_cereals = [row for row in CSV_reader if float(row[7]) >= 5]
-cereal_bonus_CSV_path = '/mnt/data/cereal_bonus.CSV'
+cereal_bonus_CSV_path = /mnt/data/cereal_bonus.CSV
 with open(cereal_bonus_CSV_path, mode='r') as file:
 CSV_reader = CSV.reader(file)
 high_fiber_cereals_bonus = [row for row in CSV_reader if float(row[7]) >= 5]
@@ -30,7 +30,6 @@ lowercased_names, titlecased_names
 if numbers:  # check if the list is not empty
 return sum(numbers) / len(numbers)
 else: return 0  # return 0 or an appropriate value for an empty list
-
 test_cases = [
 
 [10, 20, 30, 40, 50],  # Simple case
@@ -52,14 +51,14 @@ results
 
 	# University
 import pandas as pd
-with open("/mnt/data/graduation_functions.py", "r") as file:
-graduation_functions_code = file.read()
+with open("/mnt/data/graduation_functions.py", "r") as file
+graduation_functions_code = file.read
 graduation_functions_code
 graduation_data_preview = pd.read_csv("/mnt/data/graduation_data.csv", nrows=5)
-graduation_data_preview.head()
+graduation_data_preview.head
 
 ## Wrangle
-def print_percentages(state_data):
+def print_percentages(state_data)
 state_name = state_data[State or jurisdiction]
 public_cohort = state_data[Adjusted cohort (Public)]
 public_completers = state_data[Completers (Public)]
@@ -68,7 +67,7 @@ nonprofit_completers = state_data[Completers (Nonprofit Private)]
 forprofit_cohort = state_data[Adjusted cohort (For-profit Private)]
 forprofit_completers = state_data[Completers (For-profit Private)]
     
- ## Mod
+## Mod
 public_rate = (public_completers / public_cohort * 100) if public_cohort > 0 else 0
 nonprofit_rate = (nonprofit_completers / nonprofit_cohort * 100) if nonprofit_cohort > 0 else 0
 forprofit_rate = (forprofit_completers / forprofit_cohort * 100) if forprofit_cohort > 0 else 0
@@ -82,11 +81,11 @@ print(f"Non-profit private school graduation rate: {nonprofit_rate:.2f}%")
 if forprofit_cohort > 0: # check if data for for-profit schools exists
 print(f"For-profit private school graduation rate: {forprofit_rate:.2f}%")
 print(f"Overall graduation rate: {overall_rate:.2f}%")
-    
 if overall_rate > 50:
 print("Approved")
     
-else:
+else
+
 print("Denied")
 
 state_data_california = {
@@ -99,7 +98,7 @@ adjusted cohort (For-profit Private): 12477,
 completers (For-profit Private): 5736}
 print_percentages(state_data_california)
 
-	# GitHub
+	#GitHub
 ## Clone
 git clone your_repository_url
 cd your_repository_name
