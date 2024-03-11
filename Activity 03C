@@ -6,21 +6,21 @@ CSV_reader = CSV.reader(file)
 next(CSV_reader, None)
 high_fiber_cereals = [row for row in CSV_reader if float(row[7]) >= 5]
 cereal_bonus_CSV_path = /mnt/data/cereal_bonus.CSV
-with open(cereal_bonus_CSV_path, mode='r') as file:
+with open(cereal_bonus_CSV_path, mode='r') as file
 CSV_reader = CSV.reader(file)
 high_fiber_cereals_bonus = [row for row in CSV_reader if float(row[7]) >= 5]
 
 	# Life
 hobby_info = {
-"name": "Matthew",
-"age": 34,
-"hobbies": ["ice hockey", "music", "cooking"],
+"name": "Matthew"
+"age": 34
+"hobbies": ["ice hockey", "music", "cooking"]
 "wake_up_times": {"Monday": "5:00 AM", "Wednesday": "5:00 AM", "Friday": "5:00 AM"}}
 print(f"Name: {hobby_info['name']}")
 print(f"Number of hobbies: {len(hobby_info['hobbies'])}")
 print(f"Typical wake-up time on Monday: {hobby_info['wake_up_times']['Monday']}")
 with open("/mnt/data/comprehensions.py", "r") as file:
-contents = file.read()
+contents = file.read
 user_provided_names = ["Matthew", "Alicia", "Ryan"]
 lowercased_names = [name.lower() for name in user_provided_names]
 titlecased_names = [name.title() for name in lowercased_names]
@@ -34,8 +34,7 @@ test_cases = [
 
 [10, 20, 30, 40, 50],  # Simple case
 [1.5, 2.5, 3.5],       # Floating point numbers
-[-10, 0, 10, 20],      # Including negative numbers
- []                     # Empty list]
+[-10, 0, 10, 20],      # Including negative numbers             
 
 results = [average(case) for case in test_cases]
 results
@@ -44,10 +43,8 @@ test_cases = [
 [10, 20, 30, 40, 50],  # Simple case
 [1.5, 2.5, 3.5],       # Floating point numbers
 [-10, 0, 10, 20],      # Including negative numbers
-[]                     # Empty list]
 
 results = [average(case) for case in test_cases]
-results
 
 	# University
 import pandas as pd
@@ -89,12 +86,12 @@ else
 print("Denied")
 
 state_data_california = {
-state or jurisdiction: California,
-adjusted cohort (Public)': 82721,
-completers (Public)': 53459,
-adjusted cohort (Nonprofit Private): 24037,
-completers (Nonprofit Private): 17350,
-adjusted cohort (For-profit Private): 12477,
+state or jurisdiction: California
+adjusted cohort (Public)': 82721
+completers (Public)': 53459
+adjusted cohort (Nonprofit Private): 24037
+completers (Nonprofit Private): 17350
+adjusted cohort (For-profit Private): 12477
 completers (For-profit Private): 5736}
 print_percentages(state_data_california)
 
