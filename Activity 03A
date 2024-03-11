@@ -1,6 +1,6 @@
 	# Python
 !mkdir -p learnpython/assignment03A
-with open(LearnPython/Assignment03A/mamba.py, "w") as f:
+with open(LearnPython/Assignment03A/mamba.py, "w") as f
 f.write('print("Hello from Assignment 03A!")\n")
 Run mamba.py
 exec(open('LearnPython/Assignment2/bootcamp.py').read
@@ -25,14 +25,14 @@ not_delicious = not is_delicious
 ## Summary
 age_str = str(age)
 is_delicious_str = str(is_delicious)
-type_simulation = [
-"Frankfurter type: " + str(type_frankfurter),
-"Age type" + str(type_age),
-"Is delicious type" + str(type_is_delicious),
-"Formatted string: " + formatted_string,
-"Age as string: " + age_str,
-"Is delicious as string: " + is_delicious_str,
-"Age next year: " + str(age_next_year),
+type_simulation =
+"Frankfurter type: " + str(type_frankfurter)
+"Age type" + str(type_age)
+"Is delicious type" + str(type_is_delicious)
+"Formatted string: " + formatted_string
+"Age as string: " + age_str
+"Is delicious as string: " + is_delicious_str
+"Age next year: " + str(age_next_year)
 "Is not delicious: " + str(not_delicious)]
 print_simulation
 
@@ -50,18 +50,16 @@ user_truthy_input = "yes"
 age_int = int(user_age)
 is_truthy = user_truthy_input.lower() in ["yes", "true", "1"]
 
-## Validation
+## Wrangle
 valid_age = int(user_age)
 age_validation = "Valid integer age."
 except ValueError
 age_validation = "Invalid age input. Please enter a numeric value."
-
-## Wrangle
 response_name = f"Hello, {user_name}!"
 response_age = f"You are {age_int} years old."
 response_truthy = "You consider this input truthy." if is_truthy else "You consider this input falsy."
 
-## Simulated print outputs as we cannot use print statements directly here
+## Mod
 simulated_outputs = [
 response_name
 response_age
@@ -73,15 +71,13 @@ simulated_outputs
 user_coding_months = "12"  # assume the user inputs 12 months
 neighbor_coding_months = "9"  # assume the neighbor inputs 9 months
 
-## Wrangle
+## Mine
 user_coding_months_int = int(user_coding_months)
 neighbor_coding_months_int = int(neighbor_coding_months)
 validation_message = "Both inputs are valid integers."
 except valueerror:
 validation_message = "One or both inputs are invalid. Please enter numeric values."
 user_coding_months_int = neighbor_coding_months_int = 0  # set to 0 to avoid calculation errors in case of invalid input
-
-## Mine
 total_coding_months = user_coding_months_int + neighbor_coding_months_int
 
 ## Summary
@@ -95,26 +91,32 @@ simulated_outputs
 
 ## Mod
 file_path = /mnt/data/conditionals.py
-with open(file_path, 'r') as file:
+with open(file_path, 'r') as file
 conditionals_content = file.read()
 conditionals_content
 x = 5
 y = 10
 if 2 * x > 10:
 result_1 = "Success!"
+
 else:
+
 result_1 = "Fail"
 ## x = 5
 y = 10
 if len("Dog") < x
 result_2 = "Success!"
+
 else
+
 result_2 = "Fail"
 x = 2
 y = 5
 if (x ** 3 >= y) and (y ** 2 < 26)
 result_3 = "Success!"
+
 else:
+
 result_3 = "Fail"
 name = "Matthew"
 group_one = ["Greg", "Tony", "Susan"]
@@ -126,20 +128,24 @@ elif name in group_two:
 result_4 = name + " is in group two"
 elif name in group_three:
 result_4 = name + " is in group three"
+
 else:
+
 result_4 = name + " does not have a group"
 height = 72
 age = 34
 adult_permission = true
-if (height > 70) and (age >= 18):
+if (height > 70) and (age >= 18
 result_5 = "Can ride all the roller coasters"
-elif (height > 65) and (age >= 18):
+elif (height > 65) and (age >= 18)
 result_5 = "Can ride moderate roller coasters"
-elif (height > 60) and (age >= 18):
+elif (height > 60) and (age >= 18)
 result_5 = "Can ride light roller coasters"
-elif ((height > 50) and (age >= 18)) or ((adult_permission) and (height > 50)):
+elif ((height > 50) and (age >= 18)) or ((adult_permission) and (height > 50))
 result_5 = "Can ride bumper cars"
+
 else:
+
 result_5 = "Stick to lazy river"
 
 ## Summary
@@ -148,10 +154,10 @@ confirmed_results
 
 	#Rock paper scissors
 file_path = /mnt/data/rock_paper_scissors.py
-with open(file_path, "r") as file:
-python_script = file.read()
+with open(file_path, "r") as file
+python_script = file.read
 python_script
-complete_script =
+complete_script
 import random
 print("Let's Play Rock Paper Scissors!")
 options = ["r", "p", "s"]
@@ -169,17 +175,17 @@ else:
 print(f"You lose! Your choice: {user_choice} vs Computer's choice: {computer_choice}")
 
 ## Write
-completed_script_path = '/mnt/data/completed_rock_paper_scissors.py'
-with open(completed_script_path, 'w') as file:
+completed_script_path = /mnt/data/completed_rock_paper_scissors.py
+with open(completed_script_path, "w") as file
 file.write(complete_script)
 completed_script_path
 
 ## Loop
-def simulate_user_interaction():
+def simulate_user_interaction()
 end_of_previous_chain = 0  # initialize for the bonus part
 while true: this loop will run until the user decides to exit
 n = int(get_input("How many numbers?"))  # assuming get_input works like input()
-for i in range(end_of_previous_chain, end_of_previous_chain + n):
+for i in range(end_of_previous_chain, end_of_previous_chain + n)
 print(i, end=" ")
 print()  # for newline
 end_of_previous_chain += n  # update for next chain, for bonus part
