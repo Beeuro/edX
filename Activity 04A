@@ -1,8 +1,8 @@
   # Jupyter notebook
 notebook_path = /mnt/data/jupyter_intro.ipynb
-with open(notebook_path, "r", encoding='utf-8') as nb_file:
+with open(notebook_path, "r", encoding='utf-8') as nb_file
 nb = nbformat.read(nb_file, as_version=4)
-for cell in nb[cells][:3]:
+for cell in nb[cells][:3]
 print(f"Cell type: {cell[cell_type]}")
 print(f"Source: {cell['source']}\n")
 from nbconvert.preprocessors import executepreprocessor
@@ -22,7 +22,7 @@ import CSV
 book = "The Flash"
 CSVpath = "/mnt/data/comic_books.CSV"
 found = true
-with open(CSVpath, encoding="utf8") as CSVfile:
+with open(CSVpath, encoding="utf8") as CSVfile
 CSVreader = CSV.reader(CSVfile, delimiter = )
 
 ## Wrangle
