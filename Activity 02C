@@ -1,5 +1,6 @@
 	# Star counter
-Sub starcounter()
+## Format
+Sub starcounter
 Dim ws as worksheet
 Set ws = activesheet
 Dim lastrow as long
@@ -22,7 +23,7 @@ create charts here
 	# Macro
 
 ## Grading
-Sub calculategrades()
+Sub calculategrades
 Dim ws as worksheet
 Set ws = thisworkbook.sheets("Sheet1") adjust the sheet name as necessary
 Dim graderange As range
@@ -35,7 +36,7 @@ Dim lettergrade as string
 Dim cellcolor as long
 Dim statustext as string
 
-## Report
+## Format
 If score >= 90 then
 lettergrade = "A"
 cellcolor = RGB(0, 255, 0) green
@@ -44,16 +45,17 @@ Elseif score >= 80 then
 lettergrade = "B"
 cellcolor = RGB(0, 255, 0) green
 statustext = "Pass"
-        
 Elseif score >= 70 then
 lettergrade = "C"
 cellcolor = RGB(255, 255, 0) yellow
 statustext = "Warning"
         
 Else
+
 lettergrade = "F"
 cellcolor = RGB(255, 0, 0) red
 statustext = "Fail"
+
 End if
 
 gradecell.offset(0, 1).value = lettergrade
@@ -61,27 +63,31 @@ gradecell.offset(0, 2).value = statustext
 gradecell.offset(0, 2).interior.color = cellcolor
 Next gradecell
 
-## Bonus
-Sub resetgrades()
+	# End Sub
+
+	# Bonus
+## Format
+Sub resetgrades
 Dim ws as worksheet
 Set ws = thisworkbook.sheets("Sheet1") adjust the sheet name as necessary
 Dim graderange As range
 Set graderange = ws.range("A2:A20") adjust the range according to where the grades are
 Dim gradecell As range
 
+## Mine
 For each gradecell in graderange
 gradecell.offset(0, 3).value = gradecell.offset(0, 1).value copy current grade to "Last Grade" column, adjust the offset as necessary
-gradecell.offset(0, 1).value = ""
-gradecell.offset(0, 2).value = ""
-gradecell.offset(0, 2).interior.color = RGB(255, 255, 255) ' white
+gradecell.offset(0, 1).value =
+gradecell.offset(0, 2).value = 
+gradecell.offset(0, 2).interior.color = RGB(255, 255, 255) white
 Next gradecell
 
 	# End Sub
 
 	# Checkerboard
-Sub createcheckerboard()
+Sub createcheckerboard
     
-## Format
+## Wrangle
 Dim i as integer, j As Integer
 Dim startrow as integer, startcolumn as integer
 Dim cellcolor as long
@@ -97,7 +103,9 @@ If (i + j) mod 2 = 0 then
 cellcolor = RGB(255, 0, 0) red
 
 Else
+
 cellcolor = RGB(0, 0, 0) black
+
 End if
             
 apply the color to the cell
@@ -109,10 +117,10 @@ Next i
 
 	# End Sub
 
-	# Credit/debit
-Sub processcreditcardpurchases()
+	# Bank
+Sub processcreditcardpurchases
 Dim ws as worksheet
-Set ws = thisworkbook.sheets("Sheet1") ' adjust the sheet name accordingly
+Set ws = thisworkbook.sheets("Sheet1") adjust the sheet name accordingly
 
 ## Format
 Dim lastrow as long
@@ -124,15 +132,17 @@ For i = 2 to lastrow assuming row 1 has headers
 Dim brand as string
 Brand = ws.cells(i, 1).value brand name in column A
 Dim amount as double
-Amount = ws.cells(i, 2).value ' transaction amount in column B
+Amount = ws.cells(i, 2).value transaction amount in column B
 If not branddict.exists(Brand) then
 Branddict.add brand, amount
   
 Else
-Branddict(brand) = branddict(brand) + amount
-End if
 
+Branddict(brand) = branddict(brand) + amount
+
+End if
 Next i    
+
 loop through the dictionary to create pop-up messages and summarize in a table
 Dim key as variant
 Dim summaryrow as long
@@ -140,8 +150,7 @@ Summaryrow = 2 assuming your summary table starts in row 2 of another sheet
 For each key in branddict.keys
 Msgbox "Total for " & Key & ": " & Format(BrandDict(Key), "Currency"), vbinformation, "Credit Card Summary"
 
-## Bonus
-update summary table in another sheet
+	# Bonus
 With thisworkbook.sheets("Summary") ' change "Summary" to your summary sheet's name
 
 ## Format
@@ -173,8 +182,8 @@ lastrow = ws.cells(ws.rows.count, "A").end(xlUp).row
 add the year to the first column of each sheet
 For i = 2 To lastrow
 ws.cells(i, 1).value = sheetyear & " " & ws.cells(i, 1).value
-
 Next i
+
 split the "Place" column into "County" and "State"
 assuming "Place" is in column b (modify if needed)
 placecolumn = 2 column b
@@ -184,10 +193,10 @@ ws.cells(1, placecolumn + 1).value = "County"
 ws.cells(1, placecolumn + 2).value = "State"
         
 For i = 2 to lastrow
-ws.cells(i, placecolumn + 1).value = split(ws.Cells(i, placeColumn).value, ", ")(0) ' county
-ws.Cells(i, placeColumn + 2).Value = Split(ws.Cells(i, placeColumn).value, ", ")(1) ' state
-
+ws.cells(i, placecolumn + 1).value = split(ws.Cells(i, placeColumn).value)(0) county
+ws.Cells(i, placeColumn + 2).Value = Split(ws.Cells(i, placeColumn).value)(1) state
 Next i        
+
 Remove original "Place" column
 ws.columns(placecolumn).delete
 convert the household and per capita income columns to currency
@@ -196,16 +205,17 @@ householdincomecolumn = 4 example column d
 percapitaincomecolumn = 5 example column e
         
 For i = 2 To lastrow
-ws.cells(i, householdincomecolumn).numberformat = "$#,##0.00"
-ws.cells(i, perCapitaIncomeColumn).numberformat = "$#,##0.00"
+ws.cells(i, householdincomecolumn).numberformat = "$0.00"
+ws.cells(i, perCapitaIncomeColumn).numberformat = "$0.00"
 Next i
 Next ws
+
 Msgbox "Formatting complete!", vbinformation
 
 	# End Sub
 
-	# Mod
-Sub combineworksheets()
+	# Merge
+Sub combineworksheets
 Dim ws as worksheet
 Dim combinedsheet as worksheet
 Dim lastrowcombined as long
@@ -216,19 +226,18 @@ check if combined_data sheet exists, if not then create it
 On error resume next ignore errors temporarily
 Set combinedsheet = thisworkbook.sheets("Combined_Data")
 On error goto 0turn back on regular error handling
-    
 If combinedsheet is nothing then
 Set combinedsheet = thisworkbook.worksheets.add
 combinedsheet.name = "Combined_Data"
     
 Else
+
 combinedsheet.cells.clear clear existing data if the sheet already exists
+
 End if
     
-copy headers from the first sheet (assuming all sheets have the same structure)
 Set ws = thisworkbook.sheets(1)
 ws.rows(1).copy destination:=combinedsheet.rows(1)
-    
 For each ws in thisworkbook.sheets
 If ws.name <> "Combined_Data" then
 find the last row with data on the combined sheet and the current sheet
@@ -242,8 +251,8 @@ set datarow = ws.range("A2:Z" & lastRowCurrentSheet) adjust Z to your last colum
 copy & paste the data into the combined sheet
 datarow.copy destination:=combinedsheet.rows(lastRowCombined + 1)
 End if
-    
 Next ws
+
 Msgbox "Data merged successfully!", vbinformation
 
 	# End Sub
