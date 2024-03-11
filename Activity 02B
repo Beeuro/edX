@@ -1,6 +1,6 @@
 	# Finance
 ## Budget
-Sub calculatetotal()
+Sub calculatetotal
 Dim amount as double
 Dim feepercentage as double
 Dim total as double
@@ -10,23 +10,23 @@ total = amount + (amount * feepercentage / 100)
 Range("B3").value = total
 
 ## Alert
-Sub checkbudget()
-    call calculatetotal ensure the total is up to date
+Sub checkbudget
+call calculatetotal ensure the total is up to date
+Dim total as double
+Dim budget as double
+total = range("B3").value
+budget = range("B4").value
+If total <= budget then
+Msgbox "The total amount is within the budget.", vbinformation
     
-    Dim total as double
-    Dim budget as double
-    
-    total = range("B3").value
-    budget = range("B4").value
-    
-    If total <= budget then
-        Msgbox "The total amount is within the budget.", vbinformation
-    Else
-        Msgbox "The total amount is over the budget!", vbcritical
-    End if
+Else
+        
+Msgbox "The total amount is over the budget!", vbcritical
+
+End if
 
 ## Adjust
-Sub adjustforbudget()
+Sub adjustforbudget
 Call calculatetotal ensure the total is up to date    
 Dim amount as double
 Dim feepercentage as double
@@ -43,6 +43,7 @@ maxprice = (budget / (1 + feepercentage / 100))
 Range("B1").value = worksheetfunction.floor(maxprice, 1) adjust price
 Call calculatetotal recalculate total with adjusted price
 Msgbox "Price adjusted to fit within the budget.", vbexclamation
+
 End if
 
 	# End Sub
@@ -76,29 +77,31 @@ Wend
 	# End Sub
 
 	# Conditional loop
-Sub testmyloop()
+Sub testmyloop
 Dim expectedresult as variant
 Dim actualresult as variant
 set up test conditions
-expectedresult = (...)
+expectedresult =
 execute the loop function or procedure you wish to test
-actualresult = myloopfunction(...)
+actualresult = myloopfunction
 check if the actual result meets the expected result
-    
 If actualresult = expectedresult Then
 Debug.print "Test Passed"
+
 Else
+
 Debug.print "Test Failed: expected " & expectedresult & ", got " & actualresult
+
 End if
 
 	# End Sub
 
 	# Blind date
-Sub createdata()
+## Format
+Sub createdata
 Dim i As integer
 Dim startrow as integer
 startrow = 1 assuming you start from the first row
-    
 For i = 11 To 20
 Cells(startrow, 1).value = "I will eat"
 Cells(startrow, 2).value = i
@@ -109,7 +112,7 @@ Next i
 	# End Sub
 
 	# Innovation
-Sub fizzbuzz()
+Sub fizzbuzz
 Dim ws as worksheet
 Set ws = thisworkbook.sheets(1) assuming you are working in the first sheet
 Dim i As long
@@ -122,8 +125,11 @@ Elseif value mod 3 = 0 then
 ws.cells(i, 2).value = "fizz"
 Elseif value mod 5 = 0 then
 ws.cells(i, 2).value = "buzz"
+
 Else
+
 ws.cells(i, 2).value = ""
+
 End If
 Next i
 
@@ -134,21 +140,18 @@ import openpyxl
 wb = openpyxl.load_workbook('/mnt/data/lotto_numbers.xlsm')
 sheet = wb.active
 
-## Define the winning numbers
+## Wrangle
 first_place_num = 3957481
 second_place_num = 5865187
 third_place_num = 2817729
 runner_up_nums = [2275339, 5868182, 1841402]
-
-## Initialize empty dictionaries for winners
 winners = {
 first: None,
 second: none,
 third: none,
-runner_up: none
-}
+runner_up: none}
 
-# Iterate through the rows in the sheet to find the winners
+## Mine
 for row in sheet.iter_rows(min_row=2, values_only=True): ssuming the first row is headers
 ticket_num = row[2]
 if ticket_num == first_place_num:
@@ -164,7 +167,7 @@ winners
 	# End Sub
 
 	# Nest
-## Analysis
+## Format
 Range("A2").formula = "=SUM(B2:D2)" ' example of applying a sum formula
 
 ## Looping
@@ -217,7 +220,7 @@ Application.calculation = xlcalculationautomatic
 
 	# Crypto
 ## Count
-Sub countcattoken()
+Sub countcattoken
 Dim ws as worksheet
 Set ws = thisworkbook.sheets("Sheet1") ' adjust the sheet name as necessary
 Dim cell as range
@@ -232,7 +235,7 @@ Next cell
 Msgbox "Number of 'Cat Token' entries: " & count
 
 ## Exchange
-Sub replacecattokenwithdogecoin()
+Sub replacecattokenwithdogecoin
 Dim ws as worksheet
 Set ws = thisworkbook.sheets("Sheet1") adjust the sheet name as necessary
 Dim cell as range
@@ -245,7 +248,7 @@ Next cell
 Msgbox "All 'Cat Token' entries have been replaced with 'Dogecoin'."
 
 ## Distribute
-Sub replacecattokenwithlimitedcoins()
+Sub replacecattokenwithlimitedcoins
 Dim ws as worksheet
 Set ws = thisworkbook.sheets("Sheet1") adjust the sheet name as necessary
 Dim cell As range
