@@ -1,58 +1,52 @@
-	#Crowd funding
+	# Crowd funding
 import pandas as pd
-file_path = '/mnt/data/crowdfundingbook.xlsx'
+file_path = /mnt/data/crowdfundingbook.xlsx
 df = pd.read_excel(file_path)
 
-	# Data Wrangle
+## Mine
 Checking for duplicate rows
-duplicates = df.duplicated().sum()
+duplicates = df.duplicated.sum
 ## Checking for missing values
-missing_values = df.isnull().sum()
+missing_values = df.isnull.sum
 example: convert a "string date" column to "datetime" type if it exists
-date_columns = [col for col in df.columns if 'date' in col.lower()]
-for col in date_columns:
+date_columns = [col for col in df.columns if 'date' in col.lower]
+for col in date_columns
 df[col] = pd.to_datetime(df[col], errors='coerce')
-
-## Conditional formatting
 pivot table for a column "category" if it exists
-pivot_table_category = pd.pivot_table(df, index='category', aggfunc='count') if "Category" in df.columns else None
+pivot_table_category = pd.pivot_table(df, index='category', aggfunc='count') if "Category" in df.columns else none
 
 ## Mod
 average_column = df.mean(numeric_only=true)
-correlation_matrix = df.corr()
+correlation_matrix = df.corr
 analysis_results = {
-duplicates: duplicates,
-missing_values: missing_values.to_dict(),
-transformed_dates: df[date_columns].dtypes.to_dict() if date_columns else none,
-pivot_table_category: pivot_table_category.to_dict() if pivot_table_category is not None else none,
-average_column: average_column.to_dict(),
+duplicates: duplicates
+missing_values: missing_values.to_dict
+transformed_dates: df[date_columns].dtypes.to_dict() if date_columns else none
+pivot_table_category: pivot_table_category.to_dict() if pivot_table_category is not None else none
+average_column: average_column.to_dict
 correlation_matrix: correlation_matrix.to_dict()}
-def count_outcome(df, outcome, goal_bucket):
+def count_outcome(df, outcome, goal_bucket)
 return df[(df['outcome'] == outcome) & (df['goalbucket'] == goal_bucket)].shape[0]
-for bucket in goal_buckets:
-report_df.at[bucket, 'Number Successful'] = count_outcome(df, 'successful', bucket)
-report_df.at[bucket, 'Number Failed'] = count_outcome(df, 'failed', bucket)
-report_df.at[bucket, 'Number Canceled'] = count_outcome(df, 'canceled', bucket)
-report_df['Total Projects'] = report_df[['Number Successful', 'Number Failed', 'Number Canceled']].sum(axis=1)
+for bucket in goal_buckets
+report_df.at[bucket, Number Successful] = count_outcome(df, successful, bucket)
+report_df.at[bucket, Number Failed] = count_outcome(df, failed, bucket)
+report_df.at[bucket, Number Canceled] = count_outcome(df, canceled, bucket)
+report_df[Total Projects] = report_df[[Number Successful, Number Failed, Number Canceled]].sum(axis=1)
+report_df[Percentage Successful] = (report_df[Number Successful] / report_df[Total Projects]) * 100
+report_df[Percentage Failed] = (report_df[Number Failed] / report_df[Total Projects]) * 100
+report_df[Percentage Canceled] = (report_df[Number Canceled] / report_df[Total Projects]) * 100
 
-report_df['Percentage Successful'] = (report_df['Number Successful'] / report_df['Total Projects']) * 100
-report_df['Percentage Failed'] = (report_df['Number Failed'] / report_df['Total Projects']) * 100
-report_df['Percentage Canceled'] = (report_df['Number Canceled'] / report_df['Total Projects']) * 100
-
-## Data visualizaiton
+## Visualization
 line_chart_data = report_df.reset_index().rename(columns={index: Goal Range})
 line_chart_data = line_chart_data.melt(id_vars=[Goal Range], value_vars=[Percentage Successful, Percentage Failed, Percentage Canceled])
-line_chart_data.head()  # display the first few rows to check the data structure for the chart
-
-suggestions = [
-"and canceled projects would visually demonstrate how the chances of a project's success vary with different goal sizes. "
-"This can help to identify the 'sweet spot' for goal setting in crowdfunding campaigns.",
-"A bar chart comparing the average pledged amounts across different categories could reveal which types of projects tend to "
-"attract more funding, and potentially, which categories are more popular or have more engaged backers.",
-"A heat map of campaign outcomes (successful, failed, canceled) by launch month could uncover seasonal trends in crowdfunding "
-"activity, showing if certain times of the year are better for launching campaigns."
-]
-for suggestion in suggestions:
+line_chart_data.head() display the first few rows to check the data structure for the chart
+"and canceled projects would visually demonstrate how the chances of a project's success vary with different goal sizes"
+"This can help to identify the sweet spot for goal setting in crowdfunding campaigns"
+"A bar chart comparing the average pledged amounts across different categories could reveal which types of projects tend to"
+"attract more funding, and potentially, which categories are more popular or have more engaged backers"
+"A heat map of campaign outcomes (successful, failed, canceled) by launch month could uncover seasonal trends in crowdfunding"
+"activity, showing if certain times of the year are better for launching campaigns"
+for suggestion in suggestions
 doc.add_paragraph(suggestion)
 
 ## Save
@@ -61,43 +55,43 @@ doc.save(doc_path)
 doc_path
 
 ## Mine
-stats_success = backers_df[Number of Backers Successful].describe()
-stats_unsuccess = backers_df[Number of Backers Unsuccessful].describe()
-variance_success = backers_df[Number of Backers Successful].var()
-std_dev_success = backers_df[Number of Backers Successful].std()
-variance_unsuccess = backers_df[Number of Backers Unsuccessful].var()
-std_dev_unsuccess = backers_df[Number of Backers Unsuccessful].std()
-stats_success['variance'] = variance_success
-stats_success['std_dev'] = std_dev_success
-stats_unsuccess['variance'] = variance_unsuccess
-stats_unsuccess['std_dev'] = std_dev_unsuccess
+stats_success = backers_df[Number of Backers Successful].describe
+stats_unsuccess = backers_df[Number of Backers Unsuccessful].describe
+variance_success = backers_df[Number of Backers Successful].var
+std_dev_success = backers_df[Number of Backers Successful].std
+variance_unsuccess = backers_df[Number of Backers Unsuccessful].var
+std_dev_unsuccess = backers_df[Number of Backers Unsuccessful].std
+stats_success[variance] = variance_success
+stats_success[std_dev] = std_dev_success
+stats_unsuccess[variance] = variance_unsuccess
+stats_unsuccess[std_dev] = std_dev_unsuccess
 central_tendency_success = mean if abs(stats_success[mean] - stats_success[50%]) < abs(stats_success[std_dev]) else median
 central_tendency_unsuccess = mean if abs(stats_unsuccess[mean] - stats_unsuccess[50%]) < abs(stats_unsuccess[std_dev]) else median
 more_variability = successful if stats_success[variance] > stats_unsuccess[variance] else unsuccessful
 workbook = load_workbook(/mnt/data/CrowdfundingBook_Updated.xlsx)
 backers_sheet = workbook[Backers Data]
-backers_sheet.append([])
+backers_sheet.append
 backers_sheet.append([Successful Campaigns Stats, Value])
-for stat in stats_success.index:
+for stat in stats_success.index
 backers_sheet.append([stat, stats_success[stat]])
-backers_sheet.append([])
+backers_sheet.append
 backers_sheet.append([Unsuccessful Campaigns Stats, Value])
-for stat in stats_unsuccess.index:
+for stat in stats_unsuccess.index
 backers_sheet.append([stat, stats_unsuccess[stat]])
 workbook.save(filename=/mnt/data/CrowdfundingBook_Updated.xlsx)
-workbook.close()
-analysis_results = {
-central_tendency_success: central_tendency_success,
-central_tendency_unsuccess: central_tendency_unsuccess,
+workbook.close
+analysis_results =
+central_tendency_success: central_tendency_success
+central_tendency_unsuccess: central_tendency_unsuccess
 more_variability: more_variability
-analysis_results, '/mnt/data/crowdfundingbook_updated.xlsx'
+analysis_results: /mnt/data/crowdfundingbook_updated.xlsx
 
 ## Results
-df['Percent Funded'] = (df['pledged'] / df['goal']) * 100
-df['Average Donation'] = df.apply(lambda x: x['pledged'] / x['backers_count'] if x['backers_count'] > 0 else 0, axis=1)
-df['Category'], df['Sub-Category'] = zip(*df['category & sub-category'].apply(lambda x: x.split(': ')))
-df['Date Created Conversion'] = pd.to_datetime(df['launched_at'], unit='s')
-df['Date Ended Conversion'] = pd.to_datetime(df['deadline'], unit='s')
-df[['Percent Funded', 'Average Donation', 'Category', 'Sub-Category', 'Date Created Conversion', 'Date Ended Conversion']].head()
+df[Percent Funded] = (df[pledged] / df[goal]) * 100
+df[Average Donation] = df.apply(lambda x: x[pledged] / x[backers_count] if x[backers_count] > 0 else 0, axis=1)
+df[Category], df[Sub-Category] = zip(*df[category & sub-category].apply(lambda x: x.split))
+df[Date Created Conversion] = pd.to_datetime(df[launched_at], unit=s)
+df[Date Ended Conversion] = pd.to_datetime(df[deadline], unit=s)
+df[[Percent Funded, Average Donation, Category, Sub-Category, Date Created Conversion, Date Ended Conversion]].head
 
 	# Data visualization complete
