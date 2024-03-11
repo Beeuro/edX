@@ -1,4 +1,4 @@
-  # Grades
+  # Grading
 import pandas as pd
 import matplotlib.pyplot as plt
 upload excel file
