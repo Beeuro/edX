@@ -76,7 +76,7 @@ Wend
 
 	# End Sub
 
-	# Conditional loop
+	# Conditional
 Sub testmyloop
 Dim expectedresult as variant
 Dim actualresult as variant
@@ -212,7 +212,6 @@ conn.execute "select * from yourtable"
 ## Optimize VBA
 Application.screenupdating = false
 Application.calculation = xlcalculationmanual
-your code here
 Application.screenupdating = true
 Application.calculation = xlcalculationautomatic
 
@@ -257,9 +256,11 @@ If cell.value = "Shiba Inu" then
 shibainucount = shibainucount + 1
 ElseIf cell.value = "Dogecoin" then
 dogecoincount = dogecoincount + 1
+
 End if
 
 Next cell    
+
 replace cat token with available shiba inu and dogecoin
 For each cell in ws.usedrange
 If cell.value = "Cat Token" then
