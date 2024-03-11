@@ -30,7 +30,6 @@ for row in csvreader:
 if row[0].lower() == book.lower():  # Adjusting for case-insensitive search
 publisher_date = f"{row[0]} was published by {row[8]} in {row[9]}"
 found = true
-
 Exit loop after finding the book
 
 if found: print(publisher_date)
