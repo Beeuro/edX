@@ -7,7 +7,7 @@ print(f"Cell Type: {cell.cell_type}")
 if cell.cell_type == code:
 print(f"Code:\n{cell.source}")
 
-else:
+else
   
 print(f"Content:\n{cell.source}")
 print("\n---\n")
@@ -16,35 +16,35 @@ globals = {}
 
 ## Wrangle
 import pandas as pd
-if cell.cell_type = "code":
+if cell.cell_type = "code"
 exec(cell.source, globals)
 last_expr = cell.source.strip().split(\n)[-1]
 output = eval(last_expr, globals)
 outputs.append(output)
-except: outputs.append(None) if there's no evaluable expression or it fails, 
-append none except exception as e:
+except: outputs.append(None) if there's no evaluable expression or it fails,
+append none except exception as e
 outputs.append(str(e)) capture any error message
 return outputs
 outputs = execute_notebook_cells(notebook)
-outputs = [output for output in outputs if output is not None
+outputs = [output for output in outputs if output is not none
 
 
 ## Mod
 Redefine info_df
-raw_data_info = "customer_id": [112, 403, 999, 543, 123],
-name": ["John", "Kelly", "Sam", "April", "Bobbo"],
+raw_data_info = "customer_id": [112, 403, 999, 543, 123]
+name": ["John", "Kelly", "Sam", "April", "Bobbo"]
 "email": ["jman@gmail", "kelly@aol.com", "sports@school.edu", "April@yahoo.com", "HeyImBobbo@msn.com"]}
 info_df = pd.dataframe(raw_data_info, columns=["customer_id", "name", "email"])
-raw_data_items = { "customer_id": [403, 112, 543, 999, 654],
-"item": ["soda", "chips", "TV", "Laptop", "Cooler"],
+raw_data_items = { "customer_id": [403, 112, 543, 999, 654]
+"item": ["soda", "chips", "TV", "Laptop", "Cooler"]
 "cost": [3.00, 4.50, 600, 900, 150]}
 items_df = pd.DataFrame(raw_data_items, columns=["customer_id", "item", "cost"])
 
 ## Merge
-inner_join_df = pd.merge(info_df, items_df, on='customer_id, how = inner)
-outer_join_df = pd.merge(info_df, items_df, on='customer_id, how = outer)
-left_join_df = pd.merge(info_df, items_df, on='customer_id, how = left)
-right_join_df = pd.merge(info_df, items_df, on='customer_id, how = right)
+inner_join_df = pd.merge(info_df, items_df, on = customer_id, how = inner)
+outer_join_df = pd.merge(info_df, items_df, on = customer_id, how = outer)
+left_join_df = pd.merge(info_df, items_df, on = customer_id, how = left)
+right_join_df = pd.merge(info_df, items_df, on = customer_id, how = right)
 (inner_join_df, outer_join_df, left_join_df, right_join_df)
 
   # Census
@@ -55,7 +55,7 @@ state_totals, state_avg
 
 ## Mod
 merged_df = pd.merge(state_totals, state_avg, on=["Year", "State"])
-merged_df.head()
+merged_df.head
 data_2019 = merged_df[merged_df['Year'] == 2019]
 data_2019['Poverty Rate'] = data_2019['Total Population in Poverty'] / data_2019['Total Population'] * 100
 sorted_data = data_2019.sort_values(by=['Poverty Rate', 'Average Per Capita Income by County'], ascending=False)
@@ -64,26 +64,26 @@ lowest_poverty_rate = sorted_data.tail(1)
 highest_poverty_rate, lowest_poverty_rate
 
   # Mine
-description = data_2019.describe()
-description.to_csv('/mnt/data/descriptive_analysis.csv')
-correlation = data_2019.corr()
-correlation.to_csv('/mnt/data/diagnostic_analysis_correlation.csv')
+description = data_2019.describe
+description.to_csv(/mnt/data/descriptive_analysis.CSV)
+correlation = data_2019.corr
+correlation.to_csv(/mnt/data/diagnostic_analysis_correlation.CSV)
 import matplotlib.pyplot as plt
-data_2019['Poverty Rate'].hist()
-plt.title('Poverty Rate Distribution')
-plt.xlabel('Poverty Rate')
-plt.ylabel('Frequency')
-plt.savefig('/mnt/data/eda_poverty_rate_histogram.png')
+data_2019[Poverty Rate].hist
+plt.title(Poverty Rate Distribution)
+plt.xlabel(Poverty Rate)
+plt.ylabel(Frequency)
+plt.savefig(/mnt/data/eda_poverty_rate_histogram.png)
 
 ## Result
 import matplotlib.pyplot as plt
 plt.figure(figsize=(10, 6))
-data_2019['Poverty Rate'].hist(bins=20, color='skyblue', edgecolor='black')
-plt.title('Poverty Rate Distribution - 2019')
-plt.xlabel('Poverty Rate (%)')
-plt.ylabel('Number of States/Territories')
+data_2019[Poverty Rate].hist(bins=20, color = cyber yellow, edgecolor= sapphire blue)
+plt.title(Poverty Rate Distribution - 2019)
+plt.xlabel(Poverty Rate (%))
+plt.ylabel(Number of States/Territories)
 plt.grid(false)
-plt.savefig('/mnt/data/eda_poverty_rate_histogram.png')
+plt.savefig(/mnt/data/eda_poverty_rate_histogram.png)
 
   # Visualization complete
 
@@ -92,17 +92,17 @@ import matplotlib.pyplot as plt
 
 ## Plot
 plt.figure(figsize=(10, 6))
-data_2019['Poverty Rate'].hist(bins=20, color='skyblue', edgecolor='black')
-plt.title('Poverty Rate Distribution - 2019')
-plt.xlabel('Poverty Rate (%)')
-plt.ylabel('Number of States/Territories')
+data_2019[Poverty Rate].hist(bins=20, color = cyber yellow , edgecolor = sapphire blue)
+plt.title(Poverty Rate Distribution - 2019)
+plt.xlabel(Poverty Rate (%))
+plt.ylabel(Number of States/Territories)
 plt.grid(false)
-plt.savefig('/mnt/data/eda_poverty_rate_histogram.png')
+plt.savefig(/mnt/data/eda_poverty_rate_histogram.png)
 
 ## Dataframe
 class_data = {
 class: [Oct, Oct, Jan, Jan, Oct, Jan], 
-name: ["Cyndy", "Logan", "Laci", "Elmer", "Crystle", "Emmie"], 
+name: ["Cyndy", "Logan", "Laci", "Elmer", "Crystle", "Emmie"],
 test Score: [90, 59, 72, 88, 98, 60]
 import pandas as pd
 class_data_df = pd.dataframe(class_data)
@@ -111,12 +111,12 @@ labels = [F, D, C, B, A]
 class_data_df[Grade] = pd.cut(class_data_df[Test Score], bins=bins, labels=labels, include_lowest=true)
 
   # Movie Ratings
-bins = pd.cut(movies['IMDB_user_vote_count'], bins=9)
-movies['IMDB User Votes Group'] = pd.cut(movies['IMDB_user_vote_count'], bins=9, labels=False)
-group_counts = movies.groupby('IMDB User Votes Group').size()
+bins = pd.cut(movies[IMDB_user_vote_count], bins=9)
+movies[IMDB User Votes Group] = pd.cut(movies[IMDB_user_vote_count], bins=9, labels=False)
+group_counts = movies.groupby(IMDB User Votes Group).size
 
 ## Mod
-group_averages = movies.groupby(IMDB User Votes Group)[[RottenTomatoes, RottenTomatoes_User, Metacritic, Metacritic_User, IMDB]].mean()
+group_averages = movies.groupby(IMDB User Votes Group)[[RottenTomatoes, RottenTomatoes_User, Metacritic, Metacritic_User, IMDB]].mean
 group_counts, group_averages
 
 ## Merge
@@ -124,7 +124,7 @@ group_counts_df = pd.read_csv(group_counts_path, index_col=0)
 group_averages_df = pd.read_csv(group_averages_path, index_col=0)
 merged_data = group_averages_df.merge(group_counts_df, left_index=True, right_index=True)
 merged_data.rename(columns={0: 'Number of Movies'}, inplace=True)
-merged_data_path = '/mnt/data/merged_movie_data.CSV'
+merged_data_path = /mnt/data/merged_movie_data.CSV
 merged_data.to_CSV(merged_data_path)
 
   # Seattle Housing
@@ -135,56 +135,55 @@ housing_data.head()
 import nbformat
 
 notebook_path = /mnt/data/mapping.ipynb
-with open(notebook_path, "r", encoding=utf-8) as nb_file:
+with open(notebook_path, "r", encoding=utf-8) as nb_file
 nb_content = nbformat.read(nb_file, as_version=4)
 
 ## Import
 code_cells = [cell for cell in nb_content.cells if cell.cell_type = code]
-for i, cell in enumerate(code_cells[:5]):
+for i, cell in enumerate(code_cells[:5])
 print(f"Cell {i+1}:\n{cell.source}\n")
 
 ## Merge
 notebook_path = /mnt/data/mapping.ipynb
-with open(notebook_path, "r", encoding = utf-8) as nb_file:
+with open(notebook_path, "r", encoding = utf-8) as nb_file
 nb_content = nbformat.read(nb_file, as_version=4)
 code_cells = [cell for cell in nb_content.cells if cell.cell_type = code]
-for i, cell in enumerate(code_cells[:5]):
+for i, cell in enumerate(code_cells[:5])
 print(f"Cell {i+1}:\n{cell.source}\n")
 
   # Crowdfunding
 import nbformat
 notebook_path = /mnt/data/crowdfunding_cleaning.ipynb
-with open(notebook_path, "r") as nb_file:
+with open(notebook_path, "r") as nb_file
 nb = nbformat.read(nb_file, as_version=4)
-for cell in nb.cells:
-if cell.cell_type = markdown:
+for cell in nb.cells
+if cell.cell_type = markdown
 instructions.append(cell.source)
-elif cell.cell_type = code:
+elif cell.cell_type = code
 instructions.append(cell.source)
 
 ## Mine
 import pandas as pd
 data_path = '/mnt/data/Crowdfunding_data.CSV
 df = pd.read_CSV(data_path)
-df.head()
+df.head
 columns_of_interest = ["name", "goal", "pledged", "outcome", "country", "staff_pick", "backers_count", "spotlight"]
 df_selected = df[columns_of_interest]
 df_cleaned = df_selected[df_selected[pledged] > 0]
-df_cleaned.head()
+df_cleaned.head
 
 ## Merge
-summary = {
-"Total Projects": df_cleaned.shape[0],
-"Total Pledged": df_cleaned[pledged].sum(),
-"Average Pledged": df_cleaned[pledged].mean(),
-"Average Goal": df_cleaned[goal].mean(),
-"Success Rate": df_cleaned[df_cleaned[outcome] = successful].shape[0] / df_cleaned.shape[0] * 100,
-"Countries Represented": df_cleaned[country].nunique(),
+"Total Projects": df_cleaned.shape[0]
+"Total Pledged": df_cleaned[pledged].sum()
+"Average Pledged": df_cleaned[pledged].mean()
+"Average Goal": df_cleaned[goal].mean()
+"Success Rate": df_cleaned[df_cleaned[outcome] = successful].shape[0] / df_cleaned.shape[0] * 100
+"Countries Represented": df_cleaned[country].nunique()
 "Projects that are Staff Picks": df_cleaned[df_cleaned[staff_pick]].shape[0],}
 
-## Result
-top5_backers = df_cleaned.sort_values(by='backers_count', ascending=False).head(5)
-top5_pledged = df_cleaned.sort_values(by='pledged', ascending=False).head(5)
+## Summary
+top5_backers = df_cleaned.sort_values(by=backers_count, ascending=false).head(5)
+top5_pledged = df_cleaned.sort_values(by=pledged, ascending=false).head(5)
 top5_backers, top5_pledged
 
   # Visualizaiton complete
