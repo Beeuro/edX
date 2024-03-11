@@ -1,5 +1,5 @@
   # Hello world
-Sub helloworld()
+Sub helloworld
 Msgbox "Hello, World!", vbInformation, "Greeting"
 
   # End Sub
@@ -50,7 +50,7 @@ Msgbox "Cell A1 does not contain a numeric value."
 End if
 
 ## Integration
-Sub sendemail()
+Sub sendemail
 Dim outlookapp as object
 Dim outlookmail as object
 Set outlookapp = createobject("Outlook.Application")
@@ -67,7 +67,7 @@ Workbooks.open "C:\path\to\your\file.xlsx"
   # End Sub
 
 ## Export
-Sub exporttocsv()
+Sub exporttocsv
 Range("A1:B10").copy
 Workbooks.add
 Activesheet.paste
@@ -78,15 +78,15 @@ Activeworkbook.close false
 
   # Mod
 ## Prompts
-Sub getuserinput()
+Sub getuserinput
 Dim userinput as string
 userinput = inputbox("Enter your name:", "User Input")
 Msgbox "Hello, " & userInput & "!"
 
 ## Subroutines
-Sub button1_click()
+Sub button1_click
 Msgbox "You clicked button 1!"
-Sub button2_click()
+Sub button2_click
 Msgbox "You clicked button 2!"
 
   # End Sub
@@ -133,7 +133,7 @@ Range("A1:B1").merge
 Activesheet.listobjects.add(xlsrcrange, range("A1:B10"), , xlyes).name = "MyTable"
 
   # Chess
-Sub setupchessboard()
+Sub setupchessboard
 define the chess pieces
 Dim toprow as variant, secondrow as string
 toprow = array("Rook", "Knight", "Bishop", "Queen", "King", "Bishop", "Knight", "Rook")
@@ -162,12 +162,12 @@ Set ws = activesheet modify as needed
 ws.usedrange.removeduplicates columns:=array(1, 2), header:=xlyes specify columns
 
 ## Mine
-Sub salculatestatistics()
+Sub salculatestatistics
 Dim rng As range
 Set rng = selection Or specify a range like worksheets("Sheet1").range("A1:A10")
 Msgbox "mean: " & application.worksheetfunction.average(rng) & vbcrlf &
 "standard deviation: " & application.worksheetF\function.stdev(rng)
-Sub mergecolumns()
+Sub mergecolumns
 Dim ws as worksheet
 Set ws = activesheet modify as needed
 Dim lastrow As long
@@ -258,7 +258,6 @@ Other:=false
   # End Sub
 
   # Format
-
 ## Rows
 Sub dividerowstosheets
 Dim wssource as worksheet
@@ -279,7 +278,7 @@ cell.entirerow.copy destination:=wstarget.range("A" & wsTarget.Cells(wsTarget.Ro
 Next cell
 
 ## Book
-Sub formatandsum()
+Sub formatandsum
 Dim ws as worksheet
 Set ws = activesheet
 Dim lastrow as long
@@ -290,7 +289,7 @@ ws.range("B1:B" & lastRow).numberformat = "$,0.00"
     
 Sum values in column B and place the result in the next available row
 ws.range("B" & lastRow + 1).value = application.worksheetfunction.sum(ws.range("B1:B" & lastrow))
-ws.Range("B" & lastRow + 1).Font.Bold = True
+ws.Range("B" & lastRow + 1).font.bold = true
 
 ## Mod
 Sub findnthword
@@ -307,7 +306,6 @@ wordnumbers = range("B1:B5").value
 split the user sentence into separate words
 words = split(sentence, " ")
 use the word numbers to retrieve specific words in the sentence
-    
 For i = 1 To ubound(wordnumbers)
 check if the word number is within the bounds of the words array
 If wordnumbers(i, 1) > 0 And wordnumbers(i, 1) <= ubound(words) + 1 then
@@ -352,7 +350,7 @@ Set chart = thisworkbook.sheets("Sheet1").shapes.addchart2(, xlLine).chart
 chart.setsourcedata source:=thisworkbook.sheets("Sheet1").range("A1:B10")
 
 ## Format
-Sub sortdata()
+Sub sortdata
 With thisworkbook.sheets("Sheet1").sort
 sortfields.clear
 sortfields.add key:=range("A1:A10"), sorton:=xlsortonvalues, order:=xlascending
@@ -361,7 +359,7 @@ header = xlno
 apply
 
 ## Mine
-Sub usesolver()
+Sub usesolver
 Ensure solver add-in is enabled first
 Solverreset
 Solverok setcell:="$B$2", maxminval:=1, valueof:=0, bychange:="$A$2"
