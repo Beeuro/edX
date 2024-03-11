@@ -82,8 +82,6 @@ Sub getuserinput
 Dim userinput as string
 userinput = inputbox("Enter your name:", "User Input")
 Msgbox "Hello, " & userInput & "!"
-
-## Subroutines
 Sub button1_click
 Msgbox "You clicked button 1!"
 Sub button2_click
@@ -165,8 +163,8 @@ ws.usedrange.removeduplicates columns:=array(1, 2), header:=xlyes specify column
 Sub salculatestatistics
 Dim rng As range
 Set rng = selection Or specify a range like worksheets("Sheet1").range("A1:A10")
-Msgbox "mean: " & application.worksheetfunction.average(rng) & vbcrlf &
-"standard deviation: " & application.worksheetF\function.stdev(rng)
+Msgbox "mean: " & application.worksheetfunction.average(rng) & vbcrlf
+"standard deviation: " application.worksheetF\function.stdev(rng)
 Sub mergecolumns
 Dim ws as worksheet
 Set ws = activesheet modify as needed
@@ -174,20 +172,20 @@ Dim lastrow As long
 lastrow = ws.cells(ws.rows.count, "A").end(xlup).row assuming column a and b
 Dim i As long
 For i = 1 To lastrow
-ws.cells(i, "C").value = ws.cells(i, "A").value & " - " & ws.cells(i, "B").value ' output in column c
+ws.cells(i, "C").value = ws.cells(i, "A").value & ws.cells(i, "B").value ' output in column c
 Next i
 
   # End Sub
 
   # Visualization
-Sub createchart(
+Sub createchart
 Dim rng as range
 Set rng = selection or specify a range
 Charts.add
 Activechart.setsourcedata source:=rng
 
 ## Innovation
-Sub formatcells(
+Sub formatcells
 With selection
 .Font.name = "Time New Roman"
 .Font.Size = 12
