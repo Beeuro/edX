@@ -7,10 +7,10 @@ grade_book = pd.read_excel(grade_book_path)
 ## Wrangle
 =round((B2+C2+D2+E2)/4, 0)
 =if(F2>=60, "PASS", "FAIL")
-=if(F2>=90, "A", IF(F2>=80, "B", IF(F2>=70, "C", IF(F2>=60, "D", "F"))))
+=if(F2>=90, "A", IF(F2>=80, "B", IF(F2>=70, "C", IF(F2>=60, "D", "F")))
 
 ## Format
-grade_book.head()
+grade_book.head
 
 	# Excel file scripted
 
@@ -37,7 +37,7 @@ plt.show()
 
 ## Finance
 financial_health_metrics = [asset_amt, 'income_amt', 'revenue_amt]
-df_financial_summary = df[financial_health_metrics].describe()
+df_financial_summary = df[financial_health_metrics].describe
 
 ## Geolocation
 plt.figure(figsize=(12, 6))
@@ -75,12 +75,12 @@ product_list_df = excel_data.parse(Product List)
 orders_df = excel_data.parse(Orders)
 
 ## Data frame 
-product_list_df.head(), orders_df.head()
+product_list_df.head(), orders_df.head
 
 ## Format
 product_list_df.rename(columns={ID: Product ID, Price Per Unit: Product Price, Priority: Shipping Priority, Price: Shipping Price}, inplace=true)
 product_prices = product_list_df[[Product ID, Product Price]]
-shipping_prices = product_list_df[[Shipping Priority, Shipping Price]].dropna()
+shipping_prices = product_list_df[[Shipping Priority, Shipping Price]].dropna
 
 ## Merge
 orders_with_prices = pd.merge(orders_df, product_prices, on=Product ID, how=left)
@@ -89,18 +89,18 @@ orders_with_prices.drop(columns=[col for col in orders_with_prices if col.endswi
 orders_with_prices.head()
 
 ## Format
-unique_shipping_prices = product_list_df[[Shipping Priority, Shipping Price]].drop_duplicates().dropna()
+unique_shipping_prices = product_list_df[[Shipping Priority, Shipping Price]].drop_duplicates().dropna
 
 ## Merge
 orders_with_correct_prices = pd.merge(orders_with_prices.drop(columns=Shipping Price), unique_shipping_prices, on=Shipping Priority, how=left)
 orders_with_correct_prices.head()
 
 ## Book
-pivot_table = pd.pivot_table(orders_with_correct_prices,
-values=[Product Price, Shipping Price],
-index=[Order Number, Product ID],
-aggfunc=sum).reset_index()
-pivot_table.head()
+pivot_table = pd.pivot_table(orders_with_correct_prices
+values=[Product Price, Shipping Price]
+index=[Order Number, Product ID]
+aggfunc=sum).reset_index
+pivot_table.head
 
 	# Summary
 import matplotlib.pyplot as plt
