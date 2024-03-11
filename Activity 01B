@@ -4,7 +4,7 @@ upload excel file
 grade_book_path = /mnt/data/grade_book.xlsx
 grade_book = pd.read_excel(grade_book_path)
 
-	# Wrangle
+## Wrangle
 =round((B2+C2+D2+E2)/4, 0)
 =if(F2>=60, "PASS", "FAIL")
 =if(F2>=90, "A", IF(F2>=80, "B", IF(F2>=70, "C", IF(F2>=60, "D", "F"))))
@@ -21,7 +21,7 @@ import seaborn as sns
 ## Format
 sns.set_style("whitegrid")
 
-## Analysis
+## Mine
 plt.figure(figsize=(12, 6))
 sns.countplot(y=Type', data=df, order = df[Type].value_counts().index)
 plt.title(Number of Organizations by Type)
@@ -54,7 +54,7 @@ df_financial_summary
 
 	# Song Charts
 
-## Aggregate 
+## Wrangle
 the data to count the number of songs per artist and sum of final_score
 artist_songs_count = songs_df.groupby(artist)[name].count().reset_index(name=song_count)
 artist_final_score_sum = songs_df.groupby(artist)[final_score].sum().reset_index(name=final_score_sum)
@@ -70,7 +70,7 @@ artist_aggregated_sorted.head(10)
 
 	# Visualization complete
 
-  # Product list
+	# Product list
 product_list_df = excel_data.parse(Product List)
 orders_df = excel_data.parse(Orders)
 
@@ -95,14 +95,14 @@ unique_shipping_prices = product_list_df[[Shipping Priority, Shipping Price]].dr
 orders_with_correct_prices = pd.merge(orders_with_prices.drop(columns=Shipping Price), unique_shipping_prices, on=Shipping Priority, how=left)
 orders_with_correct_prices.head()
 
-## Format
+## Book
 pivot_table = pd.pivot_table(orders_with_correct_prices,
 values=[Product Price, Shipping Price],
 index=[Order Number, Product ID],
 aggfunc=sum).reset_index()
 pivot_table.head()
 
-	# Result
+	# Summary
 import matplotlib.pyplot as plt
 import seaborn as sns
 
