@@ -1,4 +1,4 @@
-	# Stock market analysis test
+	# Stock market analysis
 ## Wrangle
 Sub stockanalysis
 Dim ws as worksheet
