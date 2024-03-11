@@ -42,7 +42,7 @@ Dim maxprice as double
 maxprice = (budget / (1 + feepercentage / 100))
 Range("B1").value = worksheetfunction.floor(maxprice, 1) adjust price
 Call calculatetotal recalculate total with adjusted price
-Msgbox "Price adjusted to fit within the budget.", vbexclamation
+Msgbox "Price adjusted to fit within the budget vbexclamation
 
 End if
 
@@ -128,7 +128,7 @@ ws.cells(i, 2).value = "buzz"
 
 Else
 
-ws.cells(i, 2).value = ""
+ws.cells(i, 2).value =
 
 End If
 Next i
@@ -137,7 +137,7 @@ Next i
 
 	# Lottery
 import openpyxl
-wb = openpyxl.load_workbook('/mnt/data/lotto_numbers.xlsm')
+wb = openpyxl.load_workbook(/mnt/data/lotto_numbers.xlsm)
 sheet = wb.active
 
 ## Wrangle
@@ -146,9 +146,9 @@ second_place_num = 5865187
 third_place_num = 2817729
 runner_up_nums = [2275339, 5868182, 1841402]
 winners = {
-first: None,
-second: none,
-third: none,
+first: none
+second: none
+third: none
 runner_up: none}
 
 ## Mine
@@ -206,7 +206,7 @@ Sheet1.range("A1:C100").removeduplicates columns:=array(1,2,3), header:=xlyes
 ## SQL
 Dim conn As object
 Set conn = createobject("ADODB.Connection")
-conn.open "Provider=SQLOLEDB;Data Source=YourServer;Initial Catalog=YourDB;Integrated Security=SSPI;"
+conn.open "Provider=SQLOLEDB, Data Source=YourServer;Initial Catalog=YourDB;Integrated Security=SSPI"
 conn.execute "select * from yourtable"
 
 ## Optimize VBA
@@ -219,35 +219,33 @@ Application.calculation = xlcalculationautomatic
 	# End Sub
 
 	# Crypto
-## Count
+## Wrangle
 Sub countcattoken
 Dim ws as worksheet
 Set ws = thisworkbook.sheets("Sheet1") ' adjust the sheet name as necessary
 Dim cell as range
 Dim count as long
 count = 0
-    
 For each cell In ws.usedrange
 If cell.value = "Cat Token" then
 count = count + 1
 End if
 Next cell
-Msgbox "Number of 'Cat Token' entries: " & count
+Msgbox "Number of 'Cat Token' entries:" & count
 
-## Exchange
+## Mine
 Sub replacecattokenwithdogecoin
 Dim ws as worksheet
 Set ws = thisworkbook.sheets("Sheet1") adjust the sheet name as necessary
 Dim cell as range
-    
 For each cell In ws.usedrange
 If cell.value = "Cat Token" then
 cell.value = "Dogecoin"
 End if
 Next cell
-Msgbox "All 'Cat Token' entries have been replaced with 'Dogecoin'."
+Msgbox "All Cat Token entries have been replaced with Dogecoin."
 
-## Distribute
+## Mod
 Sub replacecattokenwithlimitedcoins
 Dim ws as worksheet
 Set ws = thisworkbook.sheets("Sheet1") adjust the sheet name as necessary
@@ -279,5 +277,6 @@ Msgbox "Oh no! We still have some Cat Token..."
 End if
 
 Next cell    
-Msgbox "All 'Cat Token' entries have been replaced with your available 'Shiba Inu' and 'Dogecoin'."
-	# End Sub
+Msgbox "All Cat Token entries have been replaced with your available Shiba Inu and Dogecoin."
+	
+# End Sub
