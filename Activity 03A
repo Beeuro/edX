@@ -99,7 +99,7 @@ y = 10
 if 2 * x > 10:
 result_1 = "Success!"
 
-else:
+else
 
 result_1 = "Fail"
 ## x = 5
@@ -115,7 +115,7 @@ y = 5
 if (x ** 3 >= y) and (y ** 2 < 26)
 result_3 = "Success!"
 
-else:
+else
 
 result_3 = "Fail"
 name = "Matthew"
@@ -129,7 +129,7 @@ result_4 = name + " is in group two"
 elif name in group_three:
 result_4 = name + " is in group three"
 
-else:
+else
 
 result_4 = name + " does not have a group"
 height = 72
@@ -144,7 +144,7 @@ result_5 = "Can ride light roller coasters"
 elif ((height > 50) and (age >= 18)) or ((adult_permission) and (height > 50))
 result_5 = "Can ride bumper cars"
 
-else:
+else
 
 result_5 = "Stick to lazy river"
 
