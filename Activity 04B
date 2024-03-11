@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 descriptive_stats = data.describe(include=[float, int])
 descriptive_stats
 
-## Plot
+## Wrangle
 plt.figure(figsize=(10, 6))
 plt.hist(data[Street Name ID], bins=50, color=skyblue, edgecolor=black)
 plt.title(distribution of street name id)
@@ -53,7 +53,7 @@ if cell[cell_type] = code
 code = .join(cell[source])
 code_cells.append(code)
 
-  #Hong Kong Municpal
+  # Hong Kong Municpal
 import pandas as pd
 df = pd.read_CSV(/mnt/data/dga_lpg.CSV, encoding=utf-8)
 df.head
