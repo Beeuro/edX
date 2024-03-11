@@ -31,7 +31,6 @@ if row[0].lower() == book.lower():  # Adjusting for case-insensitive search
 publisher_date = f"{row[0]} was published by {row[8]} in {row[9]}"
 found = true
 Exit loop after finding the book
-
 if found: print(publisher_date)
 else: print("Sorry about this, we don't seem to have what you are looking for!")
 
