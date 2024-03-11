@@ -10,7 +10,7 @@ Dim i as long, j as long
 For i = 2 To lastrow
 starcounter = 0
 For j = 4 To 8 assuming stars are in columns D to H
-If ws.cells(i, j).value = "Full-Star" then
+If ws.cells(i, j).value = "Full Star" then
 starcounter = starcounter + 1
 End if
 Next j
@@ -77,8 +77,8 @@ Dim gradecell As range
 ## Mine
 For each gradecell in graderange
 gradecell.offset(0, 3).value = gradecell.offset(0, 1).value copy current grade to "Last Grade" column, adjust the offset as necessary
-gradecell.offset(0, 1).value =
-gradecell.offset(0, 2).value = 
+gradecell.offset(0, 1).value
+gradecell.offset(0, 2).value
 gradecell.offset(0, 2).interior.color = RGB(255, 255, 255) white
 Next gradecell
 
@@ -148,7 +148,7 @@ Dim key as variant
 Dim summaryrow as long
 Summaryrow = 2 assuming your summary table starts in row 2 of another sheet   
 For each key in branddict.keys
-Msgbox "Total for " & Key & ": " & Format(BrandDict(Key), "Currency"), vbinformation, "Credit Card Summary"
+Msgbox "Total for" & Key & Format (BrandDict(Key), "Currency"), vbinformation, "Credit Card Summary"
 
 	# Bonus
 With thisworkbook.sheets("Summary") ' change "Summary" to your summary sheet's name
@@ -164,7 +164,7 @@ Next key
 
 	# Census
 ## Location
-Sub formatcensusdatasheets()
+Sub formatcensusdatasheets
 Dim ws as worksheet
 Dim lastrow as long
 Dim i as long
@@ -173,7 +173,7 @@ Dim placecolumn as integer
 Dim householdincomecolumn as integer
 Dim percapitaincomecolumn as integer
 
-## Format
+## Wrangle
 For each ws in thisworkbook.sheets
 extract the year from the sheet name
 sheetyear = mid(ws.name, instr(ws.name, "_") + 1, 4)
@@ -190,8 +190,7 @@ placecolumn = 2 column b
 ws.columns(placecolumn + 1).insert shift:=xltoright, copyorigin:=xlformatfromleftorabove
 ws.columns(placecolumn + 1).insert shift:=xltoright, copyorigin:=xlformatfromleftorabove
 ws.cells(1, placecolumn + 1).value = "County"
-ws.cells(1, placecolumn + 2).value = "State"
-        
+ws.cells(1, placecolumn + 2).value = "State"        
 For i = 2 to lastrow
 ws.cells(i, placecolumn + 1).value = split(ws.Cells(i, placeColumn).value)(0) county
 ws.Cells(i, placeColumn + 2).Value = Split(ws.Cells(i, placeColumn).value)(1) state
@@ -224,7 +223,7 @@ Dim headerrow as range
 Dim datarow as range
 check if combined_data sheet exists, if not then create it
 On error resume next ignore errors temporarily
-Set combinedsheet = thisworkbook.sheets("Combined_Data")
+Set combinedsheet = thisworkbook.sheets("Combined Data")
 On error goto 0turn back on regular error handling
 If combinedsheet is nothing then
 Set combinedsheet = thisworkbook.worksheets.add
