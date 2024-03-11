@@ -28,7 +28,6 @@ return outputs
 outputs = execute_notebook_cells(notebook)
 outputs = [output for output in outputs if output is not none
 
-
 ## Mod
 Redefine info_df
 raw_data_info = "customer_id": [112, 403, 999, 543, 123]
