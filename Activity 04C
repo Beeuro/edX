@@ -74,7 +74,7 @@ plt.xlabel(Poverty Rate)
 plt.ylabel(Frequency)
 plt.savefig(/mnt/data/eda_poverty_rate_histogram.png)
 
-## Result
+## Summary
 import matplotlib.pyplot as plt
 plt.figure(figsize=(10, 6))
 data_2019[Poverty Rate].hist(bins=20, color = cyber yellow, edgecolor= sapphire blue)
