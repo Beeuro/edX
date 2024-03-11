@@ -5,39 +5,41 @@ user_name = input("What is your name?)"
 print(f"Greetings {Nothingbranch}")
 favorite_number = int(input("What is your favorite number?)"
 my_favorite_number = 7  # Example favorite number
-if favorite_number < my_favorite_number:
+if favorite_number < my_favorite_number
 print("Your favorite number is lower than mine.")
-elif favorite_number > my_favorite_number:
+elif favorite_number > my_favorite_number
 print("Your favorite number is higher than mine.")
 else: print("Your favorite number is the same as mine!")
 
 	#Candy store
-for index, candy in enumerate(candy_list):
+for index, candy in enumerate(candy_list)
 print(f"[{index}] {candy}")
 
 ## Wrangle
 for _ in range(allowance):
 selection = input("Enter the number of the candy you want: ")
-if selection.isdigit() and int(selection) < len(candy_list):
+if selection.isdigit() and int(selection) < len(candy_list)
 candy_cart.append(candy_list[int(selection)])
 else: print("Please enter a valid number.")
 
 ## Conditional
 print("You selected:")
-for candy in candy_cart:
+for candy in candy_cart
 print(candy)
 
 ## Summary
-while true:
+while true
 selection = input("Enter the number of the candy you want (or 'done' to finish): ")
-if selection.lower() == 'done':
+if selection.lower() = "done"
 break
-elif selection.isdigit() and int(selection) < len(candy_list):
+elif selection.isdigit() and int(selection) < len(candy_list)
 candy_cart.append(candy_list[int(selection)])
-else:
+
+else
+
 print("Please enter a valid number or 'done' to finish.")
 print("You selected:")
-for candy in candy_cart:
+for candy in candy_cart
 print(candy)
 
 	# Pie order
@@ -49,7 +51,7 @@ pie_orders = [0] * len(pies)
 print("Welcome to Famous Pasteries! Here are our pies:\n")
 for i, pie in enumerate(pies, start=1):
 print(f"({i}) {pie}", end=", " if i < len(pies) else "\n")
-while true:
+while true
 pie_choice = int(input("How many pies are we cooking today, sugar?: ")) - 1
 if pie_choice >= 0 and pie_choice < len(pies):
 pie_orders[pie_choice] + = 1
@@ -59,25 +61,25 @@ else:
 
 print("Please enter a valid pie number.")
 continue
-except valueerror:
+except valueerror
 print("Please enter a number.")
 continue
 another_order = input("Would you like to make another order? (yes/no): ").lower
-if another_order != "yes":
+if another_order != "yes"
 total_pies = sum(pie_orders)
 print(f"\nYou purchased {total_pies} pie(s) in total.\n")
 
 ## Bonus 
-if total_pies > 0:
+if total_pies > 0
 print("You purchased:")
-for i, pie in enumerate(pies):
+for i, pie in enumerate(pies)
 print(f"{pie_orders[i]} {pie}")
-pie_order_form()
+pie_order_form
 
 	# Wrangle
 from collections import counter
 lines = entire_content.split('\n')
-words = entire_content.split()
+words = entire_content.split
 
 ## Mine
 num_lines = len(lines)
@@ -93,7 +95,7 @@ print(random_int)
 random_element = random.choice(['apple', 'banana', 'cherry'])
 print(random_element)
 now = datetime.now()
-print(now
+print(now)
 
 ## Format
 formatted_date = now.strftime("%Y-%m-%d %H:%M:%S")
@@ -101,33 +103,33 @@ print(formatted_date)
 import os
 cwd = os.getcwd()
 print(cwd)
-entries = os.listdir('.')
+entries = os.listdir
 print(entries)
 import JSON
 
 ## Mod
+import re
 python_dict = {"name": "John", "age": 30, "city": "New York"}
 JSON_string = JSON.dumps(python_dict)
 print(JSON_string)
 python_obj = json.loads(json_string)
 print(python_obj)
-def validate_ssn(ssn):
-import re
+def validate_ssn(ssn)
 pattern = r'^\d{3}-\d{2}-\d{4}$'
 return bool(re.match(pattern, ssn))
 data[SSN_Valid] = data[SSN].apply(validate_SSN)
 import hashlib
-def hash_ssn(ssn):
+def hash_ssn(ssn)
 return hashlib.sha256(ssn.encode).hexdigest
 data['SSN_Hash'] = data['SSN'].apply(hash_ssn)
 
 ## Summary
 analysis_results = {
-Total Entries: data.shape[0],
-Unique First Names: data[First Name].nunique(),
-Unique Last Names: data[Last Name].nunique(),
-Valid SSNs: data['SSN_Valid'].sum()}
-summary = data[['First Name', 'Last Name', 'SSN_Valid']].describe()
+Total Entries: data.shape[0]
+Unique First Names: data[First Name].nunique
+Unique Last Names: data[Last Name].nunique
+Valid SSNs: data[SSN_Valid].sum}
+summary = data[[First Name, Last Name, SSN_Valid]].describe()
 (analysis_results, summary)
 
 	#Census
@@ -136,7 +138,7 @@ file_path = /mnt/data/census_starter.CSV
 with open(file_path, "r", encoding='utf8') as file
 lines = [next(file) for _ in range(5)]
 
-## Clean
+## Mod
 import CSV
 places =
 populations =
@@ -150,18 +152,16 @@ place = row[0]
 population = int(row[1])
 per_capita_income = row[4]
 poverty_count = int(row[8])
-        
-## Mod
 poverty_rate = (poverty_count / population) * 100
 county, state = place.split
-places.append((county, state))
+places.append(county, state)
 populations.append(population)
 per_capita_incomes.append(per_capita_income)
 poverty_counts.append(poverty_count)
 poverty_rates.append(f"{poverty_rate:.2f}%")
 zipped_data = list(zip(places, populations, per_capita_incomes, poverty_counts, poverty_rates))
 new_CSV_path = /mnt/data/cleaned_census_data.CSV
-with open(new_CSV_path, "w", encoding="utf8", newline) as new_file:
+with open(new_CSV_path, "w", encoding="utf8", newline) as new_file
 CSVwriter = CSV.writer(new_file)
 CSVwriter.writerow([County, State, Population, Per Capita Income, Poverty Count, Poverty Rate (%)])
 for row in zipped_data:
