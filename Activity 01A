@@ -1,6 +1,6 @@
-	# Gentricifaction
+	# Intro
 
-## Proxies
+## Gentricifaction
 Artistic Presence: An increase in art galleries, cultural events, and street art might indicate a shift in demographics
 Public Infrastructure Investments: If there's a sudden increase in public infrastructure, like improved parks, public spaces, or transportation
 Educational Institutions: The establishment or improvement of educational institutions in the area can attract a more affluent population
@@ -8,12 +8,12 @@ Health and Wellness Services: An increase in high-end gyms, health food stores, 
 Community Engagement Initiatives: The presence of community engagement programs or initiatives may be a sign of efforts to bridge the gap between incoming residents and the existing community
 Changes in Local Businesses: The transformation or replacement of local businesses, especially those catering to a wealthier clientele
 
-## Intro 
+## Profile
 I want to create and reimagine infrastructure to build smarter cities
 Our plan is to use an application interface from my startup to collect data
 Until there is a better method to wrangle information I will be using RAM from each device or the traditonal method to collect 100% of user data
 name = "Matthew Fagen"
-age = 34
+age = "34"
 print("My name is " + name + " I am " + str(age) + " years old.")
 if true
 def print_box_with_true():
