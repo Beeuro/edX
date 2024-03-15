@@ -3,8 +3,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 upload excel file
 file_path = /mnt/data/student grades.xlsx
-grades_df = pd.read_excel(file_path)
-grades_df.head
 
 ## Format
 fig, axes = plt.subplots(3, 2, figsize=(15, 15))
@@ -18,8 +16,6 @@ ax.set_ylabel(Grades)
 ax.set_ylim(0, 100)  # Assuming grades are out of 100
 plt.tight_layout
 plt.show
-
-## Mod
 plt.figure(figsize=(10, 6))
 for index, row in grades_df.iterrows
 plt.plot(months, row[1:], label=row[0])
@@ -30,12 +26,6 @@ plt.legend(loc='upper left, bbox_to_anchor=(1, 1), ncol=1, fontsize=small)
 plt.grid(true)
 plt.tight_layout()
 plt.show()
-
-## Wrangle
-student_name = "Odelia Nelsen"
-student_data = grades_df[grades_df['Unnamed: 0] == student_name]
-
-## Mod
 plt.figure(figsize=(10, 6))s
 plt.plot(months, student_data.iloc[0, 1:], marker=o, linestyle=-, linewidth=2)
 plt.title(fGrades Over the Semester - {student_name})
@@ -46,28 +36,27 @@ plt.xticks(months)
 plt.tight_layout
 plt.show
 
+## Wrangle
+grades_df = pd.read_excel(file_path)
+grades_df.head
+student_name = "Odelia Nelsen"
+student_data = grades_df[grades_df['Unnamed: 0] == student_name]
+
+	# Break
+
   # Real estate
 import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
 
-## Visualization
+## Format
 def create_scatter_plot(df, x_col, y_col, x_label, y_label, title):
-
-## Mod
 plt.figure(figsize=(10, 6))
 sns.regplot(x=x_col, y=y_col, data=df, scatter_kws={'alpha':0.5}, line_kws={color': cyber yellow})
 plt.title(title)
 plt.xlabel(x_label)
 plt.ylabel(y_label)
 plt.grid(True)
-
-## Book
-create_scatter_plot(df, sqft_living, price, Square Feet of the Home, Price of the Home, Home Price vs. Square Feet)
-create_scatter_plot(df, bedrooms, price, Number of Bedrooms, Price of the Home, Home Price vs. Number of Bedrooms)
-create_scatter_plot(df, bathrooms, price, Number of Bathrooms, Price of the Home, Home Price vs. Number of Bathrooms)
-
-## Mod
 def create_adjusted_scatter_plot(df, x_col, y_col, x_label, y_label, title, xlim, ylim)
 plt.figure(figsize=(10, 6))
 sns.regplot(x=x_col, y=y_col, data=df, scatter_kws={alpha:0.5}, line_kws={color': black})
@@ -77,33 +66,27 @@ plt.title(title)
 plt.xlabel(x_label)
 plt.ylabel(y_label)
 plt.grid(true)
+create_scatter_plot(df, sqft_living, price, Square Feet of the Home, Price of the Home, Home Price vs. Square Feet)
+create_scatter_plot(df, bedrooms, price, Number of Bedrooms, Price of the Home, Home Price vs. Number of Bedrooms)
+create_scatter_plot(df, bathrooms, price, Number of Bathrooms, Price of the Home, Home Price vs. Number of Bathrooms)
+create_scatter_plot(df, sqft_living, price, Square Feet of the Home, Price of the Home, Home Price vs. Square Feet)
+create_adjusted_scatter_plot(df, bedrooms, price, Number of Bedrooms, Price of the Home, Adjusted: Home Price vs. Number of Bedrooms, bedrooms_range, price_range)
+create_adjusted_scatter_plot(df, bathrooms, price, Number of Bathrooms, Price of the Home, Adjusted: Home Price vs. Number of Bathrooms, bathrooms_range, price_range)
 
-## Limit
+## Wrangle
 price_range = (min_price, max_price)
 sqft_living_range = (min_sqft_living, max_sqft_living)
 bedrooms_range = (min_bedrooms, max_bedrooms)
 bathrooms_range = (min_bathrooms, max_bathrooms)
 
-## Book
-create_adjusted_scatter_plot(df, sqft_living, price, Square Feet of the Home, Price of the Home, Adjusted: Home Price vs. Square Feet, sqft_living_range, price_range)
-create_adjusted_scatter_plot(df, bedrooms, price, Number of Bedrooms, Price of the Home, Adjusted: Home Price vs. Number of Bedrooms, bedrooms_range, price_range)
-create_adjusted_scatter_plot(df, bathrooms, price, Number of Bathrooms, Price of the Home, Adjusted: Home Price vs. Number of Bathrooms, bathrooms_range, price_range)
-
-  # Visualization complete
+  # Visualization Complete
 
   # Walrus group
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-## Function
-descriptive_stats = data_preview.describe
-year_range = data_preview[Year].min(), data_preview[Year].max
-descriptive_stats, year_range
-
 ## Format
 sns.set_style("whitegrid")
-
-## Mod
 plt.figure(figsize=(12, 6))
 sns.boxplot(x=Year, y=GroupSize, data=data_preview)
 plt.title(Yearly Distribution of Walrus Group Sizes)
@@ -117,6 +100,11 @@ plt.xlabel(Group Size)
 plt.ylabel(Frequency)
 plt.show()
 
+## Mod
+descriptive_stats = data_preview.describe
+year_range = data_preview[Year].min(), data_preview[Year].max
+descriptive_stats, year_range
+
   # Visualization complete
 
   # Home sales
@@ -124,13 +112,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 df = pd.read_excel("/mnt/data/home_sales_filtered.xlsx")
 
-## Wrangle
-waterfront_homes = df[df[waterfront] == 1]
-current_year = pd.to_datetime(now).year
-waterfront_homes[age] = current_year - waterfront_homes[date_built]
-age_price_trend = waterfront_homes.groupby(age)[price].mean().reset_index()
-
-## Mod
+## Format
 plt.figure(figsize=(10, 6))
 plt.plot(age_price_trend[age], age_price_trend[price], marker=o, linestyle=-, color=b)
 plt.title(Price Trend of Waterfront Homes in St. Louis by Age of Home)
@@ -139,11 +121,17 @@ plt.ylabel(Average Price ($))
 plt.grid(true)
 plt.show
 
+## Mod
+waterfront_homes = df[df[waterfront] == 1]
+current_year = pd.to_datetime(now).year
+waterfront_homes[age] = current_year - waterfront_homes[date_built]
+age_price_trend = waterfront_homes.groupby(age)[price].mean().reset_index()
+
   # Visualization complete
 
   # CDC
 
-## Wrangle
+## Mod
 summary_stats = data_states.groupby("State")["Death Rate Per 100,000"].agg([mean, var, std])
 highest_variance_state = summary_stats[var].idxmax
 lowest_variance_state = summary_stats[var].idxmin
@@ -156,9 +144,18 @@ oregon_data["Z-Score"] = (oregon_data["Death Rate Per 100,000"] - oregon_mean) /
 max_z_score_county = oregon_data.loc[oregon_data["Z-Score"].abs().idxmax()]
 oregon_data[["LocationDesc", "Death Rate Per 100,000", "Z-Score"]], max_z_score_county["LocationDesc"], max_z_score_county["Z-Score"]
 
+	# Break
+
   # Antioxidants
 import matplotlib.pyplot as plt
 import seaborn as sns
+
+## Format
+plt.figure(figsize=(10, 6))
+sns.boxplot(y=cereal_data[rating])
+plt.title(Box Plot of Cereal Ratings)
+plt.ylabel(Rating)
+plt.show()
 
 ## Wrangle
 summary_stats = {
@@ -180,11 +177,4 @@ outliers = cereal_data[(cereal_data[rating] < lower_boundary) | (cereal_data[rat
 outlier_products = outliers[[name, rating]].reset_index(drop=True)
 outlier_products
 
-## Mod
-plt.figure(figsize=(10, 6))
-sns.boxplot(y=cereal_data[rating])
-plt.title(Box Plot of Cereal Ratings)
-plt.ylabel(Rating)
-plt.show()
-
-  # Visualization complete
+  # Visualization Complete
