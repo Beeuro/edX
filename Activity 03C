@@ -1,16 +1,19 @@
 	# Cereal
-import CSV
-cereal_CSV_path = /mnt/data/cereal.CSV
-with open(cereal_CSV_path, mode = "r") as file
-CSV_reader = CSV.reader(file)
-next(CSV_reader, None)
-high_fiber_cereals = [row for row in CSV_reader if float(row[7]) >= 5]
-cereal_bonus_CSV_path = /mnt/data/cereal_bonus.CSV
-with open(cereal_bonus_CSV_path, mode='r') as file
-CSV_reader = CSV.reader(file)
-high_fiber_cereals_bonus = [row for row in CSV_reader if float(row[7]) >= 5]
+import csv
+cereal_csv_path = /mnt/data/cereal.csv
+with open(cereal_csv_path, mode = "r") as file
+csv_reader = csv.reader(file)
+next(csv_reader, None)
+high_fiber_cereals = [row for row in csv_reader if float(row[7]) >= 5]
+cereal_bonus_csv_path = /mnt/data/cereal_bonus.csv
+with open(cereal_bonus_csv_path, mode='r') as file
+csv_reader = csv.reader(file)
+high_fiber_cereals_bonus = [row for row in csv_reader if float(row[7]) >= 5]
+
+	# Break
 
 	# Life
+## Format
 hobby_info = {
 "name": "Matthew"
 "age": 34
@@ -26,28 +29,26 @@ lowercased_names = [name.lower() for name in user_provided_names]
 titlecased_names = [name.title() for name in lowercased_names]
 lowercased_names, titlecased_names
 
-	# Mod
+	# Wrangle
 if numbers:  # check if the list is not empty
 return sum(numbers) / len(numbers)
 else: return 0  # return 0 or an appropriate value for an empty list
 test_cases = [
-
 [10, 20, 30, 40, 50],  # Simple case
 [1.5, 2.5, 3.5],       # Floating point numbers
 [-10, 0, 10, 20],      # Including negative numbers             
-
 results = [average(case) for case in test_cases]
 results
 test_cases = [
-
 [10, 20, 30, 40, 50],  # Simple case
 [1.5, 2.5, 3.5],       # Floating point numbers
 [-10, 0, 10, 20],      # Including negative numbers
-
 results = [average(case) for case in test_cases]
 
 	# University
 import pandas as pd
+
+## Format
 with open("/mnt/data/graduation_functions.py", "r") as file
 graduation_functions_code = file.read
 graduation_functions_code
@@ -96,6 +97,7 @@ completers (For-profit Private): 5736}
 print_percentages(state_data_california)
 
 	#GitHub
+
 ## Clone
 git clone your_repository_url
 cd your_repository_name
@@ -116,3 +118,5 @@ rm -rf new_folder
 git add -a
 git commit -m "Deleted the new folder"
 git push
+
+	# Break
