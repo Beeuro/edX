@@ -1,4 +1,4 @@
-  # Merge
+  # Functions
 import nbformat
 notebook_path = /mnt/data/merging.ipynb
 with open(notebook_path) as "f"
@@ -46,13 +46,15 @@ left_join_df = pd.merge(info_df, items_df, on = customer_id, how = left)
 right_join_df = pd.merge(info_df, items_df, on = customer_id, how = right)
 (inner_join_df, outer_join_df, left_join_df, right_join_df)
 
+	# Break
+
   # Census
 import pandas as pd
 state_totals = pd.read_CSV(/mnt/data/state_totals.CSV)
 state_avg = pd.read_CSV(/mnt/data/state_avg.CSV)
 state_totals, state_avg
 
-## Mod
+## Wrangle
 merged_df = pd.merge(state_totals, state_avg, on=["Year", "State"])
 merged_df.head
 data_2019 = merged_df[merged_df[Year] == 2019]
@@ -62,7 +64,7 @@ highest_poverty_rate = sorted_data.head(1)
 lowest_poverty_rate = sorted_data.tail(1)
 highest_poverty_rate, lowest_poverty_rate
 
-  # Mine
+  # Mod
 description = data_2019.describe
 description.to_csv(/mnt/data/descriptive_analysis.CSV)
 correlation = data_2019.corr
@@ -74,7 +76,7 @@ plt.xlabel(Poverty Rate)
 plt.ylabel(Frequency)
 plt.savefig(/mnt/data/eda_poverty_rate_histogram.png)
 
-## Summary
+## Mine
 import matplotlib.pyplot as plt
 plt.figure(figsize=(10, 6))
 data_2019[Poverty Rate].hist(bins=20, color = cyber yellow, edgecolor= sapphire blue)
@@ -97,8 +99,6 @@ plt.xlabel(Poverty Rate (%))
 plt.ylabel(Number of States/Territories)
 plt.grid(false)
 plt.savefig(/mnt/data/eda_poverty_rate_histogram.png)
-
-## Dataframe
 class_data = {
 class: [Oct, Oct, Jan, Jan, Oct, Jan], 
 name: ["Cyndy", "Logan", "Laci", "Elmer", "Crystle", "Emmie"],
@@ -108,6 +108,8 @@ class_data_df = pd.dataframe(class_data)
 bins = [0, 59.9, 69.9, 79.9, 89.9, 100]
 labels = [F, D, C, B, A]
 class_data_df[Grade] = pd.cut(class_data_df[Test Score], bins=bins, labels=labels, include_lowest=true)
+
+	# Break
 
   # Movie Ratings
 bins = pd.cut(movies[IMDB_user_vote_count], bins=9)
@@ -136,7 +138,7 @@ notebook_path = /mnt/data/mapping.ipynb
 with open(notebook_path, "r", encoding=utf-8) as nb_file
 nb_content = nbformat.read(nb_file, as_version=4)
 
-## Import
+## Format
 code_cells = [cell for cell in nb_content.cells if cell.cell_type = code]
 for i, cell in enumerate(code_cells[:5])
 print(f"Cell {i+1}:\n{cell.source}\n")
@@ -149,6 +151,8 @@ code_cells = [cell for cell in nb_content.cells if cell.cell_type = code]
 for i, cell in enumerate(code_cells[:5])
 print(f"Cell {i+1}:\n{cell.source}\n")
 
+	# Break
+
   # Crowdfunding
 import nbformat
 notebook_path = /mnt/data/crowdfunding_cleaning.ipynb
@@ -160,7 +164,7 @@ instructions.append(cell.source)
 elif cell.cell_type = code
 instructions.append(cell.source)
 
-## Mine
+## Wrangle
 import pandas as pd
 data_path = '/mnt/data/Crowdfunding_data.CSV
 df = pd.read_CSV(data_path)
@@ -170,7 +174,7 @@ df_selected = df[columns_of_interest]
 df_cleaned = df_selected[df_selected[pledged] > 0]
 df_cleaned.head
 
-## Merge
+## Mod
 "Total Projects": df_cleaned.shape[0]
 "Total Pledged": df_cleaned[pledged].sum
 "Average Pledged": df_cleaned[pledged].mean
@@ -179,7 +183,7 @@ df_cleaned.head
 "Countries Represented": df_cleaned[country].nunique
 "Projects that are Staff Picks": df_cleaned[df_cleaned[staff_pick]].shape[0],}
 
-## Summary
+## Mine
 top5_backers = df_cleaned.sort_values(by=backers_count, ascending=false).head(5)
 top5_pledged = df_cleaned.sort_values(by=pledged, ascending=false).head(5)
 top5_backers, top5_pledged
