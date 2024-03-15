@@ -3,6 +3,8 @@ import nbformat
 notebook_path = /mnt/data/jupyter_intro.ipynb
 with open(notebook_path, "r", encoding='utf-8') as nb_file
 nb = nbformat.read(nb_file, as_version=4)
+
+## Format
 for cell in nb[cells][:3]
 print(f"Cell type: {cell[cell_type]}")
 print(f"Source: {cell['source']}\n")
@@ -13,17 +15,24 @@ executed_notebook_path = /mnt/data/executed_jupyter_intro.ipynb
 with open(executed_notebook_path, "w", encoding='utf-8') as nb_file
 nbformat.write(nb, nb_file)
 executed_notebook_path
+	
+	# Break
 
   # Comic books
+import pandas as pd
+import nbformat
+notebook_path = /mnt/data/creating_data_frames.ipynb
+with open(notebook_path) as f
+nb = nbformat.read(f, as_version=4)
 with open('/mnt/data/comicbooks.py', "r") as file
 comicbooks_py_content = file.read
 print(comicbooks_py_content)
-import CSV
-book = "The Flash"
-CSVpath = "/mnt/data/comic_books.CSV"
+import csv
+book = "Thor"
+csvpath = "/mnt/data/comic_books.csv"
 found = true
-with open(CSVpath, encoding="utf8") as CSVfile
-CSVreader = CSV.reader(CSVfile, delimiter = )
+with open(csvpath, encoding="utf8") as csvfile
+csvreader = csv.reader(csvfile, delimiter = )
 
 ## Wrangle
 for row in csvreader:
@@ -34,12 +43,7 @@ Exit loop after finding the book
 if found: print(publisher_date)
 else: print("Sorry about this, we don't seem to have what you are looking for!")
 
-## Data Framing
-import pandas as pd
-import nbformat
-notebook_path = /mnt/data/creating_data_frames.ipynb
-with open(notebook_path) as f
-nb = nbformat.read(f, as_version=4)
+Mod
 code_cells = [cell['source'] for cell in nb.cells if cell.cell_type = code]
 code_cells
 file_path = "/mnt/data/frame_and_art_gallery_data.xlsx"
@@ -47,6 +51,8 @@ with pd.excelwriter(file_path) as writer:
 frame_shop_df.to_excel(writer, sheet_name='Frame Shop, index=false)
 art_gallery_df.to_excel(writer, sheet_name='Art Gallery, index=false)
 file_path
+
+	# Break 
 
   # Car sales
 import pandas as pd
@@ -64,13 +70,13 @@ df.describe
 id_column = df[id]
 amount_column = df[Amount]
 
-## Mod
+## Wrangle
 mean_amount = df[Amount].mean
 sum_amount = df[Amount].sum
 unique_amount = df[Amount].unique
 value_counts_make = df[Make].value_counts()  # Assuming there's a "Make" column
 
-## Visualization
+## Mod
 results = {
 "mean Amount": mean_amount
 "sum Amount": sum_amount
@@ -78,7 +84,7 @@ results = {
 "value counts of make": value_counts_make.head()  # displaying top 5 for brevity}
 results, df.head()  # Show results and the first few rows of the dataframe for context
 
-## Mod
+## Visualization
 results_corrected = {
 "mean amount": mean_amount
 "sum amount": sum_amount
@@ -86,6 +92,8 @@ results_corrected = {
 results_corrected, df.head()  # show corrected results and the first few rows of the DataFrame for context
 nbformat.write(new_nb, new_notebook_path)
 new_notebook_path
+
+	# Break
 
   # Workout
 import pandas as pd
@@ -98,7 +106,7 @@ weight: np.random.randint(100, 250, size=200)
 membership (Days): np.random.randint(30, 365, size=200)}
 df = pd.dataframe(data)
 
-## Mine
+## Wrangle
 overview = df.describe
 trainers_names = df[Trainer].unique
 students_per_trainer = df[Trainer].value_counts
@@ -140,7 +148,7 @@ with open(output_notebook_path, w) as "f"
 nbformat.write(nb, f)
 output_notebook_path
 
-  # Wrangle
+  # Mod
 import io
 import nbformat
 notebook_path = /mnt/data/column_manipulation.ipynb
@@ -156,29 +164,32 @@ exec_namespace =
 for idx, cell in enumerate(notebook.cells)
 if cell.cell_type = code
 
-## Mod
+## Mine
 try: exec(cell.source, exec_namespace)
 executed_output[idx] = "Execution successful"
 except Exception as e
 executed_output[idx] = f"Error: {str(e)}"
 executed_output
 
+	# Break
+
   # Hey arnold
+import pandas as pd
 import nbformat
 notebook_path = /mnt/data/pandas_reading_files.ipynb
 with open(notebook_path, r, encoding = utf-8) as nb_file:
 df_reorganized.to_CSV(/mnt/data/hey_arnold_cleaned.csv, index=false)
-/mnt/data/hey_arnold_cleaned.CSV
+/mnt/data/hey_arnold_cleaned.csv
 nb_content = nbformat.read(nb_file, as_version=4)
 nb_content.cells
 
-## Summary
-import pandas as pd
-file_path = /mnt/data/books_clean.CSV
+## Mod
+
+file_path = /mnt/data/books_clean.csv
 books_df = pd.read_CSV(file_path, encoding='utf-8')
 books_df.head
 
-## Mod
+## Mine
 books_df.rename(columns={
 author': author, this looks like it was already correctly named, but we'll include it for clarity
 publication year': publication year}, inplace = true)
@@ -192,3 +203,5 @@ books_df['Publisher'] = books_df['Publisher'].str.title()
 output_path = '/mnt/data/cleaned_comic_books.CSV'
 books_df.to_CSV(output_path, index=false)
 output_path
+
+	# Break
