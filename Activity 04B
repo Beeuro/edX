@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 descriptive_stats = data.describe(include=[float, int])
 descriptive_stats
 
-## Wrangle
+## Format
 plt.figure(figsize=(10, 6))
 plt.hist(data[Street Name ID], bins=50, color=skyblue, edgecolor=black)
 plt.title(distribution of street name id)
@@ -12,7 +12,7 @@ plt.ylabel(Frequency)
 plt.grid(axis= y, alpha=0.75)
 plt.show
 
-## Format
+## Mod
 grouped_data = data.groupby(Postal Community).size().reset_index(name = Street Count)
 grouped_data_sorted = grouped_data.sort_values(by = Street Count, ascending=false)
 grouped_data_sorted.head
@@ -25,7 +25,7 @@ file_path = /mnt/data/movie_scores.CSV
 data = pd.read_CSV(file_path)
 data.head
 
-## Mine
+## Mod
 imdb_data = data[[Film, IMDB, IMDB_norm, IMDB_norm_round, IMDB_user_vote_count]]
 good_movies = imdb_data[imdb_data[IMDB] >= 7].drop(columns=[IMDB_norm, IMDB_norm_round])
 less_popular_good_movies = good_movies[good_movies[IMDB_user_vote_count] < 20000]
@@ -33,12 +33,14 @@ output_path = /mnt/data/less_popular_good_movies.CSV
 less_popular_good_movies.to_csv(output_path, index=false)
 output_path
 
+	# Break
+
   # Donor list
 import pandas as pd
 donors2021_df = pd.read_CSV(/mnt/data/donors2021.CSV)
 donors2021_df.head
 
-## Clean
+## Wrangle
 donors2021_unclean_df = pd.read_CSV(/mnt/data/donors2021_unclean.CSV)
 donors2021_unclean_df.head
 
@@ -52,6 +54,8 @@ for cell in notebook_JSON[cells]
 if cell[cell_type] = code
 code = .join(cell[source])
 code_cells.append(code)
+
+	# Break
 
   # Hong Kong Municpal
 import pandas as pd
@@ -67,16 +71,14 @@ df_cleaned = df_english.dropna
 df_cleaned.shape
 applicant_unique = df_cleaned[Applicant].unique
 applicant_unique[:20]
-
-## Dataframe
 df_italy = df_cleaned[df_cleaned['Place of Manufacture'] = "Italy"
 df_china = df_cleaned[df_cleaned['Place of Manufacture'] = "The People's Republic of China"
 df_italy.shape, df_china.shape
 
-## Result
+## Visualization
 df_italy.head, df_china.head
 
-  # Visualization complete
+  # Break
 
   # Firefighting
 import pandas as pd
@@ -95,7 +97,7 @@ comments = [line for line in cell[source].split(\n) if line.strip().startswith()
 instructions.extend(comments)
 
 ## Mine
-import nbformat
+import Mod
 notebook_path = /mnt/data/groupby.ipynb
 with open(notebook_path, "r", encoding= utf-8) as nb_file:
 nb_content = nbformat.read(nb_file, as_version=4)
@@ -106,7 +108,7 @@ csv_path = /mnt/data/CT_fires_2015.CSV
 fires_df = pd.read_csv(csv_path, low_memory=False)
 fires_df.head
 
-## Dataframe
+## Mine
 selected_columns = [
 Fire Department Name, Incident date, Incident Type Code, Incident Type,
 Alarm Date and Time, Arrival Date and Time, Last Unit Cleared Date and Time,
@@ -120,7 +122,7 @@ filtered_df[numerical_columns] = filtered_df[numerical_columns].fillna(0)
 filtered_df['Incident date'] = pd.to_datetime(filtered_df['Incident date'])
 filtered_df.head(), filtered_df.dtype
 
-  # Visualization complete
+  # Visualization Complete
 
   # Census
 import pandas as pd
@@ -128,11 +130,11 @@ census_data_path = /mnt/data/census_data_2016-2019.CSV
 census_data = pd.read_csv(census_data_path)
 census_data.head
 
-## Mine
+## Format
 totals_columns = [Population, Employed Civilians, Unemployed Civilians, People in the Military, Poverty Count]
 totals_df = census_data.groupby([Year, State])[totals_columns].sum().reset_index
 
-## Dataframe
+## Wrangle
 averages_columns = [Median Age, Household Income, Per Capita Income]
 averages_df = census_data.groupby([Year, State])[averages_columns].mean().reset_index
 totals_df.rename(columns={
@@ -148,14 +150,14 @@ Household Income': Average Household Income
 Per Capita Income: Average Per Capita Income
 } inplace = true)
 
-## Export
+## Mod
 totals_CSV_path = /mnt/data/totals_by_year_and_state.CSV
 averages_CSV_path = /mnt/data/averages_by_year_and_state.CSV
 totals_df.to_CSV(totals_CSV_path, index=false)
 averages_df.to_CSV(averages_CSV_path, index=false)
 (totals_CSV_path, averages_CSV_path)
 
-  # Visualization complete
+  # Visualization Complete
 
   # San Francisco Municipal
 import pandas as pd
@@ -163,7 +165,7 @@ df = pd.read.CSV(/mnt/data/SFO_Airport_Utility_Consumption.CSV)
 unique_utilities = df['Utility'].unique()
 unique_utilities
 
-## Dataframe
+## Wrangle
 gas_tenant_df = df[(df[Utility] = Gas) & (df[Owner] = Tenant)]
 sorted_gas_tenant_df = gas_tenant_df.sort_values(by=Usage, ascending=false)
 sorted_gas_tenant_df.reset_index(drop=true, inplace=true)
@@ -184,4 +186,4 @@ plt.show()
 corrected_plot_path = /mnt/data/gas_consumption_by_tenants_over_time_corrected.png
 corrected_plot_path
 
-  # Visualization complete
+  # Visualization Complete
