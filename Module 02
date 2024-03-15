@@ -1,16 +1,5 @@
 	# Stock market analysis
-## Wrangle
-Sub stockanalysis
-Dim ws as worksheet
-Dim ticker As string
-Dim yearlychange as double
-Dim percentchange as double
-Dim totalvolume as double
-Dim lastrow as long
-Dim summaryrow as integer
-Dim startprice as double
-Dim endprice as double
-    
+
 ## Format
 summaryrow = 2
 totalvolume = 0
@@ -22,12 +11,24 @@ ws.cells(1, 11).value = "Percent Change"
 ws.cells(1, 12).value = "Total Stock Volume"
 lastRow = ws.cells(Rows.Count, 1).end(xlUp).row
 
+## Wrangle
+Sub stockanalysis
+Dim ws as worksheet
+Dim ticker As string
+Dim yearlychange as double
+Dim percentchange as double
+Dim totalvolume as double
+Dim lastrow as long
+Dim summaryrow as integer
+Dim startprice as double
+Dim endprice as double
+
 ## Mod
 For i = 2 to lastrow
 If startprice = 0 then
 startprice = ws.cells(i, 3).value
 
-End if
+End If
             
 If ws.cells(i + 1, 1).value <> ws.cells(i, 1).value then
 ticker = ws.cells(i, 1).value
@@ -43,7 +44,7 @@ percentchange = 0
 
 End If
 
-## Result
+## Mine
 ws.cells(summaryRow, 9).value = ticker
 ws.cells(summaryRow, 10).value = yearlychange
 ws.cells(summaryRow, 11).value = percentchange
@@ -66,11 +67,24 @@ Else
 
 totalvolume = totalvolume + ws.cells(i, 7).value
 
-End if
+End If
     
 	# End Sub
 
-## Conditional
+	# Ticker
+
+## Format
+lastrow = ws.cells(ws.rows.count, 1).end(xlup).row
+summaryrow = 2
+totalvolume = 0
+startrow = 2
+column headers for summary table
+ws.cells(1, 9).value = "Ticker"
+ws.cells(1, 10).value = "Total Stock Volume"
+ws.cells(1, 11).value = "Yearly Change ($)"
+ws.cells(1, 12).value = "Percent Change"
+
+## Wrangle
 Sub stockmarketaanalysis
 Dim ws as worksheet
 Dim ticker as string
@@ -83,19 +97,8 @@ Dim summaryrow as integer
 Dim lastrow as long
 Dim startrow as long
 Application.screenupdating = false
-    
-## Format
-lastrow = ws.cells(ws.rows.count, 1).end(xlup).row
-summaryrow = 2
-totalvolume = 0
-startrow = 2
-column headers for summary table
-ws.cells(1, 9).value = "Ticker"
-ws.cells(1, 10).value = "Total Stock Volume"
-ws.cells(1, 11).value = "Yearly Change ($)"
-ws.cells(1, 12).value = "Percent Change"
 
-## Mine
+## Mod
 openprice = ws.cells(2, 3).value
 For i = 2 to lastrow
 If ws.cells(i + 1, 1).value <> ws.cells(i, 1).value then
@@ -111,9 +114,9 @@ Else
                     
 percentchange = 0
 
-End if
+End If
 
-## Format
+## Visualization
 print ticker, total volume, yearly change, and percent change
 With ws
 .cells(summaryrow, 9).value = ticker
@@ -143,10 +146,11 @@ End if
 Else
 
 totalvolume = totalvolume + ws.cells(i, 7).value
-
-End if
-
 Next i
+
+End If
+
+
 call a function/sub to calculate greatest % increase, greatest % decrease, and greatest total volume
 Call calculatespecialvalues (ws)
     
