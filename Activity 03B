@@ -1,4 +1,5 @@
 	# Checkup
+
 ## System
 print("Hello user!")
 user_name = input("What is your name?)"
@@ -27,7 +28,7 @@ print("You selected:")
 for candy in candy_cart
 print(candy)
 
-## Summary
+## Visualization
 while true
 selection = input("Enter the number of the candy you want (or 'done' to finish): ")
 if selection.lower() = "done"
@@ -41,6 +42,8 @@ print("Please enter a valid number or 'done' to finish.")
 print("You selected:")
 for candy in candy_cart
 print(candy)
+
+	# Break
 
 	# Pie order
 def pie_order_form
@@ -81,22 +84,6 @@ from collections import counter
 lines = entire_content.split('\n')
 words = entire_content.split
 
-## Mine
-num_lines = len(lines)
-keyword = "line"
-num_keyword_occurrences = entire_content.count(keyword)
-word_frequency = counter(words)
-extract specific information (example: words starting with "T" or "t")
-words_starting_with_t = [word for word in words if word.lower().startswith("t")]
-(num_lines, num_keyword_occurrences, word_frequency, words_starting_with_t)
-import random
-random_int = random.randint(1, 10)
-print(random_int)
-random_element = random.choice(['apple', 'banana', 'cherry'])
-print(random_element)
-now = datetime.now()
-print(now)
-
 ## Format
 formatted_date = now.strftime("%Y-%m-%d %H:%M:%S")
 print(formatted_date)
@@ -123,7 +110,23 @@ def hash_ssn(ssn)
 return hashlib.sha256(ssn.encode).hexdigest
 data['SSN_Hash'] = data['SSN'].apply(hash_ssn)
 
-## Summary
+## Mine
+num_lines = len(lines)
+keyword = "line"
+num_keyword_occurrences = entire_content.count(keyword)
+word_frequency = counter(words)
+extract specific information (example: words starting with "T" or "t")
+words_starting_with_t = [word for word in words if word.lower().startswith("t")]
+(num_lines, num_keyword_occurrences, word_frequency, words_starting_with_t)
+import random
+random_int = random.randint(1, 10)
+print(random_int)
+random_element = random.choice(['apple', 'banana', 'cherry'])
+print(random_element)
+now = datetime.now()
+print(now)
+
+## Visualization
 analysis_results = {
 Total Entries: data.shape[0]
 Unique First Names: data[First Name].nunique
@@ -132,22 +135,21 @@ Valid SSNs: data[SSN_Valid].sum}
 summary = data[[First Name, Last Name, SSN_Valid]].describe()
 (analysis_results, summary)
 
-	#Census
-## Wrangle
-file_path = /mnt/data/census_starter.CSV
+	# Census
+file_path = /mnt/data/census_starter.csv
 with open(file_path, "r", encoding='utf8') as file
 lines = [next(file) for _ in range(5)]
 
-## Mod
-import CSV
+## Wrangle
+import csv
 places =
 populations =
 per_capita_incomes =
 poverty_counts =
 poverty_rates =
-with open(file_path, "R", encoding = utf8) as CSVfile
-CSVreader = CSV.reader(CSVfile)
-for row in CSVreader
+with open(file_path, "R", encoding = utf8) as csvfile
+csvreader = csv.reader(csvfile)
+for row in csvreader
 place = row[0]
 population = int(row[1])
 per_capita_income = row[4]
@@ -159,11 +161,15 @@ populations.append(population)
 per_capita_incomes.append(per_capita_income)
 poverty_counts.append(poverty_count)
 poverty_rates.append(f"{poverty_rate:.2f}%")
+
+## Mine
 zipped_data = list(zip(places, populations, per_capita_incomes, poverty_counts, poverty_rates))
-new_CSV_path = /mnt/data/cleaned_census_data.CSV
-with open(new_CSV_path, "w", encoding="utf8", newline) as new_file
-CSVwriter = CSV.writer(new_file)
-CSVwriter.writerow([County, State, Population, Per Capita Income, Poverty Count, Poverty Rate (%)])
+new_csv_path = /mnt/data/cleaned_census_data.csv
+with open(new_csv_path, "w", encoding="utf8", newline) as new_file
+csvwriter = csv.writer(new_file)
+csvwriter.writerow([County, State, Population, Per Capita Income, Poverty Count, Poverty Rate (%)])
 for row in zipped_data:
-CSVwriter.writerow([*row[0], *row[1:]])
-new_CSV_path
+csvwriter.writerow([*row[0], *row[1:]])
+new_csv_path
+
+	# Break
