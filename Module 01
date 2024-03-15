@@ -3,7 +3,7 @@ import pandas as pd
 file_path = /mnt/data/crowdfundingbook.xlsx
 df = pd.read_excel(file_path)
 
-## Mine
+## Wrangle
 Checking for duplicate rows
 duplicates = df.duplicated.sum
 ## Checking for missing values
@@ -35,8 +35,6 @@ report_df[Total Projects] = report_df[[Number Successful, Number Failed, Number 
 report_df[Percentage Successful] = (report_df[Number Successful] / report_df[Total Projects]) * 100
 report_df[Percentage Failed] = (report_df[Number Failed] / report_df[Total Projects]) * 100
 report_df[Percentage Canceled] = (report_df[Number Canceled] / report_df[Total Projects]) * 100
-
-## Visualization
 line_chart_data = report_df.reset_index().rename(columns={index: Goal Range})
 line_chart_data = line_chart_data.melt(id_vars=[Goal Range], value_vars=[Percentage Successful, Percentage Failed, Percentage Canceled])
 line_chart_data.head() display the first few rows to check the data structure for the chart
@@ -48,11 +46,6 @@ line_chart_data.head() display the first few rows to check the data structure fo
 "activity, showing if certain times of the year are better for launching campaigns"
 for suggestion in suggestions
 doc.add_paragraph(suggestion)
-
-## Save
-doc_path = '/mnt/data/crowdfunding_analysis_report.docx'
-doc.save(doc_path)
-doc_path
 
 ## Mine
 stats_success = backers_df[Number of Backers Successful].describe
@@ -86,7 +79,12 @@ central_tendency_unsuccess: central_tendency_unsuccess
 more_variability: more_variability
 analysis_results: /mnt/data/crowdfundingbook_updated.xlsx
 
-## Results
+## Save
+doc_path = '/mnt/data/crowdfunding_analysis_report.docx'
+doc.save(doc_path)
+doc_path
+
+## Visualization
 df[Percent Funded] = (df[pledged] / df[goal]) * 100
 df[Average Donation] = df.apply(lambda x: x[pledged] / x[backers_count] if x[backers_count] > 0 else 0, axis=1)
 df[Category], df[Sub-Category] = zip(*df[category & sub-category].apply(lambda x: x.split))
@@ -94,4 +92,4 @@ df[Date Created Conversion] = pd.to_datetime(df[launched_at], unit=s)
 df[Date Ended Conversion] = pd.to_datetime(df[deadline], unit=s)
 df[[Percent Funded, Average Donation, Category, Sub-Category, Date Created Conversion, Date Ended Conversion]].head
 
-	# Data visualization complete
+	# Break
