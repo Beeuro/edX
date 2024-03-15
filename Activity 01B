@@ -1,16 +1,16 @@
 	# Grading
-import pandas as pd
 upload excel file
 grade_book_path = /mnt/data/grade_book.xlsx
 grade_book = pd.read_excel(grade_book_path)
+import pandas as pd
+
+## Format
+grade_book.head
 
 ## Wrangle
 =round((B2+C2+D2+E2)/4, 0)
 =if(F2>=60, "PASS", "FAIL")
 =if(F2>=90, "A", IF(F2>=80, "B", IF(F2>=70, "C", IF(F2>=60, "D", "F")))
-
-## Format
-grade_book.head
 
 	# Excel file scripted
 
@@ -20,8 +20,6 @@ import seaborn as sns
 
 ## Format
 sns.set_style("whitegrid")
-
-## Mine
 plt.figure(figsize=(12, 6))
 sns.countplot(y=Type', data=df, order = df[Type].value_counts().index)
 plt.title(Number of Organizations by Type)
@@ -35,11 +33,7 @@ plt.xlabel(Count)
 plt.ylabel(Activity)
 plt.show()
 
-## Finance
-financial_health_metrics = [asset_amt, 'income_amt', 'revenue_amt]
-df_financial_summary = df[financial_health_metrics].describe
-
-## Geolocation
+## Format
 plt.figure(figsize=(12, 6))
 sns.countplot(x=State, data=df, order = df[State].value_counts().index)
 plt.title(Number of Organizations by State)
@@ -48,6 +42,10 @@ plt.ylabel(Count)
 plt.xticks(rotation=45)
 plt.show()
 
+## Wrangle
+financial_health_metrics = [asset_amt, 'income_amt', 'revenue_amt]
+df_financial_summary = df[financial_health_metrics].describe
+
 df_financial_summary
 
 	# Visualization complete
@@ -55,17 +53,10 @@ df_financial_summary
 	# Song Charts
 
 ## Wrangle
-the data to count the number of songs per artist and sum of final_score
 artist_songs_count = songs_df.groupby(artist)[name].count().reset_index(name=song_count)
 artist_final_score_sum = songs_df.groupby(artist)[final_score].sum().reset_index(name=final_score_sum)
-
-## Merge
 artist_aggregated = pd.merge(artist_songs_count, artist_final_score_sum, on=artist)
-
-## Format
 artist_aggregated_sorted = artist_aggregated.sort_values(by=final_score_sum, ascending=False)
-
-## Display
 artist_aggregated_sorted.head(10)
 
 	# Visualization complete
@@ -74,28 +65,20 @@ artist_aggregated_sorted.head(10)
 product_list_df = excel_data.parse(Product List)
 orders_df = excel_data.parse(Orders)
 
-## Data frame 
-product_list_df.head(), orders_df.head
-
 ## Format
 product_list_df.rename(columns={ID: Product ID, Price Per Unit: Product Price, Priority: Shipping Priority, Price: Shipping Price}, inplace=true)
 product_prices = product_list_df[[Product ID, Product Price]]
 shipping_prices = product_list_df[[Shipping Priority, Shipping Price]].dropna
+unique_shipping_prices = product_list_df[[Shipping Priority, Shipping Price]].drop_duplicates().dropna
 
-## Merge
+## Wrangle
 orders_with_prices = pd.merge(orders_df, product_prices, on=Product ID, how=left)
 orders_with_prices = pd.merge(orders_with_prices, shipping_prices, on=Shipping Priority, how=left, suffixes=(y))
 orders_with_prices.drop(columns=[col for col in orders_with_prices if col.endswith(y)], inplace=true)
 orders_with_prices.head()
-
-## Format
-unique_shipping_prices = product_list_df[[Shipping Priority, Shipping Price]].drop_duplicates().dropna
-
-## Merge
+product_list_df.head(), orders_df.head
 orders_with_correct_prices = pd.merge(orders_with_prices.drop(columns=Shipping Price), unique_shipping_prices, on=Shipping Priority, how=left)
 orders_with_correct_prices.head()
-
-## Book
 pivot_table = pd.pivot_table(orders_with_correct_prices
 values=[Product Price, Shipping Price]
 index=[Order Number, Product ID]
@@ -108,8 +91,6 @@ import seaborn as sns
 
 ## Format
 sns.set_style("whitegrid")
-
-## Plot
 fig, ax = plt.subplots(figsize=(12, 
 pivot_table[Total Price] = pivot_table[Product Price] + pivot_table[Shipping Price]
 pivot_table_sorted = pivot_table.sort_values(by=Total Price, ascending=False)
