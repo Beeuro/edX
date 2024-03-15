@@ -1,4 +1,5 @@
 	# Star counter
+
 ## Format
 Sub starcounter
 Dim ws as worksheet
@@ -22,20 +23,6 @@ create charts here
 
 	# Macro
 
-## Grading
-Sub calculategrades
-Dim ws as worksheet
-Set ws = thisworkbook.sheets("Sheet1") adjust the sheet name as necessary
-Dim graderange As range
-Set graderange = ws.range("A2:A20") 'djust the range according to where the grades are
-Dim gradecell as range
-For each gradecell in graderange
-Dim score as integer
-score = gradecell.value
-Dim lettergrade as string
-Dim cellcolor as long
-Dim statustext as string
-
 ## Format
 If score >= 90 then
 lettergrade = "A"
@@ -56,7 +43,21 @@ lettergrade = "F"
 cellcolor = RGB(255, 0, 0) red
 statustext = "Fail"
 
-End if
+## Mod
+Sub calculategrades
+Dim ws as worksheet
+Set ws = thisworkbook.sheets("Sheet1") adjust the sheet name as necessary
+Dim graderange As range
+Set graderange = ws.range("A2:A20") 'djust the range according to where the grades are
+Dim gradecell as range
+For each gradecell in graderange
+Dim score as integer
+score = gradecell.value
+Dim lettergrade as string
+Dim cellcolor as long
+Dim statustext as string
+
+End If
 
 gradecell.offset(0, 1).value = lettergrade
 gradecell.offset(0, 2).value = statustext
@@ -66,6 +67,7 @@ Next gradecell
 	# End Sub
 
 	# Bonus
+
 ## Format
 Sub resetgrades
 Dim ws as worksheet
@@ -87,7 +89,7 @@ Next gradecell
 	# Checkerboard
 Sub createcheckerboard
     
-## Wrangle
+## Mod
 Dim i as integer, j As Integer
 Dim startrow as integer, startcolumn as integer
 Dim cellcolor as long
@@ -106,7 +108,7 @@ Else
 
 cellcolor = RGB(0, 0, 0) black
 
-End if
+End If
             
 apply the color to the cell
 With cells(i, j).interior
@@ -122,7 +124,7 @@ Sub processcreditcardpurchases
 Dim ws as worksheet
 Set ws = thisworkbook.sheets("Sheet1") adjust the sheet name accordingly
 
-## Format
+## Mod
 Dim lastrow as long
 Lastrow = ws.cells(ws.Rows.Count, "A").end(xlUp).row assuming column A has credit card brands
 Dim branddict as object
@@ -139,10 +141,11 @@ Branddict.add brand, amount
 Else
 
 Branddict(brand) = branddict(brand) + amount
+Next i
 
-End if
-Next i    
+End If    
 
+## Mine
 loop through the dictionary to create pop-up messages and summarize in a table
 Dim key as variant
 Dim summaryrow as long
@@ -184,6 +187,7 @@ For i = 2 To lastrow
 ws.cells(i, 1).value = sheetyear & " " & ws.cells(i, 1).value
 Next i
 
+## Mod
 split the "Place" column into "County" and "State"
 assuming "Place" is in column b (modify if needed)
 placecolumn = 2 column b
@@ -196,6 +200,7 @@ ws.cells(i, placecolumn + 1).value = split(ws.Cells(i, placeColumn).value)(0) co
 ws.Cells(i, placeColumn + 2).Value = Split(ws.Cells(i, placeColumn).value)(1) state
 Next i        
 
+## Mine
 Remove original "Place" column
 ws.columns(placecolumn).delete
 convert the household and per capita income columns to currency
@@ -213,7 +218,7 @@ Msgbox "Formatting complete!", vbinformation
 
 	# End Sub
 
-	# Merge
+## Mod
 Sub combineworksheets
 Dim ws as worksheet
 Dim combinedsheet as worksheet
@@ -233,8 +238,9 @@ Else
 
 combinedsheet.cells.clear clear existing data if the sheet already exists
 
-End if
+End If
     
+## Mine
 Set ws = thisworkbook.sheets(1)
 ws.rows(1).copy destination:=combinedsheet.rows(1)
 For each ws in thisworkbook.sheets
@@ -242,7 +248,6 @@ If ws.name <> "Combined_Data" then
 find the last row with data on the combined sheet and the current sheet
 lastrowcombined = combinedsheet.cells(combinedSheet.Rows.Count, "A").end(xlUp).row
 lastrowcurrentsheet = ws.cells(ws.Rows.Count, "A").end(xlUp).row
-
 check if there's data to copy
 if lastrowcurrentsheet > 1 then
 set the range to copy from the current sheet
