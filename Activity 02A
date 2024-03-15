@@ -1,10 +1,12 @@
   # Hello world
 Sub helloworld
-Msgbox "Hello, World!", vbInformation, "Greeting"
+
+## Format
+Msgbox "Hello everybody, the name is Matthew Fagen!", vbInformation, "Greeting"
 
   # End Sub
 
-  # Book
+  # Format
 Sub showpopups
 first pop-up message
 Msgbox "This is the first message.", vbInformation, "Message 1"
@@ -16,7 +18,6 @@ Msgbox "Finally, the third message appears.", vbInformation, "Message 3"
   # End Sub
 
   # Wrangle
-## Format
 Sub insertrow
 ows("2:2").insert shift:=xldown, copyorigin:=xlformatfromleftorabove
 Sub gotosheet2(
@@ -47,7 +48,7 @@ Else
 
 Msgbox "Cell A1 does not contain a numeric value."
 
-End if
+End If
 
 ## Integration
 Sub sendemail
@@ -76,7 +77,6 @@ Activeworkbook.close false
 
   # End Sub
 
-  # Mod
 ## Prompts
 Sub getuserinput
 Dim userinput as string
@@ -89,7 +89,6 @@ Msgbox "You clicked button 2!"
 
   # End Sub
 
-  # Format
 ## Cells and ranges
 Range("A1").Select selects cell A1
 Range("A1:B2").select selects a range from A1 to B2
@@ -153,7 +152,8 @@ Next i
   # End Sub
 
   # Wrangle
-## Data cleaning
+
+## Format
 Sub removeduplicates
 Dim ws as worksheet
 Set ws = activesheet modify as needed
@@ -177,20 +177,20 @@ Next i
 
   # End Sub
 
-  # Visualization
-Sub createchart
-Dim rng as range
-Set rng = selection or specify a range
-Charts.add
-Activechart.setsourcedata source:=rng
-
-## Innovation
+## Format
 Sub formatcells
 With selection
 .Font.name = "Time New Roman"
 .Font.Size = 12
 .Interior.color = RGB(0, 0, 0) ' Black fill
 .Borders(xledgebottom).linestyle = xlcontinuous
+
+  # Visualization
+Sub createchart
+Dim rng as range
+Set rng = selection or specify a range
+Charts.add
+Activechart.setsourcedata source:=rng
     
   # End Sub
 
@@ -223,7 +223,6 @@ Msgbox "Your total is $" & format(Total, "0.00")
 
   # End Sub 
 
-  # Dataframe
 ## Array
 Sub sumarray
 Dim ws as worksheet
@@ -255,8 +254,7 @@ Other:=false
 
   # End Sub
 
-  # Format
-## Rows
+## Format
 Sub dividerowstosheets
 Dim wssource as worksheet
 Set wssource = activeSheet ' The sheet with data to split
@@ -270,21 +268,20 @@ If wstarget is nothing then
 Set wstarget = worksheets.add(After:=Worksheets(Worksheets.Count)
 wstarget.name = cell.value
 
-End if
+End If
+
 On error goto 0
 cell.entirerow.copy destination:=wstarget.range("A" & wsTarget.Cells(wsTarget.Rows.Count, "A").End(xlUp).Row + 1)
 Next cell
 
-## Book
+## Format
 Sub formatandsum
 Dim ws as worksheet
 Set ws = activesheet
 Dim lastrow as long
-lastrow = ws.cells(ws.Rows.Count, "B").end(xlUp).row ' assuming the numeric column to format and sum is B
-    
+lastrow = ws.cells ws.Rows.Count, "B").end(xlUp).row ' assuming the numeric column to format and sum is B
 Format column B as currency
 ws.range("B1:B" & lastRow).numberformat = "$,0.00"
-    
 Sum values in column B and place the result in the next available row
 ws.range("B" & lastRow + 1).value = application.worksheetfunction.sum(ws.range("B1:B" & lastrow))
 ws.Range("B" & lastRow + 1).font.bold = true
@@ -313,9 +310,10 @@ cells(i, 3).value = words(wordnumbers(i, 1) - 1)
 Else
 
 cells(i, 3).value = "N/A" If the word number is out of bounds
+Next i
 
 End if
-Next i
+
 
 ## Conditionals
 Sub readandwritedata
@@ -334,18 +332,11 @@ Else
 
 Msgbox "value is 10 or less"
 
-## Innovation
+## Function
 Function multiplyvalues(value1 As Double, value2 As Double) As double
 multiplyvalues = value1 * value2
 
   # End Sub
-
-  # Data visualization
-## Chart
-Sub createchart
-Dim chart as chart
-Set chart = thisworkbook.sheets("Sheet1").shapes.addchart2(, xlLine).chart
-chart.setsourcedata source:=thisworkbook.sheets("Sheet1").range("A1:B10")
 
 ## Format
 Sub sortdata
@@ -355,6 +346,12 @@ sortfields.add key:=range("A1:A10"), sorton:=xlsortonvalues, order:=xlascending
 setRange range("A1:A10")
 header = xlno
 apply
+
+## Data visualization
+Sub createchart
+Dim chart as chart
+Set chart = thisworkbook.sheets("Sheet1").shapes.addchart2(, xlLine).chart
+chart.setsourcedata source:=thisworkbook.sheets("Sheet1").range("A1:B10")
 
 ## Mine
 Sub usesolver
