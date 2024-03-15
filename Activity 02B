@@ -1,5 +1,6 @@
 	# Finance
-## Budget
+
+## Mod
 Sub calculatetotal
 Dim amount as double
 Dim feepercentage as double
@@ -9,7 +10,7 @@ feepercentage = range("B2").value
 total = amount + (amount * feepercentage / 100)
 Range("B3").value = total
 
-## Alert
+## Mine
 Sub checkbudget
 call calculatetotal ensure the total is up to date
 Dim total as double
@@ -23,9 +24,9 @@ Else
         
 Msgbox "The total amount is over the budget!", vbcritical
 
-End if
+End If
 
-## Adjust
+## Mod
 Sub adjustforbudget
 Call calculatetotal ensure the total is up to date    
 Dim amount as double
@@ -37,6 +38,7 @@ feepercentage = range("B2").value
 total = range("B3").value
 budget = range("B4").value
     
+## Mine
 If total > budget then
 Dim maxprice as double
 maxprice = (budget / (1 + feepercentage / 100))
@@ -48,8 +50,7 @@ End if
 
 	# End Sub
 
-	# Loops
-## Cycle
+## Loops
 For counter = start To end [step step]
 code to be executed
 Next counter
@@ -96,8 +97,7 @@ End if
 
 	# End Sub
 
-	# Blind date
-## Format
+## Define
 Sub createdata
 Dim i As integer
 Dim startrow as integer
@@ -129,9 +129,9 @@ ws.cells(i, 2).value = "buzz"
 Else
 
 ws.cells(i, 2).value =
+Next I
 
 End If
-Next i
 
 	# End Sub
 
@@ -218,6 +218,7 @@ Application.calculation = xlcalculationautomatic
 	# End Sub
 
 	# Crypto
+
 ## Wrangle
 Sub countcattoken
 Dim ws as worksheet
@@ -257,7 +258,7 @@ shibainucount = shibainucount + 1
 ElseIf cell.value = "Dogecoin" then
 dogecoincount = dogecoincount + 1
 
-End if
+End If
 
 Next cell    
 
