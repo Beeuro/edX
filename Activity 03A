@@ -22,16 +22,16 @@ age_next_year = age + 1
 
 ## Mine
 age_str = str(age)
-is_delicious_str = str(is_delicious)
+is_refreshing_str = str(is_refreshing)
 type_simulation =
-"Frankfurter type: " + str(type_frankfurter)
+"Beer type: " + str(type_hefeweizen)
 "Age type" + str(type_age)
-"Is delicious type" + str(type_is_delicious)
+"Is refreshing type" + str(type_is_refreshing)
 "Formatted string: " + formatted_string
 "Age as string: " + age_str
-"Is delicious as string: " + is_delicious_str
+"Is refreshing as string: " + is_refreshing_str
 "Age next year: " + str(age_next_year)
-"Is not delicious: " + str(not_delicious)]
+"Is not refreshing: " + str(not_refreshing)]
 print_simulation
 
 	# Break
@@ -152,7 +152,7 @@ result_5 = "Stick to lazy river"
 confirmed_results = [result_1, result_2, result_3, result_4, result_5]
 confirmed_results
 
-	#Rock paper scissors
+	# Rock paper scissors
 file_path = /mnt/data/rock_paper_scissors.py
 with open(file_path, "r") as file
 python_script = file.read
@@ -194,3 +194,5 @@ end_of_previous_chain += n  # update for next chain, for bonus part
 continue_chain = get_input("Would you like to continue? (y/n)")
 if continue_chain.lower() != 'y':
 break  # exit the loop if user enters 'n'
+
+	# Break
