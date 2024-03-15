@@ -6,23 +6,21 @@ Run mamba.py
 exec(open('LearnPython/Assignment2/bootcamp.py').read
 
 	# Octoberfest
-frankfurter = "Frankfurter"
-age = 80
-is_delicious = true
-print_frankfurter = print (frankfurter)
+drink = "Hefeweizen"
+age = 21
+is_beer = true
+print_frankfurter = print (Hefeweizen)
 print_age = print (age)
-print_is_delicious = print (is_delicious)
+print_hits_the_spot! = print (Hits the spot!)
+formatted_string = f"this is a {beer}, I am {21} years old, and it is {'refreshing' if isn't my thing}."
 
-## Format
-formatted_string = f"this is a {frankfurter}, it is {age} years old, and it is {'delicious' if is juicy else not juicy}."
+## Boolean
+not_refreshing = not is_refreshing
 
-## Mine
+## Mod
 age_next_year = age + 1
 
-## Boolean logic
-not_delicious = not is_delicious
-
-## Summary
+## Mine
 age_str = str(age)
 is_delicious_str = str(is_delicious)
 type_simulation =
@@ -35,6 +33,8 @@ type_simulation =
 "Age next year: " + str(age_next_year)
 "Is not delicious: " + str(not_delicious)]
 print_simulation
+
+	# Break
 
 	# Hello world
 name = "Matthew Fagen"
@@ -67,10 +67,6 @@ response_truthy
 age_validation]
 simulated_outputs
 
-## Input
-user_coding_months = "12"  # assume the user inputs 12 months
-neighbor_coding_months = "9"  # assume the neighbor inputs 9 months
-
 ## Mine
 user_coding_months_int = int(user_coding_months)
 neighbor_coding_months_int = int(neighbor_coding_months)
@@ -79,6 +75,10 @@ except valueerror:
 validation_message = "One or both inputs are invalid. Please enter numeric values."
 user_coding_months_int = neighbor_coding_months_int = 0  # set to 0 to avoid calculation errors in case of invalid input
 total_coding_months = user_coding_months_int + neighbor_coding_months_int
+
+## Visualization
+user_coding_months = "12"  # assume the user inputs 12 months
+neighbor_coding_months = "9"  # assume the neighbor inputs 9 months
 
 ## Summary
 result_message = f"Combined, you and your neighbor have {total_coding_months} months of coding experience."
@@ -164,7 +164,7 @@ options = ["r", "p", "s"]
 computer_choice = random.choice(options)
 user_choice = input("Make your Choice: (r)ock, (p)aper, (s)cissors? ")
 
-# Mod
+# Wrangle
 if user_choice == computer_choice
 print("It's a tie!")
 elif (user_choice == "r" and computer_choice == "s") or \\
@@ -174,13 +174,13 @@ rint(f"You win! Your choice: {user_choice} vs Computer's choice: {computer_choic
 else:
 print(f"You lose! Your choice: {user_choice} vs Computer's choice: {computer_choice}")
 
-## Write
+## Mod
 completed_script_path = /mnt/data/completed_rock_paper_scissors.py
 with open(completed_script_path, "w") as file
 file.write(complete_script)
 completed_script_path
 
-## Loop
+## Mine
 def simulate_user_interaction()
 end_of_previous_chain = 0  # initialize for the bonus part
 while true: this loop will run until the user decides to exit
@@ -190,7 +190,7 @@ print(i, end=" ")
 print()  # for newline
 end_of_previous_chain += n  # update for next chain, for bonus part
         
-## Summary
+## Visualization
 continue_chain = get_input("Would you like to continue? (y/n)")
 if continue_chain.lower() != 'y':
 break  # exit the loop if user enters 'n'
