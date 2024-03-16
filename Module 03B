@@ -1,1 +1,12 @@
+  # Analysis
+total_votes = data.shape[0
+votes_by_candidate = data['Candidate'].value_counts().reset_index()
+votes_by_candidate.columns = ['Candidate', 'Votes']
+votes_by_candidate['Percentage'] = (votes_by_candidate['Votes'] / total_votes) * 100
+votes_by_county = data['County'].value_counts().reset_index()
+votes_by_county.columns = ['County', 'Votes']
+highest_turnout_county = votes_by_county.iloc[0]
+winner = votes_by_candidate.iloc[0]
+(total_votes, votes_by_candidate, votes_by_county, highest_turnout_county, winner)
 
+  # Break
