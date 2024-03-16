@@ -1,1 +1,85 @@
+  # Plotting
+def load_notebook_contents(notebook_path):
+with open(notebook_path, 'r', encoding='utf-8') as nb_file:
+nb_contents = nbformat.read(nb_file, as_version=4)
+return nb_contents
+notebook_path = '/mnt/data/plot_drills.ipynb'
+nb_contents = load_notebook_contents(notebook_path)
+nb_contents
 
+  # Break
+
+  # Pandas
+import pandas as pd
+import nbformat
+csv_path = '/mnt/data/avg_rain_state.csv'
+df_rain = pd.read_csv(csv_path)
+df_rain.head()
+notebook_path = '/mnt/data/avg_state_rain.ipynb'
+
+## Wrangle
+notebook_content = nbformat.read(nb_file, as_version=4)
+
+## Mine
+notebook_cells = []
+for cell in notebook_content['cells']:
+notebook_cells.append(cell['source'])
+notebook_cells
+
+  # Union results
+import pandas as pd
+import matplotlib.pyplot as plt
+readme_path = '/mnt/data/README.md'
+with open(readme_path, 'r') as file:
+readme_contents = file.read()
+readme_contents
+dataset_path = '/mnt/data/union_settlements_1995.csv'
+settlements_df = pd.read_csv(dataset_path)
+
+import matplotlib.pyplot as plt
+
+
+plt.figure(figsize=(10, 6))
+settlements_by_union.plot(kind='bar', color='red')
+
+plt.title('Major Collective Bargaining Settlements by Union in 1995')
+plt.xlabel('Union')
+plt.ylabel('Number of Settlements')
+plt.xticks(rotation=45, ha='right')  # Rotate x-axis labels and align them right for better readability
+
+plt.show()
+
+## Format
+settlements_df.head()
+column_names = settlements_df.columns
+column_names_subset = [col for col in column_names if 'union' in col.lower() or 'company' in col.lower()]
+column_names_subset
+
+## Mod
+settlements_by_union = settlements_df['UNION'].value_counts()
+settlements_by_union
+
+## Visualizaiton
+plt.figure(figsize=(10, 6))
+settlements_by_union.plot(kind='bar', color='red')
+plt.title('Major Collective Bargaining Settlements by Union in 1995')
+plt.xlabel('Union')
+plt.ylabel('Number of Settlements')
+plt.xticks(rotation=45, ha='right')  # Rotate x-axis labels and align them right for better readability
+plt.show()
+
+  # Break
+
+  # Travel statistics
+csv_files = {
+2016: /mnt/data/2016_travelers.csv
+2017: /mnt/data/2017_travelers.csv
+2018: /mnt/data/2018_travelers.csv}
+
+## Mod
+dataframes = {year: pd.read_csv(path) for year, path in csv_files.items()}
+for year, df in dataframes.items():
+    print(f"DataFrame for the year {year}:")
+    display(df.head())
+
+  # Break
