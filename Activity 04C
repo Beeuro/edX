@@ -1,4 +1,5 @@
-  # Functions
+TEST
+# Functions
 import nbformat
 notebook_path = /mnt/data/merging.ipynb
 with open(notebook_path) as "f"
