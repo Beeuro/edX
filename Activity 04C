@@ -50,8 +50,8 @@ right_join_df = pd.merge(info_df, items_df, on = customer_id, how = right)
 
   # Census
 import pandas as pd
-state_totals = pd.read_CSV(/mnt/data/state_totals.CSV)
-state_avg = pd.read_CSV(/mnt/data/state_avg.CSV)
+state_totals = pd.read_csv(/mnt/data/state_totals.csv)
+state_avg = pd.read_Ccsv(/mnt/data/state_avg.csv)
 state_totals, state_avg
 
 ## Wrangle
@@ -66,9 +66,9 @@ highest_poverty_rate, lowest_poverty_rate
 
   # Mod
 description = data_2019.describe
-description.to_csv(/mnt/data/descriptive_analysis.CSV)
+description.to_csv(/mnt/data/descriptive_analysis.csv)
 correlation = data_2019.corr
-correlation.to_csv(/mnt/data/diagnostic_analysis_correlation.CSV)
+correlation.to_csv(/mnt/data/diagnostic_analysis_correlation.csv)
 import matplotlib.pyplot as plt
 data_2019[Poverty Rate].hist
 plt.title(Poverty Rate Distribution)
@@ -125,12 +125,12 @@ group_counts_df = pd.read_csv(group_counts_path, index_col=0)
 group_averages_df = pd.read_csv(group_averages_path, index_col=0)
 merged_data = group_averages_df.merge(group_counts_df, left_index=True, right_index=True)
 merged_data.rename(columns={0: 'Number of Movies'}, inplace=True)
-merged_data_path = /mnt/data/merged_movie_data.CSV
-merged_data.to_CSV(merged_data_path)
+merged_data_path = /mnt/data/merged_movie_data.csv
+merged_data.to_csv(merged_data_path)
 
   # Seattle Housing
 import pandas as pd
-data_path = /mnt/data/Seattle_Housing_Cost_Burden.CSV
+data_path = /mnt/data/Seattle_Housing_Cost_Burden.csv
 housing_data = pd.read_CSV(data_path)
 housing_data.head()
 import nbformat
@@ -166,8 +166,8 @@ instructions.append(cell.source)
 
 ## Wrangle
 import pandas as pd
-data_path = '/mnt/data/Crowdfunding_data.CSV
-df = pd.read_CSV(data_path)
+data_path = '/mnt/data/Crowdfunding_data.csv
+df = pd.read_csv(data_path)
 df.head
 columns_of_interest = ["name", "goal", "pledged", "outcome", "country", "staff_pick", "backers_count", "spotlight"]
 df_selected = df[columns_of_interest]
