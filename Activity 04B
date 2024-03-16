@@ -21,8 +21,8 @@ grouped_data_sorted.head
 
   # IMDB
 import pandas as pd
-file_path = /mnt/data/movie_scores.CSV
-data = pd.read_CSV(file_path)
+file_path = /mnt/data/movie_scores.csv
+data = pd.read_csv(file_path)
 data.head
 
 ## Mod
@@ -37,11 +37,11 @@ output_path
 
   # Donor list
 import pandas as pd
-donors2021_df = pd.read_CSV(/mnt/data/donors2021.CSV)
+donors2021_df = pd.read_csv(/mnt/data/donors2021.csv)
 donors2021_df.head
 
 ## Wrangle
-donors2021_unclean_df = pd.read_CSV(/mnt/data/donors2021_unclean.CSV)
+donors2021_unclean_df = pd.read_csv(/mnt/data/donors2021_unclean.csv)
 donors2021_unclean_df.head
 
 ## Mine
@@ -85,7 +85,7 @@ import pandas as pd
 import nbformat
 with open(/mnt/data/pandas_recap.ipynb) as f:
 nb = nbformat.read(f, as_version=4)
-df_fires = pd.read_CSV(/mnt/data/CT_fires_2015.CSV)
+df_fires = pd.read_csv(/mnt/data/CT_fires_2015.csv)
 df_fires.head
 
 ## Format
@@ -103,7 +103,6 @@ with open(notebook_path, "r", encoding= utf-8) as nb_file:
 nb_content = nbformat.read(nb_file, as_version=4)
 analysis_instructions = [cell source] for cell in nb_content.cells if cell.cell_type = code]
 analysis_instructions
-import pandas as pd
 csv_path = /mnt/data/CT_fires_2015.CSV
 fires_df = pd.read_csv(csv_path, low_memory=False)
 fires_df.head
@@ -126,7 +125,7 @@ filtered_df.head(), filtered_df.dtype
 
   # Census
 import pandas as pd
-census_data_path = /mnt/data/census_data_2016-2019.CSV
+census_data_path = /mnt/data/census_data_2016-2019.csv
 census_data = pd.read_csv(census_data_path)
 census_data.head
 
@@ -151,11 +150,11 @@ Per Capita Income: Average Per Capita Income
 } inplace = true)
 
 ## Mod
-totals_CSV_path = /mnt/data/totals_by_year_and_state.CSV
-averages_CSV_path = /mnt/data/averages_by_year_and_state.CSV
-totals_df.to_CSV(totals_CSV_path, index=false)
-averages_df.to_CSV(averages_CSV_path, index=false)
-(totals_CSV_path, averages_CSV_path)
+totals_csv_path = /mnt/data/totals_by_year_and_state.csv
+averages_csv_path = /mnt/data/averages_by_year_and_state.csv
+totals_df.to_csv(totals_csv_path, index=false)
+averages_df.to_csv(averages_csv_path, index=false)
+(totals_csv_path, averages_csv_path)
 
   # Visualization Complete
 
