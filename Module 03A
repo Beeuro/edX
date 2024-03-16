@@ -1,1 +1,43 @@
+  # Analysis
+import pandas as pd
+import matplotlib.pyplot as plt
+data = pd.read_csv('/mnt/data/PyBank.csv')
+data.head()
 
+## Mod
+total_months = data.shape[0]
+net_total = data['Profit/Losses'].sum()
+data['Change'] = data['Profit/Losses'].diff()
+average_change = data['Change'].mean()
+greatest_increase = data.loc[data['Change'].idxmax()]
+greatest_decrease = data.loc[data['Change'].idxmin()]
+results = {
+    'Total Months': total_months,
+    'Net Total Profit/Losses': net_total,
+    'Average Change in Profit/Losses': average_change,
+    'Greatest Increase in Profits': {
+        'Date': greatest_increase['Date'],
+        'Amount': greatest_increase['Change']
+    },
+    'Greatest Decrease in Profits': {
+        'Date': greatest_decrease['Date'],
+        'Amount': greatest_decrease['Change']}}
+results
+
+## Visualization
+plt.figure(figsize=(14, 7))
+plt.plot(data['Date'], data['Profit/Losses'], marker='o', linestyle='-', color='blue')
+plt.title('Profit/Losses Over Time')
+plt.xlabel('Date')
+plt.ylabel('Profit/Losses')
+plt.xticks(rotation=45)
+plt.grid(True, which='both', linestyle='--', linewidth=0.5)
+greatest_increase_date = greatest_increase['Date']
+greatest_decrease_date = greatest_decrease['Date']
+plt.scatter(greatest_increase_date, greatest_increase['Change'], color='green', s=100, label='Greatest Increase', zorder=5)
+plt.scatter(greatest_decrease_date, greatest_decrease['Change'], color='red', s=100, label='Greatest Decrease', zorder=5)
+plt.tight_layout()
+plt.legend()
+plt.show()
+
+  # Break
