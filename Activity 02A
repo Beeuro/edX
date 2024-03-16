@@ -72,7 +72,7 @@ Sub exporttocsv
 Range("A1:B10").copy
 Workbooks.add
 Activesheet.paste
-Activeworkbook.saveas filename:="C:\Path\To\Your\File.CSV", fileformat:=xlCSV
+Activeworkbook.saveas filename:="C:\Path\To\Your\Filecsv", fileformat:=xlcsv
 Activeworkbook.close false
 
   # End Sub
