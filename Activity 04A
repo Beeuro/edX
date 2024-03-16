@@ -200,8 +200,8 @@ books_df['All Names'] = books_df['All Names'].str.title()
 books_df['Country of Publication'] = books_df['Country of Publication'].str.title()
 books_df['Place of Publication'] = books_df['Place of Publication'].str.title()
 books_df['Publisher'] = books_df['Publisher'].str.title()
-output_path = '/mnt/data/cleaned_comic_books.CSV'
-books_df.to_CSV(output_path, index=false)
+output_path = '/mnt/data/cleaned_comic_books.csv'
+books_df.to_csv(output_path, index=false)
 output_path
 
 	# Break
