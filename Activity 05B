@@ -36,24 +36,20 @@ readme_contents
 dataset_path = '/mnt/data/union_settlements_1995.csv'
 settlements_df = pd.read_csv(dataset_path)
 
-import matplotlib.pyplot as plt
-
-
-plt.figure(figsize=(10, 6))
-settlements_by_union.plot(kind='bar', color='red')
-
-plt.title('Major Collective Bargaining Settlements by Union in 1995')
-plt.xlabel('Union')
-plt.ylabel('Number of Settlements')
-plt.xticks(rotation=45, ha='right')  # Rotate x-axis labels and align them right for better readability
-
-plt.show()
-
 ## Format
 settlements_df.head()
 column_names = settlements_df.columns
 column_names_subset = [col for col in column_names if 'union' in col.lower() or 'company' in col.lower()]
 column_names_subset
+
+## Wrangle
+plt.figure(figsize=(10, 6))
+settlements_by_union.plot(kind='bar', color='red')
+plt.title('Major Collective Bargaining Settlements by Union in 1995')
+plt.xlabel('Union')
+plt.ylabel('Number of Settlements')
+plt.xticks(rotation=45, ha='right')  # Rotate x-axis labels and align them right for better readability
+plt.show()
 
 ## Mod
 settlements_by_union = settlements_df['UNION'].value_counts()
