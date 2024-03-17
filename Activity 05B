@@ -75,7 +75,7 @@ csv_files = {
 ## Mod
 dataframes = {year: pd.read_csv(path) for year, path in csv_files.items()}
 for year, df in dataframes.items():
-    print(f"DataFrame for the year {year}:")
-    display(df.head())
+print(f"DataFrame for the year {year}:")
+display(df.head())
 
   # Break
