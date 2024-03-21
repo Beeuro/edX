@@ -36,7 +36,6 @@ data['DATE'] = pd.to_datetime(data['DATE'])
 missing_values, data.dtypes
 
 ## Mod
-
 plt.figure(figsize=(14, 6))
 plt.plot(data['DATE'], data['HourlyDryBulbTemperature'], label='Temperature', color='blue')
 plt.title('Temperature Trends at LAX')
