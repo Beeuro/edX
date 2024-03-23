@@ -210,7 +210,7 @@ print(f"The writer of the movie 'Moana' is {moana_info.get('writer')}.")
 sing_info = get_movie_info("Sing")
 print(f"The plot of the movie 'Sing' is: {sing_info.get('plot')}")
 
-  # Visualizaiton Complete
+  # Visualization Complete
 
   # Social Media
 import nbformat
