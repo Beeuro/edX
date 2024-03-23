@@ -28,7 +28,7 @@ with open('/mnt/data/comicbooks.py', "r") as file
 comicbooks_py_content = file.read
 print(comicbooks_py_content)
 import csv
-book = "Thor"
+book = "Dr. Strange"
 csvpath = "/mnt/data/comic_books.csv"
 found = true
 with open(csvpath, encoding="utf8") as csvfile
