@@ -1,4 +1,4 @@
-  # Grading
+	# Grading
 import pandas as pd
 import matplotlib.pyplot as plt
 upload excel file
@@ -44,7 +44,7 @@ student_data = grades_df[grades_df['Unnamed: 0] == student_name]
 
 	# Break
 
-  # Real estate
+	# Real estate
 import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
@@ -79,9 +79,9 @@ sqft_living_range = (min_sqft_living, max_sqft_living)
 bedrooms_range = (min_bedrooms, max_bedrooms)
 bathrooms_range = (min_bathrooms, max_bathrooms)
 
-  # Visualization Complete
+	# Visualization Complete
 
-  # Walrus group
+	# Walrus group
 import matplotlib.pyplot as plt
 import seaborn as sns
 
@@ -105,9 +105,9 @@ descriptive_stats = data_preview.describe
 year_range = data_preview[Year].min(), data_preview[Year].max
 descriptive_stats, year_range
 
-  # Visualization complete
+	# Visualization complete
 
-  # Home sales
+	# Home sales
 import pandas as pd
 import matplotlib.pyplot as plt
 df = pd.read_excel("/mnt/data/home_sales_filtered.xlsx")
@@ -127,9 +127,9 @@ current_year = pd.to_datetime(now).year
 waterfront_homes[age] = current_year - waterfront_homes[date_built]
 age_price_trend = waterfront_homes.groupby(age)[price].mean().reset_index()
 
-  # Visualization complete
+	# Visualization complete
 
-  # CDC
+	# CDC
 
 ## Mod
 summary_stats = data_states.groupby("State")["Death Rate Per 100,000"].agg([mean, var, std])
@@ -146,7 +146,7 @@ oregon_data[["LocationDesc", "Death Rate Per 100,000", "Z-Score"]], max_z_score_
 
 	# Break
 
-  # Antioxidants
+	# Antioxidants
 import matplotlib.pyplot as plt
 import seaborn as sns
 
