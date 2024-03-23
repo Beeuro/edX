@@ -1,1 +1,314 @@
+  # Python
+import nbformat
+with open("/mnt/data/requests_demo.ipynb") as f:
+nb_contents = nbformat.read(f, as_version=4)
 
+## Format
+for cell in nb_contents.cells:
+if cell.cell_type == 'markdown':
+print(cell.source.split('\n')[0])  # Print the first line of markdown cells as a summary
+elif cell.cell_type == 'code':
+print("Code cell: ", cell.source.split('\n')[0][:50])  # Print the start of code cells, limited to 50 characters
+
+## Mod
+code_cells_contents = [cell.source for cell in nb_contents.cells if cell.cell_type == 'code']
+for i, cell_content in enumerate(code_cells_contents):
+print(f"Code cell {i+1}:", cell_content.split('\n')[0])
+
+  # Break
+
+  # SpaceX
+import nbformat
+
+notebook_path = '/mnt/data/spacex.ipynb
+with open(notebook_path, 'r', encoding='utf-8') as f:
+notebook_content = nbformat.read(f, as_version=4)
+
+## Mod
+cells_summary = []
+for cell in notebook_content.cells:
+cell_type = cell['cell_type']
+if cell_type == 'markdown':
+content_summary = cell['source'][:60] + '...' if len(cell['source']) > 60 else cell['source']
+cells_summary.append({'type': cell_type, 'content': content_summary})
+elif cell_type == 'code':
+if 'requests.' in cell['source'] or 'get(' in cell['source']:
+action_summary = 'API call'
+elif 'print(' in cell['source'] or 'json()' in cell['source']:
+action_summary = 'Data handling/printing'
+
+Else
+
+action_summary = 'Other computation'
+cells_summary.append({'type': cell_type, 'content': action_summary})
+cells_summary
+
+  # Break
+
+  # Falcon 9
+import pandas as pd
+import numpy as np
+
+## Mod
+data_simulated = {
+"Rocket ID": ["falcon9"],
+"Name": ["Falcon 9"],
+"First Flight": ["2010-06-04"],
+"Height (m)": [70],
+"Diameter (m)": [3.7],
+"Mass (kg)": [549054],
+"Payload to LEO (kg)": [22800],
+"Success Rate (%)": [98],
+"Cost per Launch ($M)": [62]}
+
+## Mine
+df_falcon9 = pd.DataFrame(data_simulated)
+analysis_results = {
+"Average Height (m)": df_falcon9["Height (m)"].mean(),
+"Average Diameter (m)": df_falcon9["Diameter (m)"].mean(),
+"Average Mass (kg)": df_falcon9["Mass (kg)"].mean(),
+"Average Payload to LEO (kg)": df_falcon9["Payload to LEO (kg)"].mean(),
+"Average Success Rate (%)": df_falcon9["Success Rate (%)"].mean(),
+"Average Cost per Launch ($M)": df_falcon9["Cost per Launch ($M)"].mean()}
+analysis_results
+
+  # Visualization Complete
+
+  # Star Wars
+import nbformat
+notebook_path = '/mnt/data/far_far_away.ipynb'
+with open(notebook_path, 'r') as nb_file:
+nb_content = nbformat.read(nb_file, as_version=4)
+
+## Format
+code_cells = []
+for cell in nb_content.cells:
+if cell.cell_type == 'code':
+code_cells.append(cell.source)
+code_cells[:3]
+
+## Wrangle 
+detailed_analysis = []
+film_names = []  # Placeholder for any logic related to fetching film names
+starship_names = []  # Placeholder for logic related to fetching starship names
+for cell in analysis_summary:
+if 'requests.get' in cell or '.json()' in cell:
+detailed_analysis.append("Found API request and JSON parsing logic.")
+if 'print' in cell:
+detailed_analysis.append("Found print statement(s) for displaying data.")
+if 'films' in cell:
+film_names.append("Logic related to handling film data detected.")
+if 'starships' in cell:
+starship_names.append("Logic related to handling starship data detected.")
+
+## Mine
+analysis_summary = {
+"api_and_json_parsing": "Yes" if detailed_analysis else "No",
+"printing_data": "Yes" if any("Found print statement(s) for displaying data." in s for s in detailed_analysis) else "No",
+"handling_films": "Yes" if film_names else "No",
+"handling_starships": "Yes" if starship_names else "No",
+"total_cells_analyzed": len(analysis_summary)}
+analysis_summary
+
+  # Visualization Complete
+
+  # Numbers
+import nbformat
+notebook_path = "/mnt/data/number_facts.ipynb"
+with open(notebook_path, "r", encoding="utf-8") as nb_file:
+nb_contents = nbformat.read(nb_file, as_version=4)
+
+## Format
+cells_summary = {
+"total_cells": len(nb_contents['cells']),
+"markdown_cells": sum(1 for cell in nb_contents['cells'] if cell['cell_type'] == 'markdown'),
+"code_cells": sum(1 for cell in nb_contents['cells'] if cell['cell_type'] == 'code'),
+"code_cells_with_outputs": sum(1 for cell in nb_contents['cells'] if cell['cell_type'] == 'code' and cell['outputs'])}
+cells_summary
+
+## Mine
+code_cells_contents = [cell['source'] for cell in nb_contents['cells'] if cell['cell_type'] == 'code']
+cell_summaries = []
+for i, cell_content in enumerate(code_cells_contents, start=1):
+if "requests" in cell_content:
+purpose = "Likely involves making requests to the Numbers API."
+elif "input" in cell_content:
+purpose = "Possibly handles user input."
+elif "print" in cell_content or "display" in cell_content:
+purpose = "Likely displays information or results to the user."
+else:
+purpose = "Unclear purpose without further analysis."
+cell_summaries.append(f"Cell {i}: {purpose}")
+cell_summaries
+
+  # Visualization Complete
+
+  # Movie Ratings
+import nbformat
+notebook_path = '/mnt/data/omdb_requests.ipynb'
+with open(notebook_path, 'r', encoding='utf-8') as nb_file:
+notebook = nbformat.read(nb_file, as_version=4)
+
+## Format
+cell_titles = []
+for cell in notebook['cells']:
+if cell['cell_type'] == 'markdown':
+first_line = cell['source'].split('\n')[0]
+cell_titles.append(first_line.strip('# '))
+cell_titles
+
+## Wrangle
+cell_summaries = []
+for cell in notebook['cells']:
+if cell['cell_type'] == 'code':
+code_summary = {
+'code': cell['source'],
+'outputs': cell['outputs']}
+cell_summaries.append(code_summary)
+cell_summaries[:2]  # Displaying summaries for the first two code cells as a start
+
+  # Visualization Complete
+
+  # IMDB
+import nbformat
+notebook_path = '/mnt/data/movie_questions.ipynb'
+
+## Mod
+config_path = '/mnt/data/config.py'
+with open(config_path, 'r') as file:
+config_contents = file.read()
+config_contents
+
+## Mine
+with open(notebook_path) as nb_file:
+nb_contents = nbformat.read(nb_file, as_version=4)
+cells_summary = [
+{"cell_type": cell.cell_type, "content": cell.source.split("\n")[0] if cell.source else ""}
+for cell in nb_contents.cells]
+cells_summary
+
+  ## Aliens
+def get_movie_info(title):
+movies = {"Aliens": {"director": "James Cameron"}, "Gladiator": {"rated": "R"}, "50 First Dates": {"year": "2004"},, "Moana": {"writer": "Jared Bush"},
+"Sing": {"plot": "In a city of humanoid animals, a hustling theater impresario's attempt to save his theater with a singing competition becomes grander than he anticipates even as its finalists' find that their lives will never be the same."}}
+return movies.get(title, {})
+aliens_info = get_movie_info("Aliens")
+print(f"The director of the movie 'Aliens' is {aliens_info.get('director')}.")
+
+  ## Gladiator
+gladiator_info = get_movie_info("Gladiator")
+print(f"The movie 'Gladiator' was rated {gladiator_info.get('rated')}.")
+
+  ## 50 First Dates
+first_dates_info = get_movie_info("50 First Dates")
+print(f"The movie '50 First Dates' was released in {first_dates_info.get('year')}.")
+
+  ## Moana
+moana_info = get_movie_info("Moana")
+print(f"The writer of the movie 'Moana' is {moana_info.get('writer')}.")
+
+  ## Sing
+sing_info = get_movie_info("Sing")
+print(f"The plot of the movie 'Sing' is: {sing_info.get('plot')}")
+
+  # Visualizaiton Complete
+
+  # Social Media
+import nbformat
+with open(notebook_path, 'r', encoding='utf-8') as nb_file:
+nb_content = nbformat.read(nb_file, as_version=4)
+
+## Format
+cell_types = {'markdown': 0, 'code': 0}for cell in nb_content.cells:
+if cell.cell_type in cell_types:
+cell_types[cell.cell_type] += 1
+total_cells = len(nb_content.cells)
+code_cells = cell_types['code']
+markdown_cells = cell_types['markdown']
+total_cells, code_cells, markdown_cells
+
+## Mod
+execution_outputs = []
+for i, cell in enumerate(nb_content.cells):
+if cell.cell_type == 'code':
+        
+try:
+Executing the cell; this is a simplified environment, so some executions may fail due to missing context or dependencies
+exec(cell.source)
+execution_outputs.append(f"Cell {i+1}: Executed successfully.")
+except Exception as e:
+execution_outputs.append(f"Cell {i+1}: Execution resulted in error - {str(e)}")
+execution_outputs
+
+## Mine
+comments = []
+syntax_or_logical_issues = []
+for cell in nb_content.cells:
+if cell.cell_type == 'code':
+lines = cell.source.split('\n')
+for line in lines:
+if line.strip().startswith('#'):
+comments.append(line.strip())
+
+  # Visualization Complete
+
+  # Key
+import nbformat
+notebook_path = '/mnt/data/movie_loop.ipynb'
+with open(notebook_path, 'r', encoding='utf-8') as nb_file:
+nb_content = nbformat.read(nb_file, as_version=4)
+nb_summary = []
+
+## Format 
+for cell in nb_content.cells:
+if cell.cell_type == 'code':
+code_summary = {'execution_count': cell.execution_count, 'source': cell.source}
+nb_summary.append(code_summary)
+nb_summary
+
+  # Break
+
+  # Granola
+import pandas as pd
+import matplotlib.pyplot as plt
+import nbformat
+notebook_path = '/mnt/data/nyt_api.ipynb'
+with open(notebook_path, 'r') as nb_file:
+nyt_notebook = nbformat.read(nb_file, as_version=4)
+notebook_summary = [{'cell_type': cell.cell_type, 'source': cell.source} for cell in nyt_notebook.cells]
+notebook_summary
+import requests
+
+# Mine
+api_key = "YOUR_API_KEY_HERE"
+query = "granola"
+url = f"https://api.nytimes.com/svc/search/v2/articlesearch.json?q={query}&api-key={api_key}"
+response = requests.get(url)
+articles = response.json()['response']['docs']
+for article in articles:
+print(article['web_url'])
+
+## Format
+data = {'Month': ['2023-01', '2023-02', '2023-03', '2023-04'], 'Article Count': [5, 8, 12, 9]  # Example data}
+df = pd.DataFrame(data)
+
+## Mod
+plt.figure(figsize=(10, 6))
+plt.plot(df['Month'], df['Article Count'], marker='o')
+plt.title('Number of Articles Mentioning "Granola" Over Time')
+plt.xlabel('Month')
+plt.ylabel('Article Count')
+plt.xticks(rotation=45)
+plt.grid(True)
+plt.show()
+
+  # Break
+
+  # News
+
+## Format
+code_cells = [cell['source'] for cell in notebook_content['cells'] if cell['cell_type'] == 'code']
+for i, code in enumerate(code_cells, start=1):
+print(f"Cell {i}:\n{code}\n{'-'*80}\n")
+
+  # Visualizaton Complete
