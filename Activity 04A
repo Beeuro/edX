@@ -173,7 +173,7 @@ executed_output
 
 	# Break
 
-  # Hey arnold
+  # Hey Arnold
 import pandas as pd
 import nbformat
 notebook_path = /mnt/data/pandas_reading_files.ipynb
