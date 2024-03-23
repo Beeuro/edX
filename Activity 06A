@@ -19,7 +19,6 @@ print(f"Code cell {i+1}:", cell_content.split('\n')[0])
 
   # SpaceX
 import nbformat
-
 notebook_path = '/mnt/data/spacex.ipynb
 with open(notebook_path, 'r', encoding='utf-8') as f:
 notebook_content = nbformat.read(f, as_version=4)
