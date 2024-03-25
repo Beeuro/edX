@@ -3,7 +3,7 @@
 with open(LearnPython/Assignment03A/mamba.py, "w") as f
 f.write('print("Hello from Assignment 03A!")\n")
 Run mamba.py
-exec(open('LearnPython/Assignment2/bootcamp.py').read
+exec(open(LearnPython/Assignment2/bootcamp.py).read
 
 	# Octoberfest
 drink = "Hefeweizen"
@@ -91,7 +91,7 @@ simulated_outputs
 
 ## Mod
 file_path = /mnt/data/conditionals.py
-with open(file_path, 'r') as file
+with open(file_path, r) as file
 conditionals_content = file.read()
 conditionals_content
 x = 5
@@ -171,8 +171,7 @@ elif (user_choice == "r" and computer_choice == "s") or \\
 (user_choice == "s" and computer_choice == "p") or \\
 (user_choice == "p" and computer_choice == "r"):
 rint(f"You win! Your choice: {user_choice} vs Computer's choice: {computer_choice}")
-else:
-print(f"You lose! Your choice: {user_choice} vs Computer's choice: {computer_choice}")
+else: print(f"You lose! Your choice: {user_choice} vs Computer's choice: {computer_choice}")
 
 ## Mod
 completed_script_path = /mnt/data/completed_rock_paper_scissors.py
@@ -192,7 +191,7 @@ end_of_previous_chain += n  # update for next chain, for bonus part
         
 ## Visualization
 continue_chain = get_input("Would you like to continue? (y/n)")
-if continue_chain.lower() != 'y':
-break  # exit the loop if user enters 'n'
+if continue_chain.lower() != y:
+break  # exit the loop if user enters n
 
 	# Break
