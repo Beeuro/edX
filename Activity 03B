@@ -81,7 +81,7 @@ pie_order_form
 
 	# Wrangle
 from collections import counter
-lines = entire_content.split('\n')
+lines = entire_content.split(\n)
 words = entire_content.split
 
 ## Format
@@ -102,13 +102,13 @@ print(JSON_string)
 python_obj = json.loads(json_string)
 print(python_obj)
 def validate_ssn(ssn)
-pattern = r'^\d{3}-\d{2}-\d{4}$'
+pattern = r ^\d{3}-\d{2}-\d{4}$
 return bool(re.match(pattern, ssn))
 data[SSN_Valid] = data[SSN].apply(validate_SSN)
 import hashlib
 def hash_ssn(ssn)
 return hashlib.sha256(ssn.encode).hexdigest
-data['SSN_Hash'] = data['SSN'].apply(hash_ssn)
+data[SSN_Hash] = data[SSN].apply(hash_ssn)
 
 ## Mine
 num_lines = len(lines)
@@ -121,7 +121,7 @@ words_starting_with_t = [word for word in words if word.lower().startswith("t")]
 import random
 random_int = random.randint(1, 10)
 print(random_int)
-random_element = random.choice(['apple', 'banana', 'cherry'])
+random_element = random.choice([apple, banana, cherry])
 print(random_element)
 now = datetime.now()
 print(now)
