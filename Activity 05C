@@ -1,16 +1,16 @@
   # Temperature
 import pandas as pd
-temperature_df = pd.read_csv('/mnt/data/lax_temperature.csv')
+temperature_df = pd.read_csv(/mnt/data/lax_temperature.csv)
 temperature_df.head()
 
 ## Mod
-basic_stats = temperature_df['HourlyDryBulbTemperature'].describe()
-temperature_df['DATE'] = pd.to_datetime(temperature_df['DATE'])
-temperature_df.set_index('DATE', inplace=True)
-daily_avg_temp = temperature_df['HourlyDryBulbTemperature'].resample('D').mean()
+basic_stats = temperature_df[HourlyDryBulbTemperature].describe()
+temperature_df[DATE] = pd.to_datetime(temperature_df[DATE])
+temperature_df.set_index(DATE, inplace=True)
+daily_avg_temp = temperature_df[HourlyDryBulbTemperature].resample(D).mean()
 max_temp_day = daily_avg_temp.idxmax()
 min_temp_day = daily_avg_temp.idxmin()
-monthly_avg_temp = temperature_df['HourlyDryBulbTemperature'].resample('M').mean()
+monthly_avg_temp = temperature_df[HourlyDryBulbTemperature].resample(M).mean()
 basic_stats, max_temp_day, daily_avg_temp[max_temp_day], min_temp_day, daily_avg_temp[min_temp_day], monthly_avg_temp.head()
 
   # Visualization Complete
@@ -18,36 +18,36 @@ basic_stats, max_temp_day, daily_avg_temp[max_temp_day], min_temp_day, daily_avg
   # Outliers
 import nbformat
 notebook_path = "/mnt/data/samples.ipynb"
-with open(notebook_path, 'r', encoding='utf-8') as f:
+with open(notebook_path, r, encoding='utf-8') as f:
 nb = nbformat.read(f, as_version=4)
 
 ## Format 
 notebook_contents = []
-for cell in nb['cells']:
-if cell['cell_type'] == 'markdown':
-notebook_contents.append({'type': 'markdown', 'content': cell['source']})
-elif cell['cell_type'] == 'code':
-notebook_contents.append({'type': 'code', 'content': cell['source']})
+for cell in nb[cells]:
+if cell[cell_type] = markdown:
+notebook_contents.append({type: markdown, content: cell[source]})
+elif cell[cell_type] = code:
+notebook_contents.append({'type': code, content: cell[source]})
 notebook_contents[:3]
 
 ## Function
 missing_values = data.isnull().sum()
-data['DATE'] = pd.to_datetime(data['DATE'])
+data[DATE] = pd.to_datetime(data[DATE])
 missing_values, data.dtypes
 
 ## Mod
 plt.figure(figsize=(14, 6))
-plt.plot(data['DATE'], data['HourlyDryBulbTemperature'], label='Temperature', color='blue')
-plt.title('Temperature Trends at LAX')
-plt.xlabel('Date')
-plt.ylabel('Temperature (°F)')
+plt.plot(data[DATE], data[HourlyDryBulbTemperature], label=Temperature, color=blue)
+plt.title(Temperature Trends at LAX)
+plt.xlabel(Date)
+plt.ylabel(Temperature (°F))
 plt.legend()
 plt.tight_layout()
 plt.figure(figsize=(10, 6))
-plt.hist(data['HourlyDryBulbTemperature'], bins=20, color='green', alpha=0.7)
-plt.title('Distribution of Temperatures at LAX')
-plt.xlabel('Temperature (°F)')
-plt.ylabel('Frequency')
+plt.hist(data[HourlyDryBulbTemperature], bins=20, color=green, alpha=0.7)
+plt.title(Distribution of Temperatures at LAX)
+plt.xlabel(Temperature (°F))
+plt.ylabel(Frequency)
 plt.tight_layout()
 plt.show()
 
@@ -55,43 +55,43 @@ plt.show()
 
   # PyBank Summary
 import pandas as pd
-data = pd.read_csv('/mnt/data/PyBank.csv')
+data = pd.read_csv(/mnt/data/PyBank.csv)
 data.head()
 
 ## Wrangle
 total_months = data.shape[0]
-net_total = data['Profit/Losses'].sum()
-data['Change'] = data['Profit/Losses'].diff()
-average_change = data['Change'].mean()
-greatest_increase = data.loc[data['Change'].idxmax()]
-greatest_decrease = data.loc[data['Change'].idxmin()]
+net_total = data[Profit/Losses].sum()
+data['Change'] = data[Profit/Losses].diff()
+average_change = data[Change].mean()
+greatest_increase = data.loc[data[Change].idxmax()]
+greatest_decrease = data.loc[data[Change].idxmin()]
 
 ## Format
 results = {
-'Total Months': total_months,
-'Net Total Profit/Losses': net_total,
-'Average Change in Profit/Losses': average_change,
-'Greatest Increase in Profits': {
-'Date': greatest_increase['Date'],
-'Amount': greatest_increase['Change']},
-'Greatest Decrease in Profits': {
-'Date': greatest_decrease['Date'],
-'Amount': greatest_decrease['Change']}}
+Total Months: total_months,
+Net Total Profit/Losses: net_total,
+Average Change in Profit/Losses': average_change,
+Greatest Increase in Profits: {
+Date': greatest_increase[Date],
+Amount': greatest_increase[Change]},
+Greatest Decrease in Profits: {
+Date': greatest_decrease[Date],
+Amount': greatest_decrease[Change]}}
 results
 
 ## Mod
 import matplotlib.pyplot as plt
 plt.figure(figsize=(14, 7))
-plt.plot(data['Date'], data['Profit/Losses'], marker='o', linestyle='-', color='blue')
-plt.title('Profit/Losses Over Time')
-plt.xlabel('Date')
-plt.ylabel('Profit/Losses')
+plt.plot(data[Date], data[Profit/Losses], marker=o, linestyle, color=blue)
+plt.title(Profit/Losses Over Time)
+plt.xlabel(Date)
+plt.ylabel(Profit/Losses)
 plt.xticks(rotation=45)
-plt.grid(True, which='both', linestyle='--', linewidth=0.5)
-greatest_increase_date = greatest_increase['Date']
-greatest_decrease_date = greatest_decrease['Date']
-plt.scatter(greatest_increase_date, greatest_increase['Change'], color='green', s=100, label='Greatest Increase', zorder=5)
-plt.scatter(greatest_decrease_date, greatest_decrease['Change'], color='red', s=100, label='Greatest Decrease', zorder=5)
+plt.grid(True, which=both, linestyle, linewidth=0.5)
+greatest_increase_date = greatest_increase[Date']
+greatest_decrease_date = greatest_decrease[Date]
+plt.scatter(greatest_increase_date, greatest_increase[Change], color=green, s=100, label=Greatest Increase, zorder=5)
+plt.scatter(greatest_decrease_date, greatest_decrease[Change], color=red, s=100, label=Greatest Decrease, zorder=5)
 plt.tight_layout()
 plt.legend()
 plt.show()
@@ -102,29 +102,29 @@ plt.show()
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-data_path = '/mnt/data/2019_fuel_economy.csv'
+data_path = /mnt/data/2019_fuel_economy.csv
 fuel_economy_data = pd.read_csv(data_path)
 fuel_economy_data.head()
 
 ## Format
 sns.set_style("whitegrid")
-avg_fuel_economy_by_type = fuel_economy_data.groupby('Type')['Combined_MPG'].mean().sort_values()
-top_10_fuel_efficient_vehicles = fuel_economy_data.nlargest(10, 'Combined_MPG')
+avg_fuel_economy_by_type = fuel_economy_data.groupby(Type)[Combined_MPG].mean().sort_values()
+top_10_fuel_efficient_vehicles = fuel_economy_data.nlargest(10, Combined_MPG)
 fig, axs = plt.subplots(3, 1, figsize=(10, 18))
 
 ## Wrangle
 sns.barplot(x=avg_fuel_economy_by_type.values, y=avg_fuel_economy_by_type.index, ax=axs[0])
-axs[0].set_title('Average Combined MPG by Vehicle Type')
-axs[0].set_xlabel('Combined MPG')
-axs[0].set_ylabel('Vehicle Type')
-sns.barplot(x='Combined_MPG', y='Make_Model', data=top_10_fuel_efficient_vehicles, ax=axs[1])
-axs[1].set_title('Top 10 Fuel-Efficient Vehicles')
-axs[1].set_xlabel('Combined MPG')
-axs[1].set_ylabel('Make and Model')
-sns.histplot(fuel_economy_data['Combined_MPG'], kde=True, bins=20, ax=axs[2])
-axs[2].set_title('Distribution of Combined MPG Across All Vehicles')
-axs[2].set_xlabel('Combined MPG')
-axs[2].set_ylabel('Frequency')
+axs[0].set_title(Average Combined MPG by Vehicle Type)
+axs[0].set_xlabel(Combined MPG)
+axs[0].set_ylabel(Vehicle Type)
+sns.barplot(x=Combined_MPG, y=Make_Model, data=top_10_fuel_efficient_vehicles, ax=axs[1])
+axs[1].set_title(Top 10 Fuel-Efficient Vehicles)
+axs[1].set_xlabel(Combined MPG)
+axs[1].set_ylabel(Make and Model)
+sns.histplot(fuel_economy_data[Combined_MPG], kde=True, bins=20, ax=axs[2])
+axs[2].set_title(Distribution of Combined MPG Across All Vehicles)
+axs[2].set_xlabel(Combined MPG)
+axs[2].set_ylabel(Frequency)
 
 ## Mod
 plt.tight_layout()
@@ -145,39 +145,39 @@ notebook = nbformat.read(file, as_version=4)
 # Format
 notebook_summary = []
 for cell in notebook.cells:
-if cell.cell_type == 'markdown':
-summary = cell.source.split('\n')[0]  # Taking the first line of markdown cells for context
-notebook_summary.append({'type': 'markdown', 'content': summary})
-elif cell.cell_type == 'code':
-first_line_or_comment = next((line for line in cell.source.split('\n') if line.strip().startswith('#') or line.strip()), '')
-notebook_summary.append({'type': 'code', 'content': first_line_or_comment})
+if cell.cell_type = markdown:
+summary = cell.source.split(\n)[0]
+notebook_summary.append({type: markdown, content: summary})
+elif cell.cell_type == code:
+first_line_or_comment = next((line for line in cell.source.split(\n) if line.strip().startswith(#) or line.strip()))
+notebook_summary.append({type: code, content: first_line_or_comment})
 notebook_summary
 california_housing = fetch_california_housing()
 housing_data = pd.DataFrame(california_housing.data, columns=california_housing.feature_names)
-housing_data['MedHouseVal'] = california_housing.target
+housing_data[MedHouseVal] = california_housing.target
 sample_sizes = 20
-samples = [housing_data['MedHouseVal'].sample(sample_sizes) for _ in range(10)]
+samples = [housing_data[MedHouseVal].sample(sample_sizes) for _ in range(10)]
 means = [sample.mean() for sample in samples]
 std_errors = [sample.sem() for sample in samples]
 
 ## Mod
 plt.figure(figsize=(10, 6))
-plt.errorbar(range(len(samples)), means, yerr=std_errors, fmt='o', ecolor='r', capsize=5, linestyle='None', markersize=5)
-plt.title('Sample Means of California Housing Prices with Standard Error')
-plt.xlabel('Sample Index')
-plt.ylabel('Mean of Median House Value ($100,000s)')
+plt.errorbar(range(len(samples)), means, yerr=std_errors, fmt=o, ecolor=r, capsize=5, linestyle=None, markersize=5)
+plt.title(Sample Means of California Housing Prices with Standard Error)
+plt.xlabel(Sample Index)
+plt.ylabel(Mean of Median House Value ($100,000s))
 plt.grid(True)
 plt.show()
-np.random.seed(42)  # For reproducibilit
+np.random.seed(42)  
 synthetic_housing_prices = np.random.normal(loc=200, scale=50, size=1000)  # Prices in $1000s
 samples = [np.random.choice(synthetic_housing_prices, size=20) for _ in range(10)]
 means = [np.mean(sample) for sample in samples]
 std_errors = [np.std(sample, ddof=1) / np.sqrt(len(sample)) for sample in samples]
 plt.figure(figsize=(10, 6))
-plt.errorbar(range(len(samples)), means, yerr=std_errors, fmt='o', ecolor='r', capsize=5, linestyle='None', markersize=5)
-plt.title('Simulated Sample Means of Housing Prices with Standard Error')
-plt.xlabel('Sample Index')
-plt.ylabel('Mean of Median House Value ($1000s)')
+plt.errorbar(range(len(samples)), means, yerr=std_errors, fmt=o, ecolor=r, capsize=5, linestyle=None, markersize=5)
+plt.title(Simulated Sample Means of Housing Prices with Standard Error)
+plt.xlabel(Sample Index)
+plt.ylabel(Mean of Median House Value ($1000s))
 plt.grid(True)
 plt.show()
   
@@ -187,7 +187,7 @@ plt.show()
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-data_path = '/mnt/data/WDI_2018.csv'
+data_path = /mnt/data/WDI_2018.csv
 df = pd.read_csv(data_path)
 df.head()
 
@@ -207,11 +207,11 @@ correlation_matrix
 
 ## Mod
 plt.figure(figsize=(18, 12))
-variables = ['Adjusted net national income per capita (current US$)', 
-'Population Median Age', 
-'Life expectancy at birth, female (years)', 
-'Life expectancy at birth, male (years)', 
-'Mobile cellular subscriptions (per 100 people)']
+variables = [Adjusted net national income per capita (current US$), 
+Population Median Age, 
+Life expectancy at birth, female (years), 
+Life expectancy at birth, male (years), 
+Mobile cellular subscriptions (per 100 people)]
 for i, variable in enumerate(variables, 1):
 plt.subplot(3, 2, i)
 sns.histplot(df_cleaned[variable], kde=True)
@@ -219,8 +219,8 @@ plt.title(variable)
 plt.tight_layout()
 plt.show()
 plt.figure(figsize=(14, 10))
-sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt=".2f")
-plt.title('Correlation Matrix Heatmap')
+sns.heatmap(correlation_matrix, annot=True, cmap=coolwarm, fmt=".2f")
+plt.title(Correlation Matrix Heatmap)
 plt.show()
 
   # Visualization Complete
@@ -237,14 +237,14 @@ fourth_code_cell = nb.cells[3].source if len(nb.cells) > 3 else None
 third_code_cell, fourth_code_cell
 
 ## Mod
-plt.scatter(wine_data['flavanoids'], wine_data['malic_acid'])
-plt.xlabel('Flavanoids')
-plt.ylabel('Malic Acid')
-plt.title('Scatterplot of Flavanoids vs Malic Acid')
+plt.scatter(wine_data[flavanoids], wine_data[malic_acid])
+plt.xlabel(Flavanoids)
+plt.ylabel(Malic Acid)
+plt.title(Scatterplot of Flavanoids vs Malic Acid)
 plt.show()
 
 ## Mine
-correlation_coefficient = wine_data['malic_acid'].corr(wine_data['flavanoids'])
+correlation_coefficient = wine_data[malic_acid].corr(wine_data[flavanoids])
 correlation_coefficient
 
   # Visualization Complete
@@ -261,14 +261,14 @@ from sklearn.model_selection import train_test_split
 ## Mod
 california_housing = fetch_california_housing()
 california_housing_df = pd.DataFrame(california_housing.data, columns=california_housing.feature_names)
-california_housing_df['Target'] = california_housing.target
+california_housing_df[Target] = california_housing.target
 california_housing_df_info = california_housing_df.info()
 california_housing_df_head = california_housing_df.head()
 california_housing_df_info, california_housing_df_head
 
 
 ## Format
-np.random.seed(42) # For reproducibility
+np.random.seed(42) 
 n_samples = 1000
 median_income = np.random.normal(5, 2, n_samples)
 house_age = np.random.normal(3, 1.5, n_samples)
@@ -287,17 +287,17 @@ model.fit(X_train, Y_train)
 predictions = model.predict(X_test)
 plt.figure(figsize=(14, 6))
 plt.subplot(1, 2, 1)
-plt.scatter(X_test[:, 0], Y_test, color='blue', label='Actual', alpha=0.5)
-plt.scatter(X_test[:, 0], predictions, color='red', label='Predicted', alpha=0.5)
-plt.title('Median Income vs. House Price')
-plt.xlabel('Median Income')
-plt.ylabel('House Price')
+plt.scatter(X_test[:, 0], Y_test, color=blue, label=Actual, alpha=0.5)
+plt.scatter(X_test[:, 0], predictions, color=red, label=Predicted, alpha=0.5)
+plt.title(Median Income vs. House Price)
+plt.xlabel(Median Income)
+plt.ylabel(House Price)
 plt.legend()
 mse = mean_squared_error(Y_test, predictions)
 rmse = np.sqrt(mse)
 plt.subplot(1, 2, 2)
-plt.bar(['MSE', 'RMSE'], [mse, rmse], color=['blue', 'green'])
-plt.title('Model Performance')
+plt.bar([MSE, RMSE], [mse, rmse], color=[blue, green])
+plt.title(Model Performance)
 plt.tight_layout()
 plt.show()
 
@@ -306,51 +306,51 @@ plt.show()
   # Singapore Motorsport
 import pandas as pd
 import matplotlib.pyplot as plt
-csv_path = '/mnt/data/singapore-motor-vehicle-population.csv'
+csv_path = /mnt/data/singapore-motor-vehicle-population.csv
 data = pd.read_csv(csv_path)
 data.head()
 
 ## Format
-petrol_electric_data = data[data['engine'] == 'Petrol-Electric']
-petrol_data = data[data['engine'] == 'Petrol']
-diesel_data = data[data['engine'] == 'Diesel']
+petrol_electric_data = data[data[engine] = Petrol-Electric]
+petrol_data = data[data['engine'] = Petrol]
+diesel_data = data[data['engine'] == Diesel]
 petrol_electric_data.head(), petrol_data.head(), diesel_data.head()
 
 ## Mod
-petrol_electric_cars = petrol_electric_data[petrol_electric_data['type'] == 'Cars']
-petrol_cars = petrol_data[petrol_data['type'] == 'Cars']
-diesel_cars = diesel_data[diesel_data['type'] == 'Cars']
+petrol_electric_cars = petrol_electric_data[petrol_electric_data[type] = Cars]
+petrol_cars = petrol_data[petrol_data[type] = Cars]
+diesel_cars = diesel_data[diesel_data[type] = Cars]
 plt.figure(figsize=(18, 6))
 plt.subplot(1, 3, 1)
-plt.scatter(petrol_electric_cars['year'], petrol_electric_cars['number'], color='blue', label='Petrol-Electric Cars')
-slope, intercept, r_value, p_value, std_err = stats.linregress(petrol_electric_cars['year'], petrol_electric_cars['number'])
-plt.plot(petrol_electric_cars['year'], intercept + slope*petrol_electric_cars['year'], 'r', label=f'Fit: y={slope:.2f}x+{intercept:.2f}')
-plt.title('Year vs Petrol-Electric Cars')
-plt.xlabel('Year')
-plt.ylabel('Number of Cars')
+plt.scatter(petrol_electric_cars[year], petrol_electric_cars[number], color=blue, label=Petrol-Electric Cars)
+slope, intercept, r_value, p_value, std_err = stats.linregress(petrol_electric_cars[year], petrol_electric_cars[number])
+plt.plot(petrol_electric_cars[year], intercept + slope*petrol_electric_cars[year], r, label=f Fit: y={slope:.2f}x+{intercept:.2f})
+plt.title(Year vs Petrol-Electric Cars)
+plt.xlabel(Year)
+plt.ylabel(Number of Cars)
 plt.legend(
 plt.subplot(1, 3, 2)
-plt.scatter(petrol_cars['year'], petrol_cars['number'], color='green', label='Petrol Cars')
-slope, intercept, r_value, p_value, std_err = stats.linregress(petrol_cars['year'], petrol_cars['number'])
-plt.plot(petrol_cars['year'], intercept + slope*petrol_cars['year'], 'r', label=f'Fit: y={slope:.2f}x+{intercept:.2f}')
-plt.title('Year vs Petrol Cars')
-plt.xlabel('Year')
-plt.ylabel('Number of Cars')
+plt.scatter(petrol_cars[year], petrol_cars[number], color=green, label=Petrol Cars)
+slope, intercept, r_value, p_value, std_err = stats.linregress(petrol_cars[year], petrol_cars[number])
+plt.plot(petrol_cars[year], intercept + slope*petrol_cars[year], r, label=f Fit: y={slope:.2f}x+{intercept:.2f})
+plt.title(Year vs Petrol Cars)
+plt.xlabel(Year)
+plt.ylabel(Number of Cars)
 plt.legend()
 plt.subplot(1, 3, 3)
-plt.scatter(diesel_cars['year'], diesel_cars['number'], color='orange', label='Diesel Cars')
-slope, intercept, r_value, p_value, std_err = stats.linregress(diesel_cars['year'], diesel_cars['number'])
-plt.plot(diesel_cars['year'], intercept + slope*diesel_cars['year'], 'r', label=f'Fit: y={slope:.2f}x+{intercept:.2f}')
-plt.title('Year vs Diesel Cars')
-plt.xlabel('Year')
-plt.ylabel('Number of Cars')
+plt.scatter(diesel_cars[year], diesel_cars[number], color=orange, label=Diesel Cars)
+slope, intercept, r_value, p_value, std_err = stats.linregress(diesel_cars[year], diesel_cars[number])
+plt.plot(diesel_cars[year], intercept + slope*diesel_cars[year], r, label=f Fit: y={slope:.2f}x+{intercept:.2f})
+plt.title(Year vs Diesel Cars)
+plt.xlabel(Year)
+plt.ylabel(Number of Cars)
 plt.legend()
 plt.tight_layout()
 plt.show()
 
 ## Mine
-{'Petrol-Electric Cars': {'slope': slope, 'intercept': intercept},
-'Petrol Cars': {'slope': slope, 'intercept': intercept},
-'Diesel Cars': {'slope': slope, 'intercept': intercept}}
+{Petrol-Electric Cars: {slope: slope, intercept: intercept},
+Petrol Cars: {slope: slope, intercept: intercept},
+Diesel Cars: {slope: slope, intercept: intercept}}
 
   # Visualization Complete
