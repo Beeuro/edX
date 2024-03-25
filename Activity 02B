@@ -222,7 +222,7 @@ Application.calculation = xlcalculationautomatic
 ## Wrangle
 Sub countcattoken
 Dim ws as worksheet
-Set ws = thisworkbook.sheets("Sheet1") ' adjust the sheet name as necessary
+Set ws = thisworkbook.sheets("Sheet1") adjust the sheet name as necessary
 Dim cell as range
 Dim count as long
 count = 0
@@ -231,7 +231,7 @@ If cell.value = "Cat Token" then
 count = count + 1
 End if
 Next cell
-Msgbox "Number of 'Cat Token' entries:" & count
+Msgbox "Number of Cat Token entries:" & count
 
 ## Mine
 Sub replacecattokenwithdogecoin
