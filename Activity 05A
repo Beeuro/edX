@@ -1,11 +1,11 @@
   # Graphs
 import nbformat
-file_path = '/mnt/data/exponential_chart.ipynb'
-with open(file_path, 'r', encoding='utf-8') as f:
+file_path = /mnt/data/exponential_chart.ipynb
+with open(file_path, r, encoding='utf-8') as f:
 
 ## Format
 nb_exponential = nbformat.read(f, as_version=4)
-exponential_cells_summary = [{'cell_type': cell.cell_type, 'source': cell.source} for cell in nb_exponential.cells]
+exponential_cells_summary = [{cell_type: cell.cell_type, source: cell.source} for cell in nb_exponential.cells]
 exponential_cells_summary
 
 ## Wrangle
@@ -14,28 +14,28 @@ import matplotlib.pyplot as plt
 x_values = np.arange(0, 5, 0.1)
 y_values = np.exp(x_values)
 plt.figure(figsize=(10, 6))
-plt.plot(x_values, y_values, label='Exponential Growth')
-plt.title('Exponential Growth Chart')
-plt.xlabel('X Values')
-plt.ylabel('Exponential of X')
+plt.plot(x_values, y_values, label=Exponential Growth)
+plt.title(Exponential Growth Chart)
+plt.xlabel(X Values)
+plt.ylabel(Exponential of X)
 plt.legend()
 plt.grid(True)
 plt.show()
 plt.figure(figsize=(12, 6))
-plt.plot(x_axis, sin_y, label='Sine')
-plt.plot(x_axis, cos_y, label='Cosine')
-plt.title('Sine and Cosine Functions')
-plt.xlabel('X Axis')
-plt.ylabel('Function Value')
+plt.plot(x_axis, sin_y, label=Sine)
+plt.plot(x_axis, cos_y, label=Cosine)
+plt.title(Sine and Cosine Functions)
+plt.xlabel(X Axis)
+plt.ylabel(Function Value)
 plt.grid(True)
 plt.legend()
 plt.show()
 
 ## Mod
-file_path_sin_cos = '/mnt/data/sin_cos.ipynb'
-with open(file_path_sin_cos, 'r', encoding='utf-8') as f:
+file_path_sin_cos = /mnt/data/sin_cos.ipynb
+with open(file_path_sin_cos, r, encoding=utf-8) as f:
 nb_sin_cos = nbformat.read(f, as_version=4)
-sin_cos_cells_summary = [{'cell_type': cell.cell_type, 'source': cell.source} for cell in nb_sin_cos.cells]
+sin_cos_cells_summary = [{cell_type: cell.cell_type, source: cell.source} for cell in nb_sin_cos.cells]
 sin_cos_cells_summary
 
 ## Visualization
@@ -50,28 +50,28 @@ import nbformat
 import numpy as np
 import matplotlib.pyplot as plt
 notebook_path = "/mnt/data/nj_temp.ipynb"
-with open(notebook_path, 'r', encoding='utf-8') as nb_file:
+with open(notebook_path, r, encoding=utf-8) as nb_file:
 nb_content = nbformat.read(nb_file, as_version=4)
 
   ## Wrangle
 nb_summary = []
 for cell in nb_content['cells']:
 if cell['cell_type'] == 'code':
-nb_summary.append({'cell_type': 'code', 'source': cell['source'][:100]})  # showing first 100 chars
-nb_summary.append({'cell_type': 'markdown', 'source': cell['source'][:100]})  # showing first 100 chars
+nb_summary.append({cell_type: code, source: cell['source'][:100]})  # showing first 100 chars
+nb_summary.append({cell_type: markdown, source: cell[source'][:100]})  # showing first 100 chars
 nb_summary
 temps_fahrenheit = np.array([39, 42, 51, 62, 72, 82, 86, 84, 77, 65, 55, 44])
 months = np.arange(1, 13)  # 1 to 12
 plt.figure(figsize=(10, 6))
-plt.plot(months, temps_fahrenheit, marker='o', linestyle='-', color='red', label='Fahrenheit')
+plt.plot(months, temps_fahrenheit, marker=o, linestyle, color=red, label=Fahrenheit)
 
   ## Mod
 temps_celsius = (temps_fahrenheit - 32) * 0.56
-plt.plot(months, temps_celsius, marker='s', linestyle='--', color='blue', label='Celsius')
-plt.title('Monthly Average Temperatures in New Jersey')
-plt.xlabel('Month')
-plt.ylabel('Temperature')
-plt.xticks(months, ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'])
+plt.plot(months, temps_celsius, marker='s, linestyle, color=blue, label=Celsius)
+plt.title(Monthly Average Temperatures in New Jersey)
+plt.xlabel(Month)
+plt.ylabel(Temperature)
+plt.xticks(months, [Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec])
 plt.legend()
 plt.grid(True)
 plt.show()
@@ -82,11 +82,11 @@ plt.show()
 import matplotlib.pyplot as plt
 import numpy as np
 plt.isinteractive(), np.__version__
-notebook_path = '/mnt/data/line_config.ipynb'
-with open(notebook_path, 'r', encoding='utf-8') as nb_file:
+notebook_path = /mnt/data/line_config.ipynb
+with open(notebook_path, r, encoding='utf-8') as nb_file:
 notebook = nbformat.read(nb_file, as_version=4)
-number_of_cells = len(notebook['cells'])
-first_two_cells = [notebook['cells'][i]['source'] for i in range(min(2, number_of_cells))]
+number_of_cells = len(notebook[cells])
+first_two_cells = [notebook[cells][i][source] for i in range(min(2, number_of_cells))]
 number_of_cells, first_two_cells
 
   ## Mod
@@ -95,11 +95,11 @@ cell_output = {}
 try:
 exec(cell_content, globals(), cell_output)
 except Exception as e:
-cell_output['error'] = str(e)
+cell_output[error] = str(e)
 return cell_output
 notebook_outputs = []
-if cell['cell_type'] == 'code':  # Execute only code cells
-cell_output = run_cell(cell['source'])
+if cell[cell_type] = code:  # Execute only code cells
+cell_output = run_cell(cell[source])
 notebook_outputs.append(cell_output)
 
   ## Visualization
@@ -112,15 +112,15 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 ## Format
-comments = [cell['source'] for cell in nb.cells if cell['cell_type'] == 'code' and cell['source'].strip().startswith('#')]
+comments = [cell[source] for cell in nb.cells if cell[cell_type] = code and cell[source].strip().startswith(#)]
 comments_context = "\n".join(comments)
 comments_context
 plt.figure()
-plt.plot(months, points_F, label='Fahrenheit', marker='x', color='blue')
-plt.plot(months, points_C, label='Celsius', marker='s', color='red')
-plt.xlabel('Months')
-plt.ylabel('Degrees')
-plt.legend(loc='best')
+plt.plot(months, points_F, label=Fahrenheit, marker=x, color=blue)
+plt.plot(months, points_C, label=Celsius, marker=s, color=red)
+plt.xlabel(Months)
+plt.ylabel(Degrees)
+plt.legend(loc=best)
 plt.show()
 
 ## Wrangle
@@ -134,31 +134,31 @@ points_C = (points_F - 32) * 0.56
 
   # Aesthetics
 import nbformat
-with open('/mnt/data/aesthetics.ipynb', 'r', encoding='utf-8') as f:
+with open('/mnt/data/aesthetics.ipynb', r, encoding=utf-8) as f:
     nb = nbformat.read(f, as_version=4)
 
 ## Format
 def extract_cells(notebook):
 cells = [
-for cell in notebook['cells']:
-if cell['cell_type'] == 'code':
-cells.append(('code', cell['source']))
-elif cell['cell_type'] == 'markdown':
-cells.append(('markdown', cell['source']))
+for cell in notebook[cells]:
+if cell[cell_type] = code:
+cells.append((code, cell[source]))
+elif cell[cell_type] = markdown:
+cells.append((markdown, cell[source]))
 return cells
 
 ## Wrangle
 notebook_cells = extract_cells(nb)
-notebook_cells[:3]  # Displaying only the first 3 cells for brevity.
+notebook_cells[:3]  
 
   # Break
 
   # Bar Chart
-notebook_path = '/mnt/data/bar_chart.ipynb'
+notebook_path = /mnt/data/bar_chart.ipynb
 notebook = nbformat.read(nb_file, as_version=4)
 code_cells = []
 for cell in notebook.cells:
-if cell.cell_type == 'code':
+if cell.cell_type = code:
 code_cells.append(cell.source)
 code_cells
 
@@ -166,9 +166,9 @@ code_cells
 
   #PyBars
 def read_notebook(path):
-with open(path, 'r', encoding='utf-8') as f:
+with open(path, r, encoding=utf-8) as f:
 return nbformat.read(f, as_version=4)
-notebook_path = '/mnt/data/py_bars.ipynb'
+notebook_path = /mnt/data/py_bars.ipynb
 notebook = read_notebook(notebook_path)
 notebook.cells
 
@@ -184,8 +184,8 @@ return str(e)
 ## Mod
 analysis_results = {}
 for i, cell in enumerate(notebook.cells):
-if cell.cell_type == 'code':
-analysis_results[f'cell_{cell.execution_count}_output'] = run_cell(cell)
+if cell.cell_type = code:
+analysis_results[f cell_{cell.execution_count}_output] = run_cell(cell)
 analysis_results
 
 ## Mine
@@ -196,9 +196,9 @@ except Exception as e:
 return str(e)
 analysis_results = {}
 for i, cell in enumerate(notebook.cells):
-if cell.cell_type == 'code' and cell.execution_count != 1:  # Skip the first cell
+if cell.cell_type == code and cell.execution_count != 1:
 cell_output = run_cell(cell.source)
-analysis_results[f'cell_{cell.execution_count}_output'] = cell_output
+analysis_results[f cell_{cell.execution_count}_output] = cell_output
 analysis_results
 
   # Visualization Complete
@@ -207,20 +207,20 @@ analysis_results
 import matplotlib.pyplot as plt
 import numpy as np
 import nbformat
-with open('/mnt/data/pie_chart.ipynb', 'r', encoding='utf-8') as f:
+with open(/mnt/data/pie_chart.ipynb, r, encoding= utf-8) as f:
 nb = nbformat.read(f, as_version=4)
 for cell in nb.cells:
 print(cell.cell_type.upper())
 print(cell.source)
-print('---')
+print(---)
 
 ## Format
 plt.figure(figsize=(8, 8))  # Setting the figure size for better visibility
 labels = ["Humans", "Smurfs", "Hobbits", "Ninjas"]
 sizes = [220, 95, 80, 100]
-colors = ['gold', 'lightblue', 'lightgreen', 'lightcoral']
+colors = [gold, lightblue, lightgreen, lightcoral]
 explode = (0.1, 0, 0, 0)  # Only "explode" the first slice (Humans)
-plt.pie(sizes, explode=explode, labels=labels, colors=colors, autopct='%1.1f%%', shadow=True, startangle=140)
+plt.pie(sizes, explode=explode, labels=labels, colors=colors, autopct=%1.1f%%, shadow=True, startangle=140)
 plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
 plt.title("Fantasy Creature Popularity")
 plt.show()
@@ -229,10 +229,10 @@ plt.show()
 plt.figure(figsize=(8, 8))  # Setting the figure size for better visibility
 labels = ["Humans", "Smurfs", "Hobbits", "Ninjas"]
 sizes = [220, 95, 80, 100]
-colors = ['gold', 'lightblue', 'lightgreen', 'lightcoral']
+colors = [gold, lightblue, lightgreen, lightcoral]
 explode = (0.1, 0, 0, 0)  # Only "explode" the first slice (Humans)
 plt.pie(sizes, explode=explode, labels=labels, colors=colors, autopct='%1.1f%%', shadow=True, startangle=140)
-plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+plt.axis(equal)  # Equal aspect ratio ensures that pie is drawn as a circle.
 plt.title("Fantasy Creature Popularity")
 plt.show()
 
@@ -240,8 +240,8 @@ plt.show()
 
   # PyPies
 import nbformat
-notebook_path = '/mnt/data/py_pie.ipynb'
-with open(notebook_path, 'r', encoding='utf-8') as notebook_file:
+notebook_path = /mnt/data/py_pie.ipynb
+with open(notebook_path, r, encoding= utf-8) as notebook_file:
 notebook_content = nbformat.read(notebook_file, as_version=4)
 notebook_content.cells
 
@@ -249,9 +249,9 @@ notebook_content.cells
 def find_data_cells(cells):
 data_cells = []
 for cell in cells:
-if cell.cell_type == 'code':
-for line in cell.source.split('\n'):
-if '=' in line and ('[' in line or '{' in line):
+if cell.cell_type = code:
+for line in cell.source.split(\n):
+if = in line and ([ in line or {in line):
 data_cells.append(line)
 return data_cells
 data_cells = find_data_cells(notebook_content.cells)
@@ -264,16 +264,16 @@ import matplotlib.pyplot as plt
 import numpy as np
 %matplotlib inline
 import nbformat
-notebook_path = '/mnt/data/scatter_plot.ipynb'
-with open(notebook_path, 'r') as nb_file:
+notebook_path = /mnt/data/scatter_plot.ipynb
+with open(notebook_path, r) as nb_file:
 nb_contents = nbformat.read(nb_file, as_version=4)
 cell_summaries = []
-for cell in nb_contents['cells']:
-cell_summary = {'cell_type': cell['cell_type']}
-if cell['cell_type'] == 'markdown':
-cell_summary['content_start'] = cell['source'].split('\n')[0][:50] if cell['source'] else 'Empty'
-elif cell['cell_type'] == 'code':
-cell_summary['content_start'] = cell['source'].split('\n')[0][:50] if cell['source'] else 'Empty'
+for cell in nb_contents[cells]:
+cell_summary = {cell_type: cell[cell_type]}
+if cell[cell_type] = markdown:
+cell_summary[content_start] = cell[source].split(\n)[0][:50] if cell[source] else Empty
+elif cell[cell_type] = code:
+cell_summary[content_start] = cell[source].split(\n)[0][:50] if cell[source] else Empty
 cell_summaries.append(cell_summary)
 cell_summaries
 
@@ -285,9 +285,9 @@ plt.figure(figsize=(8, 5))
 plt.scatter(x_values, y_values)
 plt.ylim(0, 1)
 plt.xlim(0, x_max)
-plt.title('Random Scatter Plot')
-plt.xlabel('Random X values')
-plt.ylabel('Random Y values')
+plt.title(Random Scatter Plot)
+plt.xlabel(Random X values)
+plt.ylabel(Random Y values)
 plt.show()
 
   # Visualization Complete
@@ -295,24 +295,24 @@ plt.show()
   # Rain
 import matplotlib.pyplot as plt
 import nbformat
-notebook_path = '/mnt/data/avg_state_rain.ipynb'
-with open(notebook_path, 'r', encoding='utf-8') as f:
+notebook_path = /mnt/data/avg_state_rain.ipynb
+with open(notebook_path, r, encoding=utf-8) as f:
 
 ## Format
 nb = nbformat.read(f, as_version=4)
 code_cells = []
 for cell in nb.cells:
-if cell.cell_type == 'code':
+if cell.cell_type == code:
 code_cells.append(cell.source)
 code_cells[:3]  # Displaying the first 3 code cells
 
 ## Wrangle
 summary_statistics = rain_data.describe()
 plt.figure(figsize=(15, 5))
-plt.bar(rain_data['State'], rain_data['Inches'], color='skyblue')
-plt.title('Average Rainfall per State')
-plt.xlabel('State')
-plt.ylabel('Average Amount of Rainfall in Inches')
+plt.bar(rain_data[State], rain_data[Inches], color=skyblue)
+plt.title(Average Rainfall per State)
+plt.xlabel(State)
+plt.ylabel(Average Amount of Rainfall in Inches)
 plt.xticks(rotation=90)
 plt.tight_layout()
 plt.show()
