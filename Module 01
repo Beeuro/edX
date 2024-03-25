@@ -9,11 +9,11 @@ duplicates = df.duplicated.sum
 ## Checking for missing values
 missing_values = df.isnull.sum
 example: convert a "string date" column to "datetime" type if it exists
-date_columns = [col for col in df.columns if 'date' in col.lower]
+date_columns = [col for col in df.columns if date in col.lower]
 for col in date_columns
-df[col] = pd.to_datetime(df[col], errors='coerce')
+df[col] = pd.to_datetime(df[col], errors=coerce)
 pivot table for a column "category" if it exists
-pivot_table_category = pd.pivot_table(df, index='category', aggfunc='count') if "Category" in df.columns else none
+pivot_table_category = pd.pivot_table(df, index=category, aggfunc=count) if "Category" in df.columns else none
 
 ## Mod
 average_column = df.mean(numeric_only=true)
@@ -38,12 +38,6 @@ report_df[Percentage Canceled] = (report_df[Number Canceled] / report_df[Total P
 line_chart_data = report_df.reset_index().rename(columns={index: Goal Range})
 line_chart_data = line_chart_data.melt(id_vars=[Goal Range], value_vars=[Percentage Successful, Percentage Failed, Percentage Canceled])
 line_chart_data.head() display the first few rows to check the data structure for the chart
-"and canceled projects would visually demonstrate how the chances of a project's success vary with different goal sizes"
-"This can help to identify the sweet spot for goal setting in crowdfunding campaigns"
-"A bar chart comparing the average pledged amounts across different categories could reveal which types of projects tend to"
-"attract more funding, and potentially, which categories are more popular or have more engaged backers"
-"A heat map of campaign outcomes (successful, failed, canceled) by launch month could uncover seasonal trends in crowdfunding"
-"activity, showing if certain times of the year are better for launching campaigns"
 for suggestion in suggestions
 doc.add_paragraph(suggestion)
 
