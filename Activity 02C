@@ -154,7 +154,7 @@ For each key in branddict.keys
 Msgbox "Total for" & Key & Format (BrandDict(Key), "Currency"), vbinformation, "Credit Card Summary"
 
 	# Bonus
-With thisworkbook.sheets("Summary") ' change "Summary" to your summary sheet's name
+With thisworkbook.sheets("Summary") change "Summary" to your summary sheet's name
 
 ## Format
 .Cells(summaryrow, 1).value = key brand name in column a
