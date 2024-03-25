@@ -20,8 +20,8 @@ hobby_info = {
 "hobbies": ["ice hockey", "music", "cooking"]
 "wake_up_times": {"Monday": "5:00 AM", "Wednesday": "5:00 AM", "Friday": "5:00 AM"}}
 print(f"Name: {hobby_info['name']}")
-print(f"Number of hobbies: {len(hobby_info['hobbies'])}")
-print(f"Typical wake-up time on Monday: {hobby_info['wake_up_times']['Monday']}")
+print(f"Number of hobbies: {len(hobby_info[hobbies])}")
+print(f"Typical wake-up time on Monday: {hobby_info[wake_up_times][Monday]}")
 with open("/mnt/data/comprehensions.py", "r") as file:
 contents = file.read
 user_provided_names = ["Matthew", "Alicia", "Ryan"]
@@ -44,6 +44,8 @@ test_cases = [
 [1.5, 2.5, 3.5],       # Floating point numbers
 [-10, 0, 10, 20],      # Including negative numbers
 results = [average(case) for case in test_cases]
+
+	# Break
 
 	# University
 import pandas as pd
@@ -88,7 +90,7 @@ print("Denied")
 
 state_data_california = {
 state or jurisdiction: California
-adjusted cohort (Public)': 82721
+adjusted cohort (Public): 82721
 completers (Public)': 53459
 adjusted cohort (Nonprofit Private): 24037
 completers (Nonprofit Private): 17350
@@ -96,7 +98,9 @@ adjusted cohort (For-profit Private): 12477
 completers (For-profit Private): 5736}
 print_percentages(state_data_california)
 
-	#GitHub
+	# Break
+
+	# GitHub
 
 ## Clone
 git clone your_repository_url
