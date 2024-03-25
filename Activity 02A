@@ -246,7 +246,7 @@ Set ws = activesheet
 Dim rng As range
 Dim lastrow as long
 lastrow = ws.cells(ws.Rows.Count, "A").end(xlup).row
-Set rng = ws.range("A1:A" & lastRow) ' assuming the text to split is in Column A
+Set rng = ws.range("A1:A" & lastRow) assuming the text to split is in Column A
 rng.texttocolumns destination:=range("B1"), dataT]type:=xldelimited,
 Textqualifier:=xldoublequote, consecutivedelimiter: = false,
 Tab: = false, semicolon = false, comma = true, space = false,
@@ -257,7 +257,7 @@ Other:=false
 ## Format
 Sub dividerowstosheets
 Dim wssource as worksheet
-Set wssource = activeSheet ' The sheet with data to split
+Set wssource = activeSheet The sheet with data to split
 Dim lastrow as long
 lastrow = wssource.cells(wsSource.Rows.Count, "A").end(xlUp).row Assuming column A has the values to check
 Dim cell as range
@@ -279,7 +279,7 @@ Sub formatandsum
 Dim ws as worksheet
 Set ws = activesheet
 Dim lastrow as long
-lastrow = ws.cells ws.Rows.Count, "B").end(xlUp).row ' assuming the numeric column to format and sum is B
+lastrow = ws.cells ws.Rows.Count, "B").end(xlUp).row assuming the numeric column to format and sum is B
 Format column B as currency
 ws.range("B1:B" & lastRow).numberformat = "$,0.00"
 Sum values in column B and place the result in the next available row
