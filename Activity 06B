@@ -319,13 +319,13 @@ countries_df
 
   # Visualization Complete
 
-  # World Bank
+  # Species
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 sns.set(style="ticks")
 pairplot = sns.pairplot(iris_df, hue="species")
-pairplot.fig.suptitle("Iris Species Comparison", y=1.02)  # Adjust title position
+pairplot.fig.suptitle("Iris Species Comparison", y=1.02)
 
 ## Wrangle
 iris = load_iris()
