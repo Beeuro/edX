@@ -111,7 +111,7 @@ print(f"The temperature in Bujumbura is {temperatures[0]} C or {temperatures[1]}
 
   # Visualization Complete
 
-  # 
+  # Climate Change
 api_key =
 import pandas as pd
 import numpy as np
