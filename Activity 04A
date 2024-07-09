@@ -85,8 +85,8 @@ results = {
 results, df.head()  # Show results and the first few rows of the dataframe for context
 
 ## Visualization
-results_corrected = {
-"mean amount": mean_amount
+results_corrected = 
+{"mean amount": mean_amount
 "sum amount": sum_amount
 "unique amount values": len(unique_amount)  # displaying the count of unique values for brevity}
 results_corrected, df.head()  # show corrected results and the first few rows of the DataFrame for context
@@ -120,8 +120,8 @@ nb = new_notebook
 nb.cells.append(new_markdown_cell (Gym Dataset Analysis
 nb.cells.append(new_code_cell
 np.random.seed(0)  # For reproducibility
-data = {
-Name: [f"Person {i}" for i in range(1, 201)]
+data = 
+{Name: [f"Person {i}" for i in range(1, 201)]
 Trainer: np.random.choice ([Trainer A, Trainer B, Trainer C, Trainer D], 200)
 Weight: np.random.randint(100, 250, size=200)
 Membership (Days): np.random.randint(30, 365, size=200)}
