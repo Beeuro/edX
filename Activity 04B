@@ -108,8 +108,8 @@ fires_df = pd.read_csv(csv_path, low_memory=False)
 fires_df.head
 
 ## Mine
-selected_columns = [
-Fire Department Name, Incident date, Incident Type Code, Incident Type,
+selected_columns = 
+[Fire Department Name, Incident date, Incident Type Code, Incident Type,
 Alarm Date and Time, Arrival Date and Time, Last Unit Cleared Date and Time,
 Property Use, Assuming this might be intended as Property Loss, Contents Loss, 
 Fire Service Deaths, Fire Service Injuries,
@@ -146,8 +146,8 @@ inplace=true)
 averages_df.rename(columns={
 Median Age': Average Median Age,
 Household Income': Average Household Income
-Per Capita Income: Average Per Capita Income
-} inplace = true)
+Per Capita Income: Average Per Capita Income}
+inplace = true)
 
 ## Mod
 totals_csv_path = /mnt/data/totals_by_year_and_state.csv
