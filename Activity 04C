@@ -99,7 +99,7 @@ plt.xlabel(Poverty Rate (%))
 plt.ylabel(Number of States/Territories)
 plt.grid(false)
 plt.savefig(/mnt/data/eda_poverty_rate_histogram.png)
-class_data = {
+class_data = 
 class: [Oct, Oct, Jan, Jan, Oct, Jan], 
 name: ["Cyndy", "Logan", "Laci", "Elmer", "Crystle", "Emmie"],
 test Score: [90, 59, 72, 88, 98, 60]
