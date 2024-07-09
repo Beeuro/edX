@@ -14,14 +14,14 @@ import pandas as pd
 import nbformat
 csv_path = /mnt/data/avg_rain_state.csv
 df_rain = pd.read_csv(csv_path)
-df_rain.head()
+df_rain.head
 notebook_path = /mnt/data/avg_state_rain.ipynb
 
 ## Wrangle
 notebook_content = nbformat.read(nb_file, as_version=4)
 
 ## Mine
-notebook_cells = []
+notebook_cells =
 for cell in notebook_content[cells]:
 notebook_cells.append(cell[source])
 notebook_cells
@@ -37,7 +37,7 @@ dataset_path = /mnt/data/union_settlements_1995.csv
 settlements_df = pd.read_csv(dataset_path)
 
 ## Format
-settlements_df.head()
+settlements_df.head
 column_names = settlements_df.columns
 column_names_subset = [col for col in column_names if union in col.lower() or company in col.lower()]
 column_names_subset
@@ -49,10 +49,10 @@ plt.title(Major Collective Bargaining Settlements by Union in 1995)
 plt.xlabel(Union)
 plt.ylabel(Number of Settlements)
 plt.xticks(rotation=45, ha='right')  
-plt.show()
+plt.show
 
 ## Mod
-settlements_by_union = settlements_df['UNION'].value_counts()
+settlements_by_union = settlements_df['UNION'].value_counts
 settlements_by_union
 
 ## Visualizaiton
@@ -62,7 +62,7 @@ plt.title(Major Collective Bargaining Settlements by Union in 1995)
 plt.xlabel(Union)
 plt.ylabel(Number of Settlements)
 plt.xticks(rotation=45, ha='right)
-plt.show()
+plt.show
 
   # Break
 
