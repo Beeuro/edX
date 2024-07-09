@@ -18,13 +18,13 @@ pivot_table_category = pd.pivot_table(df, index=category, aggfunc=count) if "Cat
 ## Mod
 average_column = df.mean(numeric_only=true)
 correlation_matrix = df.corr
-analysis_results = {
-duplicates: duplicates
+analysis_results = 
+{duplicates: duplicates
 missing_values: missing_values.to_dict
-transformed_dates: df[date_columns].dtypes.to_dict() if date_columns else none
-pivot_table_category: pivot_table_category.to_dict() if pivot_table_category is not None else none
+transformed_dates: df[date_columns].dtypes.to_dict if date_columns else none
+pivot_table_category: pivot_table_category.to_dict if pivot_table_category is not None else none
 average_column: average_column.to_dict
-correlation_matrix: correlation_matrix.to_dict()}
+correlation_matrix: correlation_matrix.to_dict}
 def count_outcome(df, outcome, goal_bucket)
 return df[(df['outcome'] == outcome) & (df['goalbucket'] == goal_bucket)].shape[0]
 for bucket in goal_buckets
