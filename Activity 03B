@@ -32,7 +32,9 @@ print(candy)
 while true
 selection = input("Enter the number of the candy you want (or 'done' to finish): ")
 if selection.lower() = "done"
+
 break
+
 elif selection.isdigit() and int(selection) < len(candy_list)
 candy_cart.append(candy_list[int(selection)])
 
