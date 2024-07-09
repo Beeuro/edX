@@ -24,7 +24,7 @@ with open(notebook_path, r, encoding=utf-8) as f:
 notebook_content = nbformat.read(f, as_version=4)
 
 ## Mod
-cells_summary = []
+cells_summary =
 for cell in notebook_content.cells:
 cell_type = cell[cell_type]
 if cell_type = markdown:
@@ -49,8 +49,8 @@ import pandas as pd
 import numpy as np
 
 ## Mod
-data_simulated = {
-"Rocket ID": ["falcon9"],
+data_simulated = 
+{"Rocket ID": ["falcon9"],
 "Name": ["Falcon 9"],
 "First Flight": ["2010-06-04"],
 "Height (m)": [70],
@@ -62,8 +62,8 @@ data_simulated = {
 
 ## Mine
 df_falcon9 = pd.DataFrame(data_simulated)
-analysis_results = {
-"Average Height (m)": df_falcon9["Height (m)"].mean(),
+analysis_results = 
+{"Average Height (m)": df_falcon9["Height (m)"].mean(),
 "Average Diameter (m)": df_falcon9["Diameter (m)"].mean(),
 "Average Mass (kg)": df_falcon9["Mass (kg)"].mean(),
 "Average Payload to LEO (kg)": df_falcon9["Payload to LEO (kg)"].mean(),
@@ -80,16 +80,16 @@ with open(notebook_path, r) as nb_file:
 nb_content = nbformat.read(nb_file, as_version=4)
 
 ## Format
-code_cells = []
+code_cells =
 for cell in nb_content.cells:
 if cell.cell_type = code:
 code_cells.append(cell.source)
 code_cells[:3]
 
 ## Wrangle 
-detailed_analysis = []
-film_names = []  
-starship_names = [] 
+detailed_analysis =
+film_names =
+starship_names =
 for cell in analysis_summary:
 if requests.get in cell or .json() in cell:
 detailed_analysis.append("Found API request and JSON parsing logic.")
@@ -101,8 +101,8 @@ if starships in cell:
 starship_names.append("Logic related to handling starship data detected.")
 
 ## Mine
-analysis_summary = {
-"api_and_json_parsing": "Yes" if detailed_analysis else "No",
+analysis_summary = 
+{"api_and_json_parsing": "Yes" if detailed_analysis else "No",
 "printing_data": "Yes" if any("Found print statement(s) for displaying data." in s for s in detailed_analysis) else "No",
 "handling_films": "Yes" if film_names else "No",
 "handling_starships": "Yes" if starship_names else "No",
@@ -127,7 +127,7 @@ cells_summary
 
 ## Mine
 code_cells_contents = [cell[source] for cell in nb_contents[cells] if cell[cell_type] = code]
-cell_summaries = []
+cell_summaries =
 for i, cell_content in enumerate(code_cells_contents, start=1):
 if "requests" in cell_content:
 purpose = "Likely involves making requests to the Numbers API."
@@ -149,7 +149,7 @@ with open(notebook_path, r, encoding=utf-8) as nb_file:
 notebook = nbformat.read(nb_file, as_version=4)
 
 ## Format
-cell_titles = []
+cell_titles =
 for cell in notebook[cells]:
 if cell['cell_type'] = markdown:
 first_line = cell['source'].split(\n)[0]
@@ -157,11 +157,11 @@ cell_titles.append(first_line.strip(#))
 cell_titles
 
 ## Wrangle
-cell_summaries = []
+cell_summaries =
 for cell in notebook[cells]:
 if cell[cell_type] = code:
-code_summary = {
-code: cell[source],
+code_summary = 
+{code: cell[source],
 outputs: cell[outputs]}
 cell_summaries.append(code_summary)
 cell_summaries[:2]
@@ -175,14 +175,14 @@ notebook_path = /mnt/data/movie_questions.ipynb
 ## Mod
 config_path = /mnt/data/config.py
 with open(config_path, r) as file:
-config_contents = file.read()
+config_contents = file.read
 config_contents
 
 ## Mine
 with open(notebook_path) as nb_file:
 nb_contents = nbformat.read(nb_file, as_version=4)
-cells_summary = [
-{"cell_type": cell.cell_type, "content": cell.source.split("\n")[0] if cell.source else ""}
+cells_summary = 
+[{"cell_type": cell.cell_type, "content": cell.source.split("\n")[0] if cell.source else ""}
 for cell in nb_contents.cells]
 cells_summary
 
@@ -227,7 +227,7 @@ markdown_cells = cell_types[markdown]
 total_cells, code_cells, markdown_cells
 
 ## Mod
-execution_outputs = []
+execution_outputs =
 for i, cell in enumerate(nb_content.cells):
 if cell.cell_type = code:
         
@@ -240,8 +240,8 @@ execution_outputs.append(f"Cell {i+1}: Execution resulted in error - {str(e)}")
 execution_outputs
 
 ## Mine
-comments = []
-syntax_or_logical_issues = []
+comments =
+syntax_or_logical_issues =
 for cell in nb_content.cells:
 if cell.cell_type = code:
 lines = cell.source.split(\n)
@@ -256,7 +256,7 @@ import nbformat
 notebook_path = /mnt/data/movie_loop.ipynb
 with open(notebook_path, r, encoding=utf-8) as nb_file:
 nb_content = nbformat.read(nb_file, as_version=4)
-nb_summary = []
+nb_summary =
 
 ## Format 
 for cell in nb_content.cells:
@@ -299,7 +299,7 @@ plt.xlabel(Month)
 plt.ylabel(Article Count)
 plt.xticks(rotation=45)
 plt.grid(True)
-plt.show()
+plt.show
 
   # Break
 
