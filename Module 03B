@@ -2,48 +2,48 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-file_path = '/mnt/data/PyPoll.csv'
+file_path = /mnt/data/PyPoll.csv
 data = pd.read_csv(file_path)
-data.head()
+data.head
 
 ## Format
-total_votes = data.shape[0
-votes_by_candidate = data['Candidate'].value_counts().reset_index()
-votes_by_candidate.columns = ['Candidate', 'Votes']
-votes_by_candidate['Percentage'] = (votes_by_candidate['Votes'] / total_votes) * 100
-votes_by_county = data['County'].value_counts().reset_index()
-votes_by_county.columns = ['County', 'Votes']
+total_votes = data.shape
+[votes_by_candidate = data[Candidate].value_counts.reset_index
+votes_by_candidate.columns = [Candidate, Votes]
+votes_by_candidate[Percentage] = (votes_by_candidate[Votes] / total_votes) * 100
+votes_by_county = data[County].value_counts.reset_index
+votes_by_county.columns = [County, Votes]
 highest_turnout_county = votes_by_county.iloc[0]
 winner = votes_by_candidate.iloc[0]
 (total_votes, votes_by_candidate, votes_by_county, highest_turnout_county, winner)
 
 ## Mod
 total_votes = data.shape[0]
-votes_by_candidate = data['Candidate'].value_counts().reset_index()
-votes_by_candidate.columns = ['Candidate', 'Votes']
-votes_by_candidate['Percentage'] = (votes_by_candidate['Votes'] / total_votes) * 100
-votes_by_county = data['County'].value_counts().reset_index()
-votes_by_county.columns = ['County', 'Votes']
+votes_by_candidate = data[Candidate].value_counts.reset_index
+votes_by_candidate.columns = [Candidate, Votes]
+votes_by_candidate[Percentage] = (votes_by_candidate[Vote] / total_votes) * 100
+votes_by_county = data[County].value_counts.reset_index
+votes_by_county.columns = [County, Votes]
 highest_turnout_county = votes_by_county.iloc[0]
 winner = votes_by_candidate.iloc[0]
 (total_votes, votes_by_candidate, votes_by_county, highest_turnout_county, winner)
 
 ## Visualization
-sns.set(style="whitegrid")
-candidates = votes_by_candidate['Candidate']
-votes_percentage = votes_by_candidate['Percentage']
-counties = votes_by_county['County']
-county_votes = votes_by_county['Votes']
+sns.set(style=whitegrid)
+candidates = votes_by_candidate[Candidate]
+votes_percentage = votes_by_candidate[Percentage]
+counties = votes_by_county[County]
+county_votes = votes_by_county[Votes]
 fig, ax = plt.subplots(2, 1, figsize=(10, 12))
-sns.barplot(x=votes_percentage, y=candidates, palette="coolwarm", ax=ax[0])
-ax[0].set_title('Percentage of Votes by Candidate')
-ax[0].set_xlabel('Percentage of Total Votes')
-ax[0].set_ylabel('Candidate')
-sns.barplot(x=county_votes, y=counties, palette="viridis", ax=ax[1])
-ax[1].set_title('Number of Votes by County')
-ax[1].set_xlabel('Number of Votes')
-ax[1].set_ylabel('County')
-plt.tight_layout()
-plt.show()
+sns.barplot(x=votes_percentage, y=candidates, palette=coolwarm, ax=ax[0])
+ax[0].set_title(Percentage of Votes by Candidate)
+ax[0].set_xlabel(Percentage of Total Votes)
+ax[0].set_ylabel(Candidate)
+sns.barplot(x=county_votes, y=counties, palette=viridis, ax=ax[1])
+ax[1].set_title(Number of Votes by County)
+ax[1].set_xlabel(Number of Votes)
+ax[1].set_ylabel(County)
+plt.tight_layout
+plt.show
 
   # Break
