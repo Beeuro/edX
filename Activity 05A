@@ -54,7 +54,7 @@ with open(notebook_path, r, encoding=utf-8) as nb_file:
 nb_content = nbformat.read(nb_file, as_version=4)
 
   ## Wrangle
-nb_summary = []
+nb_summary =
 for cell in nb_content['cells']:
 if cell['cell_type'] == 'code':
 nb_summary.append({cell_type: code, source: cell['source'][:100]})  # showing first 100 chars
@@ -135,7 +135,7 @@ points_C = (points_F - 32) * 0.56
   # Aesthetics
 import nbformat
 with open('/mnt/data/aesthetics.ipynb', r, encoding=utf-8) as f:
-    nb = nbformat.read(f, as_version=4)
+nb = nbformat.read(f, as_version=4)
 
 ## Format
 def extract_cells(notebook):
@@ -156,7 +156,7 @@ notebook_cells[:3]
   # Bar Chart
 notebook_path = /mnt/data/bar_chart.ipynb
 notebook = nbformat.read(nb_file, as_version=4)
-code_cells = []
+code_cells =
 for cell in notebook.cells:
 if cell.cell_type = code:
 code_cells.append(cell.source)
@@ -182,19 +182,19 @@ except Exception as e:
 return str(e)
 
 ## Mod
-analysis_results = {}
+analysis_results =
 for i, cell in enumerate(notebook.cells):
 if cell.cell_type = code:
 analysis_results[f cell_{cell.execution_count}_output] = run_cell(cell)
 analysis_results
 
 ## Mine
-def run_cell(cell_source):
+def run_cell(cell_source)
 try:
 exec(cell_source)
 except Exception as e:
 return str(e)
-analysis_results = {}
+analysis_results =
 for i, cell in enumerate(notebook.cells):
 if cell.cell_type == code and cell.execution_count != 1:
 cell_output = run_cell(cell.source)
@@ -223,7 +223,7 @@ explode = (0.1, 0, 0, 0)  # Only "explode" the first slice (Humans)
 plt.pie(sizes, explode=explode, labels=labels, colors=colors, autopct=%1.1f%%, shadow=True, startangle=140)
 plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
 plt.title("Fantasy Creature Popularity")
-plt.show()
+plt.show
 
 ## Wrangle
 plt.figure(figsize=(8, 8))  # Setting the figure size for better visibility
@@ -234,7 +234,7 @@ explode = (0.1, 0, 0, 0)  # Only "explode" the first slice (Humans)
 plt.pie(sizes, explode=explode, labels=labels, colors=colors, autopct='%1.1f%%', shadow=True, startangle=140)
 plt.axis(equal)  # Equal aspect ratio ensures that pie is drawn as a circle.
 plt.title("Fantasy Creature Popularity")
-plt.show()
+plt.show
 
   # Visualization Complete
 
@@ -247,7 +247,7 @@ notebook_content.cells
 
 ## Format
 def find_data_cells(cells):
-data_cells = []
+data_cells =
 for cell in cells:
 if cell.cell_type = code:
 for line in cell.source.split(\n):
@@ -267,7 +267,7 @@ import nbformat
 notebook_path = /mnt/data/scatter_plot.ipynb
 with open(notebook_path, r) as nb_file:
 nb_contents = nbformat.read(nb_file, as_version=4)
-cell_summaries = []
+cell_summaries =
 for cell in nb_contents[cells]:
 cell_summary = {cell_type: cell[cell_type]}
 if cell[cell_type] = markdown:
@@ -288,7 +288,7 @@ plt.xlim(0, x_max)
 plt.title(Random Scatter Plot)
 plt.xlabel(Random X values)
 plt.ylabel(Random Y values)
-plt.show()
+plt.show
 
   # Visualization Complete
 
@@ -314,7 +314,7 @@ plt.title(Average Rainfall per State)
 plt.xlabel(State)
 plt.ylabel(Average Amount of Rainfall in Inches)
 plt.xticks(rotation=90)
-plt.tight_layout()
+plt.tight_layout
 plt.show()
 summary_statistics
 
