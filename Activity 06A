@@ -186,6 +186,10 @@ cells_summary =
 for cell in nb_contents.cells]
 cells_summary
 
+  ## 50 First Dates
+first_dates_info = get_movie_info("50 First Dates")
+print(f"The movie 50 First Dates was released in {first_dates_info.get('year')}.")
+
   ## Aliens
 def get_movie_info(title):
 movies = {"Aliens": {"director": "James Cameron"}, "Gladiator": {"rated": "R"}, "50 First Dates": {"year": "2004"},, "Moana": {"writer": "Jared Bush"},
@@ -197,10 +201,6 @@ print(f"The director of the movie 'Aliens' is {aliens_info.get('director')}.")
   ## Gladiator
 gladiator_info = get_movie_info("Gladiator")
 print(f"The movie Gladiator was rated {gladiator_info.get('rated')}.")
-
-  ## 50 First Dates
-first_dates_info = get_movie_info("50 First Dates")
-print(f"The movie 50 First Dates was released in {first_dates_info.get('year')}.")
 
   ## Moana
 moana_info = get_movie_info("Moana")
