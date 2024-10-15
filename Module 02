@@ -150,7 +150,6 @@ Next i
 
 End If
 
-
 call a function/sub to calculate greatest % increase, greatest % decrease, and greatest total volume
 Call calculatespecialvalues (ws)
     
